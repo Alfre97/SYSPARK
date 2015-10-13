@@ -81,13 +81,13 @@
             </tr>
             <tr>
                 <td>
-                    <button id="buttonEnter" runat="server" onclick="EnterClick()">
+                    <button id="buttonEnter" runat="server" onclick="click()">
                         Enter</button>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="button" class="buttonErrors" id="buttonErrors" runat="server" value="" onclick="click()" />
+                    <input type="button" class="buttonErrors" id="buttonErrors" runat="server" value="" />
                     <asp:Button runat="server" ID="hideButton" Visible="false" OnClick="ButtonEnterOnClick"/>
                 </td>
             </tr>
