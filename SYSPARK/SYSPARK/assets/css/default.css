@@ -1,0 +1,37 @@
+﻿body {
+    background-image: url("../img/Fondo-rayas-oblicuas-verde.jpg");
+    background-size: cover;
+}
+
+.Table {
+    color: white;
+    text-align: center;
+}
+
+#buttonEnter {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+}
+
+input.TextBoxUsername {
+    border-radius: 5px 5px;
+    border-style: none;
+    height: 25px;
+    width: 300px;
+}
+
+input.TextBoxPassword {
+    border-radius: 5px 5px;
+    border-style: none;
+    height: 25px;
+    width: 300px;
+}
+
+#buttonErrors {
+    border-radius: 5px 5px;
+    color: red;
+    background-color: transparent;
+    border-style: none;
+}
