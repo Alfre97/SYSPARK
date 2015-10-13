@@ -14,16 +14,24 @@ namespace SYSPARK.Data
         {
             DataTable dataTableUserName = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
-            string searchUserName = "SELECT UserName FROM User WHERE UserName=" + username;
+            string searchUserName = "SELECT UserName FROM [User] WHERE UserName= @username";
 
             SqlCommand search = new SqlCommand(searchUserName, connection);
+            search.Parameters.AddWithValue("@username", username);
             SqlDataAdapter adap = new SqlDataAdapter(search);
             adap.Fill(dataTableUserName);
 
-            if (dataTableUserName.Rows.Count > 0)
+            if (dataTableUserName.Rows.Count >= 0)
             {
-                connection = ManageDatabaseConnection("Close");
-                return true;
+                string userNameFromDB = "";
+                DataRow row = dataTableUserName.Rows[0];
+                userNameFromDB = Convert.ToString(row["UserName"]);
+                if (username == userNameFromDB)
+                {
+                    connection = ManageDatabaseConnection("Close");
+                    dataTableUserName.Clear();
+                    return true;
+                }
             }
             connection = ManageDatabaseConnection("Close");
             return false;
@@ -33,15 +41,17 @@ namespace SYSPARK.Data
         {
             DataTable dataTableUserPassword = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
-            string searchUser = "SELECT Password FROM User WHERE Password=" + password;
+            string searchUser = "SELECT Password FROM [User] WHERE Password= @password";
 
             SqlCommand search = new SqlCommand(searchUser, connection);
+            search.Parameters.AddWithValue("@password", password);
             SqlDataAdapter adap = new SqlDataAdapter(search);
             adap.Fill(dataTableUserPassword);
 
             if (dataTableUserPassword.Rows.Count > 0)
             {
                 connection = ManageDatabaseConnection("Close");
+                dataTableUserPassword.Clear();
                 return true;
             }
             connection = ManageDatabaseConnection("Close");

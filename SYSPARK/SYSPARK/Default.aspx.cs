@@ -17,12 +17,12 @@ namespace SYSPARK
 
         }
 
-        protected void ButtonEnterOnClick(object sender, EventArgs e)
+        protected void enterButton_Click(object sender, EventArgs e)
         {
             LoginData login = new LoginData();
-            if (login.CheckUserName(textBoxUsername.Value) == true)
+            if (login.CheckUserName(textBoxUsername.) == true)
             {
-                if(login.CheckPassword(textBoxPassword.Value) == true)
+                if (login.CheckPassword(textBoxPassword.Value) == true)
                 {
                     Response.Redirect("Home.aspx");
                     buttonErrors.Value = "Access granted";

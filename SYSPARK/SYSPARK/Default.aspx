@@ -17,11 +17,6 @@
     <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
 </head>
 <body>
-    <script>
-        function click() {
-            document.getElementById("hideButton").click();
-        }
-    </script>
     <!-- Navbar star -->
     <div class="Header">
         <div class="navbar default-navbar navbar-fixed-top" role="navigation">
@@ -52,7 +47,7 @@
         <br />
         <br />
     </section>
-    <section class="Table">
+    <div class="Table">
         <h1>Access</h1>
         <br />
         <table border="0" class="nav-justified">
@@ -81,17 +76,19 @@
             </tr>
             <tr>
                 <td>
-                    <button id="buttonEnter" runat="server" onclick="click()">
+                    <button id="buttonEnter" type="submit" runat="server" onclick="return confirm('Sure?') && !" onserverclick="enterButton_Click">
                         Enter</button>
                 </td>
             </tr>
             <tr>
                 <td>
                     <input type="button" class="buttonErrors" id="buttonErrors" runat="server" value="" />
-                    <asp:Button runat="server" ID="hideButton" Visible="false" OnClick="ButtonEnterOnClick"/>
+                    <form runat="server">
+                        <asp:Button runat="server" OnClick="enterButton_Click" />
+                    </form>
                 </td>
             </tr>
         </table>
-    </section>
+    </div>
 </body>
 </html>
