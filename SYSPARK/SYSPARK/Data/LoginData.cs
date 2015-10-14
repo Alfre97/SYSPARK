@@ -21,7 +21,7 @@ namespace SYSPARK.Data
             SqlDataAdapter adap = new SqlDataAdapter(search);
             adap.Fill(dataTableUserName);
 
-            if (dataTableUserName.Rows.Count >= 0)
+            if (dataTableUserName.Rows.Count > 0)
             {
                 string userNameFromDB = "";
                 DataRow row = dataTableUserName.Rows[0];

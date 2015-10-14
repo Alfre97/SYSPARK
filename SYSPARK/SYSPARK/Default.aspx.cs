@@ -20,9 +20,15 @@ namespace SYSPARK
         protected void enterButton_Click(object sender, EventArgs e)
         {
             LoginData login = new LoginData();
-            if (login.CheckUserName(textBoxUsername.) == true)
-            {
-                if (login.CheckPassword(textBoxPassword.Value) == true)
+            string username = textBoxUsername.Value;
+            string password = textBoxPassword.Value;
+
+            buttonErrors.Style.Add("background-color", "white");
+            buttonErrors.Value = username;
+
+            if (login.CheckUserName(username) == true)
+                {
+                if (login.CheckPassword(password) == true)
                 {
                     Response.Redirect("Home.aspx");
                     buttonErrors.Value = "Access granted";
