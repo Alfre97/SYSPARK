@@ -13,5 +13,9 @@ namespace SYSPARK
         {
 
         }
+        protected void Logout(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

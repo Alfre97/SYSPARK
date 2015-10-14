@@ -27,16 +27,18 @@ namespace SYSPARK
             buttonErrors.Value = username;
 
             if (login.CheckUserName(username) == true)
-                {
+            {
                 if (login.CheckPassword(password) == true)
                 {
                     Response.Redirect("Home.aspx");
                     buttonErrors.Value = "Access granted";
+                    textBoxPassword.Value = "";
                 }
                 else
                 {
                     buttonErrors.Style.Add("background-color", "white");
                     buttonErrors.Value = "Invalid password.";
+                    textBoxPassword.Value = "";
                 }
             }
             else

@@ -91,7 +91,6 @@
                 <tr>
                     <td>
                         <input type="button" class="buttonErrors" id="buttonErrors" runat="server" value="" />
-                        <asp:Button runat="server" />
                     </td>
                 </tr>
             </table>

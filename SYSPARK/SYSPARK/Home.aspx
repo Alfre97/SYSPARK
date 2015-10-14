@@ -21,18 +21,18 @@
         <div class="navbar-header">
             <nav class="navbar-left navbar-brand">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" style="background-color: white">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar" style="background-color: darkgray"></span>
-                <span class="icon-bar" style="background-color: darkgray"></span>
-                <span class="icon-bar" style="background-color: darkgray"></span>
-            </button>
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar" style="background-color: darkgray"></span>
+                    <span class="icon-bar" style="background-color: darkgray"></span>
+                    <span class="icon-bar" style="background-color: darkgray"></span>
+                </button>
             </nav>
             <nav class="navbar-brand">
                 <span style="color: white;">
-                <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" />
-                Sistema de control y solicitud de parqueo
-            </span>
-            </nav>        
+                    <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" />
+                    Sistema de control y solicitud de parqueo
+                </span>
+            </nav>
         </div>
 
         <!-- Agrupar los enlaces de navegación, los formularios y cualquier
@@ -40,8 +40,9 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
 
             <form class="navbar-form navbar-right" role="search">
-                    <input type="text" placeholder="Search" id="TextBoxSearch"/>
-                <button type="button" class="btnSearch"><img src="assets/img/LogoSearch.jpg" style="height:20px;" /></button>
+                <input type="text" placeholder=" Search" id="TextBoxSearch" />
+                <button type="button" class="btnSearch">
+                    <img src="assets/img/LogoSearch.jpg" style="height: 20px;" /></button>
             </form>
 
             <form class="navbar-form navbar-right" role="navigation">
@@ -63,8 +64,12 @@
 
                     <li><a id="divider"></a></li>
                     <li>
-                        <button type="button" id="btnConfiguration" onmousemove="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)">
-                            Configuration</button></li>
+                        <button type="button" id="buttonConfiguration" onmouseover="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)">
+                            Configuration</button>
+                    </li>
+                    <li>
+                        <button type="button" id="buttonLogOut" onmouseover="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)" >Log out</button>
+                    </li>
                 </ul>
             </form>
         </div>
