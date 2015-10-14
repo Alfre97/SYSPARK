@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="textBoxPassword" type="text" runat="server" class="TextBoxPassword"
+                        <input id="textBoxPassword" type="password" runat="server" class="TextBoxPassword"
                             name="TextBoxPassword" placeholder="  Enter your password"
                             style="color: black" />
                     </td>
@@ -90,6 +90,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <br />
                         <input type="button" class="buttonErrors" id="buttonErrors" runat="server" value="" />
                     </td>
                 </tr>
