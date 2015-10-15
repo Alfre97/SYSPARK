@@ -3,30 +3,14 @@
     background-size: cover;
 }
 
-nav#navbardefault {
+#navbardefault {
     background-color: transparent;
     color: white;
     border: none;
 }
 
-form {
-    text-align: center;
-}
-
-
 li {
     height: 3px 3px;
-    width: auto;
-}
-
-a#divider {
-    background-color: transparent;
-}
-
-a {
-    background-color: white;
-    border-radius: 5px 5px;
-    height: auto;
     width: auto;
 }
 
@@ -52,4 +36,21 @@ button {
         height: 23px;
         width: auto;
         border: none;
+}
+
+.navbar-toggle{
+    background-color: white; 
+    margin-top: 25px;
+}
+
+#search {
+    float: right;
+}
+
+#mainNavbar {
+    margin-top: 27px;
+}
+
+#navbarOptions {
+    float: right;
 }

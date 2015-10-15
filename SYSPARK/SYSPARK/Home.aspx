@@ -5,72 +5,71 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Home SYSPARK</title>
+    <!-- JQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/jasny-bootstrap.min.css" />
-
-    <!-- Responsive Style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+
+    <script>
+        function ToGrayOnFocus(x) {
+            document.getElementById(x).style.backgroundColor = "white";
+            document.getElementById(x).style.color = "darkgray";
+        }
+        function ToWhiteOnBlur(x) {
+            document.getElementById(x).style.backgroundColor = "transparent";
+            document.getElementById(x).style.color = "white";
+        }
+    </script>
 
 </head>
 <body>
     <form runat="server">
         <nav class="navbar navbar-default" role="navigation" id="navbardefault">
-            <!-- El logotipo y el icono que despliega el menú se agrupan
-       para mostrarlos mejor en los dispositivos móviles -->
-            <div class="navbar-header">
-                <nav class="navbar-left navbar-brand">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" style="background-color: white">
+
+            <div class="container">
+
+                <nav class="navbar-header">
+                    <!-- navbar-toggle -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar" style="background-color: darkgray"></span>
                         <span class="icon-bar" style="background-color: darkgray"></span>
                         <span class="icon-bar" style="background-color: darkgray"></span>
                     </button>
+                    <!-- navbar-brand -->
+                    <div class="navbar-brand">
+                        <span style="color: white;">
+                            <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
+                            SYSPARK
+                        </span>
+                    </div>
                 </nav>
-                <nav class="navbar-brand">
-                    <span style="color: white;">
-                        <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" />
-                        Sistema de control y solicitud de parqueo
-                    </span>
-                </nav>
-            </div>
 
-            <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-       otro elemento que se pueda ocultar al minimizar la barra -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <!-- Textbox an button search -->
+                    <div id="search">
+                        <input type="text" placeholder=" Search" id="TextBoxSearch" />
+                        <button type="button" class="btnSearch">
+                            <img src="assets/img/LogoSearch.jpg" style="height: 20px;" /></button>
+                    </div>
 
-                <div class="navbar-form navbar-right" role="search">
-                    <input type="text" placeholder=" Search" id="TextBoxSearch" />
-                    <button type="button" class="btnSearch">
-                        <img src="assets/img/LogoSearch.jpg" style="height: 20px;" /></button>
-                </div>
-
-                <div class="navbar-form navbar-right" role="navigation">
-                    <ul class="nav navbar-nav" id="navbarcenter">
+                    <ul class="nav navbar-nav" id="navbarOptions">
                         <li>
-                            <button type="button" id="btnProfile" onmousemove="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)">
-                                Profile</button></li>
-
-                        <script>
-                            function ToGrayOnFocus(x) {
-                                document.getElementById(x).style.backgroundColor = "white";
-                                document.getElementById(x).style.color = "darkgray";
-                            }
-                            function ToWhiteOnBlur(x) {
-                                document.getElementById(x).style.backgroundColor = "transparent";
-                                document.getElementById(x).style.color = "white";
-                            }
-                        </script>
-
-                        <li><a id="divider"></a></li>
+                            <!-- Options of navbar-header -->
+                            <button type="button" id="buttonProfile" onmousemove="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)">
+                                Profile</button>
+                        </li>
                         <li>
                             <button type="button" id="buttonConfiguration" onmouseover="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)">
                                 Configuration</button>
                         </li>
                         <li>
-                            <button type="button" id="buttonLogOut" onmouseover="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)" 
-                                runat="server" onclick="return confirm('Sure?') && !" onserverclick="Logout">Log out</button>
+                            <button type="button" id="buttonLogOut" onmouseover="ToGrayOnFocus(this.id)" onmouseout="ToWhiteOnBlur(this.id)"
+                                runat="server" onclick="return confirm('Sure?') && !" onserverclick="Logout">
+                                Log out</button>
                         </li>
                     </ul>
                 </div>

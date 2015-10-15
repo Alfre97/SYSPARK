@@ -94,8 +94,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\css\bootstrap.min.css" />
-    <Content Include="assets\css\jasny-bootstrap.min.css" />
     <Content Include="assets\css\responsive.css" />
     <Content Include="assets\extras\animate.css" />
     <Content Include="assets\extras\jquery.circliful.css" />

@@ -23,9 +23,6 @@ namespace SYSPARK
             string username = textBoxUsername.Value;
             string password = textBoxPassword.Value;
 
-            buttonErrors.Style.Add("background-color", "white");
-            buttonErrors.Value = username;
-
             if (login.CheckUserName(username) == true)
             {
                 if (login.CheckPassword(password) == true)
