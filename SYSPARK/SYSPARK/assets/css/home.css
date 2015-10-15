@@ -1,17 +1,6 @@
 ﻿body {
-    background-image: url("../img/Fondos-de-pantalla-gratis-27.jpg");
+    background-image: url("../img/FondoNegro.jpg");
     background-size: cover;
-}
-
-#navbardefault {
-    background-color: transparent;
-    color: white;
-    border: none;
-}
-
-li {
-    height: 3px 3px;
-    width: auto;
 }
 
 #TextBoxSearch {
@@ -21,36 +10,104 @@ li {
     border: none;
 }
 
-button {
-    background-color: transparent;
+.btnSearch {
+    background-color: white;
+    color: darkgray;
+    height: 23px;
+    width: auto;
     border: none;
+}
+
+#navDefault {
+    text-align: center;
+    background-color: transparent;
+}
+
+#logo {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
     color: white;
+    font-size: 15pt;
+    width: auto;
+}
+
+#buttonSearch {
+    border: none;
     height: auto;
     width: auto;
+    color: black;
+    background-color: white;
     border-radius: 5px 5px;
-}
-
-.btnSearch {
-        background-color: white;
-        color: darkgray;
-        height: 23px;
-        width: auto;
-        border: none;
-}
-
-.navbar-toggle{
-    background-color: white; 
-    margin-top: 25px;
+    margin-right: 20px;
 }
 
 #search {
-    float: right;
+    height: auto;
+    width: auto;
+    margin-top: 30px;
+    margin-right: 20px;
 }
 
-#mainNavbar {
-    margin-top: 27px;
+#PageOptions {
+    margin: auto auto;
+    margin-right: 0;
+    height: auto;
+    width: 90%;
 }
 
-#navbarOptions {
-    float: right;
+#buttonParkReservation {
+    background-color: #28a522;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin: auto auto auto auto;
+}
+
+#buttonMyProfile {
+    background-color: #405e32;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+}
+
+#buttonReports {
+    background-color: #309d97;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+}
+
+#buttonConfiguration {
+    background-color: #3d3737;
+   height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+}
+
+#navbarToggle {
+    background-color: white;
+}
+
+#navbarBottom {
+    background-color: white;
+    margin-bottom: 0px;
+    height: auto;
+    width: 100%;
 }

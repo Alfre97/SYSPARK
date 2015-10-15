@@ -1,9 +1,18 @@
 ﻿body {
-    background-image: url("../img/Fondo-rayas-oblicuas-verde.jpg");
+    background-image: url("../img/FondoNegro.jpg");
     background-size: cover;
 }
 
-.Table {
+#tableLogin {
+    background-color: #a5a5a5;
+    border-radius: 100px 100px;
+    text-align: center;
+    margin: 0 auto;
+    width: 290px;
+    color: white;
+    
+}
+h1 {
     color: white;
     text-align: center;
 }
@@ -19,14 +28,14 @@ input.TextBoxUsername {
     border-radius: 5px 5px;
     border-style: none;
     height: 25px;
-    width: 300px;
+    width: 240px;
 }
 
 input.TextBoxPassword {
     border-radius: 5px 5px;
     border-style: none;
     height: 25px;
-    width: 300px;
+    width: 240px;
 }
 
 #buttonErrors {
@@ -34,4 +43,13 @@ input.TextBoxPassword {
     color: red;
     background-color: transparent;
     border-style: none;
+}
+
+label { 
+    font-size: 7pt;
+    color: white;
+}
+
+#AllContentInLogin {
+    text-align: center;
 }

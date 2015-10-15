@@ -67,9 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\home.css" />
-    <Content Include="assets\img\BackgroundParking.jpg" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\img\FondoNegro.jpg" />
     <Content Include="assets\img\Fondo-rayas-oblicuas-verde.jpg" />
-    <Content Include="assets\img\FondoParqueo.jpg" />
     <Content Include="assets\img\Fondos-de-pantalla-gratis-27.jpg" />
     <Content Include="assets\img\LogoSearch.jpg" />
     <Content Include="assets\img\LogoSYSPARK.jpg" />
@@ -77,13 +77,6 @@
     <Content Include="assets\css\default.css" />
     <Content Include="Home.aspx" />
     <Content Include="packages.config" />
-    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="assets\fonts\font-awesome\fontawesome-webfont.eot" />
-    <Content Include="assets\fonts\font-awesome\fontawesome-webfont.ttf" />
-    <Content Include="assets\fonts\font-awesome\fontawesome-webfont.woff" />
-    <Content Include="assets\fonts\font-awesome\FontAwesome.otf" />
     <Content Include="assets\less\main.less" />
     <Content Include="assets\less\responsive.less" />
     <None Include="Web.Debug.config">
@@ -94,61 +87,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\css\responsive.css" />
-    <Content Include="assets\extras\animate.css" />
-    <Content Include="assets\extras\jquery.circliful.css" />
-    <Content Include="assets\extras\lightbox.css" />
-    <Content Include="assets\extras\owl\owl.carousel.css" />
-    <Content Include="assets\extras\owl\owl.theme.css" />
-    <Content Include="assets\extras\owl\owl.transitions.css" />
-    <Content Include="assets\fonts\font-awesome\font-awesome.min.css" />
-    <Content Include="assets\fonts\font-awesome\fontawesome-webfont.svg" />
-    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\img\backgrounds\banner.jpg" />
     <Content Include="assets\img\backgrounds\bg.jpg" />
     <Content Include="assets\img\backgrounds\imgfooter.jpg" />
     <Content Include="assets\img\backgrounds\skill-bg.jpg" />
-    <Content Include="assets\img\blog\img1.jpg" />
-    <Content Include="assets\img\blog\img2.jpg" />
-    <Content Include="assets\img\blog\img3.jpg" />
-    <Content Include="assets\img\clients\img1.jpg" />
-    <Content Include="assets\img\clients\img1.png" />
-    <Content Include="assets\img\clients\img2.jpg" />
-    <Content Include="assets\img\clients\img2.png" />
-    <Content Include="assets\img\clients\img3.png" />
-    <Content Include="assets\img\clients\img4.jpg" />
-    <Content Include="assets\img\clients\img4.png" />
-    <Content Include="assets\img\clients\img5.png" />
-    <Content Include="assets\img\clients\img6.png" />
-    <Content Include="assets\img\clients\img7.png" />
-    <Content Include="assets\img\close.png" />
-    <Content Include="assets\img\ftlogo.png" />
     <Content Include="assets\img\loading.gif" />
-    <Content Include="assets\img\logo.png" />
-    <Content Include="assets\img\next.png" />
-    <Content Include="assets\img\prev.png" />
-    <Content Include="assets\img\slider\img-1.jpg" />
-    <Content Include="assets\img\testimonial\img1.jpg" />
-    <Content Include="assets\img\testimonial\img2.jpg" />
-    <Content Include="assets\img\testimonial\img3.jpg" />
-    <Content Include="assets\img\work\img1.jpg" />
-    <Content Include="assets\img\work\img2.jpg" />
-    <Content Include="assets\img\work\img3.jpg" />
-    <Content Include="assets\img\work\img4.jpg" />
-    <Content Include="assets\img\work\img5.jpg" />
-    <Content Include="assets\js\bootstrap.min.js" />
-    <Content Include="assets\js\circle-progress.js" />
-    <Content Include="assets\js\jasny-bootstrap.min.js" />
-    <Content Include="assets\js\jquery-min.js" />
-    <Content Include="assets\js\jquery.circliful.min.js" />
-    <Content Include="assets\js\jquery.counterup.min.js" />
-    <Content Include="assets\js\jquery.mixitup.js" />
-    <Content Include="assets\js\lightbox.min.js" />
-    <Content Include="assets\js\main.js" />
-    <Content Include="assets\js\owl.carousel.js" />
-    <Content Include="assets\js\smooth-scroll.js" />
-    <Content Include="assets\js\waypoints.min.js" />
-    <Content Include="assets\js\wow.js" />
     <Content Include="Profile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

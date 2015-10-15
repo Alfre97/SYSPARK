@@ -8,7 +8,7 @@
     <!-- JQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
@@ -22,8 +22,8 @@
                     <div class="navbar-header">
                         <a class="navbar-brand" href="Default.aspx">
                             <span style="color: white;">
-                                <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;"/>
-                                Sistema de control y solicitud de parqueo
+                                <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
+                                SYSPARK
                             </span>
                         </a>
                     </div>
@@ -39,10 +39,16 @@
             <br />
             <br />
         </section>
-        <div class="Table">
+        <div id="AllContentInLogin">
             <h1>Access</h1>
             <br />
-            <table border="0" class="nav-justified">
+            <table border="0" id="tableLogin">
+                <tr>
+                    <td>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <input id="textBoxUsername" type="text" class="TextBoxUsername" runat="server"
@@ -74,11 +80,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <br />
                         <input type="button" id="buttonErrors" runat="server" value="" />
                     </td>
                 </tr>
             </table>
+            <label>@Copyright 2015 - Universidad Latina</label><br />
+            <label>Todos los derechos reservados</label><br />
         </div>
     </form>
 </body>
