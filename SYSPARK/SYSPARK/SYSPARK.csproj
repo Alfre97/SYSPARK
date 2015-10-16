@@ -73,6 +73,7 @@
     <Content Include="assets\img\Fondos-de-pantalla-gratis-27.jpg" />
     <Content Include="assets\img\LogoSearch.jpg" />
     <Content Include="assets\img\LogoSYSPARK.jpg" />
+    <Content Include="assets\js\HomeMenu.js" />
     <Content Include="Default.aspx" />
     <Content Include="assets\css\default.css" />
     <Content Include="Home.aspx" />

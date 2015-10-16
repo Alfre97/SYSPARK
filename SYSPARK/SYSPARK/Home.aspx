@@ -5,14 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Home SYSPARK</title>
-
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+    <script src="assets/js/HomeMenu.js"></script>
 
 </head>
 <body>
@@ -31,8 +32,7 @@
                     <!-- TextBox and Button Search -->
                     <div class="nav" id="search">
                         <input type="text" placeholder=" Search" id="TextBoxSearch" />
-                        <button type="button" id="buttonSearch">
-                            <img src="assets/img/LogoSearch.jpg" style="height: 20px;" /></button>
+                            <button type="button" id="buttonSearch" runat="server"><img id="imageSearch" src="assets/img/LogoSearch.jpg"/></button>
                     </div>
                 </nav>
             </div>
@@ -99,14 +99,18 @@
                         <span class="icon-bar" style="background-color: #3d3737"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbar-right">
+                    <div id="navbar-right">
                         <!-- Options of navbar-header-bottom -->
-                        <ul class="nav navbar-nav" id="navbarOptions">
-                            <li>
-                                <button type="button" id="buttonLogout" runat="server" onclick="return confirm('Sure?') && !" onserverclick="Logout">
-                                    Log out</button>
-                            </li>
-                        </ul>
+                        <nav id="navbarFromRight">
+                            <ul>
+                                <li>
+                                    <button type="button" id="buttonLogout" runat="server" onclick="return confirm('Sure?') && !" onserverclick="Logout">Log out</button>
+                                </li>
+                                <li>
+                                    <button type="button" id="buttonInfo" runat="server">Info</button>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </nav>
             </div>

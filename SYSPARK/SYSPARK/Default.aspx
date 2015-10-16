@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login SYSPARK</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
     <!-- JQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -17,7 +18,7 @@
     <form runat="server">
         <!-- Navbar star -->
         <div class="Header">
-            <div class="navbar default-navbar navbar-fixed-top" role="navigation">
+            <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="Default.aspx">

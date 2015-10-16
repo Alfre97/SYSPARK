@@ -1,4 +1,9 @@
-﻿body {
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
     background-image: url("../img/FondoNegro.jpg");
     background-size: cover;
 }
@@ -12,6 +17,7 @@
 
 #navDefault {
     background-color: transparent;
+    width: 100%;
 }
 
 #logo {
@@ -22,12 +28,17 @@
 
 #buttonSearch {
     border: none;
-    height: auto;
-    width: auto;
-    color: black;
     background-color: white;
+    height: 22px;
+    width: 22px;
     border-radius: 5px 5px;
     margin-right: 20px;
+}
+
+#imageSearch {
+    height: 22px;
+    width: 22px;
+    border-radius: 5px 5px;
 }
 
 #search {
@@ -36,6 +47,7 @@
     margin-top: 30px;
     margin-right: 20px;
     float: right;
+    display: inline;
 }
 
 #PageOptions {
@@ -90,7 +102,7 @@
     font-size: 25pt;
 }
 
-#navbarToggle {
+#navbarToggleOptions {
     background-color: white;
 }
 
@@ -118,7 +130,11 @@
     width: 100%;
 }
 
-#buttonLogout {
+div nav ul li {
+    display: inline;
+}
+
+div nav ul li button {
     font-size: 12pt;
     margin-top: 5px;
     margin-right: 5px;
@@ -147,4 +163,59 @@
 
 #navbarOptions {
     display: flex;
+}
+
+#navbarFromRight {
+    background-color: transparent;
+}
+
+@media screen and (max-width: 770px) {
+    #navbar-right {
+        background-color: #197d67;
+        float: right;
+        height: 91%;
+        width: 60%;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        border-radius: 10px 10px;
+    }
+
+    div nav ul li {
+        display: block;
+        float: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .3);
+    }
+
+    div nav ul li button {
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 12pt;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 770px){
+    #navbar-right {
+    background-color: transparent;
+    float: right;
+    width: auto;
+    margin-top: 8px;
+}
+    div nav ul li {
+    display: inline;
+}
+    div nav ul li button {
+    font-size: 12pt;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: none;
+    color: #3d3737;
+    border-radius: 5px 5px;
+}
 }
