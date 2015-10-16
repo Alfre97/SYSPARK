@@ -19,15 +19,22 @@
     <form runat="server">
         <!-- Navbar -->
         <div class=" nav navbar-default" id="navDefault" role="navigation">
-            <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-            <label id="logo">
-                SYSPARK
-            </label>
-
-            <div class="navbar-right" id="search">
-                <input type="text" placeholder=" Search" id="TextBoxSearch" />
-                <button type="button" id="buttonSearch">
-                    <img src="assets/img/LogoSearch.jpg" style="height: 20px;" /></button>
+            <div class="container" id="containerNavbar-top">
+                <nav class="navbar-header" id="navbar-top-header">
+                    <div class="navbar-brand" id="navbar-brand">
+                        <!-- Company and name logo -->
+                        <label id="logo">
+                            <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
+                            SYSPARK
+                        </label>
+                    </div>
+                    <!-- TextBox and Button Search -->
+                    <div class="nav" id="search">
+                        <input type="text" placeholder=" Search" id="TextBoxSearch" />
+                        <button type="button" id="buttonSearch">
+                            <img src="assets/img/LogoSearch.jpg" style="height: 20px;" /></button>
+                    </div>
+                </nav>
             </div>
         </div>
 
@@ -72,19 +79,35 @@
                             <button type="button" id="buttonConfiguration">Configuration</button>
                         </div>
                         <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </td>
                 </tr>
             </table>
         </div>
-        <div class="navbar-nav" id="navbarBottom">
+
+        <div class="navbar-nav navbar-fixed-bottom" id="navbarBottom">
             <div class="container">
-                <nav class="navbar-header">
-                    <button type="button" class="navbar-toggle">
+                <nav class="navbar-header" id="navbar-header-bottom">
+                    <label id="options">Options</label>
+                    <button type="button" id="buttonNavToogleOptions" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-right">
                         <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar" style="background-color: darkgray"></span>
-                        <span class="icon-bar" style="background-color: darkgray"></span>
-                        <span class="icon-bar" style="background-color: darkgray"></span>
+                        <span class="icon-bar" style="background-color: #3d3737"></span>
+                        <span class="icon-bar" style="background-color: #3d3737"></span>
+                        <span class="icon-bar" style="background-color: #3d3737"></span>
                     </button>
+
+                    <div class="collapse navbar-collapse" id="navbar-right">
+                        <!-- Options of navbar-header-bottom -->
+                        <ul class="nav navbar-nav" id="navbarOptions">
+                            <li>
+                                <button type="button" id="buttonLogout" runat="server" onclick="return confirm('Sure?') && !" onserverclick="Logout">
+                                    Log out</button>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
         </div>
