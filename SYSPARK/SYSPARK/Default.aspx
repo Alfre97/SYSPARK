@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login SYSPARK</title>
+    <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
     <!-- JQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

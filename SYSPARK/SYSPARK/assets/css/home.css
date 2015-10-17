@@ -174,7 +174,7 @@ div nav ul li button {
         background-color: #197d67;
         float: right;
         height: 91%;
-        width: 60%;
+        width: 40%;
         margin: 0;
         position: fixed;
         top: 0;
@@ -185,15 +185,16 @@ div nav ul li button {
     div nav ul li {
         display: block;
         float: none;
-        border-bottom: 1px solid rgba(255, 255, 255, .3);
     }
 
     div nav ul li button {
         border: none;
-        background-color: transparent;
-        color: white;
+        background-color: white;
+        color: #197d67;
         font-size: 12pt;
-        width: 100%;
+        width: 80%;
+        margin-top: 10px;
+        margin-left: 10%;
     }
 }
 

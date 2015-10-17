@@ -67,13 +67,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\home.css" />
-    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\profile.css" />
     <Content Include="assets\img\FondoNegro.jpg" />
     <Content Include="assets\img\Fondo-rayas-oblicuas-verde.jpg" />
     <Content Include="assets\img\Fondos-de-pantalla-gratis-27.jpg" />
     <Content Include="assets\img\LogoSearch.jpg" />
     <Content Include="assets\img\LogoSYSPARK.jpg" />
     <Content Include="assets\js\HomeMenu.js" />
+    <Content Include="assets\favicon.ico.ico" />
     <Content Include="Default.aspx" />
     <Content Include="assets\css\default.css" />
     <Content Include="Home.aspx" />

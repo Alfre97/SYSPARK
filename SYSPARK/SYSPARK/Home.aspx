@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Home SYSPARK</title>
+    <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -52,7 +53,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonParkReservation">Parking Reservation</button>
+                            <button type="button" id="buttonParkReservation" onclick="location.href='Profile.aspx'">Parking Reservation</button>
                         </div>
                         <br />
                     </td>
