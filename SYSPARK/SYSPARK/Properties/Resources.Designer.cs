@@ -59,14 +59,5 @@ namespace SYSPARK.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data Source=ALFREDO-PC\SQLEXPRESS;Initial Catalog=SYSPARKDB;Integrated Security=True;Pooling=False.
-        /// </summary>
-        internal static string SYSPARKDB {
-            get {
-                return ResourceManager.GetString("SYSPARKDB", resourceCulture);
-            }
-        }
     }
 }

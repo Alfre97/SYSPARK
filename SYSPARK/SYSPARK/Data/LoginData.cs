@@ -14,12 +14,15 @@ namespace SYSPARK.Data
         {
             DataTable dataTableUserName = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
-            string searchUserName = "SELECT UserName FROM [User] WHERE UserName= @username";
 
-            SqlCommand search = new SqlCommand(searchUserName, connection);
-            search.Parameters.AddWithValue("@username", username);
-            SqlDataAdapter adap = new SqlDataAdapter(search);
-            adap.Fill(dataTableUserName);
+            using (SqlCommand search = new SqlCommand(@"selectUserNameForLogin", connection))
+            {
+                search.CommandType = CommandType.StoredProcedure;
+                search.Parameters.Add("@UserName", SqlDbType.VarChar).Value = username;
+
+                SqlDataAdapter adap = new SqlDataAdapter(search);
+                adap.Fill(dataTableUserName);
+            }
 
             if (dataTableUserName.Rows.Count > 0)
             {
@@ -31,6 +34,9 @@ namespace SYSPARK.Data
                     connection = ManageDatabaseConnection("Close");
                     dataTableUserName.Clear();
                     return true;
+                } else
+                {
+                    return false;
                 }
             }
             connection = ManageDatabaseConnection("Close");
@@ -41,18 +47,29 @@ namespace SYSPARK.Data
         {
             DataTable dataTableUserPassword = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
-            string searchUser = "SELECT Password FROM [User] WHERE Password= @password";
+            using (SqlCommand search = new SqlCommand(@"selectPasswordForLogin", connection))
+            {
+                search.CommandType = CommandType.StoredProcedure;
+                search.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
 
-            SqlCommand search = new SqlCommand(searchUser, connection);
-            search.Parameters.AddWithValue("@password", password);
-            SqlDataAdapter adap = new SqlDataAdapter(search);
-            adap.Fill(dataTableUserPassword);
+                SqlDataAdapter adap = new SqlDataAdapter(search);
+                adap.Fill(dataTableUserPassword);
+            }
 
             if (dataTableUserPassword.Rows.Count > 0)
             {
-                connection = ManageDatabaseConnection("Close");
-                dataTableUserPassword.Clear();
-                return true;
+                string passwordFromDB = "";
+                DataRow row = dataTableUserPassword.Rows[0];
+                passwordFromDB = Convert.ToString(row["Password"]);
+                if (password == passwordFromDB)
+                {
+                    connection = ManageDatabaseConnection("Close");
+                    dataTableUserPassword.Clear();
+                    return true;
+                } else
+                {
+                    return false;
+                }
             }
             connection = ManageDatabaseConnection("Close");
             return false;

@@ -6,7 +6,7 @@ function main() {
         //$('#navbarFromRight').toggle();
         if (counter == 1) {
             $('#navbar-right').animate({
-                right: '0'
+                right: '0%'
             });
             counter = 0;
         } else {
