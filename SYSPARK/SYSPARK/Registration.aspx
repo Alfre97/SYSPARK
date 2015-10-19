@@ -1,23 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SYSPARK.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="SYSPARK.Register" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Login SYSPARK</title>
+    <title>Registration</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/registration.css" />
 </head>
 <body>
-    <form runat="server">
-        <!-- Navbar star -->
+    <form id="Registration" runat="server">
         <div class="Header">
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
@@ -32,62 +31,49 @@
                 </div>
             </div>
         </div>
-
         <section>
             <br />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
         </section>
-        <div id="allContentInLogin">
-            <h1>Access</h1>
+        <div id="allContentInRegistration">
+            <h1>Registration</h1>
             <br />
-            <table border="0" id="tableLogin">
+            <table id="tableRegistration" border="0">
                 <tr>
                     <td>
-                        <br />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input id="textBoxUsername" type="text" class="TextBoxUsername" runat="server"
-                            name="TextBoxUserName" placeholder="  Enter your username" style="color: black" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                        <input type="text" id="textboxName" placeholder=" Name" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input id="textBoxPassword" type="password" runat="server" class="TextBoxPassword"
-                            name="TextBoxPassword" placeholder="  Enter your password"
-                            style="color: black" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                        <input type="text" id="textboxLastName" placeholder=" Last name" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button id="buttonEnter" type="submit" runat="server" onclick="return confirm('Sure?') && !" onserverclick="enterButton_Click">
-                            Enter</button>
+                        <input type="text" id="textboxUsername" placeholder=" User name" />
+                        <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" />
+                        <input type="text" id="textboxPassword" placeholder=" Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="textboxVehicle" placeholder=" Vehicle" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="buttonRegister">Register</button>
                     </td>
                 </tr>
             </table>
-            <label>@Copyright 2015 - Universidad Latina</label><br />
-            <label>Todos los derechos reservados</label><br />
         </div>
     </form>
 </body>

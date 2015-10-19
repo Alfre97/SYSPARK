@@ -53,7 +53,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonParkReservation" onclick="location.href='Profile.aspx'">Parking Reservation</button>
+                            <button type="button" id="buttonParkReservation" onclick="location.href='ParkingReservation.aspx'">Parking Reservation</button>
                         </div>
                         <br />
                     </td>
@@ -61,7 +61,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonMyProfile">My Profile</button>
+                            <button type="button" id="buttonMyProfile" onclick="location.href='Profile.aspx'">My Profile</button>
                         </div>
                         <br />
                     </td>

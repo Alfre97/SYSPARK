@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net">
+      <HintPath>E:\bcryptnet.build109\BCrypt.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +75,7 @@
   <ItemGroup>
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\profile.css" />
+    <Content Include="assets\css\registration.css" />
     <Content Include="assets\img\FondoNegro.jpg" />
     <Content Include="assets\img\Fondo-rayas-oblicuas-verde.jpg" />
     <Content Include="assets\img\Fondos-de-pantalla-gratis-27.jpg" />
@@ -98,7 +102,9 @@
     <Content Include="assets\img\backgrounds\imgfooter.jpg" />
     <Content Include="assets\img\backgrounds\skill-bg.jpg" />
     <Content Include="assets\img\loading.gif" />
+    <Content Include="ParkingReservation.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,12 +117,22 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Parking.cs" />
+    <Compile Include="Entities\Space.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ParkingReservation.aspx.cs">
+      <DependentUpon>ParkingReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ParkingReservation.aspx.designer.cs">
+      <DependentUpon>ParkingReservation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
@@ -130,6 +146,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

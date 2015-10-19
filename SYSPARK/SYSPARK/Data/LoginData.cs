@@ -43,6 +43,16 @@ namespace SYSPARK.Data
             return false;
         }
 
+        public bool Encrypt(string password, string passwordDataBase)
+        {
+
+            password = BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt());
+            bool verify = BCrypt.Net.BCrypt.Verify(password, passwordDataBase);
+
+            return verify;
+
+        }
+
         public Boolean CheckPassword(string password)
         {
             DataTable dataTableUserPassword = new DataTable();
@@ -61,13 +71,14 @@ namespace SYSPARK.Data
                 string passwordFromDB = "";
                 DataRow row = dataTableUserPassword.Rows[0];
                 passwordFromDB = Convert.ToString(row["Password"]);
-                if (password == passwordFromDB)
+                if (Encrypt(password, passwordFromDB) == true)
                 {
                     connection = ManageDatabaseConnection("Close");
                     dataTableUserPassword.Clear();
                     return true;
                 } else
                 {
+                    connection = ManageDatabaseConnection("Close");
                     return false;
                 }
             }
