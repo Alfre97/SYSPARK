@@ -105,16 +105,5 @@ namespace SYSPARK.Entities
                 checkOut = value;
             }
         }
-
-        public Reservation(int id, Parking parking, Space space, User user, Vehicle vehicle, DateTime checkIn, DateTime checkOut)
-        {
-            this.id = id;
-            this.parking = parking;
-            this.space = space;
-            this.user = user;
-            this.vehicle = vehicle;
-            this.checkIn = checkIn;
-            this.checkOut = checkOut;
-        }
     }
 }

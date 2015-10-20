@@ -5,8 +5,8 @@ using System.Web;
 
 namespace SYSPARK.BussinessRules
 {
-    public class Reservation
+    public class ReservationBussinessRules
     {
-
+        
     }
 }

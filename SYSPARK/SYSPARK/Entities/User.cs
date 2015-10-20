@@ -10,9 +10,10 @@ namespace SYSPARK.Entities
         private int id;
         private string name;
         private string lastName;
+        private string username;
         private string password;
+        private List<Vehicle> vehicleList;
         private int condition;
-        private string describeCondition;
 
         public int Id
         {
@@ -53,6 +54,19 @@ namespace SYSPARK.Entities
             }
         }
 
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+
+            set
+            {
+                username = value;
+            }
+        }
+
         public string Password
         {
             get
@@ -63,6 +77,19 @@ namespace SYSPARK.Entities
             set
             {
                 password = value;
+            }
+        }
+
+        public List<Vehicle> VehicleList
+        {
+            get
+            {
+                return vehicleList;
+            }
+
+            set
+            {
+                vehicleList = value;
             }
         }
 
@@ -78,29 +105,5 @@ namespace SYSPARK.Entities
                 condition = value;
             }
         }
-
-        public string DescribeCondition
-        {
-            get
-            {
-                return describeCondition;
-            }
-
-            set
-            {
-                describeCondition = value;
-            }
-        }
-
-        public User(int id, string name, string lastName, string password, int condition, string describeCondition)
-        {
-            this.id = id;
-            this.name = name;
-            this.lastName = lastName;
-            this.password = password;
-            this.condition = condition;
-            this.describeCondition = describeCondition;
-        }
-
     }
 }

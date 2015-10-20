@@ -55,3 +55,20 @@ label {
 #allContentInLogin {
     text-align: center;
 }
+
+.navbar default-navbar navbar-static-top {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.navbar-header {
+     width: 100%;
+}
+
+#navbar-right {
+    float: right;
+    margin-top: 25px;
+}

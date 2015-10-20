@@ -10,7 +10,7 @@ namespace SYSPARK.Data
 {
     public class LoginData : DataBaseConnection
     {
-        public Boolean CheckUserName(string username)
+        public DataTable SearchUserName(string username)
         {
             DataTable dataTableUserName = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
@@ -22,38 +22,34 @@ namespace SYSPARK.Data
 
                 SqlDataAdapter adap = new SqlDataAdapter(search);
                 adap.Fill(dataTableUserName);
+                connection = ManageDatabaseConnection("Close");
+                return dataTableUserName;
             }
-
-            if (dataTableUserName.Rows.Count > 0)
-            {
-                string userNameFromDB = "";
-                DataRow row = dataTableUserName.Rows[0];
-                userNameFromDB = Convert.ToString(row["UserName"]);
-                if (username == userNameFromDB)
-                {
-                    connection = ManageDatabaseConnection("Close");
-                    dataTableUserName.Clear();
-                    return true;
-                } else
-                {
-                    return false;
-                }
-            }
-            connection = ManageDatabaseConnection("Close");
-            return false;
         }
 
-        public bool Encrypt(string password, string passwordDataBase)
+        public Boolean CheckUserName(DataTable dataTableUserName)
+        {
+            if (dataTableUserName.Rows.Count > 0)
+            {
+                dataTableUserName.Clear();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public string EncryptPassword(string password)
         {
 
             password = BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt());
-            bool verify = BCrypt.Net.BCrypt.Verify(password, passwordDataBase);
+            //bool verify = BCrypt.Net.BCrypt.Verify(password, passwordDataBase);
 
-            return verify;
-
+            return password;
         }
 
-        public Boolean CheckPassword(string password)
+        public DataTable SearchPassword(string password)
         {
             DataTable dataTableUserPassword = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
@@ -64,26 +60,22 @@ namespace SYSPARK.Data
 
                 SqlDataAdapter adap = new SqlDataAdapter(search);
                 adap.Fill(dataTableUserPassword);
+                connection = ManageDatabaseConnection("Close");
+                return dataTableUserPassword;
             }
+        }
 
+        public Boolean CheckPassword(DataTable dataTableUserPassword)
+        {
             if (dataTableUserPassword.Rows.Count > 0)
             {
-                string passwordFromDB = "";
-                DataRow row = dataTableUserPassword.Rows[0];
-                passwordFromDB = Convert.ToString(row["Password"]);
-                if (Encrypt(password, passwordFromDB) == true)
-                {
-                    connection = ManageDatabaseConnection("Close");
-                    dataTableUserPassword.Clear();
-                    return true;
-                } else
-                {
-                    connection = ManageDatabaseConnection("Close");
-                    return false;
-                }
+                return true;
             }
-            connection = ManageDatabaseConnection("Close");
-            return false;
+            else
+            {
+                return false;
+            }
         }
+
     }
 }

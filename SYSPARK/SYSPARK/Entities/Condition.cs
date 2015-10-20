@@ -5,11 +5,10 @@ using System.Web;
 
 namespace SYSPARK.Entities
 {
-    public class Vehicle
+    public class Condition
     {
         private int id;
-        private VehicleType type;
-        private int lisence;
+        private string description;
 
         public int Id
         {
@@ -24,31 +23,17 @@ namespace SYSPARK.Entities
             }
         }
 
-        public VehicleType Type
+        public string Description
         {
             get
             {
-                return type;
+                return description;
             }
 
             set
             {
-                type = value;
-            }
-        }
-
-        public int Lisence
-        {
-            get
-            {
-                return lisence;
-            }
-
-            set
-            {
-                lisence = value;
+                description = value;
             }
         }
     }
 }
-        

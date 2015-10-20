@@ -5,34 +5,34 @@ using System.Web;
 
 namespace SYSPARK.Entities
 {
-    public class Parking
+    public class VehicleType
     {
-        private string name;
-        private int AmountOfSpace;
+        private int id;
+        private string description;
 
-        public string Name
+        public int Id
         {
             get
             {
-                return name;
+                return Id;
             }
 
             set
             {
-                name = value;
+                Id = value;
             }
         }
 
-        public int AmountOfSpace1
+        public string Description
         {
             get
             {
-                return AmountOfSpace;
+                return description;
             }
 
             set
             {
-                AmountOfSpace = value;
+                description = value;
             }
         }
     }

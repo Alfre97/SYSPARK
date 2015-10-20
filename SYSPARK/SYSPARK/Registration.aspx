@@ -24,53 +24,69 @@
                         <a class="navbar-brand" href="Default.aspx">
                             <span style="color: white;">
                                 <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
-                                SYSPARK
+                                SYSPARK > Registration
                             </span>
                         </a>
+                        <label id="info">
+                            Note: At the moment you can only enter the main vehicle plate.
+                            <br />
+                            Upon completion of registration you can add as many cars you want.</label>
                     </div>
                 </div>
             </div>
         </div>
-        <section>
-            <br />
-            <br />
-            <br />
-        </section>
+        <br />
+        <br />
+        <br />
         <div id="allContentInRegistration">
             <h1>Registration</h1>
             <br />
             <table id="tableRegistration" border="0">
                 <tr>
                     <td>
-                        <input type="text" id="textboxName" placeholder=" Name" />
+                        <br />
+                        <input type="text" id="textboxName" placeholder=" Name" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxLastName" placeholder=" Last name" />
+                        <input type="text" id="textboxLastName" placeholder=" Last name" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxUsername" placeholder=" User name" />
+                        <input type="text" id="textboxUsername" placeholder=" User name" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxPassword" placeholder=" Password" />
+                        <input type="text" id="textboxPassword" placeholder=" Password" runat="server" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxVehicle" placeholder=" Vehicle" />
+                        <input type="text" id="textboxVehicle" placeholder=" Vehicle plate" runat="server" /><select id="selectType" runat="server">
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonRegister">Register</button>
+                        <select id="selectCondition" runat="server">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="buttonRegister" onclick="return confirm('Sure?') && !" onserverclick="buttonRegister_Click" runat="server">Register</button>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" id="buttonErrors" runat="server" value="" />
                     </td>
                 </tr>
             </table>

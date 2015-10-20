@@ -27,7 +27,7 @@
                         <!-- Company and name logo -->
                         <label id="logo">
                             <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                            SYSPARK
+                            SYSPARK > Home
                         </label>
                     </div>
                     <!-- TextBox and Button Search -->

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background-image: url("../img/FondoNegro.jpg");
     background-size: cover;
@@ -10,7 +11,7 @@ body {
 #tableRegistration {
     background-color: #a5a5a5;
     text-align: center;
-    border-radius: 10px 10px;
+    border-radius: 25px 25px;
     margin: 0 auto;
     width: 300px;
     height: 300px;
@@ -43,3 +44,60 @@ div table tr td button {
     width: auto;
     height: auto;
 }
+
+#imgPlus {
+    height: 25px;
+    width: 25px;
+}
+
+div {
+    width: 100%;
+}
+
+.navbar default-navbar navbar-static-top {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.navbar-header {
+    width: 100%;
+}
+
+#selectCondition {
+    width: 240px;
+    background-color: white;
+    height: 25px;
+    color: black;
+}
+
+#textboxVehicle {
+    width: 115px;
+    float: left;
+    margin-left: 30px;
+}
+
+#selectType {
+    width: 120px;
+    background-color: white;
+    height: 25px;
+    color: black;
+    margin-right: 30px;
+}
+
+ #buttonErrors {
+     background-color: transparent;
+ }
+
+ #info {
+     font-size: 10pt;
+     color: white;
+     float: right;
+     margin-right: 30px;
+     margin-top: 25px;
+     border: 1px;
+     border-color: white;
+     border-radius: 10px 10px;
+ }

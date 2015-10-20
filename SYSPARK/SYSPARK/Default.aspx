@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Login SYSPARK</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -25,9 +25,12 @@
                         <a class="navbar-brand" href="Default.aspx">
                             <span style="color: white;">
                                 <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
-                                SYSPARK
+                                SYSPARK > Login
                             </span>
                         </a>
+                        <div id="navbar-right">
+                            <a onclick="location.href='Registration.aspx'" style="color: white; font-size: 12pt;">You are not registred?</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
-﻿using SYSPARK.Data;
+﻿using SYSPARK.BussinessRules;
+using SYSPARK.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +13,15 @@ namespace SYSPARK
 {
     public partial class Login : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
         protected void enterButton_Click(object sender, EventArgs e)
         {
-            LoginData login = new LoginData();
+            LoginBussinessRules login = new LoginBussinessRules();
             string username = textBoxUsername.Value;
             string password = textBoxPassword.Value;
 
-            if (login.CheckUserName(username) == true)
+            if (login.LoginUserName(username) == true)
             {
-                if (login.CheckPassword(password) == true)
+                if (login.LoginPassword(password) == true)
                 {
                     Response.Redirect("Home.aspx");
                     buttonErrors.Value = "Access granted";
