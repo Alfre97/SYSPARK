@@ -64,18 +64,14 @@
                 <tr>
                     <td>
                         <input type="password" id="textboxPassword" placeholder=" Password" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" id="textboxVehicle" placeholder=" Vehicle plate" runat="server" /><select id="selectType" runat="server">
-                        </select>
+                        <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <select id="selectCondition" runat="server">
                         </select>
+                        <br />
                     </td>
                 </tr>
                 <tr>

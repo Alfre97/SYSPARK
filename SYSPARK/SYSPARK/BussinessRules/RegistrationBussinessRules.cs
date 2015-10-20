@@ -9,14 +9,12 @@ namespace SYSPARK.BussinessRules
 {
     public class RegistrationBussinessRules
     {
-        public void RegistrationRules(User user, Vehicle vehicle)
+        public void RegistrationRules(User user)
         {
             try
             {
                 RegistrationData registrationData = new RegistrationData();
                 registrationData.InsertUser(user);
-                registrationData.InsertVehicle(vehicle);
-                registrationData.InsertUserVehicle(user, vehicle);
             }
             catch (Exception)
             {

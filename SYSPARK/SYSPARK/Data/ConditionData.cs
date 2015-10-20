@@ -11,17 +11,17 @@ namespace SYSPARK.Data
 {
     public class ConditionData : DataBaseConnection
     {
-        public DataSet DataSetCondition()
+        public DataTable DataTableCondition()
         {
-            DataSet dataSetCondition = new DataSet();
+            DataTable dataTableCondition = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand selectCondition = new SqlCommand(@"SelectCondition", connection))
             {
                 selectCondition.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter adap = new SqlDataAdapter(selectCondition);
-                adap.Fill(dataSetCondition, "Condition");
+                adap.Fill(dataTableCondition);
                 connection = ManageDatabaseConnection("Close");
-                return dataSetCondition;
+                return dataTableCondition;
             }
         }
     }

@@ -32,31 +32,5 @@ namespace SYSPARK.Data
             }
             connection = ManageDatabaseConnection("Close");
         }
-
-        public void InsertVehicle(Vehicle vehicle)
-        {
-            SqlConnection connection = ManageDatabaseConnection("Open");
-            using (SqlCommand insert = new SqlCommand(@"InsertVehicle", connection))
-            {
-                insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@TypeId", SqlDbType.Int).Value = vehicle.Type.Id;
-                insert.Parameters.Add("@Lisence", SqlDbType.Int).Value = vehicle.Lisence;
-                insert.ExecuteNonQuery();
-            }
-            connection = ManageDatabaseConnection("Close");
-        }
-
-        public void InsertUserVehicle(User user, Vehicle vehicle)
-        {
-            SqlConnection connection = ManageDatabaseConnection("Open");
-            using (SqlCommand insert = new SqlCommand(@"InsertUserVehicle", connection))
-            {
-                insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@UserId", SqlDbType.Int).Value = user.Id;
-                insert.Parameters.Add("@VehicleId", SqlDbType.Int).Value = vehicle.Id;
-                insert.ExecuteNonQuery();
-            }
-            connection = ManageDatabaseConnection("Close");
-        }
     }
 }

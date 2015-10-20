@@ -117,6 +117,7 @@
     <Compile Include="Data\ConditionData.cs" />
     <Compile Include="Data\LoginData.cs" />
     <Compile Include="Data\RegistrationData.cs" />
+    <Compile Include="Data\UserVehicleData.cs" />
     <Compile Include="Data\VehicleTypeData.cs" />
     <Compile Include="Data\VehicleData.cs" />
     <Compile Include="Default.aspx.cs">

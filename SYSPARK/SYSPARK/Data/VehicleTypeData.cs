@@ -10,17 +10,17 @@ namespace SYSPARK.Data
 {
     public class VehicleTypeData : DataBaseConnection
     {
-        public DataSet DataSetVehicleType()
+        public DataTable DataTableVehicleType()
         {
-            DataSet dataSetType = new DataSet();
+            DataTable dataTableType = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand selectCondition = new SqlCommand(@"SelectVehicleType", connection))
             {
                 selectCondition.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter adap = new SqlDataAdapter(selectCondition);
-                adap.Fill(dataSetType, "VehicleType");
+                adap.Fill(dataTableType);
                 connection = ManageDatabaseConnection("Close");
-                return dataSetType;
+                return dataTableType;
             }
         }
     }

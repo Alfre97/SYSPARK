@@ -70,22 +70,6 @@ div {
     border-radius: 5px 5px;
 }
 
-#textboxVehicle {
-    width: 115px;
-    float: left;
-    margin-left: 30px;
-}
-
-#selectType {
-    width: 240px;
-    background-color: white;
-    height: 25px;
-    color: black;
-    margin-right: 30px;
-    border: none;
-    border-radius: 5px 5px;
-}
-
 #buttonErrors {
     background-color: transparent;
 }

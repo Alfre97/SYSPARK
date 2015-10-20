@@ -16,14 +16,14 @@ namespace SYSPARK
         {
             User user = new User();
             ConditionData conditionData = new ConditionData();
-            DataSet dsSelectCondition = conditionData.DataSetCondition();
-            selectCondition.DataSource = dsSelectCondition.Tables["Condition"].DefaultView;
+            DataTable Condition = conditionData.DataTableCondition();
+            selectCondition.DataSource = Condition;
             selectCondition.DataTextField = "Description";
             selectCondition.DataValueField = "Id";
             selectCondition.DataBind();
 
             VehicleData vehicleData = new VehicleData();
-            DataSet dataSetVehicleOfUser= vehicleData.SelectByVehicleId(vehicleData.SelectVehicleByUser(user));
+            DataSet dataSetVehicleOfUser = vehicleData.SelectByVehicleId(vehicleData.SelectVehicleByUser(user));
             selectVehicle.DataSource = dataSetVehicleOfUser.Tables["dataTableVehicle"].DefaultView;
             selectVehicle.DataTextField = "Lisence";
             selectVehicle.DataValueField = "Id";
