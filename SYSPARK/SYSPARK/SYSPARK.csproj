@@ -130,9 +130,9 @@
     <Compile Include="Entities\Parking.cs" />
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\Space.cs" />
-    <Compile Include="Entities\VehicleType.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Entities\VehicleType.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

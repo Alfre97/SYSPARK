@@ -17,14 +17,14 @@ namespace SYSPARK
         {
             ConditionData conditionData = new ConditionData();
             DataSet dsSelectCondition = conditionData.DataSetCondition();
-            selectCondition.DataSource = conditionData.DataSetCondition().Tables["Condition"].DefaultView;
+            selectCondition.DataSource = dsSelectCondition.Tables["Condition"].DefaultView;
             selectCondition.DataTextField = "Description";
             selectCondition.DataValueField = "Id";
             selectCondition.DataBind();
 
             VehicleTypeData vehicletTypeData = new VehicleTypeData();
             DataSet dsSelectType = vehicletTypeData.DataSetVehicleType();
-            selectType.DataSource = vehicletTypeData.DataSetVehicleType().Tables["VehicleType"].DefaultView;
+            selectType.DataSource = dsSelectType.Tables["VehicleType"].DefaultView;
             selectType.DataTextField = "Description";
             selectType.DataValueField = "Id";
             selectType.DataBind();
@@ -40,9 +40,9 @@ namespace SYSPARK
             user.Password = textboxPassword.Value;
             //Vehicle
             Vehicle vehicle = new Vehicle();
-            vehicle.Lisence = Convert.ToInt16(textboxVehicle.Value);
+            vehicle.Lisence = Convert.ToInt32(textboxVehicle.Value);
             //Vehicle type
-            Entities.VehicleType type = new Entities.VehicleType();
+            VehicleType type = new VehicleType();
             type.Description = selectType.DataTextField;
             vehicle.Type = type;
             //Creating a list of vehicles
@@ -54,8 +54,16 @@ namespace SYSPARK
             Condition condition = new Condition();
             condition.Description = selectCondition.DataTextField;
             //Inserting registration data
-            RegistrationBussinessRules registration = new RegistrationBussinessRules();
-            registration.RegistrationRules(user, vehicle);
+            try
+            {
+                RegistrationBussinessRules registration = new RegistrationBussinessRules();
+                registration.RegistrationRules(user, vehicle);
+                Response.Redirect("Default.aspx");
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

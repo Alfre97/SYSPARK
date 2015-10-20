@@ -33,6 +33,66 @@
                 </div>
             </div>
         </div>
+
+        <div id="allContentInProfile">
+            <h1>Profile</h1>
+            <br />
+            <table id="tableProfile" border="0">
+                <tr>
+                    <td>
+                        <br />
+                        <input type="text" id="textboxName" runat="server" placeholder=" Name"/>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="textboxLastName" runat="server" placeholder=" Last name"/>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="textboxUsername" runat="server" placeholder=" User name"/>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" id="textboxPassword" runat="server" placeholder=" Password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="selectVehicle" runat="server">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="selectCondition" runat="server">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="buttonAddNewCar" runat="server">Add new car</button> <button type="button" id="buttonUpdate" runat="server">Update my info</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="buttonRegister" onclick="return confirm('Sure?') && !" runat="server" visible="false">
+                            Update</button>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" id="buttonErrors" runat="server" value="" visible="false" />
+                    </td>
+                </tr>
+            </table>
+        </div>
     </form>
 </body>
 </html>

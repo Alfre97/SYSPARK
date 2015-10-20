@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxPassword" placeholder=" Password" runat="server" />
+                        <input type="password" id="textboxPassword" placeholder=" Password" runat="server" />
                     </td>
                 </tr>
                 <tr>

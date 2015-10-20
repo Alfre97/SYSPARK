@@ -14,12 +14,12 @@ namespace SYSPARK.Entities
         {
             get
             {
-                return Id;
+                return id;
             }
 
             set
             {
-                Id = value;
+                id = value;
             }
         }
 

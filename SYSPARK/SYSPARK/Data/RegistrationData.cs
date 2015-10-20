@@ -30,6 +30,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@Condition", SqlDbType.VarChar).Value = user.Condition;
                 insert.ExecuteNonQuery();
             }
+            connection = ManageDatabaseConnection("Close");
         }
 
         public void InsertVehicle(Vehicle vehicle)
@@ -42,6 +43,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@Lisence", SqlDbType.Int).Value = vehicle.Lisence;
                 insert.ExecuteNonQuery();
             }
+            connection = ManageDatabaseConnection("Close");
         }
 
         public void InsertUserVehicle(User user, Vehicle vehicle)
@@ -54,6 +56,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@VehicleId", SqlDbType.Int).Value = vehicle.Id;
                 insert.ExecuteNonQuery();
             }
+            connection = ManageDatabaseConnection("Close");
         }
     }
 }

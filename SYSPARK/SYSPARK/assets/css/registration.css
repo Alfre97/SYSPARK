@@ -45,11 +45,6 @@ div table tr td button {
     height: auto;
 }
 
-#imgPlus {
-    height: 25px;
-    width: 25px;
-}
-
 div {
     width: 100%;
 }
@@ -71,6 +66,8 @@ div {
     background-color: white;
     height: 25px;
     color: black;
+    border: none;
+    border-radius: 5px 5px;
 }
 
 #textboxVehicle {
@@ -80,24 +77,26 @@ div {
 }
 
 #selectType {
-    width: 120px;
+    width: 240px;
     background-color: white;
     height: 25px;
     color: black;
     margin-right: 30px;
+    border: none;
+    border-radius: 5px 5px;
 }
 
- #buttonErrors {
-     background-color: transparent;
- }
+#buttonErrors {
+    background-color: transparent;
+}
 
- #info {
-     font-size: 10pt;
-     color: white;
-     float: right;
-     margin-right: 30px;
-     margin-top: 25px;
-     border: 1px;
-     border-color: white;
-     border-radius: 10px 10px;
- }
+#info {
+    font-size: 10pt;
+    color: white;
+    float: right;
+    margin-right: 30px;
+    margin-top: 25px;
+    border: 1px;
+    border-color: white;
+    border-radius: 10px 10px;
+}

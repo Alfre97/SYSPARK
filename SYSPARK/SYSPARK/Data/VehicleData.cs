@@ -21,6 +21,44 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@Lisence", SqlDbType.Int).Value = vehicle.Lisence;
                 insert.ExecuteNonQuery();
             }
+            connection = ManageDatabaseConnection("Close");
         }
+
+        public DataTable SelectVehicleByUser(User user)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            DataTable dataTableVehicleId = new DataTable();
+            using (SqlCommand select = new SqlCommand(@"SelectVehicleByUser", connection))
+            {
+                select.CommandType = CommandType.StoredProcedure;
+                select.Parameters.Add("@UserId", SqlDbType.Int).Value = user.Id;
+                SqlDataAdapter adap = new SqlDataAdapter(select);
+                adap.Fill(dataTableVehicleId);
+            }
+            connection = ManageDatabaseConnection("Close");
+            return dataTableVehicleId;
+        }
+
+        public DataSet SelectByVehicleId(DataTable dataTableVehicleId)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            DataSet dataSetVehicle = new DataSet();
+            DataTable dataTableVehicle = new DataTable();
+            using (SqlCommand select = new SqlCommand(@"SelectVehicleById", connection))
+            {
+                SqlDataAdapter adap = new SqlDataAdapter();
+                for (int i = 0; i > dataTableVehicleId.Rows.Count; i++)
+                {
+                    select.CommandType = CommandType.StoredProcedure;
+                    select.Parameters.Add("@VehicleId", SqlDbType.Int).Value = Convert.ToInt32(dataTableVehicleId.Rows[i]);
+                    adap = new SqlDataAdapter(select);
+                    dataTableVehicle.Rows.Add(adap);
+                }
+                dataSetVehicle.Tables.Add(dataTableVehicle);
+            }
+            connection = ManageDatabaseConnection("Close");
+            return dataSetVehicle;
+        }
+
     }
 }

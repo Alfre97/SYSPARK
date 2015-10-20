@@ -55,7 +55,7 @@ namespace SYSPARK {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword textboxPassword;
         
         /// <summary>
         /// textboxVehicle control.

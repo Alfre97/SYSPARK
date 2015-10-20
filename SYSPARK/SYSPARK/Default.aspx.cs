@@ -19,25 +19,37 @@ namespace SYSPARK
             string username = textBoxUsername.Value;
             string password = textBoxPassword.Value;
 
-            if (login.LoginUserName(username) == true)
-            {
-                if (login.LoginPassword(password) == true)
-                {
-                    Response.Redirect("Home.aspx");
-                    buttonErrors.Value = "Access granted";
-                    textBoxPassword.Value = "";
-                }
-                else
-                {
+            switch(login.ValidateFields(username, password)) {
+                case 0:
                     buttonErrors.Style.Add("background-color", "white");
-                    buttonErrors.Value = "Invalid password.";
-                    textBoxPassword.Value = "";
-                }
-            }
-            else
-            {
-                buttonErrors.Style.Add("background-color", "white");
-                buttonErrors.Value = "Invalid username.";
+                    buttonErrors.Value = "The username field is empty.";
+                    break;
+                case 1:
+                    buttonErrors.Style.Add("background-color", "white");
+                    buttonErrors.Value = "The password field is empty.";
+                    break;
+                case 2:
+                    if (login.LoginUserName(username) == true)
+                    {
+                        if (login.LoginPassword(password) == true)
+                        {
+                            Response.Redirect("Home.aspx");
+                            buttonErrors.Value = "Access granted";
+                            textBoxPassword.Value = "";
+                        }
+                        else
+                        {
+                            buttonErrors.Style.Add("background-color", "white");
+                            buttonErrors.Value = "Invalid password.";
+                            textBoxPassword.Value = "";
+                        }
+                    }
+                    else
+                    {
+                        buttonErrors.Style.Add("background-color", "white");
+                        buttonErrors.Value = "Invalid username.";
+                    }
+                    break;
             }
         }
     }

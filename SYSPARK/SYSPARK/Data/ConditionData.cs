@@ -23,8 +23,6 @@ namespace SYSPARK.Data
                 connection = ManageDatabaseConnection("Close");
                 return dataSetCondition;
             }
-
-
         }
     }
 }

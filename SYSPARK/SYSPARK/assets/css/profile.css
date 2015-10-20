@@ -5,4 +5,98 @@
 
 body {
     background-image: url("../img/FondoNegro.jpg");
+    background-size: cover;
+}
+
+#allContentInProfile {
+    text-align: center;
+    height: auto;
+}
+
+#tableProfile {
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    color: white;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+div table tr td input {
+    border-radius: 5px 5px;
+    border-style: none;
+    height: 25px;
+    width: 240px;
+    color: black;
+}
+
+div table tr td button {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
+
+div {
+    width: 100%;
+}
+
+.navbar default-navbar navbar-static-top {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.navbar-header {
+    width: 100%;
+}
+
+#selectCondition {
+    width: 240px;
+    background-color: white;
+    height: 25px;
+    color: black;
+    border: none;
+    border-radius: 5px 5px;
+}
+
+#textboxVehicle {
+    width: 115px;
+    float: left;
+    margin-left: 30px;
+}
+
+#selectType {
+    width: 240px;
+    background-color: white;
+    height: 25px;
+    color: black;
+    border: none;
+    border-radius: 5px 5px;
+}
+
+#buttonErrors {
+    background-color: transparent;
+}
+
+#buttonAddNewCar {
+    width: 115px;
+    float: left;
+    margin-left: 30px;
+}
+
+#buttonUpdate {
+    width: 115px;
+    float: right;
+    margin-right: 30px;
 }
