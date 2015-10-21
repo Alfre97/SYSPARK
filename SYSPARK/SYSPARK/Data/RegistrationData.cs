@@ -13,7 +13,8 @@ namespace SYSPARK.Data
     {
         public string EncryptPassword(string password)
         {
-            password = BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt());
+            BCrypt.Net.BCrypt bCrypt = new BCrypt.Net.BCrypt();
+            password = BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(6));
             return password;
         }
 
@@ -27,7 +28,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
                 insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
                 insert.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
-                insert.Parameters.Add("@Condition", SqlDbType.VarChar).Value = user.Condition;
+                insert.Parameters.Add("@Condition", SqlDbType.VarChar).Value = user.Condition.Id;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");

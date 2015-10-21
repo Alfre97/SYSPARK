@@ -58,13 +58,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword textboxPassword;
         
         /// <summary>
-        /// selectVehicle control.
+        /// myCars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectVehicle;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect myCars;
         
         /// <summary>
         /// selectCondition control.
@@ -85,6 +85,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddNewCar;
         
         /// <summary>
+        /// buttonUpdateMyInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdateMyInfo;
+        
+        /// <summary>
         /// buttonUpdate control.
         /// </summary>
         /// <remarks>
@@ -92,15 +101,6 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdate;
-        
-        /// <summary>
-        /// buttonRegister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonRegister;
         
         /// <summary>
         /// buttonErrors control.

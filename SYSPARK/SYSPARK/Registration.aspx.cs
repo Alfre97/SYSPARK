@@ -35,8 +35,10 @@ namespace SYSPARK
             user.Password = textboxPassword.Value;
             //Condition
             Condition condition = new Condition();
+            condition.Id = Convert.ToInt32(selectCondition.DataValueField);
             condition.Description = selectCondition.DataTextField;
             //Inserting registration data
+            user.Condition = condition;
             try
             {
                 RegistrationBussinessRules registration = new RegistrationBussinessRules();

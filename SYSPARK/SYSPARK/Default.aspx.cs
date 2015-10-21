@@ -15,6 +15,7 @@ namespace SYSPARK
     {
         protected void enterButton_Click(object sender, EventArgs e)
         {
+            Session["UserName"] = textBoxUsername.Value;
             LoginBussinessRules login = new LoginBussinessRules();
             string username = textBoxUsername.Value;
             string password = textBoxPassword.Value;
@@ -31,7 +32,7 @@ namespace SYSPARK
                 case 2:
                     if (login.LoginUserName(username) == true)
                     {
-                        if (login.LoginPassword(password) == true)
+                        if (login.LoginPassword(password, username) == true)
                         {
                             Response.Redirect("Home.aspx");
                             buttonErrors.Value = "Access granted";

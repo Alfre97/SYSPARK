@@ -40,50 +40,45 @@
             <table id="tableProfile" border="0">
                 <tr>
                     <td>
-                        <br />
-                        <input type="text" id="textboxName" runat="server" placeholder=" Name"/>
-                        <br />
+                        <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxLastName" runat="server" placeholder=" Last name"/>
-                        <br />
+                        <input type="text" id="textboxLastName" runat="server" placeholder=" Last name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxUsername" runat="server" placeholder=" User name"/>
-                        <br />
+                        <input type="text" id="textboxUsername" runat="server" placeholder=" User name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" id="textboxPassword" runat="server" placeholder=" Password"/>
+                        <input type="password" id="textboxPassword" runat="server" placeholder=" Password" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <select id="selectVehicle" runat="server">
+                        <select id="myCars" runat="server">
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <select id="selectCondition" runat="server">
+                        <select id="selectCondition" runat="server" disabled="disabled">
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonAddNewCar" runat="server">Add new car</button> <button type="button" id="buttonUpdate" runat="server">Update my info</button>
+                        <button type="button" id="buttonAddNewCar" runat="server" >Add new car</button> <button type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonRegister" onclick="return confirm('Sure?') && !" runat="server" visible="false">
+                        <button type="button" id="buttonUpdate" onclick="return confirm('Sure?') && !" runat="server" visible="false">
                             Update</button>
-                        <br />
                     </td>
                 </tr>
                 <tr>

@@ -47,8 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BCrypt.Net">
-      <HintPath>E:\bcryptnet.build109\BCrypt.Net.dll</HintPath>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\BCrypt.Net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -117,6 +118,7 @@
     <Compile Include="Data\ConditionData.cs" />
     <Compile Include="Data\LoginData.cs" />
     <Compile Include="Data\RegistrationData.cs" />
+    <Compile Include="Data\UserData.cs" />
     <Compile Include="Data\UserVehicleData.cs" />
     <Compile Include="Data\VehicleTypeData.cs" />
     <Compile Include="Data\VehicleData.cs" />
@@ -168,6 +170,7 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\BCrypt.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

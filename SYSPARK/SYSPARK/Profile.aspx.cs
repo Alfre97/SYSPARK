@@ -14,6 +14,9 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //All controls are disable by default
+            FillTableWithUserInfo();
+            //Fill select condition
             User user = new User();
             ConditionData conditionData = new ConditionData();
             DataTable Condition = conditionData.DataTableCondition();
@@ -22,17 +25,25 @@ namespace SYSPARK
             selectCondition.DataValueField = "Id";
             selectCondition.DataBind();
 
+            //Fill select my cars
             VehicleData vehicleData = new VehicleData();
-            DataSet dataSetVehicleOfUser = vehicleData.SelectByVehicleId(vehicleData.SelectVehicleByUser(user));
-            selectVehicle.DataSource = dataSetVehicleOfUser.Tables["dataTableVehicle"].DefaultView;
-            selectVehicle.DataTextField = "Lisence";
-            selectVehicle.DataValueField = "Id";
-            selectVehicle.DataBind();
+            DataTable dataSetVehicleOfUser = vehicleData.SelectByVehicleId(vehicleData.SelectVehicleByUser(user));
+            myCars.DataSource = dataSetVehicleOfUser;
+            myCars.DataTextField = "Lisence";
+            myCars.DataValueField = "Id";
+            myCars.DataBind();
         }
 
         public void FillTableWithUserInfo()
         {
-            
+            UserData userData = new UserData();
+            string sessionUserName = (string)(Session["UserName"]);
+            DataTable dataTableUserInfo = userData.DataTableUserInfo(sessionUserName);
+            textboxName.Value = dataTableUserInfo.Rows[0]["Name"].ToString();
+            textboxLastName.Value = dataTableUserInfo.Rows[0]["LastName"].ToString();
+            textboxUsername.Value = dataTableUserInfo.Rows[0]["UserName"].ToString();
+            textboxPassword.Value = dataTableUserInfo.Rows[0]["Password"].ToString();
+            selectCondition.SelectedIndex = Convert.ToInt32(dataTableUserInfo.Rows[0]["Condition"]);
         }
     }
 }

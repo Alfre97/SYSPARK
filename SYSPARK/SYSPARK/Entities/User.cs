@@ -13,7 +13,7 @@ namespace SYSPARK.Entities
         private string username;
         private string password;
         private List<Vehicle> vehicleList;
-        private int condition;
+        private Condition condition;
 
         public int Id
         {
@@ -93,7 +93,7 @@ namespace SYSPARK.Entities
             }
         }
 
-        public int Condition
+        public Condition Condition
         {
             get
             {

@@ -15,6 +15,7 @@ namespace SYSPARK
         }
         protected void Logout(object sender, EventArgs e)
         {
+            Session.Clear();
             Response.Redirect("Default.aspx");
         }
     }

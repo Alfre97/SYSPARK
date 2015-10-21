@@ -39,10 +39,9 @@ namespace SYSPARK.Data
             return dataTableVehicleId;
         }
 
-        public DataSet SelectByVehicleId(DataTable dataTableVehicleId)
+        public DataTable SelectByVehicleId(DataTable dataTableVehicleId)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
-            DataSet dataSetVehicle = new DataSet();
             DataTable dataTableVehicle = new DataTable();
             using (SqlCommand select = new SqlCommand(@"SelectVehicleById", connection))
             {
@@ -54,10 +53,9 @@ namespace SYSPARK.Data
                     adap = new SqlDataAdapter(select);
                     dataTableVehicle.Rows.Add(adap);
                 }
-                dataSetVehicle.Tables.Add(dataTableVehicle);
             }
             connection = ManageDatabaseConnection("Close");
-            return dataSetVehicle;
+            return dataTableVehicle;
         }
 
     }
