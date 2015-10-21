@@ -74,7 +74,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddNewCar.aspx" />
+    <Content Include="Vehicle.aspx" />
+    <Content Include="assets\css\vehicle.css" />
     <Content Include="Condition.aspx" />
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\parkingReservation.css" />
@@ -114,12 +115,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNewCar.aspx.cs">
-      <DependentUpon>AddNewCar.aspx</DependentUpon>
+    <Compile Include="Vehicle.aspx.cs">
+      <DependentUpon>Vehicle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddNewCar.aspx.designer.cs">
-      <DependentUpon>AddNewCar.aspx</DependentUpon>
+    <Compile Include="Vehicle.aspx.designer.cs">
+      <DependentUpon>Vehicle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Condition.aspx.cs">
       <DependentUpon>Condition.aspx</DependentUpon>
