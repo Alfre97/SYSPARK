@@ -42,7 +42,7 @@ namespace SYSPARK
             textboxName.Value = dataTableUserInfo.Rows[0]["Name"].ToString();
             textboxLastName.Value = dataTableUserInfo.Rows[0]["LastName"].ToString();
             textboxUsername.Value = dataTableUserInfo.Rows[0]["UserName"].ToString();
-            textboxPassword.Value = dataTableUserInfo.Rows[0]["Password"].ToString();
+            textboxPasswordShowed.Value = dataTableUserInfo.Rows[0]["Password"].ToString();
             selectCondition.SelectedIndex = Convert.ToInt32(dataTableUserInfo.Rows[0]["Condition"]);
         }
     }

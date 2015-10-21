@@ -74,6 +74,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddNewCar.aspx" />
+    <Content Include="Condition.aspx" />
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\parkingReservation.css" />
     <Content Include="assets\css\profile.css" />
@@ -108,9 +110,24 @@
     <Content Include="ParkingReservation.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="Reports.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewCar.aspx.cs">
+      <DependentUpon>AddNewCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNewCar.aspx.designer.cs">
+      <DependentUpon>AddNewCar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Condition.aspx.cs">
+      <DependentUpon>Condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Condition.aspx.designer.cs">
+      <DependentUpon>Condition.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BussinessRules\LoginBussinessRules.cs" />
     <Compile Include="BussinessRules\RegistrationBussinessRules.cs" />
     <Compile Include="BussinessRules\ReservationBussinessRules.cs" />
@@ -169,6 +186,13 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utility\BCrypt.cs" />
   </ItemGroup>

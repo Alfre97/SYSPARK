@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" id="textboxPassword" runat="server" placeholder=" Password" disabled="disabled" />
+                        <input type="text" id="textboxPasswordShowed" runat="server" placeholder=" Password" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>

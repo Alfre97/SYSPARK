@@ -70,13 +70,7 @@ div {
     border-radius: 5px 5px;
 }
 
-#textboxVehicle {
-    width: 115px;
-    float: left;
-    margin-left: 30px;
-}
-
-#selectType {
+#myCars {
     width: 240px;
     background-color: white;
     height: 25px;
@@ -93,6 +87,12 @@ div {
     width: 115px;
     float: left;
     margin-left: 30px;
+}
+
+#buttonUpdateMyInfo {
+    width: 115px;
+    float: right;
+    margin-right: 30px;
 }
 
 #buttonUpdate {

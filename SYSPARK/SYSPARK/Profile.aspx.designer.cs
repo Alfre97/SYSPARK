@@ -49,13 +49,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxUsername;
         
         /// <summary>
-        /// textboxPassword control.
+        /// textboxPasswordShowed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword textboxPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxPasswordShowed;
         
         /// <summary>
         /// myCars control.
