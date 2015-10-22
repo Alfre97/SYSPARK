@@ -1,4 +1,5 @@
 ﻿using SYSPARK.DataBase;
+using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +11,7 @@ namespace SYSPARK.Data
 {
     public class UserData : DataBaseConnection
     {
-        public DataTable DataTableUserInfo(string username)
+        public DataTable getUser(string username)
         {
             DataTable dataTableUserInfo = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
@@ -23,6 +24,17 @@ namespace SYSPARK.Data
                 connection = ManageDatabaseConnection("Close");
                 return dataTableUserInfo;
             }
+        }
+
+        public User sendUser(DataTable dataTableUserInfo)
+        {
+            User user = new User();
+            user.Name = dataTableUserInfo.Rows[0]["Name"].ToString();
+            user.LastName = dataTableUserInfo.Rows[0]["LastName"].ToString();
+            user.Username = dataTableUserInfo.Rows[0]["UserName"].ToString();
+            user.Password = dataTableUserInfo.Rows[0]["Password"].ToString();
+            user.Condition.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
+            return user;
         }
     }
 }

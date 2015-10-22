@@ -19,7 +19,7 @@ body {
     border-radius: 25px 25px;
     margin: 0 auto;
     width: 300px;
-    height: 300px;
+    height: 150px;
     color: white;
 }
 
@@ -72,11 +72,5 @@ div {
 
 #buttonErrors {
     background-color: transparent;
-}
-
-#buttonAddNewCar {
-    width: 115px;
-    float: left;
-    margin-left: 30px;
 }
 

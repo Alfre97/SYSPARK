@@ -9,7 +9,7 @@
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="App_Utility/jquery.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonAddNewCar" runat="server" >Add new car</button> <button type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
+                        <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Add new car</button> <button type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
                     </td>
                 </tr>
                 <tr>

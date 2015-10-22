@@ -4,11 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Car</title>
+    <title>Vehicle</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="App_Utility/jquery.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/Vehicle.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="formVehicle" runat="server">
     <div class="Header">
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
@@ -24,7 +24,7 @@
                         <a class="navbar-brand" href="Default.aspx">
                             <span style="color: white;">
                                 <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
-                                SYSPARK > Home > My Profile > Car
+                                SYSPARK > Home > My Profile > Vehicle
                             </span>
                         </a>
                     </div>
@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonAddNewCar" runat="server" >Add new car</button> <button type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
+                        <button type="button" id="buttonAddNewCar" runat="server" onclick="return confirm('Sure?') && !" onserverclick="ButtonVehicle_Click">Add vehicle</button>
                     </td>
                 </tr>
                 <tr>

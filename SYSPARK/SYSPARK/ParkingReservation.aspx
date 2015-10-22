@@ -4,7 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Parking Reservation</title>
+    <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- JQuery Library -->
+    <script src="App_Utility/jquery.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/Vehicle.css" />
 </head>
 <body>
     <form id="formParkReservation" runat="server">

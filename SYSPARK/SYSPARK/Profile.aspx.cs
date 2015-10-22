@@ -37,13 +37,12 @@ namespace SYSPARK
         public void FillTableWithUserInfo()
         {
             UserData userData = new UserData();
-            string sessionUserName = (string)(Session["UserName"]);
-            DataTable dataTableUserInfo = userData.DataTableUserInfo(sessionUserName);
-            textboxName.Value = dataTableUserInfo.Rows[0]["Name"].ToString();
-            textboxLastName.Value = dataTableUserInfo.Rows[0]["LastName"].ToString();
-            textboxUsername.Value = dataTableUserInfo.Rows[0]["UserName"].ToString();
-            textboxPasswordShowed.Value = dataTableUserInfo.Rows[0]["Password"].ToString();
-            selectCondition.SelectedIndex = Convert.ToInt32(dataTableUserInfo.Rows[0]["Condition"]);
+            User user = userData.sendUser(userData.getUser(Session["UserName"].ToString()));
+            textboxName.Value = user.Name;
+            textboxLastName.Value = user.LastName;
+            textboxUsername.Value = user.Username;
+            textboxPasswordShowed.Value = user.Password;
+            selectCondition.SelectedIndex = user.Condition.Id;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SYSPARK.BussinessRules;
 using SYSPARK.Data;
+using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,16 @@ namespace SYSPARK
     {
         protected void enterButton_Click(object sender, EventArgs e)
         {
-            Session["UserName"] = textBoxUsername.Value;
+            //Saving th user data for use in all the app
+            UserData userData = new UserData();
+            User user = userData.sendUser(userData.getUser(textBoxUsername.Value));
+            Session["User-Id"] = user.Id;
+            Session["User-Name"] = user.Name;
+            Session["User-LastName"] = user.LastName;
+            Session["User-UserName"] = user.Username;
+            Session["User-Password"] = user.Password;
+            Session["User-ConditionId"] = user.Condition.Id;
+
             LoginBussinessRules login = new LoginBussinessRules();
             string username = textBoxUsername.Value;
             string password = textBoxPassword.Value;

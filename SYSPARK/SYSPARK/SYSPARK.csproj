@@ -74,6 +74,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Utility\jquery.js" />
     <Content Include="Vehicle.aspx" />
     <Content Include="assets\css\vehicle.css" />
     <Content Include="Condition.aspx" />
@@ -129,17 +130,17 @@
     <Compile Include="Condition.aspx.designer.cs">
       <DependentUpon>Condition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BussinessRules\LoginBussinessRules.cs" />
-    <Compile Include="BussinessRules\RegistrationBussinessRules.cs" />
-    <Compile Include="BussinessRules\ReservationBussinessRules.cs" />
-    <Compile Include="DataBase\DataBaseConnection.cs" />
-    <Compile Include="Data\ConditionData.cs" />
-    <Compile Include="Data\LoginData.cs" />
-    <Compile Include="Data\RegistrationData.cs" />
-    <Compile Include="Data\UserData.cs" />
-    <Compile Include="Data\UserVehicleData.cs" />
-    <Compile Include="Data\VehicleTypeData.cs" />
-    <Compile Include="Data\VehicleData.cs" />
+    <Compile Include="App_BussinessRules\LoginBussinessRules.cs" />
+    <Compile Include="App_BussinessRules\RegistrationBussinessRules.cs" />
+    <Compile Include="App_BussinessRules\ReservationBussinessRules.cs" />
+    <Compile Include="App_DataBaseConnection\DataBaseConnection.cs" />
+    <Compile Include="App_Data\ConditionData.cs" />
+    <Compile Include="App_Data\LoginData.cs" />
+    <Compile Include="App_Data\RegistrationData.cs" />
+    <Compile Include="App_Data\UserData.cs" />
+    <Compile Include="App_Data\UserVehicleData.cs" />
+    <Compile Include="App_Data\VehicleTypeData.cs" />
+    <Compile Include="App_Data\VehicleData.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,13 +148,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Condition.cs" />
-    <Compile Include="Entities\Parking.cs" />
-    <Compile Include="Entities\Reservation.cs" />
-    <Compile Include="Entities\Space.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Vehicle.cs" />
-    <Compile Include="Entities\VehicleType.cs" />
+    <Compile Include="App_Entities\Condition.cs" />
+    <Compile Include="App_Entities\Parking.cs" />
+    <Compile Include="App_Entities\Reservation.cs" />
+    <Compile Include="App_Entities\Space.cs" />
+    <Compile Include="App_Entities\User.cs" />
+    <Compile Include="App_Entities\Vehicle.cs" />
+    <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,7 +196,7 @@
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Utility\BCrypt.cs" />
+    <Compile Include="App_Utility\BCrypt.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
