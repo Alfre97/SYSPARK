@@ -27,7 +27,6 @@ namespace SYSPARK.App_BussinessRules
                 return 2;
             }
             return 0;
-            
         }
     }
 }

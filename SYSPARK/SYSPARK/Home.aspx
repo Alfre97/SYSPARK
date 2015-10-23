@@ -69,7 +69,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonReports">Reports</button>
+                            <button type="button" id="buttonHistory" onclick="location.href='History.aspx'">History</button>
                         </div>
                         <br />
                     </td>

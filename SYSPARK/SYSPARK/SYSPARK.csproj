@@ -76,6 +76,7 @@
   <ItemGroup>
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\homeAdministrative.css" />
+    <Content Include="History.aspx" />
     <Content Include="HomeAdministrative.aspx" />
     <Content Include="Vehicle.aspx" />
     <Content Include="assets\css\vehicle.css" />
@@ -115,10 +116,19 @@
     <Content Include="Profile.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Reports.aspx" />
+    <Content Include="VehicleType.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
+    <Compile Include="App_Entities\VehicleType.cs" />
+    <Compile Include="History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomeAdministrative.aspx.cs">
       <DependentUpon>HomeAdministrative.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,7 +173,6 @@
     <Compile Include="App_Entities\Space.cs" />
     <Compile Include="App_Entities\User.cs" />
     <Compile Include="App_Entities\Vehicle.cs" />
-    <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -205,7 +214,13 @@
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Utility\BCrypt.cs" />
+    <Compile Include="VehicleType.aspx.cs">
+      <DependentUpon>VehicleType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VehicleType.aspx.designer.cs">
+      <DependentUpon>VehicleType.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -18,7 +18,7 @@ namespace SYSPARK.Data
             {
                 insert.CommandType = CommandType.StoredProcedure;
                 insert.Parameters.Add("@TypeId", SqlDbType.Int).Value = vehicle.Type.Id;
-                insert.Parameters.Add("@License", SqlDbType.Int).Value = vehicle.License;
+                insert.Parameters.Add("@License", SqlDbType.VarChar).Value = vehicle.License;
                 insert.Parameters.Add("@Owner", SqlDbType.Int).Value = userId;
                 insert.ExecuteNonQuery();
             }

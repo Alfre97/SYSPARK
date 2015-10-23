@@ -46,9 +46,11 @@ namespace SYSPARK
                             Session["User-UserName"] = user.Username;
                             Session["User-Password"] = textBoxPassword.Value;
                             Session["User-ConditionId"] = user.Condition.Id;
-                            
-                            Response.Redirect("Home.aspx");
                             textBoxPassword.Value = "";
+                            if (Convert.ToInt32(Session["User-ConditionId"]) == 3)
+                                Response.Redirect("HomeAdministrative.aspx");
+                            else
+                                Response.Redirect("Home.aspx");
                         }
                         else
                         {

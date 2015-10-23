@@ -33,7 +33,8 @@
                     <!-- TextBox and Button Search -->
                     <div class="nav" id="search">
                         <input type="text" placeholder=" Search" id="TextBoxSearch" />
-                            <button type="button" id="buttonSearch" runat="server"><img id="imageSearch" src="assets/img/LogoSearch.jpg"/></button>
+                        <button type="button" id="buttonSearch" runat="server">
+                            <img id="imageSearch" src="assets/img/LogoSearch.jpg" /></button>
                     </div>
                 </nav>
             </div>
@@ -69,7 +70,31 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonReports">Reports</button>
+                            <button type="button" id="buttonReports" onclick="location.href='Reports.aspx'">Reports</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonHistory" onclick="location.href='History.aspx'">History</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonCondition" onclick="location.href='Condition.aspx'">Condition</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonVehicleType" onclick="location.href='VehicleType.aspx'">Vehicle Type</button>
                         </div>
                         <br />
                     </td>
@@ -79,7 +104,6 @@
                         <div>
                             <button type="button" id="buttonConfiguration">Configuration</button>
                         </div>
-                        <br />
                         <br />
                         <br />
                         <br />

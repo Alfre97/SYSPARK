@@ -28,7 +28,7 @@ namespace SYSPARK
             VehicleData vehicleData = new VehicleData();
             DataTable dataTableVehicleOfUser = vehicleData.GetUserVehicle(Convert.ToInt32(Session["User-Id"]));
             myCars.DataSource = dataTableVehicleOfUser;
-            myCars.DataTextField = "Lisence";
+            myCars.DataTextField = "License";
             myCars.DataValueField = "Id";
             myCars.DataBind();
         }

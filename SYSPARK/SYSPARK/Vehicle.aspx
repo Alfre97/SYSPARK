@@ -38,6 +38,7 @@
             <table id="tableVehicle" border="0">
                 <tr>
                     <td>
+                        <br />
                         <input type="text" id="textboxLicense" runat="server" placeholder=" Lisence" />
                     </td>
                 </tr>
@@ -54,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" visible="false" />
+                        <input type="button" id="buttonErrors" runat="server" value="" />
                     </td>
                 </tr>
             </table>
