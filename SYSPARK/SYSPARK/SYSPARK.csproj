@@ -116,11 +116,12 @@
     <Content Include="Profile.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Reports.aspx" />
-    <Content Include="VehicleType.aspx" />
+    <Content Include="VehicleTypePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
+    <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,12 +214,12 @@
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VehicleType.aspx.cs">
-      <DependentUpon>VehicleType.aspx</DependentUpon>
+    <Compile Include="VehicleTypePage.aspx.cs">
+      <DependentUpon>VehicleTypePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VehicleType.aspx.designer.cs">
-      <DependentUpon>VehicleType.aspx</DependentUpon>
+    <Compile Include="VehicleTypePage.aspx.designer.cs">
+      <DependentUpon>VehicleTypePage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

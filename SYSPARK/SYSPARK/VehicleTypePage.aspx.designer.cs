@@ -10,7 +10,7 @@
 namespace SYSPARK {
     
     
-    public partial class VehicleType {
+    public partial class VehicleTypePage {
         
         /// <summary>
         /// formVehicleType control.

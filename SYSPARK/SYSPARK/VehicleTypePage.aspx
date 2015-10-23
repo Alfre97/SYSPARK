@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VehicleType.aspx.cs" Inherits="SYSPARK.VehicleType" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VehicleTypePage.aspx.cs" Inherits="SYSPARK.VehicleTypePage" %>
 
 <!DOCTYPE html>
 

@@ -94,7 +94,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonVehicleType" onclick="location.href='VehicleType.aspx'">Vehicle Type</button>
+                            <button type="button" id="buttonVehicleType" onclick="location.href='VehicleTypePage.aspx'">Vehicle Type</button>
                         </div>
                         <br />
                     </td>

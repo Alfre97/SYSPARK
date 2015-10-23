@@ -48,6 +48,7 @@
                         <br />
                         <br />
                         <br />
+                        <br />
                     </td>
                 </tr>
                 <tr>
@@ -69,7 +70,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonHistory" onclick="location.href='History.aspx'">History</button>
+                            <button id="buttonHistory" type="button" onclick="location.href='History.aspx'">History</button>
                         </div>
                         <br />
                     </td>
