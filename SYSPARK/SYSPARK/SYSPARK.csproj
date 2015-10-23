@@ -121,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
-    <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
