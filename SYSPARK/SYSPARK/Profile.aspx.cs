@@ -17,7 +17,6 @@ namespace SYSPARK
             //All controls are disable by default
             FillTableWithUserInfo();
             //Fill select condition
-            User user = new User();
             ConditionData conditionData = new ConditionData();
             DataTable Condition = conditionData.DataTableCondition();
             selectCondition.DataSource = Condition;
@@ -27,8 +26,8 @@ namespace SYSPARK
 
             //Fill select my cars
             VehicleData vehicleData = new VehicleData();
-            DataTable dataSetVehicleOfUser = vehicleData.SelectByVehicleId(vehicleData.SelectVehicleByUser(user));
-            myCars.DataSource = dataSetVehicleOfUser;
+            DataTable dataTableVehicleOfUser = vehicleData.GetUserVehicle(Convert.ToInt32(Session["User-Id"]));
+            myCars.DataSource = dataTableVehicleOfUser;
             myCars.DataTextField = "Lisence";
             myCars.DataValueField = "Id";
             myCars.DataBind();
@@ -36,13 +35,11 @@ namespace SYSPARK
 
         public void FillTableWithUserInfo()
         {
-            UserData userData = new UserData();
-            User user = userData.sendUser(userData.getUser(Session["UserName"].ToString()));
-            textboxName.Value = user.Name;
-            textboxLastName.Value = user.LastName;
-            textboxUsername.Value = user.Username;
-            textboxPasswordShowed.Value = user.Password;
-            selectCondition.SelectedIndex = user.Condition.Id;
+            textboxName.Value = Session["User-Name"].ToString();
+            textboxLastName.Value = Session["User-LastName"].ToString();
+            textboxUsername.Value = Session["User-UserName"].ToString();
+            textboxPasswordShowed.Value = Session["User-Password"].ToString();
+            selectCondition.SelectedIndex = Convert.ToInt32(Session["User-ConditionId"]);
         }
     }
 }

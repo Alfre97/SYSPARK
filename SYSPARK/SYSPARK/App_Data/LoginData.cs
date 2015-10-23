@@ -15,7 +15,7 @@ namespace SYSPARK.Data
             DataTable dataTableUserName = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
 
-            using (SqlCommand search = new SqlCommand(@"selectUserNameForLogin", connection))
+            using (SqlCommand search = new SqlCommand(@"SelectUserNameForLogin", connection))
             {
                 search.CommandType = CommandType.StoredProcedure;
                 search.Parameters.Add("@UserName", SqlDbType.VarChar).Value = username;
@@ -44,7 +44,7 @@ namespace SYSPARK.Data
         {
             DataTable dataTableUserPassword = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
-            using (SqlCommand search = new SqlCommand(@"selectPasswordForLogin", connection))
+            using (SqlCommand search = new SqlCommand(@"SelectPasswordForLogin", connection))
             {
                 search.CommandType = CommandType.StoredProcedure;
                 search.Parameters.Add("@UserName", SqlDbType.VarChar).Value = username;

@@ -13,6 +13,15 @@ namespace SYSPARK {
     public partial class Login {
         
         /// <summary>
+        /// buttonErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
+        
+        /// <summary>
         /// textBoxUsername control.
         /// </summary>
         /// <remarks>
@@ -38,14 +47,5 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonEnter;
-        
-        /// <summary>
-        /// buttonErrors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
     }
 }

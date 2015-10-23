@@ -16,15 +16,6 @@ namespace SYSPARK
     {
         protected void enterButton_Click(object sender, EventArgs e)
         {
-            //Saving th user data for use in all the app
-            UserData userData = new UserData();
-            User user = userData.sendUser(userData.getUser(textBoxUsername.Value));
-            Session["User-Id"] = user.Id;
-            Session["User-Name"] = user.Name;
-            Session["User-LastName"] = user.LastName;
-            Session["User-UserName"] = user.Username;
-            Session["User-Password"] = user.Password;
-            Session["User-ConditionId"] = user.Condition.Id;
 
             LoginBussinessRules login = new LoginBussinessRules();
             string username = textBoxUsername.Value;
@@ -33,10 +24,12 @@ namespace SYSPARK
             switch(login.ValidateFields(username, password)) {
                 case 0:
                     buttonErrors.Style.Add("background-color", "white");
+                    buttonErrors.Style.Add("color", "red");
                     buttonErrors.Value = "The username field is empty.";
                     break;
                 case 1:
-                    buttonErrors.Style.Add("background-color", "white");
+                    buttonErrors.Style.Add("background-color", "red");
+                    buttonErrors.Style.Add("color", "white");
                     buttonErrors.Value = "The password field is empty.";
                     break;
                 case 2:
@@ -44,20 +37,31 @@ namespace SYSPARK
                     {
                         if (login.LoginPassword(password, username) == true)
                         {
+                            //Saving th user data for use in all the app
+                            UserData userData = new UserData();
+                            User user = userData.sendUser(userData.getUser(textBoxUsername.Value));
+                            Session["User-Id"] = user.Id;
+                            Session["User-Name"] = user.Name;
+                            Session["User-LastName"] = user.LastName;
+                            Session["User-UserName"] = user.Username;
+                            Session["User-Password"] = textBoxPassword.Value;
+                            Session["User-ConditionId"] = user.Condition.Id;
+                            
                             Response.Redirect("Home.aspx");
-                            buttonErrors.Value = "Access granted";
                             textBoxPassword.Value = "";
                         }
                         else
                         {
                             buttonErrors.Style.Add("background-color", "white");
+                            buttonErrors.Style.Add("color", "red");
                             buttonErrors.Value = "Invalid password.";
                             textBoxPassword.Value = "";
                         }
                     }
                     else
                     {
-                        buttonErrors.Style.Add("background-color", "white");
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
                         buttonErrors.Value = "Invalid username.";
                     }
                     break;

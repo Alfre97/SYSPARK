@@ -11,7 +11,7 @@ namespace SYSPARK.Data
 {
     public class VehicleData : DataBaseConnection
     {
-        public void InsertVehicle(Vehicle vehicle)
+        public void InsertVehicle(Vehicle vehicle, int userId)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand insert = new SqlCommand(@"InsertVehicle", connection))
@@ -19,44 +19,25 @@ namespace SYSPARK.Data
                 insert.CommandType = CommandType.StoredProcedure;
                 insert.Parameters.Add("@TypeId", SqlDbType.Int).Value = vehicle.Type.Id;
                 insert.Parameters.Add("@License", SqlDbType.Int).Value = vehicle.License;
+                insert.Parameters.Add("@Owner", SqlDbType.Int).Value = userId;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
         }
 
-        public DataTable SelectVehicleByUser(User user)
+        public DataTable GetUserVehicle(int userId)
         {
+            DataTable dataTableuservehicle = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
-            DataTable dataTableVehicleId = new DataTable();
-            using (SqlCommand select = new SqlCommand(@"SelectVehicleByUser", connection))
+            using (SqlCommand select = new SqlCommand(@"SelectUserVehicle", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
-                select.Parameters.Add("@UserId", SqlDbType.Int).Value = user.Id;
+                select.Parameters.Add("@Owner", SqlDbType.Int).Value = userId;
                 SqlDataAdapter adap = new SqlDataAdapter(select);
-                adap.Fill(dataTableVehicleId);
+                adap.Fill(dataTableuservehicle);
             }
             connection = ManageDatabaseConnection("Close");
-            return dataTableVehicleId;
+            return dataTableuservehicle;
         }
-
-        public DataTable SelectByVehicleId(DataTable dataTableVehicleId)
-        {
-            SqlConnection connection = ManageDatabaseConnection("Open");
-            DataTable dataTableVehicle = new DataTable();
-            using (SqlCommand select = new SqlCommand(@"SelectVehicleById", connection))
-            {
-                SqlDataAdapter adap = new SqlDataAdapter();
-                for (int i = 0; i > dataTableVehicleId.Rows.Count; i++)
-                {
-                    select.CommandType = CommandType.StoredProcedure;
-                    select.Parameters.Add("@VehicleId", SqlDbType.Int).Value = Convert.ToInt32(dataTableVehicleId.Rows[i]);
-                    adap = new SqlDataAdapter(select);
-                    dataTableVehicle.Rows.Add(adap);
-                }
-            }
-            connection = ManageDatabaseConnection("Close");
-            return dataTableVehicle;
-        }
-
     }
 }

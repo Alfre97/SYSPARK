@@ -28,13 +28,17 @@ namespace SYSPARK.Data
 
         public User sendUser(DataTable dataTableUserInfo)
         {
-            User user = new User();
-            user.Name = dataTableUserInfo.Rows[0]["Name"].ToString();
-            user.LastName = dataTableUserInfo.Rows[0]["LastName"].ToString();
-            user.Username = dataTableUserInfo.Rows[0]["UserName"].ToString();
-            user.Password = dataTableUserInfo.Rows[0]["Password"].ToString();
-            user.Condition.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
-            return user;
+                User user = new User();
+                Condition condition = new Condition();
+                user.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["Id"]);
+                user.Name = dataTableUserInfo.Rows[0]["Name"].ToString();
+                user.LastName = dataTableUserInfo.Rows[0]["LastName"].ToString();
+                user.Username = dataTableUserInfo.Rows[0]["UserName"].ToString();
+                user.Password = dataTableUserInfo.Rows[0]["Password"].ToString();
+                condition.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
+                user.Condition = condition;
+                return user;
+            
         }
     }
 }

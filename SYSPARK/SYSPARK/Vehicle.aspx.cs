@@ -1,8 +1,10 @@
-﻿using SYSPARK.Data;
+﻿using SYSPARK.App_BussinessRules;
+using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,28 +26,34 @@ namespace SYSPARK
 
         protected void ButtonVehicle_Click(object sender, EventArgs e)
         {
-            //Creating th vehicle
+            //Creating the vehicle
             Vehicle vehicle = new Vehicle();
-            vehicle.License = textboxLicense.Value;
             VehicleType vehicleType = new VehicleType();
             VehicleTypeData vehicleTypeData = new VehicleTypeData();
+            VehicleBussinessRules vehicleBussinessRules = new VehicleBussinessRules();
+            vehicle.License = textboxLicense.Value;
             vehicleType.Id = Convert.ToInt32(selectType.Value);
             vehicleType.Description = selectType.Items.FindByValue(selectType.Value).Text;
             vehicle.Type = vehicleType;
-            try
+
+            int insertResult = vehicleBussinessRules.InsertVehicle(vehicle, Convert.ToInt32(Session["User-Id"]));
+            switch (insertResult)
             {
-                //Inserting vehicle
-                VehicleData vehicleData = new VehicleData();
-                vehicleData.InsertVehicle(vehicle);
-                UserVehicleData userVehicleData = new UserVehicleData();
-                User user = new User();
-                user.Id = Convert.ToInt32(Session["User-Id"]);
-                userVehicleData.InsertUserVehicle(user, vehicle);
-            }
-            catch (FormatException)
-            {
-                buttonErrors.Style.Add("background-color", "white");
-                buttonErrors.Value = "Please, provided a valid lincense.";
+                case 0:
+                    Response.Redirect("Profile.aspx");
+                    break;
+
+                case 1:
+                    buttonErrors.Style.Add("background-color", "white");
+                    buttonErrors.Style.Add("color", "red");
+                    buttonErrors.Value = "The license field is empty.";
+                    break;
+                case 2:
+                    buttonErrors.Style.Add("background-color", "red");
+                    buttonErrors.Style.Add("color", "white");
+                    buttonErrors.Value = "The license can only contain seven characters.";
+
+                    break;
             }
         }
     }

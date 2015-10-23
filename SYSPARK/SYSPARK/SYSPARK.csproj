@@ -75,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Utility\jquery.js" />
+    <Content Include="assets\css\homeAdministrative.css" />
+    <Content Include="HomeAdministrative.aspx" />
     <Content Include="Vehicle.aspx" />
     <Content Include="assets\css\vehicle.css" />
     <Content Include="Condition.aspx" />
@@ -116,6 +118,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
+    <Compile Include="HomeAdministrative.aspx.cs">
+      <DependentUpon>HomeAdministrative.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeAdministrative.aspx.designer.cs">
+      <DependentUpon>HomeAdministrative.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vehicle.aspx.cs">
       <DependentUpon>Vehicle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,7 +148,6 @@
     <Compile Include="App_Data\LoginData.cs" />
     <Compile Include="App_Data\RegistrationData.cs" />
     <Compile Include="App_Data\UserData.cs" />
-    <Compile Include="App_Data\UserVehicleData.cs" />
     <Compile Include="App_Data\VehicleTypeData.cs" />
     <Compile Include="App_Data\VehicleData.cs" />
     <Compile Include="Default.aspx.cs">

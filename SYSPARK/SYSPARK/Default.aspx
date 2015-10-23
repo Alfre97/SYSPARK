@@ -51,6 +51,8 @@
                 <tr>
                     <td>
                         <br />
+                        <input type="button" id="buttonErrors" runat="server" value="Your welcome!" style="color: white;"/>
+                        <br />
                         <br />
                     </td>
                 </tr>
@@ -82,11 +84,7 @@
                         <button id="buttonEnter" type="submit" runat="server" onclick="return confirm('Sure?') && !" onserverclick="enterButton_Click">
                             Enter</button>
                         <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" />
+                        <br />
                     </td>
                 </tr>
             </table>
