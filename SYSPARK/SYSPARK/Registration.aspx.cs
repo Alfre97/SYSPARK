@@ -24,31 +24,59 @@ namespace SYSPARK
             selectCondition.DataTextField = "Description";
             selectCondition.DataBind();
         }
-        
+
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
-            //User
             User user = new User();
+            UserBussinessRules userBussinessRules = new UserBussinessRules();
+            Condition condition = new Condition();
+            CodeData registrationData = new CodeData();
+            //User
             user.Name = textboxName.Value;
             user.LastName = textboxLastName.Value;
             user.Username = textboxUsername.Value;
             user.Password = textboxPassword.Value;
             //Condition
-            Condition condition = new Condition();
-            condition.Id = Convert.ToInt32(selectCondition.Value);
-            condition.Description = selectCondition.Items.FindByValue(selectCondition.Value).Text;
+            
+            condition.Id = Convert.ToInt32(hiddenConditionValue.Value);
+            condition.Description = selectCondition.Items.FindByValue(hiddenConditionValue.Value).Text;
             //Inserting registration data
             user.Condition = condition;
-            try
-            {
-                RegistrationBussinessRules registration = new RegistrationBussinessRules();
-                registration.RegistrationRules(user);
-                Response.Redirect("Default.aspx");
-            }
-            catch (Exception)
-            {
+            
 
+            if(textboxCode.Value != "")
+            {
+                switch (registrationData.sendDecision(registrationData.getCode(textboxCode.Value)))
+                {
+                    case 0:
+                        Response.Redirect("Default.aspx");
+                        break;
+                    case 1:
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
+                        buttonErrors.Value = "The provide a valid code.";
+                        break;
+                    case 2:
+                        buttonErrors.Style.Add("background-color", "white");
+                        buttonErrors.Style.Add("color", "red");
+                        buttonErrors.Value = "The entered code is already used.";
+                        break;
+                }
+                switch (userBussinessRules.RegistrationRules(user))
+                {
+                    case 0:
+                        Response.Redirect("Default.aspx");
+                        break;
+                    case 1:
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
+                        buttonErrors.Value = "Please, check your entered data." + "\n" +
+                            "Remember you can't enter numbers in the fields.";
+                        break;
+                }
             }
+
+            
         }
     }
 }

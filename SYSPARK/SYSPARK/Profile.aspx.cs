@@ -1,4 +1,5 @@
-﻿using SYSPARK.Data;
+﻿using SYSPARK.BussinessRules;
+using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,22 +16,23 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             //All controls are disable by default
-            FillTableWithUserInfo();
             //Fill select condition
             ConditionData conditionData = new ConditionData();
             DataTable Condition = conditionData.DataTableCondition();
             selectCondition.DataSource = Condition;
-            selectCondition.DataTextField = "Description";
             selectCondition.DataValueField = "Id";
+            selectCondition.DataTextField = "Description";
             selectCondition.DataBind();
 
             //Fill select my cars
             VehicleData vehicleData = new VehicleData();
             DataTable dataTableVehicleOfUser = vehicleData.GetUserVehicle(Convert.ToInt32(Session["User-Id"]));
-            myCars.DataSource = dataTableVehicleOfUser;
-            myCars.DataTextField = "License";
-            myCars.DataValueField = "Id";
-            myCars.DataBind();
+            selectVehicle.DataSource = dataTableVehicleOfUser;
+            selectVehicle.DataValueField = "Id";
+            selectVehicle.DataTextField = "License";
+            selectVehicle.DataBind();
+            //Fill table with user info
+            FillTableWithUserInfo();
         }
 
         public void FillTableWithUserInfo()
@@ -39,7 +41,74 @@ namespace SYSPARK
             textboxLastName.Value = Session["User-LastName"].ToString();
             textboxUsername.Value = Session["User-UserName"].ToString();
             textboxPasswordShowed.Value = Session["User-Password"].ToString();
-            selectCondition.SelectedIndex = Convert.ToInt32(Session["User-ConditionId"]);
+            selectCondition.Value = Session["User-ConditionId"].ToString();
+        }
+
+        public void ButtonUpdateMyInfo_Click(object sender, EventArgs e)
+        {
+            textboxName.Disabled = false;
+            textboxLastName.Disabled = false;
+            textboxUsername.Disabled = false;
+            textboxPasswordShowed.Disabled = false;
+            buttonAddNewCar.Visible = false;
+            buttonUpdateMyInfo.Visible = false;
+            buttonUpdate.Visible = true;
+            buttonErrors.Visible = true;
+        }
+
+        public void ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            textboxName.Disabled = true;
+            textboxLastName.Disabled = true;
+            textboxUsername.Disabled = true;
+            textboxPasswordShowed.Disabled = true;
+            selectCondition.Disabled = true;
+            buttonAddNewCar.Visible = true;
+            buttonUpdateMyInfo.Visible = true;
+            buttonUpdate.Visible = false;
+            buttonErrors.Visible = false;
+
+            User user = new Entities.User();
+            Condition condition = new Condition();
+            UserBussinessRules userBussinessRules = new UserBussinessRules();
+            //Creating user
+            user.Id = Convert.ToInt32(Session["User-Id"]);
+            user.Name = textboxName.Value;
+            user.LastName = textboxLastName.Value;
+            user.Username = textboxUsername.Value;
+            user.Password = textboxPasswordShowed.Value;
+            condition.Id = Convert.ToInt32(hiddenConditionValue.Value);
+            condition.Description = selectCondition.Items.FindByValue(hiddenConditionValue.Value).Text;
+            user.Condition = condition;
+            //For password validation
+            string newPassword = textboxPasswordShowed.Value;
+            string passwordHashed = Session["User-PasswordHashed"].ToString();
+            bool verify = BCrypt.Net.BCrypt.Verify(newPassword, passwordHashed);
+            //Updating user
+            switch (userBussinessRules.UpdateRules(user))
+            {
+                case 0:
+                    if (textboxUsername.Value != Session["User-UserName"].ToString())
+                    {
+                        Session.Clear();
+                        Response.Redirect("Default.aspx");
+                    }else if (verify == false)
+                    {
+                        Session.Clear();
+                        Response.Redirect("Default.aspx");
+                    }
+                    Session["User-Name"] = textboxName.Value;
+                    Session["User-LastName"] = textboxLastName.Value;
+                    Session["User-ConditionId"] = hiddenConditionValue.Value;
+                    Response.Redirect("Profile.aspx");
+                    break;
+                case 1:
+                    buttonErrors.Style.Add("background-color", "red");
+                    buttonErrors.Style.Add("color", "white");
+                    buttonErrors.Value = "Please, check your entered data." + "\n" +
+                        "Remember you can't enter numbers in the fields.";
+                    break;
+            }
         }
     }
 }

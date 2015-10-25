@@ -15,6 +15,19 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/registration.css" />
 </head>
+<script>
+    function setValue() {
+        var select = document.getElementById("selectCondition");
+        var hiddenValue = document.getElementById("hiddenConditionValue");
+        var position = select.selectedIndex;
+        alert(position);
+        alert(select.options[position].value);
+        hiddenValue.value = select.options[position].value;
+        if (hiddenValue.value != 1) {
+
+        }
+    }
+</script>
 <body>
     <form id="Registration" runat="server">
         <div class="Header">
@@ -69,8 +82,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <select id="selectCondition" runat="server">
+                        <input id="hiddenConditionValue" type="hidden" runat="server"/>
+                        <select id="selectCondition" runat="server" onchange="setValue()">
                         </select>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="textboxCode" placeholder=" Code" runat="server" visible="false"/>
                         <br />
                     </td>
                 </tr>

@@ -58,6 +58,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword textboxPassword;
         
         /// <summary>
+        /// hiddenConditionValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenConditionValue;
+        
+        /// <summary>
         /// selectCondition control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectCondition;
+        
+        /// <summary>
+        /// textboxCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxCode;
         
         /// <summary>
         /// buttonRegister control.

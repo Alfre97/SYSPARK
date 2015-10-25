@@ -81,7 +81,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button id="buttonEnter" type="submit" runat="server" onclick="return confirm('Sure?') && !" onserverclick="enterButton_Click">
+                        <button onserverclick=" enterButton_Click" id="buttonEnter" type="submit" runat="server">
                             Enter</button>
                         <br />
                         <br />

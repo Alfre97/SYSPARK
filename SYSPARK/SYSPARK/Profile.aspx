@@ -15,7 +15,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/profile.css" />
+    <script>
+        function setValue() {
+            var select = document.getElementById("selectCondition");
+            var hiddenValue = document.getElementById("hiddenConditionValue");
+            var position = select.selectedIndex;
+            alert(position);
+            alert(select.options[position].value);
+            hiddenValue.value = select.options[position].value;
 
+        }
+    </script>
 </head>
 <body>
     <form id="formProfile" runat="server">
@@ -39,45 +49,50 @@
             <br />
             <table id="tableProfile" border="0">
                 <tr>
-                    <td>
+                    <td><a>Name:</a><br />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td><a>Lastname:</a><br />
                         <input type="text" id="textboxLastName" runat="server" placeholder=" Last name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td><a>Username:</a><br />
                         <input type="text" id="textboxUsername" runat="server" placeholder=" User name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <a>Password:</a><br />
                         <input type="text" id="textboxPasswordShowed" runat="server" placeholder=" Password" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <select id="myCars" runat="server">
+                        <a>Vehicle:</a><br />
+                        <select id="selectVehicle" runat="server">
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <select id="selectCondition" runat="server" disabled="disabled">
+                        <input id="hiddenConditionValue" type="hidden" runat="server" />
+                        <a>Condition:</a><br />
+                        <select id="selectCondition" runat="server" disabled="disabled" onchange="setValue()">
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Add new car</button> <button type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
+                        <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Vehicle</button>
+                        <button onserverclick=" ButtonUpdateMyInfo_Click" type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonUpdate" onclick="return confirm('Sure?') && !" runat="server" visible="false">
+                        <button onserverclick=" ButtonUpdate_Click" type="button" id="buttonUpdate" runat="server" visible="false">
                             Update</button>
                     </td>
                 </tr>

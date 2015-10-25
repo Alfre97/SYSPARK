@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
+    <Compile Include="App_Data\CodeData.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
@@ -151,12 +152,11 @@
       <DependentUpon>Condition.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_BussinessRules\LoginBussinessRules.cs" />
-    <Compile Include="App_BussinessRules\RegistrationBussinessRules.cs" />
+    <Compile Include="App_BussinessRules\UserBussinessRules.cs" />
     <Compile Include="App_BussinessRules\ReservationBussinessRules.cs" />
     <Compile Include="App_DataBaseConnection\DataBaseConnection.cs" />
     <Compile Include="App_Data\ConditionData.cs" />
     <Compile Include="App_Data\LoginData.cs" />
-    <Compile Include="App_Data\RegistrationData.cs" />
     <Compile Include="App_Data\UserData.cs" />
     <Compile Include="App_Data\VehicleTypeData.cs" />
     <Compile Include="App_Data\VehicleData.cs" />

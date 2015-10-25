@@ -45,6 +45,7 @@ namespace SYSPARK
                             Session["User-LastName"] = user.LastName;
                             Session["User-UserName"] = user.Username;
                             Session["User-Password"] = textBoxPassword.Value;
+                            Session["User-PasswordHashed"] = user.Password;
                             Session["User-ConditionId"] = user.Condition.Id;
                             textBoxPassword.Value = "";
                             if (Convert.ToInt32(Session["User-ConditionId"]) == 3)
