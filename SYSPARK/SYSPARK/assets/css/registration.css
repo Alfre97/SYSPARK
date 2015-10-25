@@ -84,3 +84,15 @@ div {
     border-color: white;
     border-radius: 10px 10px;
 }
+
+#textboxCode {
+    display: none;
+    float: left;
+    margin-left: 30px;
+}
+
+#buttonRegister {
+    width: 240px;
+    float: left;
+    margin-left: 30px;
+}

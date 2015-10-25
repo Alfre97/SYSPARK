@@ -15,7 +15,6 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //Select conditionType
             ConditionData conditionData = new ConditionData();
             DataTable condition = conditionData.DataTableCondition();
@@ -30,7 +29,7 @@ namespace SYSPARK
             User user = new User();
             UserBussinessRules userBussinessRules = new UserBussinessRules();
             Condition condition = new Condition();
-            CodeData registrationData = new CodeData();
+            CodeData codeData = new CodeData();
             //User
             user.Name = textboxName.Value;
             user.LastName = textboxLastName.Value;
@@ -43,39 +42,112 @@ namespace SYSPARK
             //Inserting registration data
             user.Condition = condition;
             
-
-            if(textboxCode.Value != "")
+            if(Convert.ToInt32(hiddenConditionValue.Value) > 1)
             {
-                switch (registrationData.sendDecision(registrationData.getCode(textboxCode.Value)))
+                if (textboxCode.Value != "")
                 {
-                    case 0:
-                        Response.Redirect("Default.aspx");
-                        break;
-                    case 1:
-                        buttonErrors.Style.Add("background-color", "red");
-                        buttonErrors.Style.Add("color", "white");
-                        buttonErrors.Value = "The provide a valid code.";
-                        break;
-                    case 2:
-                        buttonErrors.Style.Add("background-color", "white");
-                        buttonErrors.Style.Add("color", "red");
-                        buttonErrors.Value = "The entered code is already used.";
-                        break;
+                    switch (codeData.sendDecision(codeData.getCode(textboxCode.Value)))
+                    {
+                        case 0:
+                            codeData.updateCode(textboxCode.Value, 1);
+                            switch (userBussinessRules.RegistrationRules(user))
+                            {
+                                case 0:
+                                    Response.Redirect("Default.aspx");
+                                    break;
+                                case 1:
+                                    buttonErrors.Visible = true;
+                                    buttonErrors.Style.Add("background-color", "red");
+                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrors.Value = "The name field is empty.";
+                                    break;
+                                case 2:
+                                    buttonErrors.Visible = true;
+                                    buttonErrors.Style.Add("background-color", "red");
+                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrors.Value = "The lastname field is empty.";
+                                    break;
+                                case 3:
+                                    buttonErrors.Visible = true;
+                                    buttonErrors.Style.Add("background-color", "red");
+                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrors.Value = "The username field is empty.";
+                                    break;
+                                case 4:
+                                    buttonErrors.Visible = true;
+                                    buttonErrors.Style.Add("background-color", "red");
+                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrors.Value = "The password field is empty.";
+                                    break;
+                                case 5:
+                                    buttonErrors.Visible = true;
+                                    buttonErrors.Style.Add("background-color", "red");
+                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrors.Value = "An error ocurred during your registration.";
+                                    break;
+                            }
+                            break;
+                        case 1:
+                            buttonErrors.Visible = true;
+                            buttonErrors.Style.Add("background-color", "red");
+                            buttonErrors.Style.Add("color", "white");
+                            buttonErrors.Value = "The provide a valid code.";
+                            break;
+                        case 2:
+                            buttonErrors.Visible = true;
+                            buttonErrors.Style.Add("background-color", "white");
+                            buttonErrors.Style.Add("color", "red");
+                            buttonErrors.Value = "The entered code is already used.";
+                            break;
+                    }
                 }
+                else
+                {
+                    buttonErrors.Visible = true;
+                    buttonErrors.Style.Add("background-color", "red");
+                    buttonErrors.Style.Add("color", "white");
+                    buttonErrors.Value = "The code field is empty.";
+                }
+            }
+            else
+            {
                 switch (userBussinessRules.RegistrationRules(user))
                 {
                     case 0:
                         Response.Redirect("Default.aspx");
                         break;
                     case 1:
+                        buttonErrors.Visible = true;
                         buttonErrors.Style.Add("background-color", "red");
                         buttonErrors.Style.Add("color", "white");
-                        buttonErrors.Value = "Please, check your entered data." + "\n" +
-                            "Remember you can't enter numbers in the fields.";
+                        buttonErrors.Value = "The name field is empty.";
+                        break;
+                    case 2:
+                        buttonErrors.Visible = true;
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
+                        buttonErrors.Value = "The lastname field is empty.";
+                        break;
+                    case 3:
+                        buttonErrors.Visible = true;
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
+                        buttonErrors.Value = "The username field is empty.";
+                        break;
+                    case 4:
+                        buttonErrors.Visible = true;
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
+                        buttonErrors.Value = "The password field is empty.";
+                        break;
+                    case 5:
+                        buttonErrors.Visible = true;
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
+                        buttonErrors.Value = "An error ocurred during your registration.";
                         break;
                 }
             }
-
             
         }
     }

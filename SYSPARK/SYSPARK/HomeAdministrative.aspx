@@ -86,7 +86,15 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonCondition" onclick="location.href='Condition.aspx'">Condition</button>
+                            <button type="button" id="buttonParking" onclick="location.href='Parking.aspx'">Parking</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonCondition" onclick="location.href='Condition.aspx'">User Condition</button>
                         </div>
                         <br />
                     </td>
@@ -95,6 +103,14 @@
                     <td>
                         <div>
                             <button type="button" id="buttonVehicleType" onclick="location.href='VehicleTypePage.aspx'">Vehicle Type</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonCode" onclick="location.href='Code.aspx'">Access Code</button>
                         </div>
                         <br />
                     </td>

@@ -37,5 +37,19 @@ namespace SYSPARK.Data
             }
             return 1;
         }
+
+        public void updateCode(string code, byte used)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand update = new SqlCommand(@"UpdateCode", connection))
+            {
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@Code", SqlDbType.VarChar).Value = code;
+                update.Parameters.Add("@Used", SqlDbType.VarChar).Value = used;
+                update.ExecuteNonQuery();
+                connection = ManageDatabaseConnection("Close");
+            }
+        }
+
     }
 }

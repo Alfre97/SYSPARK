@@ -46,10 +46,12 @@ namespace SYSPARK
 
         public void ButtonUpdateMyInfo_Click(object sender, EventArgs e)
         {
+            //Enabling controls
             textboxName.Disabled = false;
             textboxLastName.Disabled = false;
             textboxUsername.Disabled = false;
             textboxPasswordShowed.Disabled = false;
+            selectVehicle.Disabled = true;
             buttonAddNewCar.Visible = false;
             buttonUpdateMyInfo.Visible = false;
             buttonUpdate.Visible = true;
@@ -58,57 +60,73 @@ namespace SYSPARK
 
         public void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            textboxName.Disabled = true;
-            textboxLastName.Disabled = true;
-            textboxUsername.Disabled = true;
-            textboxPasswordShowed.Disabled = true;
-            selectCondition.Disabled = true;
-            buttonAddNewCar.Visible = true;
-            buttonUpdateMyInfo.Visible = true;
-            buttonUpdate.Visible = false;
-            buttonErrors.Visible = false;
-
+            //Declare variables
             User user = new Entities.User();
             Condition condition = new Condition();
             UserBussinessRules userBussinessRules = new UserBussinessRules();
-            //Creating user
-            user.Id = Convert.ToInt32(Session["User-Id"]);
-            user.Name = textboxName.Value;
-            user.LastName = textboxLastName.Value;
-            user.Username = textboxUsername.Value;
-            user.Password = textboxPasswordShowed.Value;
-            condition.Id = Convert.ToInt32(hiddenConditionValue.Value);
-            condition.Description = selectCondition.Items.FindByValue(hiddenConditionValue.Value).Text;
-            user.Condition = condition;
-            //For password validation
-            string newPassword = textboxPasswordShowed.Value;
-            string passwordHashed = Session["User-PasswordHashed"].ToString();
-            bool verify = BCrypt.Net.BCrypt.Verify(newPassword, passwordHashed);
-            //Updating user
-            switch (userBussinessRules.UpdateRules(user))
+            CodeData codeData = new CodeData();
+            try
             {
-                case 0:
-                    if (textboxUsername.Value != Session["User-UserName"].ToString())
-                    {
-                        Session.Clear();
-                        Response.Redirect("Default.aspx");
-                    }else if (verify == false)
-                    {
-                        Session.Clear();
-                        Response.Redirect("Default.aspx");
-                    }
-                    Session["User-Name"] = textboxName.Value;
-                    Session["User-LastName"] = textboxLastName.Value;
-                    Session["User-ConditionId"] = hiddenConditionValue.Value;
-                    Response.Redirect("Profile.aspx");
-                    break;
-                case 1:
-                    buttonErrors.Style.Add("background-color", "red");
-                    buttonErrors.Style.Add("color", "white");
-                    buttonErrors.Value = "Please, check your entered data." + "\n" +
-                        "Remember you can't enter numbers in the fields.";
-                    break;
+                //Creating user
+                user.Id = Convert.ToInt32(Session["User-Id"]);
+                user.Name = textboxName.Value;
+                user.LastName = textboxLastName.Value;
+                user.Username = textboxUsername.Value;
+                user.Password = textboxPasswordShowed.Value;
+                condition.Id = Convert.ToInt32(selectCondition.Value);
+                condition.Description = selectCondition.Items.FindByValue(selectCondition.Value).Text;
+                user.Condition = condition;
+                //For password validation
+                string newPassword = textboxPasswordShowed.Value;
+                string passwordHashed = Session["User-PasswordHashed"].ToString();
+                bool verify = BCrypt.Net.BCrypt.Verify(newPassword, passwordHashed);
+                //Updating user
+                switch (userBussinessRules.UpdateRules(user))
+                {
+                    case 0:
+                        if (textboxUsername.Value != Session["User-UserName"].ToString())
+                        {
+                            Session.Clear();
+                            Response.Redirect("Default.aspx");
+                        }
+                        else if (verify == false)
+                        {
+                            Session.Clear();
+                            Response.Redirect("Default.aspx");
+                        }
+                        else
+                        {
+                            Session["User-Name"] = textboxName.Value;
+                            Session["User-LastName"] = textboxLastName.Value;
+                            Response.Redirect("Profile.aspx");
+                            //Disabling controls
+                            textboxName.Disabled = true;
+                            textboxLastName.Disabled = true;
+                            textboxUsername.Disabled = true;
+                            textboxPasswordShowed.Disabled = true;
+                            buttonAddNewCar.Visible = true;
+                            buttonUpdateMyInfo.Visible = true;
+                            buttonUpdate.Visible = false;
+                            buttonErrors.Visible = false;
+                        }
+
+                        break;
+                    case 1:
+                        buttonErrors.Style.Add("background-color", "red");
+                        buttonErrors.Style.Add("color", "white");
+                        buttonErrors.Value = "Please, check your entered data." + "\n" +
+                            "Remember you can't enter numbers in the fields.";
+                        break;
+                }
             }
+            catch (FormatException)
+            {
+                buttonErrors.Style.Add("background-color", "red");
+                buttonErrors.Style.Add("color", "white");
+                buttonErrors.Value = "Please, check your entered data." + "\n" +
+                    "Remember you can't enter numbers in the fields.";
+            }
+
         }
     }
 }

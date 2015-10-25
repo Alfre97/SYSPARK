@@ -16,16 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/profile.css" />
     <script>
-        function setValue() {
-            var select = document.getElementById("selectCondition");
-            var hiddenValue = document.getElementById("hiddenConditionValue");
-            var position = select.selectedIndex;
-            alert(position);
-            alert(select.options[position].value);
-            hiddenValue.value = select.options[position].value;
-
-        }
-    </script>
+</script>
 </head>
 <body>
     <form id="formProfile" runat="server">
@@ -33,7 +24,7 @@
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="Default.aspx">
+                        <a class="navbar-brand" id="navbar-toggle" href="Default.aspx">
                             <span style="color: white;">
                                 <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
                                 SYSPARK > Home > My Profile
@@ -49,7 +40,8 @@
             <br />
             <table id="tableProfile" border="0">
                 <tr>
-                    <td><a>Name:</a><br />
+                    <td><br />
+                        <a>Name:</a><br />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled" />
                     </td>
                 </tr>
@@ -78,10 +70,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenConditionValue" type="hidden" runat="server" />
                         <a>Condition:</a><br />
-                        <select id="selectCondition" runat="server" disabled="disabled" onchange="setValue()">
+                        <select id="selectCondition" runat="server" disabled="disabled">
                         </select>
+                        <br />
                     </td>
                 </tr>
                 <tr>

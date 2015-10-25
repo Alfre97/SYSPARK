@@ -14,13 +14,23 @@ namespace SYSPARK.BussinessRules
         {
             try
             {
-
-                userData.InsertUser(user);
-                return 0;
+                if (user.Name == "")
+                    return 1;
+                else if (user.LastName == "")
+                    return 2;
+                else if (user.Username == "")
+                    return 3;
+                else if (user.Password == "")
+                    return 4;
+                else
+                {
+                    userData.InsertUser(user);
+                    return 0;
+                }
             }
             catch (Exception)
             {
-                return 1;
+                return 5;
             }
         }
 

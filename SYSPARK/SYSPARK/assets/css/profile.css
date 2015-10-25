@@ -19,8 +19,12 @@ body {
     border-radius: 25px 25px;
     margin: 0 auto;
     width: 300px;
-    height: 300px;
+    height: 400px;
     color: white;
+}
+
+#navbar-toggle {
+    background-color: transparent;
 }
 
 a {
@@ -106,7 +110,7 @@ div {
 }
 
 #buttonUpdate {
-    width: 115px;
+    width: 240px;
     float: right;
     margin-right: 30px;
 }

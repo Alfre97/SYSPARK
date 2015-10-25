@@ -13,7 +13,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/Vehicle.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/parkingReservation.css" />
+    <script>
+    function setValue(x, y) {
+        var select = document.getElementById(x);
+        var hiddenValue = document.getElementById(y);
+        var position = select.selectedIndex;
+        hiddenValue.value = select.options[position].value;
+        alert(position);
+        alert(hiddenValue.value);
+    }
+</script>
 </head>
 <body>
     <form id="formParkReservation" runat="server">
@@ -31,6 +41,21 @@
                 </div>
             </div>
         </div>
+        <div id="allContent">
+            <table id="tableReservation">
+                <tr>
+                    <td>
+                        <input id="hiddenParkingValue" type="hidden" runat="server"/>
+                        <select id="selectParking" runat="server" onchange="setValue(this.id, 'hiddenParkingValue')">
+                        </select>
+                        <br /> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
     </form>
 </body>
 </html>

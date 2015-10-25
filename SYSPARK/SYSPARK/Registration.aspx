@@ -20,11 +20,12 @@
         var select = document.getElementById("selectCondition");
         var hiddenValue = document.getElementById("hiddenConditionValue");
         var position = select.selectedIndex;
-        alert(position);
-        alert(select.options[position].value);
         hiddenValue.value = select.options[position].value;
-        if (hiddenValue.value != 1) {
 
+        if (hiddenValue.value > 1) {
+            $("#textboxCode").show();
+        } else {
+            $("#textboxCode").hide();
         }
     }
 </script>
@@ -41,9 +42,9 @@
                             </span>
                         </a>
                         <label id="info">
-                            Note: At the moment you can only enter the main vehicle plate.
+                            Note: If want to register your acount like a teacher or administrative,
                             <br />
-                            Upon completion of registration you can add as many cars you want.</label>
+                            you have have to ask for an special code to validate it.</label>
                     </div>
                 </div>
             </div>
@@ -90,19 +91,18 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxCode" placeholder=" Code" runat="server" visible="false"/>
+                        <input type="text" id="textboxCode" placeholder=" Code" runat="server"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onserverclick=" buttonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonRegister" onclick="return confirm('Sure?') && !" onserverclick="buttonRegister_Click" runat="server">Register</button>
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" />
+                        <input type="button" id="buttonErrors" runat="server" value="" visible="false"/>
                     </td>
                 </tr>
             </table>

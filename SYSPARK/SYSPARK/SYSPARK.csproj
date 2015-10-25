@@ -76,8 +76,10 @@
   <ItemGroup>
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\homeAdministrative.css" />
+    <Content Include="Code.aspx" />
     <Content Include="History.aspx" />
     <Content Include="HomeAdministrative.aspx" />
+    <Content Include="Paking.aspx" />
     <Content Include="Vehicle.aspx" />
     <Content Include="assets\css\vehicle.css" />
     <Content Include="Condition.aspx" />
@@ -123,6 +125,13 @@
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
     <Compile Include="App_Data\CodeData.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
+    <Compile Include="Code.aspx.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code.aspx.designer.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+    </Compile>
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,6 +145,13 @@
     </Compile>
     <Compile Include="HomeAdministrative.aspx.designer.cs">
       <DependentUpon>HomeAdministrative.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paking.aspx.cs">
+      <DependentUpon>Paking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paking.aspx.designer.cs">
+      <DependentUpon>Paking.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vehicle.aspx.cs">
       <DependentUpon>Vehicle.aspx</DependentUpon>
