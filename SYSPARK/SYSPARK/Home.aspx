@@ -145,7 +145,7 @@
                         <nav id="navbarFromRight">
                             <ul>
                                 <li>
-                                    <button type="button" id="buttonLogout" runat="server" onclick="return confirm('Sure?') && !" onserverclick="Logout">Log out</button>
+                                    <button onserverclick=" buttonLogout_Click" type="button" id="buttonLogout" runat="server">Log out</button>
                                 </li>
                                 <li>
                                     <button type="button" id="buttonInfo" runat="server">Info</button>

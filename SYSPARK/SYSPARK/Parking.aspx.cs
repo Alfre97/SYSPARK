@@ -94,28 +94,28 @@ namespace SYSPARK
             }
         }
 
-        public void buttonErrorsStyleRed()
+        protected void buttonErrorsStyleRed()
         {
             buttonErrors.Visible = true;
             buttonErrors.Style.Add("background-color", "red");
             buttonErrors.Style.Add("color", "white");
         }
 
-        public void buttonErrorsStyleBlue()
+        protected void buttonErrorsStyleBlue()
         {
             buttonErrors.Visible = true;
             buttonErrors.Style.Add("background-color", "blue");
             buttonErrors.Style.Add("color", "white");
         }
 
-        public void buttonErrorsStyleWhite()
+        protected void buttonErrorsStyleWhite()
         {
             buttonErrors.Visible = true;
             buttonErrors.Style.Add("background-color", "white");
             buttonErrors.Style.Add("color", "red");
         }
 
-        public void clearControls()
+        protected void clearControls()
         {
             textboxParkingName.Value = string.Empty;
             textboxTotalSpace.Value = string.Empty;

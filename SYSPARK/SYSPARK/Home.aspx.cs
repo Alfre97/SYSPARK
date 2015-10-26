@@ -21,5 +21,10 @@ namespace SYSPARK
                 buttonCode.Visible = false;
             }
         }
+
+        protected void buttonLogout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }
