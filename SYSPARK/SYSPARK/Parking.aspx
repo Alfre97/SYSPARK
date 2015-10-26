@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="SYSPARK.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Parking.aspx.cs" Inherits="SYSPARK.Paking" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Registration</title>
+    <title>Parking</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
@@ -13,38 +13,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/registration.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/parking.css" />
 </head>
-<script>
-    function setValue() {
-        var select = document.getElementById("selectCondition");
-        var hiddenValue = document.getElementById("hiddenConditionValue");
-        var position = select.selectedIndex;
-        hiddenValue.value = select.options[position].value;
-
-        if (hiddenValue.value > 1) {
-            $("#textboxCode").show();
-        } else {
-            $("#textboxCode").hide();
-        }
-    }
-</script>
 <body>
-    <form id="Registration" runat="server">
+    <form id="formParking" runat="server">
         <div class="Header">
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="Registration.aspx">
+                        <a class="navbar-brand" href="Home.aspx">
                             <span style="color: white;">
                                 <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
                                 SYSPARK > Registration
                             </span>
                         </a>
                         <label id="info">
-                            Note: If want to register your acount like a teacher or administrative,
-                            <br />
-                            you have have to ask for an special code to validate it.</label>
+                            Note: It is recommended that the name of the parking can be a letter of the alphabet.</label>
                     </div>
                 </div>
             </div>
@@ -52,57 +36,55 @@
         <br />
         <br />
         <br />
-        <div id="allContentInRegistration">
-            <h1>Registration</h1>
+        <div id="errors">
+            <input type="button" id="buttonErrors" runat="server" value="" visible="false" />
+        </div>
+        <div id="allContentInParking">
+            <h1>Parking</h1>
             <br />
-            <table id="tableRegistration" border="0">
+            <table id="tableParking" border="0">
                 <tr>
                     <td>
                         <br />
-                        <input type="text" id="textboxName" placeholder=" Name" runat="server" />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" id="textboxLastName" placeholder=" Last name" runat="server" />
+                        <input type="text" id="textboxParkingName" placeholder=" Parking name" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxUsername" placeholder=" User name" runat="server" />
+                        <input type="text" id="textboxTotalSpace" placeholder=" Total space" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" id="textboxPassword" placeholder=" Password" runat="server" />
+                        <input type="text" id="textboxCarSpace" placeholder=" Car space" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenConditionValue" type="hidden" runat="server"/>
-                        <select id="selectCondition" runat="server" onchange="setValue()">
-                        </select>
+                        <input type="text" id="textboxMotorCycleSpace" placeholder=" Motorcycle space" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxCode" placeholder=" Code" runat="server"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button onserverclick=" buttonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
+                        <input type="text" id="textboxBusSpace" placeholder=" Bus space" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" visible="false"/>
+                        <input type="text" id="textboxHandicapSpace" placeholder=" Handicap space" runat="server" />
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onserverclick=" AddParking_Click" type="button" id="buttonAddParking" runat="server">Add parking</button>
+                        <br />
+                        <br />
                     </td>
                 </tr>
             </table>

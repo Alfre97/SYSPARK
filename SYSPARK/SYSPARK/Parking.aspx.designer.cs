@@ -10,114 +10,87 @@
 namespace SYSPARK {
     
     
-    public partial class Home {
+    public partial class Paking {
         
         /// <summary>
-        /// buttonSearch control.
+        /// formParking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonSearch;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formParking;
         
         /// <summary>
-        /// buttonParkReservation control.
+        /// buttonErrors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonParkReservation;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
         
         /// <summary>
-        /// buttonMyProfile control.
+        /// textboxParkingName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonMyProfile;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxParkingName;
         
         /// <summary>
-        /// buttonReports control.
+        /// textboxTotalSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonReports;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxTotalSpace;
         
         /// <summary>
-        /// buttonHistory control.
+        /// textboxCarSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonHistory;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxCarSpace;
         
         /// <summary>
-        /// buttonParking control.
+        /// textboxMotorCycleSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonParking;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxMotorCycleSpace;
         
         /// <summary>
-        /// buttonCondition control.
+        /// textboxBusSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCondition;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxBusSpace;
         
         /// <summary>
-        /// buttonVehicleType control.
+        /// textboxHandicapSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonVehicleType;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxHandicapSpace;
         
         /// <summary>
-        /// buttonCode control.
+        /// buttonAddParking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCode;
-        
-        /// <summary>
-        /// buttonConfiguration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonConfiguration;
-        
-        /// <summary>
-        /// buttonLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonLogout;
-        
-        /// <summary>
-        /// buttonInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddParking;
     }
 }

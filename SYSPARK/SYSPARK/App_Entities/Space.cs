@@ -7,11 +7,22 @@ namespace SYSPARK.Entities
 {
     public class Space
     {
+        private int id;
         private string name;
+        private string parkingName;
+        private string type;
 
-        public Space(string name)
+        public int Id
         {
-            this.name = name;
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
         }
 
         public string Name
@@ -24,6 +35,32 @@ namespace SYSPARK.Entities
             set
             {
                 name = value;
+            }
+        }
+
+        public string ParkingName
+        {
+            get
+            {
+                return parkingName;
+            }
+
+            set
+            {
+                parkingName = value;
+            }
+        }
+
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
             }
         }
     }

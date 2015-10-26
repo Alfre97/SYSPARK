@@ -8,7 +8,12 @@ namespace SYSPARK.Entities
     public class Parking
     {
         private string name;
-        private int AmountOfSpace;
+        private int totalSpace;
+        private int carSpace;
+        private int motorcycleSpace;
+        private int handicapSpace;
+        private int busSpace;
+        private List<Space> spaceList = new List<Space>();
 
         public string Name
         {
@@ -23,16 +28,81 @@ namespace SYSPARK.Entities
             }
         }
 
-        public int AmountOfSpace1
+        public int TotalSpace
         {
             get
             {
-                return AmountOfSpace;
+                return totalSpace;
             }
 
             set
             {
-                AmountOfSpace = value;
+                totalSpace = value;
+            }
+        }
+
+        public int CarSpace
+        {
+            get
+            {
+                return carSpace;
+            }
+
+            set
+            {
+                carSpace = value;
+            }
+        }
+
+        public int MotorcycleSpace
+        {
+            get
+            {
+                return motorcycleSpace;
+            }
+
+            set
+            {
+                motorcycleSpace = value;
+            }
+        }
+
+        public int HandicapSpace
+        {
+            get
+            {
+                return handicapSpace;
+            }
+
+            set
+            {
+                handicapSpace = value;
+            }
+        }
+
+        public int BusSpace
+        {
+            get
+            {
+                return busSpace;
+            }
+
+            set
+            {
+                busSpace = value;
+            }
+        }
+
+        public List<Space> SpaceList
+        {
+            get
+            {
+                return spaceList;
+            }
+
+            set
+            {
+                spaceList = value;
             }
         }
     }

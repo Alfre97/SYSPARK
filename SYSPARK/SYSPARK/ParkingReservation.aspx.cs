@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,13 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Select parking
+            ParkingData parkingData = new ParkingData();
+            DataTable dataTableParking = parkingData.DataTableParking();
+            selectParking.DataSource = dataTableParking;
+            selectParking.DataValueField = "Name";
+            selectParking.DataTextField = "Name";
+            selectParking.DataBind();
         }
     }
 }

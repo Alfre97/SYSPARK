@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/homeAdministrative.css" />
     <script src="assets/js/HomeMenu.js"></script>
 
 </head>
@@ -27,13 +27,14 @@
                         <!-- Company and name logo -->
                         <label id="logo">
                             <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                            SYSPARK > Home
+                            SYSPARK > Home Administrative
                         </label>
                     </div>
                     <!-- TextBox and Button Search -->
                     <div class="nav" id="search">
                         <input type="text" placeholder=" Search" id="TextBoxSearch" />
-                            <button type="button" id="buttonSearch" runat="server"><img id="imageSearch" src="assets/img/LogoSearch.jpg"/></button>
+                        <button type="button" id="buttonSearch" runat="server">
+                            <img id="imageSearch" src="assets/img/LogoSearch.jpg" /></button>
                     </div>
                 </nav>
             </div>
@@ -48,13 +49,12 @@
                         <br />
                         <br />
                         <br />
-                        <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonParkReservation" onclick="location.href='ParkingReservation.aspx'">Parking Reservation</button>
+                            <button type="button" id="buttonParkReservation" onclick="location.href='ParkingReservation.aspx'" runat="server">Parking Reservation</button>
                         </div>
                         <br />
                     </td>
@@ -62,7 +62,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonMyProfile" onclick="location.href='Profile.aspx'">My Profile</button>
+                            <button type="button" id="buttonMyProfile" onclick="location.href='Profile.aspx'" runat="server">My Profile</button>
                         </div>
                         <br />
                     </td>
@@ -70,7 +70,7 @@
                 <tr>
                     <td>
                         <div>
-                            <button id="buttonHistory" type="button" onclick="location.href='History.aspx'">History</button>
+                            <button type="button" id="buttonReports" onclick="location.href='Reports.aspx'" runat="server">Reports</button>
                         </div>
                         <br />
                     </td>
@@ -78,9 +78,48 @@
                 <tr>
                     <td>
                         <div>
-                            <button type="button" id="buttonConfiguration">Configuration</button>
+                            <button type="button" id="buttonHistory" onclick="location.href='History.aspx'" runat="server">History</button>
                         </div>
                         <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonParking" onclick="location.href='Parking.aspx'" runat="server">Parking</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonCondition" onclick="location.href='Condition.aspx'" runat="server">User Condition</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonVehicleType" onclick="location.href='VehicleTypePage.aspx'" runat="server">Vehicle Type</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonCode" onclick="location.href='Code.aspx'" runat="server">Access Code</button>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button type="button" id="buttonConfiguration" runat="server">Configuration</button>
+                        </div>
                         <br />
                         <br />
                         <br />

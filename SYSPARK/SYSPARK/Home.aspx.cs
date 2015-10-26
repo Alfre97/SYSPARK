@@ -11,12 +11,15 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-        protected void Logout(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Response.Redirect("Default.aspx");
+            int userCondition = Convert.ToInt32(Session["User-ConditionId"]);
+            if(userCondition == 1)
+            {
+                buttonCondition.Visible = false;
+                buttonParking.Visible = false;
+                buttonReports.Visible = false;
+                buttonVehicleType.Visible = false;
+                buttonCode.Visible = false;
+            }
         }
     }
 }

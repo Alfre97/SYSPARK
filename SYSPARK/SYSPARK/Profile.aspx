@@ -24,7 +24,7 @@
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" id="navbar-toggle" href="Default.aspx">
+                        <a class="navbar-brand" id="navbar-toggle" href="Home.aspx">
                             <span style="color: white;">
                                 <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
                                 SYSPARK > Home > My Profile
@@ -80,6 +80,7 @@
                     <td>
                         <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Vehicle</button>
                         <button onserverclick=" ButtonUpdateMyInfo_Click" type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
+                        <br />
                     </td>
                 </tr>
                 <tr>
@@ -91,6 +92,7 @@
                 <tr>
                     <td>
                         <input type="button" id="buttonErrors" runat="server" value="" visible="false" />
+                        <br />
                     </td>
                 </tr>
             </table>

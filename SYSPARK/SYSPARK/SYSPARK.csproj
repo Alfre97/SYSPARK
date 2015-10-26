@@ -76,10 +76,11 @@
   <ItemGroup>
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\homeAdministrative.css" />
+    <Content Include="assets\css\parking.css" />
     <Content Include="Code.aspx" />
     <Content Include="History.aspx" />
-    <Content Include="HomeAdministrative.aspx" />
-    <Content Include="Paking.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Parking.aspx" />
     <Content Include="Vehicle.aspx" />
     <Content Include="assets\css\vehicle.css" />
     <Content Include="Condition.aspx" />
@@ -97,7 +98,6 @@
     <Content Include="assets\img\plus.png" />
     <Content Include="Default.aspx" />
     <Content Include="assets\css\default.css" />
-    <Content Include="Home.aspx" />
     <Content Include="packages.config" />
     <Content Include="assets\less\main.less" />
     <Content Include="assets\less\responsive.less" />
@@ -122,6 +122,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_BussinessRules\ParkingBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
     <Compile Include="App_Data\CodeData.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
@@ -139,20 +140,22 @@
     <Compile Include="History.aspx.designer.cs">
       <DependentUpon>History.aspx</DependentUpon>
     </Compile>
-    <Compile Include="HomeAdministrative.aspx.cs">
-      <DependentUpon>HomeAdministrative.aspx</DependentUpon>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomeAdministrative.aspx.designer.cs">
-      <DependentUpon>HomeAdministrative.aspx</DependentUpon>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Paking.aspx.cs">
-      <DependentUpon>Paking.aspx</DependentUpon>
+    <Compile Include="Parking.aspx.cs">
+      <DependentUpon>Parking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Paking.aspx.designer.cs">
-      <DependentUpon>Paking.aspx</DependentUpon>
+    <Compile Include="Parking.aspx.designer.cs">
+      <DependentUpon>Parking.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\ParkingData.cs" />
+    <Compile Include="App_Data\SpaceData.cs" />
     <Compile Include="Vehicle.aspx.cs">
       <DependentUpon>Vehicle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,13 +192,6 @@
     <Compile Include="App_Entities\Space.cs" />
     <Compile Include="App_Entities\User.cs" />
     <Compile Include="App_Entities\Vehicle.cs" />
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ParkingReservation.aspx.cs">
       <DependentUpon>ParkingReservation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

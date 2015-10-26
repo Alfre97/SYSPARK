@@ -21,7 +21,7 @@
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="Default.aspx">
+                        <a class="navbar-brand" href="Home.aspx">
                             <span style="color: white;">
                                 <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
                                 SYSPARK > Home > My Profile > Vehicle
