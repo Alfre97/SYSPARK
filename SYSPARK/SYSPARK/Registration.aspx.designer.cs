@@ -40,22 +40,22 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxLastName;
         
         /// <summary>
-        /// textboxUsername control.
+        /// textboxUsernameR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxUsername;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxUsernameR;
         
         /// <summary>
-        /// textboxPassword control.
+        /// textboxPasswordR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword textboxPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword textboxPasswordR;
         
         /// <summary>
         /// hiddenConditionValue control.
@@ -74,6 +74,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectCondition;
+        
+        /// <summary>
+        /// trCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCode;
         
         /// <summary>
         /// textboxCode control.
@@ -101,6 +110,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonRegister;
+        
+        /// <summary>
+        /// trErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trErrors;
         
         /// <summary>
         /// buttonErrors control.

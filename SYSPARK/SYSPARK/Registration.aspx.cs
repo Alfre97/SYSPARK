@@ -15,6 +15,9 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["RegistrationUserName"] = string.Empty;
+            Session["RegistrationPassword"] = string.Empty;
+            Session["HiddenTransaction"] = string.Empty;
             //Select conditionType
             RoleData roleData = new RoleData();
             DataTable condition = roleData.DataTableRole();
@@ -45,6 +48,9 @@ namespace SYSPARK
                             {
                                 case 0:
                                     hiddenTransaction.Value = "Transaction successful.";
+                                    Session["RegistrationUserName"] = textboxUsernameR.Value;
+                                    Session["RegistrationPassword"] = textboxPasswordR.Value;
+                                    Session["HiddenTransaction"] = hiddenTransaction.Value;
                                     Response.Redirect("Default.aspx");
                                     break;
                                 case 1:
@@ -123,8 +129,8 @@ namespace SYSPARK
             //User
             user.Name = textboxName.Value;
             user.LastName = textboxLastName.Value;
-            user.Username = textboxUsername.Value;
-            user.Password = textboxPassword.Value;
+            user.Username = textboxUsernameR.Value;
+            user.Password = textboxPasswordR.Value;
             //Condition
 
             condition.Id = Convert.ToInt32(hiddenConditionValue.Value);
@@ -136,21 +142,21 @@ namespace SYSPARK
 
         protected void buttonErrorsStyleRed()
         {
-            buttonErrors.Visible = true;
+            trErrors.Visible = true;
             buttonErrors.Style.Add("background-color", "red");
             buttonErrors.Style.Add("color", "white");
         }
 
         protected void buttonErrorsStyleBlue()
         {
-            buttonErrors.Visible = true;
+            trErrors.Visible = true;
             buttonErrors.Style.Add("background-color", "blue");
             buttonErrors.Style.Add("color", "white");
         }
 
         protected void buttonErrorsStyleWhite()
         {
-            buttonErrors.Visible = true;
+            trErrors.Visible = true;
             buttonErrors.Style.Add("background-color", "white");
             buttonErrors.Style.Add("color", "red");
         }

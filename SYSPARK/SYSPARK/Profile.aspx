@@ -15,6 +15,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/profile.css" />
+    <script>
+        function setValue(x, y) {
+            var select = document.getElementById(x);
+            var hiddenValue = document.getElementById(y);
+            var position = select.selectedIndex;
+            hiddenValue.value = select.options[position].value;
+
+            if (hiddenValue.value > 1) {
+                document.getElementById("textboxCode").style.display = "unset";
+                $("#textboxCode").show();
+            }
+            else
+                $("#textboxCode").hide();
+        }
+    </script>
 </head>
 <body>
     <form id="formProfile" runat="server">
@@ -38,7 +53,7 @@
             <br />
             <table id="tableProfile" border="0">
                 <tr>
-                    <td><br />
+                    <td>
                         <a>Name:</a><br />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled" />
                     </td>
@@ -59,7 +74,7 @@
                         <input type="text" id="textboxPasswordShowed" runat="server" placeholder=" Password" disabled="disabled" />
                     </td>
                 </tr>
-                <tr>
+                <tr id="trVehicle" runat="server">
                     <td>
                         <a>Vehicle:</a><br />
                         <select id="selectVehicle" runat="server">
@@ -68,10 +83,15 @@
                 </tr>
                 <tr>
                     <td>
+                        <input type="hidden" id="hiddenConditionValue" runat="server" value="1" />
                         <a>Condition:</a><br />
-                        <select id="selectCondition" runat="server" disabled="disabled">
+                        <select id="selectCondition" runat="server" disabled="disabled" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
-                        <br />
+                    </td>
+                </tr>
+                <tr id="trCode" runat="server">
+                    <td>
+                        <input type="text" id="textboxCode" placeholder=" Code" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -81,15 +101,17 @@
                         <br />
                     </td>
                 </tr>
-                <tr>
+                <tr runat="server" id="trUpdate" visible="false">
                     <td>
-                        <button onserverclick=" ButtonUpdate_Click" type="button" id="buttonUpdate" runat="server" visible="false">
-                            Update</button>
+                        <input type="hidden" id="hiddenUpdate" runat="server" />
+                        <button onserverclick=" ButtonCancelUpdate_Click" type="button" id="buttonCancelUpdate" runat="server">Cancel</button>
+                        <button onserverclick=" ButtonUpdate_Click" type="button" id="buttonUpdate" runat="server">Update</button>
+                        <br />
                     </td>
                 </tr>
-                <tr>
+                <tr runat="server" id="trErrors">
                     <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" visible="false" />
+                        <input type="button" id="buttonErrors" runat="server" value="" />
                         <br />
                     </td>
                 </tr>

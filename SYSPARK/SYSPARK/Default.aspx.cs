@@ -16,18 +16,20 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.PreviousPage != null)
+            if (Session["hiddenTransaction"] != null)
             {
-                TextBox answer = (TextBox)Page.PreviousPage.FindControl("hiddenTransaction");
-                TextBox username = (TextBox)Page.PreviousPage.FindControl("textboxUsername");
-                TextBox password = (TextBox)Page.PreviousPage.FindControl("textboxPassword");
-                if (answer != null)
-                {
-                    buttonErrorsStyleBlue();
-                    buttonErrors.Value = "Transaction successful.";
-                    textBoxUsername.Value = username.Text;
-                    textBoxPassword.Value = password.Text;
-                }
+                textBoxUsername.Value = Session["RegistrationUserName"].ToString();
+                textBoxUsername.Value = Session["RegistrationPassword"].ToString();
+                buttonErrorsStyleBlue();
+                buttonErrors.Value = "Registration successful.";
+                Session.Clear();
+            }
+
+            if (Session["UpdateTransaction"] != null)
+            {
+                buttonErrorsStyleBlue();
+                buttonErrors.Value = "Update successful.";
+                Session.Clear();
             }
         }
 

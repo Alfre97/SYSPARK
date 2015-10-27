@@ -58,6 +58,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxPasswordShowed;
         
         /// <summary>
+        /// trVehicle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trVehicle;
+        
+        /// <summary>
         /// selectVehicle control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectVehicle;
         
         /// <summary>
+        /// hiddenConditionValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenConditionValue;
+        
+        /// <summary>
         /// selectCondition control.
         /// </summary>
         /// <remarks>
@@ -74,6 +92,24 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectCondition;
+        
+        /// <summary>
+        /// trCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCode;
+        
+        /// <summary>
+        /// textboxCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxCode;
         
         /// <summary>
         /// buttonAddNewCar control.
@@ -94,6 +130,33 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdateMyInfo;
         
         /// <summary>
+        /// trUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trUpdate;
+        
+        /// <summary>
+        /// hiddenUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenUpdate;
+        
+        /// <summary>
+        /// buttonCancelUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCancelUpdate;
+        
+        /// <summary>
         /// buttonUpdate control.
         /// </summary>
         /// <remarks>
@@ -101,6 +164,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdate;
+        
+        /// <summary>
+        /// trErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trErrors;
         
         /// <summary>
         /// buttonErrors control.

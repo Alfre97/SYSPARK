@@ -109,8 +109,20 @@ div {
     margin-right: 30px;
 }
 
+#buttonCancelUpdate {
+     width: 115px;
+    float: left;
+    margin-left: 30px;
+}
+
 #buttonUpdate {
-    width: 240px;
+    width: 115px;
     float: right;
     margin-right: 30px;
+}
+
+#textboxCode {
+    display: none;
+    float: left;
+    margin-left: 30px;
 }

@@ -16,17 +16,18 @@
     <link rel="stylesheet" type="text/css" href="assets/css/registration.css" />
 </head>
 <script>
-    function setValue() {
-        var select = document.getElementById("selectCondition");
-        var hiddenValue = document.getElementById("hiddenConditionValue");
+    function setValue(x, y) {
+        var select = document.getElementById(x);
+        var hiddenValue = document.getElementById(y);
         var position = select.selectedIndex;
         hiddenValue.value = select.options[position].value;
 
         if (hiddenValue.value > 1) {
+            document.getElementById("textboxCode").style.display = "unset";
             $("#textboxCode").show();
-        } else {
-            $("#textboxCode").hide();
         }
+        else
+            $("#textboxCode").hide();
     }
 </script>
 <body>
@@ -58,7 +59,6 @@
             <table id="tableRegistration" border="0">
                 <tr>
                     <td>
-                        <br />
                         <input type="text" id="textboxName" placeholder=" Name" runat="server" />
                         <br />
                     </td>
@@ -71,39 +71,39 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxUsername" placeholder=" User name" runat="server" />
+                        <input type="text" id="textboxUsernameR" placeholder=" User name" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" id="textboxPassword" placeholder=" Password" runat="server" />
+                        <input type="password" id="textboxPasswordR" placeholder=" Password" runat="server" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenConditionValue" type="hidden" runat="server" value="1"/>
-                        <select id="selectCondition" runat="server" onchange="setValue()">
+                        <input id="hiddenConditionValue" type="hidden" runat="server" value="1" />
+                        <select id="selectCondition" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
                         <br />
                     </td>
                 </tr>
-                <tr>
+                <tr id="trCode" runat="server">
                     <td>
-                        <input type="text" id="textboxCode" placeholder=" Code" runat="server"/>
+                        <input type="text" id="textboxCode" placeholder=" Code" runat="server" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenTransaction" type="hidden" runat="server" value=""/>
+                        <input id="hiddenTransaction" type="hidden" runat="server" />
                         <button onserverclick=" buttonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
                         <br />
                     </td>
                 </tr>
-                <tr>
+                <tr id="trErrors" runat="server" visible="false">
                     <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" visible="false"/>
+                        <input type="button" id="buttonErrors" runat="server" />
                     </td>
                 </tr>
             </table>
