@@ -20,9 +20,9 @@ namespace SYSPARK.Data
                 selectCondition.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter adap = new SqlDataAdapter(selectCondition);
                 adap.Fill(dataTableCondition);
-                connection = ManageDatabaseConnection("Close");
-                return dataTableCondition;
             }
+            connection = ManageDatabaseConnection("Close");
+            return dataTableCondition;
         }
     }
 }

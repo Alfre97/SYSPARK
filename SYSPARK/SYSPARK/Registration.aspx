@@ -83,7 +83,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenConditionValue" type="hidden" runat="server"/>
+                        <input id="hiddenConditionValue" type="hidden" runat="server" value="1"/>
                         <select id="selectCondition" runat="server" onchange="setValue()">
                         </select>
                         <br />
@@ -96,6 +96,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <input id="hiddenTransaction" type="hidden" runat="server" value=""/>
                         <button onserverclick=" buttonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
                         <br />
                     </td>

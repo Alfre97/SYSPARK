@@ -15,9 +15,6 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-Id"] == null)
-                Response.Redirect("Default.aspx");
-
             //Select conditionType
             RoleData roleData = new RoleData();
             DataTable condition = roleData.DataTableRole();
@@ -29,23 +26,14 @@ namespace SYSPARK
 
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
-            User user = new User();
+            InsertUser(createUser());
+        }
+
+        protected void InsertUser(User user)
+        {
             UserBussinessRules userBussinessRules = new UserBussinessRules();
-            Condition condition = new Condition();
             CodeData codeData = new CodeData();
-            //User
-            user.Name = textboxName.Value;
-            user.LastName = textboxLastName.Value;
-            user.Username = textboxUsername.Value;
-            user.Password = textboxPassword.Value;
-            //Condition
-            
-            condition.Id = Convert.ToInt32(hiddenConditionValue.Value);
-            condition.Description = selectCondition.Items.FindByValue(hiddenConditionValue.Value).Text;
-            //Inserting registration data
-            user.Condition = condition;
-            
-            if(Convert.ToInt32(hiddenConditionValue.Value) > 1)
+            if (Convert.ToInt32(hiddenConditionValue.Value) > 1)
             {
                 if (textboxCode.Value != "")
                 {
@@ -56,59 +44,44 @@ namespace SYSPARK
                             switch (userBussinessRules.RegistrationRules(user))
                             {
                                 case 0:
+                                    hiddenTransaction.Value = "Transaction successful.";
                                     Response.Redirect("Default.aspx");
                                     break;
                                 case 1:
-                                    buttonErrors.Visible = true;
-                                    buttonErrors.Style.Add("background-color", "red");
-                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrorsStyleWhite();
                                     buttonErrors.Value = "The name field is empty.";
                                     break;
                                 case 2:
-                                    buttonErrors.Visible = true;
-                                    buttonErrors.Style.Add("background-color", "red");
-                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrorsStyleRed();
                                     buttonErrors.Value = "The lastname field is empty.";
                                     break;
                                 case 3:
-                                    buttonErrors.Visible = true;
-                                    buttonErrors.Style.Add("background-color", "red");
-                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrorsStyleWhite();
                                     buttonErrors.Value = "The username field is empty.";
                                     break;
                                 case 4:
-                                    buttonErrors.Visible = true;
-                                    buttonErrors.Style.Add("background-color", "red");
-                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrorsStyleRed();
                                     buttonErrors.Value = "The password field is empty.";
                                     break;
                                 case 5:
-                                    buttonErrors.Visible = true;
-                                    buttonErrors.Style.Add("background-color", "red");
-                                    buttonErrors.Style.Add("color", "white");
+                                    buttonErrorsStyleWhite();
                                     buttonErrors.Value = "An error ocurred during your registration.";
                                     break;
                             }
                             break;
                         case 1:
-                            buttonErrors.Visible = true;
-                            buttonErrors.Style.Add("background-color", "red");
-                            buttonErrors.Style.Add("color", "white");
+                            buttonErrorsStyleRed();
                             buttonErrors.Value = "The provide a valid code.";
                             break;
                         case 2:
-                            buttonErrors.Visible = true;
-                            buttonErrors.Style.Add("background-color", "white");
-                            buttonErrors.Style.Add("color", "red");
+                            buttonErrorsStyleWhite();
                             buttonErrors.Value = "The entered code is already used.";
                             break;
                     }
                 }
                 else
                 {
-                    buttonErrors.Visible = true;
-                    buttonErrors.Style.Add("background-color", "red");
-                    buttonErrors.Style.Add("color", "white");
+                    buttonErrorsStyleRed();
                     buttonErrors.Value = "The code field is empty.";
                 }
             }
@@ -120,38 +93,66 @@ namespace SYSPARK
                         Response.Redirect("Default.aspx");
                         break;
                     case 1:
-                        buttonErrors.Visible = true;
-                        buttonErrors.Style.Add("background-color", "red");
-                        buttonErrors.Style.Add("color", "white");
+                        buttonErrorsStyleRed();
                         buttonErrors.Value = "The name field is empty.";
                         break;
                     case 2:
-                        buttonErrors.Visible = true;
-                        buttonErrors.Style.Add("background-color", "red");
-                        buttonErrors.Style.Add("color", "white");
+                        buttonErrorsStyleWhite();
                         buttonErrors.Value = "The lastname field is empty.";
                         break;
                     case 3:
-                        buttonErrors.Visible = true;
-                        buttonErrors.Style.Add("background-color", "red");
-                        buttonErrors.Style.Add("color", "white");
+                        buttonErrorsStyleRed();
                         buttonErrors.Value = "The username field is empty.";
                         break;
                     case 4:
-                        buttonErrors.Visible = true;
-                        buttonErrors.Style.Add("background-color", "red");
-                        buttonErrors.Style.Add("color", "white");
+                        buttonErrorsStyleWhite();
                         buttonErrors.Value = "The password field is empty.";
                         break;
                     case 5:
-                        buttonErrors.Visible = true;
-                        buttonErrors.Style.Add("background-color", "red");
-                        buttonErrors.Style.Add("color", "white");
+                        buttonErrorsStyleRed();
                         buttonErrors.Value = "An error ocurred during your registration.";
                         break;
                 }
             }
-            
+        }
+
+        protected User createUser()
+        {
+            User user = new User();
+            Condition condition = new Condition();
+            //User
+            user.Name = textboxName.Value;
+            user.LastName = textboxLastName.Value;
+            user.Username = textboxUsername.Value;
+            user.Password = textboxPassword.Value;
+            //Condition
+
+            condition.Id = Convert.ToInt32(hiddenConditionValue.Value);
+            condition.Description = selectCondition.Items.FindByValue(hiddenConditionValue.Value).Text;
+            //Inserting registration data
+            user.Condition = condition;
+            return user;
+        }
+
+        protected void buttonErrorsStyleRed()
+        {
+            buttonErrors.Visible = true;
+            buttonErrors.Style.Add("background-color", "red");
+            buttonErrors.Style.Add("color", "white");
+        }
+
+        protected void buttonErrorsStyleBlue()
+        {
+            buttonErrors.Visible = true;
+            buttonErrors.Style.Add("background-color", "blue");
+            buttonErrors.Style.Add("color", "white");
+        }
+
+        protected void buttonErrorsStyleWhite()
+        {
+            buttonErrors.Visible = true;
+            buttonErrors.Style.Add("background-color", "white");
+            buttonErrors.Style.Add("color", "red");
         }
     }
 }

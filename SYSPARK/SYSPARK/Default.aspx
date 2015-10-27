@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
 </head>
 <body>
+    <%@ PreviousPageType VirtualPath="Registration.aspx" %>
     <form runat="server">
         <!-- Navbar star -->
         <div class="Header">
@@ -51,7 +52,7 @@
                 <tr>
                     <td>
                         <br />
-                        <input type="button" id="buttonErrors" runat="server" value="Your welcome!" style="color: white;"/>
+                        <input type="button" id="buttonErrors" runat="server" value="Your welcome!" style="color: white;" />
                         <br />
                         <br />
                     </td>

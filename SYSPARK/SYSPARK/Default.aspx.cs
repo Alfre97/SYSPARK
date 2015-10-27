@@ -14,6 +14,23 @@ namespace SYSPARK
 {
     public partial class Login : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Page.PreviousPage != null)
+            {
+                TextBox answer = (TextBox)Page.PreviousPage.FindControl("hiddenTransaction");
+                TextBox username = (TextBox)Page.PreviousPage.FindControl("textboxUsername");
+                TextBox password = (TextBox)Page.PreviousPage.FindControl("textboxPassword");
+                if (answer != null)
+                {
+                    buttonErrorsStyleBlue();
+                    buttonErrors.Value = "Transaction successful.";
+                    textBoxUsername.Value = username.Text;
+                    textBoxPassword.Value = password.Text;
+                }
+            }
+        }
+
         protected void enterButton_Click(object sender, EventArgs e)
         {
             CheckUserNameAndPassword();

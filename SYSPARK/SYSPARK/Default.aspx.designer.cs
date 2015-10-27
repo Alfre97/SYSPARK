@@ -47,5 +47,17 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonEnter;
+        
+        /// <summary>
+        /// PreviousPage property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new SYSPARK.Register PreviousPage {
+            get {
+                return ((SYSPARK.Register)(base.PreviousPage));
+            }
+        }
     }
 }
