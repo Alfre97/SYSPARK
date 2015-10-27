@@ -9,13 +9,13 @@ using System.Web;
 
 namespace SYSPARK.Data
 {
-    public class ConditionData : DataBaseConnection
+    public class RoleData : DataBaseConnection
     {
-        public DataTable DataTableCondition()
+        public DataTable DataTableRole()
         {
             DataTable dataTableCondition = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
-            using (SqlCommand selectCondition = new SqlCommand(@"SelectCondition", connection))
+            using (SqlCommand selectCondition = new SqlCommand(@"SelectRole", connection))
             {
                 selectCondition.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter adap = new SqlDataAdapter(selectCondition);

@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonAddNewCar" runat="server" onclick="return confirm('Sure?') && !" onserverclick="ButtonVehicle_Click">Add vehicle</button>
+                        <button onserverclick=" ButtonVehicle_Click" type="button" id="buttonAddNewCar" runat="server">Add vehicle</button>
                     </td>
                 </tr>
                 <tr>

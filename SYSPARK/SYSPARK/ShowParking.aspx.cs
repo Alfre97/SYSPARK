@@ -7,12 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace SYSPARK
 {
-    public partial class History : System.Web.UI.Page
+    public partial class ShowParking : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-Id"] == null)
-                Response.Redirect("Default.aspx");
+
         }
     }
 }

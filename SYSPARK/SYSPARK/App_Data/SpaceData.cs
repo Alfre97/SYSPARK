@@ -22,8 +22,8 @@ namespace SYSPARK
                     {
                         insert.CommandType = CommandType.StoredProcedure;
                         insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = space.Name;
-                        insert.Parameters.Add("@ParkingName", SqlDbType.Int).Value = space.ParkingName;
-                        insert.Parameters.Add("@Type", SqlDbType.Int).Value = space.Type;
+                        insert.Parameters.Add("@ParkingName", SqlDbType.VarChar).Value = space.ParkingName;
+                        insert.Parameters.Add("@Type", SqlDbType.VarChar).Value = space.Type;
                         insert.ExecuteNonQuery();
                     }
                 }

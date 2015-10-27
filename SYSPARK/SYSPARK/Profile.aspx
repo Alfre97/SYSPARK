@@ -15,8 +15,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/profile.css" />
-    <script>
-</script>
 </head>
 <body>
     <form id="formProfile" runat="server">

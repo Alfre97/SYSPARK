@@ -9,7 +9,7 @@ namespace SYSPARK.Entities
     {
         private int id;
         private VehicleType type;
-        private string license;
+        private string vehiclePlate;
 
         public int Id
         {
@@ -37,16 +37,16 @@ namespace SYSPARK.Entities
             }
         }
 
-        public string License
+        public string VehiclePlate
         {
             get
             {
-                return license;
+                return vehiclePlate;
             }
 
             set
             {
-                license = value;
+                vehiclePlate = value;
             }
         }
     }

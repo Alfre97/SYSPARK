@@ -15,10 +15,13 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User-Id"] == null)
+                Response.Redirect("Default.aspx");
+
             //All controls are disable by default
             //Fill select condition
-            ConditionData conditionData = new ConditionData();
-            DataTable Condition = conditionData.DataTableCondition();
+            RoleData roleData = new RoleData();
+            DataTable Condition = roleData.DataTableRole();
             selectCondition.DataSource = Condition;
             selectCondition.DataValueField = "Id";
             selectCondition.DataTextField = "Description";

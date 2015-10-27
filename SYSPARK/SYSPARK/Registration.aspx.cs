@@ -15,9 +15,12 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User-Id"] == null)
+                Response.Redirect("Default.aspx");
+
             //Select conditionType
-            ConditionData conditionData = new ConditionData();
-            DataTable condition = conditionData.DataTableCondition();
+            RoleData roleData = new RoleData();
+            DataTable condition = roleData.DataTableRole();
             selectCondition.DataSource = condition;
             selectCondition.DataValueField = "Id";
             selectCondition.DataTextField = "Description";

@@ -13,7 +13,8 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User-Id"] == null)
+                Response.Redirect("Default.aspx");
         }
 
         public void AddParking_Click(object sender, EventArgs e)
@@ -28,6 +29,31 @@ namespace SYSPARK
             SpaceData spaceData = new SpaceData();
             try
             {
+                if (textboxTotalSpace.Value.Equals(string.Empty))
+                {
+                    buttonErrorsStyleRed();
+                    buttonErrors.Value = "The total space field can't be empty.";
+                }
+                else if (textboxCarSpace.Value.Equals(string.Empty))
+                {
+                    buttonErrorsStyleRed();
+                    buttonErrors.Value = "The car space field can't be empty.";
+                }
+                else if (textboxMotorCycleSpace.Value.Equals(string.Empty))
+                {
+                    buttonErrorsStyleWhite();
+                    buttonErrors.Value = "The motorcycle space field can't be empty.";
+                }
+                else if (textboxBusSpace.Value.Equals(string.Empty))
+                {
+                    buttonErrorsStyleRed();
+                    buttonErrors.Value = "The bus space field can't be empty.";
+                }
+                else if (textboxHandicapSpace.Value.Equals(string.Empty))
+                {
+                    buttonErrorsStyleRed();
+                    buttonErrors.Value = "The handicap space field can't be empty.";
+                }
                 parking.Name = textboxParkingName.Value;
                 parking.TotalSpace = Convert.ToInt32(textboxTotalSpace.Value);
                 parking.CarSpace = Convert.ToInt32(textboxCarSpace.Value);
@@ -84,11 +110,11 @@ namespace SYSPARK
                         break;
                     case 7:
                         buttonErrorsStyleRed();
-                        buttonErrors.Value = "You can't enter zero in al space fields.";
+                        buttonErrors.Value = "You can't enter zero in all space fields.";
                         break;
                     case 8:
                         buttonErrorsStyleWhite();
-                        buttonErrors.Value = "The sum of space fields can't be more than the total space.";
+                        buttonErrors.Value = "The sum of space fields can't be higher than the total space.";
                         break;
                 }
             }

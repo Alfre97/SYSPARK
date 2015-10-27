@@ -11,7 +11,8 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User-Id"] == null)
+                Response.Redirect("Default.aspx");
         }
     }
 }

@@ -54,7 +54,7 @@ body {
     margin: auto auto;
     margin-right: 0;
     height: auto;
-    width: 90%;
+    width: 85%;
 }
 
 #buttonParkReservation {
@@ -67,6 +67,7 @@ body {
     border: none;
     font-size: 25pt;
     margin: auto auto auto auto;
+    margin-top: 15px;
 }
 
 #buttonMyProfile {
@@ -78,9 +79,10 @@ body {
     width: 100%;
     border: none;
     font-size: 25pt;
+    margin-top: 15px;
 }
 
-#buttonHistory {
+#buttonReports {
     background-color: #309d97;
     height: 60px;
     border-radius: 5px 5px;
@@ -89,6 +91,67 @@ body {
     width: 100%;
     border: none;
     font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonHistory {
+    background-color: #0ba173;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonParking {
+    background-color: #494141;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonVehicleType {
+    background-color: #e83232;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonRole {
+    background-color: #783706;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonCode {
+    background-color: #064b78;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
 }
 
 #buttonConfiguration {
@@ -100,6 +163,7 @@ body {
     width: 100%;
     border: none;
     font-size: 25pt;
+    margin-top: 15px;
 }
 
 #navbarToggleOptions {
@@ -134,17 +198,17 @@ div nav ul li {
     display: inline;
 }
 
-div nav ul li button {
-    font-size: 12pt;
-    margin-top: 5px;
-    margin-right: 5px;
-    width: auto;
-    height: auto;
-    background-color: white;
-    border: none;
-    color: #3d3737;
-    border-radius: 5px 5px;
-}
+    div nav ul li button {
+        font-size: 12pt;
+        margin-top: 5px;
+        margin-right: 5px;
+        width: auto;
+        height: auto;
+        background-color: white;
+        border: none;
+        color: #3d3737;
+        border-radius: 5px 5px;
+    }
 
 #navbar-top-header {
     width: 100%;
@@ -187,18 +251,17 @@ div nav ul li button {
         float: none;
     }
 
-    div nav ul li button {
-        border: none;
-        background-color: white;
-        color: #197d67;
-        font-size: 12pt;
-        width: 80%;
-        margin-top: 10px;
-        margin-left: 10%;
-    }
+        div nav ul li button {
+            border: none;
+            background-color: white;
+            color: #197d67;
+            font-size: 12pt;
+            width: 80%;
+            margin-top: 10px;
+            margin-left: 10%;
+        }
 
     #buttonParkReservation {
         height: auto;
     }
 }
-

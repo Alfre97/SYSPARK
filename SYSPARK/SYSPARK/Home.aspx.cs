@@ -11,19 +11,23 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User-Id"] == null)
+                Response.Redirect("Default.aspx");
+
             int userCondition = Convert.ToInt32(Session["User-ConditionId"]);
             if(userCondition == 1)
             {
-                buttonCondition.Visible = false;
-                buttonParking.Visible = false;
-                buttonReports.Visible = false;
-                buttonVehicleType.Visible = false;
-                buttonCode.Visible = false;
+                trReports.Visible = false;
+                trParking.Visible = false;
+                trRole.Visible = false;
+                trVehicleType.Visible = false;
+                trCode.Visible = false;
             }
         }
 
         protected void buttonLogout_Click(object sender, EventArgs e)
         {
+            Session.Clear();
             Response.Redirect("Default.aspx");
         }
     }

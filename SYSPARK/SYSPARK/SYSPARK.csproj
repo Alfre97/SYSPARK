@@ -75,16 +75,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Utility\jquery.js" />
-    <Content Include="assets\css\homeAdministrative.css" />
+    <Content Include="assets\css\home.css" />
     <Content Include="assets\css\parking.css" />
     <Content Include="Code.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Parking.aspx" />
+    <Content Include="ShowParking.aspx" />
     <Content Include="Vehicle.aspx" />
     <Content Include="assets\css\vehicle.css" />
-    <Content Include="Condition.aspx" />
-    <Content Include="assets\css\home.css" />
+    <Content Include="Role.aspx" />
     <Content Include="assets\css\parkingReservation.css" />
     <Content Include="assets\css\profile.css" />
     <Content Include="assets\css\registration.css" />
@@ -156,6 +156,13 @@
     </Compile>
     <Compile Include="App_Data\ParkingData.cs" />
     <Compile Include="App_Data\SpaceData.cs" />
+    <Compile Include="ShowParking.aspx.cs">
+      <DependentUpon>ShowParking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowParking.aspx.designer.cs">
+      <DependentUpon>ShowParking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vehicle.aspx.cs">
       <DependentUpon>Vehicle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,18 +170,18 @@
     <Compile Include="Vehicle.aspx.designer.cs">
       <DependentUpon>Vehicle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Condition.aspx.cs">
-      <DependentUpon>Condition.aspx</DependentUpon>
+    <Compile Include="Role.aspx.cs">
+      <DependentUpon>Role.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Condition.aspx.designer.cs">
-      <DependentUpon>Condition.aspx</DependentUpon>
+    <Compile Include="Role.aspx.designer.cs">
+      <DependentUpon>Role.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_BussinessRules\LoginBussinessRules.cs" />
     <Compile Include="App_BussinessRules\UserBussinessRules.cs" />
     <Compile Include="App_BussinessRules\ReservationBussinessRules.cs" />
     <Compile Include="App_DataBaseConnection\DataBaseConnection.cs" />
-    <Compile Include="App_Data\ConditionData.cs" />
+    <Compile Include="App_Data\RoleData.cs" />
     <Compile Include="App_Data\LoginData.cs" />
     <Compile Include="App_Data\UserData.cs" />
     <Compile Include="App_Data\VehicleTypeData.cs" />

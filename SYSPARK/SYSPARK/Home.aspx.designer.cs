@@ -22,6 +22,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonSearch;
         
         /// <summary>
+        /// trReservation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trReservation;
+        
+        /// <summary>
         /// buttonParkReservation control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonParkReservation;
+        
+        /// <summary>
+        /// trProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trProfile;
         
         /// <summary>
         /// buttonMyProfile control.
@@ -40,6 +58,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonMyProfile;
         
         /// <summary>
+        /// trReports control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trReports;
+        
+        /// <summary>
         /// buttonReports control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonReports;
+        
+        /// <summary>
+        /// trHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trHistory;
         
         /// <summary>
         /// buttonHistory control.
@@ -58,6 +94,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonHistory;
         
         /// <summary>
+        /// trParking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trParking;
+        
+        /// <summary>
         /// buttonParking control.
         /// </summary>
         /// <remarks>
@@ -67,13 +112,31 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonParking;
         
         /// <summary>
-        /// buttonCondition control.
+        /// trRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCondition;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trRole;
+        
+        /// <summary>
+        /// buttonRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonRole;
+        
+        /// <summary>
+        /// trVehicleType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trVehicleType;
         
         /// <summary>
         /// buttonVehicleType control.
@@ -85,6 +148,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonVehicleType;
         
         /// <summary>
+        /// trCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCode;
+        
+        /// <summary>
         /// buttonCode control.
         /// </summary>
         /// <remarks>
@@ -92,6 +164,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonCode;
+        
+        /// <summary>
+        /// trConfiguration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trConfiguration;
         
         /// <summary>
         /// buttonConfiguration control.

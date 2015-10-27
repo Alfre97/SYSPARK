@@ -14,7 +14,7 @@ namespace SYSPARK.App_BussinessRules
         {
             try
             {
-                if(vehicle.License == "")
+                if(vehicle.VehiclePlate.Equals(string.Empty))
                 {
                     return 1;
                 }

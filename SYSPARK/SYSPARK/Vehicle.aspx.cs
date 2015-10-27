@@ -16,6 +16,9 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User-Id"] == null)
+                Response.Redirect("Default.aspx");
+
             VehicleTypeData vehicleTypedata = new VehicleTypeData();
             DataTable condition = vehicleTypedata.DataTableAllVehicleType();
             selectType.DataSource = condition;
@@ -31,7 +34,7 @@ namespace SYSPARK
             VehicleType vehicleType = new VehicleType();
             VehicleTypeData vehicleTypeData = new VehicleTypeData();
             VehicleBussinessRules vehicleBussinessRules = new VehicleBussinessRules();
-            vehicle.License = textboxLicense.Value;
+            vehicle.VehiclePlate = textboxLicense.Value;
             vehicleType.Id = Convert.ToInt32(selectType.Value);
             vehicleType.Description = selectType.Items.FindByValue(selectType.Value).Text;
             vehicle.Type = vehicleType;
