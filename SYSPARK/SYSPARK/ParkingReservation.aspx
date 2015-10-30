@@ -35,7 +35,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <label class="logo">SYSPARK > Home > Parking Reservation</label>
+                                <span class="logo">SYSPARK > Home > Parking Reservation</span>
                             </span>
                         </a>
                     </div>

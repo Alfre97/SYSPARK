@@ -27,7 +27,7 @@
                         <!-- Company and name logo -->
                         <span>
                             <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                            <label class="logo">SYSPARK > Home</label>
+                            <span class="logo">SYSPARK > Home</span>
                         </span>
                     </a>
                     <!-- TextBox and Button Search -->

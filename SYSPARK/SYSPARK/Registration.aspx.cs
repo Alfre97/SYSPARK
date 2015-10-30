@@ -1,4 +1,6 @@
-﻿using SYSPARK.BussinessRules;
+﻿using SYSPARK.App_Entities;
+using SYSPARK.App_Utility;
+using SYSPARK.BussinessRules;
 using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
@@ -13,6 +15,7 @@ namespace SYSPARK
 {
     public partial class Register : System.Web.UI.Page
     {
+        ButtonStyle buttonStyle = new ButtonStyle();
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["RegistrationUserName"] = string.Empty;
@@ -29,96 +32,64 @@ namespace SYSPARK
 
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
-            InsertUser(createUser());
+            Validation();
         }
 
-        protected void InsertUser(User user)
+        protected void Validation()
         {
-            UserBussinessRules userBussinessRules = new UserBussinessRules();
-            CodeData codeData = new CodeData();
-            if (Convert.ToInt32(hiddenConditionValue.Value) > 1)
+            //Declare variables
+            UniversityCardData UCardData = new UniversityCardData();
+            DataTable dataTableUCard = new DataTable();
+            if (hiddenVisibleValue.Value.Equals("1"))
             {
-                if (textboxCode.Value != "")
-                {
-                    switch (codeData.sendDecision(codeData.getCode(textboxCode.Value)))
-                    {
-                        case 0:
-                            codeData.updateCode(textboxCode.Value, 1);
-                            switch (userBussinessRules.RegistrationRules(user))
-                            {
-                                case 0:
-                                    hiddenTransaction.Value = "Transaction successful.";
-                                    Session["RegistrationUserName"] = textboxUsernameR.Value;
-                                    Session["RegistrationPassword"] = textboxPasswordR.Value;
-                                    Session["HiddenTransaction"] = hiddenTransaction.Value;
-                                    Response.Redirect("Default.aspx");
-                                    break;
-                                case 1:
-                                    buttonErrorsStyleWhite();
-                                    buttonErrors.Value = "The name field is empty.";
-                                    break;
-                                case 2:
-                                    buttonErrorsStyleRed();
-                                    buttonErrors.Value = "The lastname field is empty.";
-                                    break;
-                                case 3:
-                                    buttonErrorsStyleWhite();
-                                    buttonErrors.Value = "The username field is empty.";
-                                    break;
-                                case 4:
-                                    buttonErrorsStyleRed();
-                                    buttonErrors.Value = "The password field is empty.";
-                                    break;
-                                case 5:
-                                    buttonErrorsStyleWhite();
-                                    buttonErrors.Value = "An error ocurred during your registration.";
-                                    break;
-                            }
-                            break;
-                        case 1:
-                            buttonErrorsStyleRed();
-                            buttonErrors.Value = "The provide a valid code.";
-                            break;
-                        case 2:
-                            buttonErrorsStyleWhite();
-                            buttonErrors.Value = "The entered code is already used.";
-                            break;
-                    }
-                }
+                if (textboxCode.Value.Equals(string.Empty))
+                    buttonStyle.buttonStyleRed(buttonErrors, "University card field is empty.");
                 else
                 {
-                    buttonErrorsStyleRed();
-                    buttonErrors.Value = "The code field is empty.";
+                    UniversityCard univarsityCard = new UniversityCard(); 
+                    univarsityCard.Card = textboxCode.Value;
+                    dataTableUCard = UCardData.getCard(univarsityCard); 
+                    if (dataTableUCard.Rows.Count > 0)
+                    {
+                            InsertUser();
+                    }
+                    else
+                        buttonStyle.buttonStyleWhite(buttonErrors, "The entered code does not exist.");
                 }
             }
             else
             {
-                switch (userBussinessRules.RegistrationRules(user))
-                {
-                    case 0:
-                        Response.Redirect("Default.aspx");
-                        break;
-                    case 1:
-                        buttonErrorsStyleRed();
-                        buttonErrors.Value = "The name field is empty.";
-                        break;
-                    case 2:
-                        buttonErrorsStyleWhite();
-                        buttonErrors.Value = "The lastname field is empty.";
-                        break;
-                    case 3:
-                        buttonErrorsStyleRed();
-                        buttonErrors.Value = "The username field is empty.";
-                        break;
-                    case 4:
-                        buttonErrorsStyleWhite();
-                        buttonErrors.Value = "The password field is empty.";
-                        break;
-                    case 5:
-                        buttonErrorsStyleRed();
-                        buttonErrors.Value = "An error ocurred during your registration.";
-                        break;
-                }
+                InsertUser();
+            }
+        }
+
+        protected void InsertUser()
+        {
+            UserBussinessRules userBussinessRules = new UserBussinessRules();
+            switch (userBussinessRules.RegistrationRules(createUser()))
+            {
+                case 0:
+                    hiddenTransaction.Value = "Transaction successful.";
+                    Session["RegistrationUserName"] = textboxUsernameR.Value;
+                    Session["RegistrationPassword"] = textboxPasswordR.Value;
+                    Session["HiddenTransaction"] = hiddenTransaction.Value;
+                    Response.Redirect("Default.aspx");
+                    break;
+                case 1:
+                    buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
+                    break;
+                case 2:
+                    buttonStyle.buttonStyleRed(buttonErrors, "The lastname field is empty.");
+                    break;
+                case 3:
+                    buttonStyle.buttonStyleWhite(buttonErrors, "The username field is empty.");
+                    break;
+                case 4:
+                    buttonStyle.buttonStyleRed(buttonErrors, "The password field is empty.");
+                    break;
+                case 5:
+                    buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred during your registration.");
+                    break;
             }
         }
 
@@ -138,27 +109,6 @@ namespace SYSPARK
             //Inserting registration data
             user.Condition = condition;
             return user;
-        }
-
-        protected void buttonErrorsStyleRed()
-        {
-            trErrors.Visible = true;
-            buttonErrors.Style.Add("background-color", "red");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleBlue()
-        {
-            trErrors.Visible = true;
-            buttonErrors.Style.Add("background-color", "blue");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleWhite()
-        {
-            trErrors.Visible = true;
-            buttonErrors.Style.Add("background-color", "white");
-            buttonErrors.Style.Add("color", "red");
         }
     }
 }

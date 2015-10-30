@@ -1,4 +1,6 @@
-﻿using SYSPARK.BussinessRules;
+﻿using SYSPARK.App_Entities;
+using SYSPARK.App_Utility;
+using SYSPARK.BussinessRules;
 using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
@@ -13,6 +15,7 @@ namespace SYSPARK
 {
     public partial class Profile : System.Web.UI.Page
     {
+        ButtonStyle buttonStyle = new ButtonStyle();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-Id"] == null)
@@ -20,8 +23,7 @@ namespace SYSPARK
 
             if (Session["VehicleInserted"] != null)
             {
-                buttonErrorsStyleBlue();
-                buttonErrors.Value = "Vehicle added successfully.";
+                buttonStyle.buttonStyleBlue(buttonErrors, "Vehicle added successfully.");
             }
 
             //All controls are disable by default
@@ -55,116 +57,127 @@ namespace SYSPARK
 
         protected void ButtonUpdateMyInfo_Click(object sender, EventArgs e)
         {
-            enableControls();
+            EnableControls();
         }
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            updateUser();
+            Validation();
         }
 
         protected void ButtonCancelUpdate_Click(object sender, EventArgs e)
         {
-            disablingControls();
+            DisablingControls();
             FillTableWithUserInfo();
         }
 
-        protected void updateUser()
+        protected void Validation()
         {
             //Declare variables
-            UserBussinessRules userBussinessRules = new UserBussinessRules();
-            CodeData codeData = new CodeData();
-            try
-            {
-                //For password validation
-                string newPassword = textboxPasswordShowed.Value;
-                string passwordHashed = Session["User-PasswordHashed"].ToString();
-                bool verify = BCrypt.Net.BCrypt.Verify(newPassword, passwordHashed);
-                //Updating user
-                switch (codeData.sendDecision(codeData.getCode(textboxCode.Value)))
-                {
-                    case 0:
-                        codeData.updateCode(textboxCode.Value, 1);
-                        switch (userBussinessRules.UpdateRules(createUser()))
-                        {
-                            case 0:
-                                if (textboxUsername.Value != Session["User-UserName"].ToString())
-                                {
-                                    hiddenUpdate.Value = "Transaction successful.";
-                                    Session["UpdateTransaction"] = hiddenUpdate.Value;
-                                    Response.Redirect("Default.aspx");
-                                }
-                                else if (verify == false)
-                                {
-                                    hiddenUpdate.Value = "Transaction successful.";
-                                    Session["UpdateTransaction"] = hiddenUpdate.Value;
-                                    Response.Redirect("Default.aspx");
-                                }
-                                else
-                                {
-                                    Session["User-Name"] = textboxName.Value;
-                                    Session["User-LastName"] = textboxLastName.Value;
-                                    Session["User-ConditionId"] = hiddenConditionValue.Value;
-                                    Response.Redirect("Profile.aspx");
-                                }
+            UniversityCardData UCardData = new UniversityCardData();
+            UniversityCard universityCard = new UniversityCard();
+            universityCard.Card = textboxCode.Value;
+            DataTable dataTableUCard = UCardData.getCard(universityCard);
 
-                                break;
-                            case 1:
-                                buttonErrorsStyleWhite();
-                                buttonErrors.Value = "The name field is empty.";
-                                break;
-                            case 2:
-                                buttonErrorsStyleRed();
-                                buttonErrors.Value = "The lastname field is empty.";
-                                break;
-                            case 3:
-                                buttonErrorsStyleWhite();
-                                buttonErrors.Value = "The username field is empty.";
-                                break;
-                            case 4:
-                                buttonErrorsStyleRed();
-                                buttonErrors.Value = "The password field is empty.";
-                                break;
-                            case 5:
-                                buttonErrorsStyleWhite();
-                                buttonErrors.Value = "An error ocurred during your registration.";
-                                break;
-                        }
-                        break;
-                    case 1:
-                        buttonErrorsStyleRed();
-                        buttonErrors.Value = "The provide a valid code.";
-                        break;
-                    case 2:
-                        buttonErrorsStyleWhite();
-                        buttonErrors.Value = "The entered code is already used.";
-                        break;
+            if (hiddenVisibleValue.Value.Equals("1"))
+            {
+                if (textboxCode.Value.Equals(string.Empty))
+                    buttonStyle.buttonStyleRed(buttonErrors, "University card field is empty.");
+                else
+                {
+                    if (dataTableUCard.Rows.Count > 0)
+                    {
+                        if (Convert.ToInt32(dataTableUCard.Rows[0]["UserId"]) == Convert.ToInt32(Session["User-Id"]))
+                            UpdateUser();
+                        else
+                            buttonStyle.buttonStyleRed(buttonErrors, "This code does not belong to you if continues you will be banned.");
+                    }
+                    else
+                        buttonStyle.buttonStyleWhite(buttonErrors, "The entered code does not exist.");
                 }
             }
-            catch (FormatException)
+            else
             {
-                buttonErrorsStyleRed();
-                buttonErrors.Value = "Please, check your entered data." + "\n" +
-                    "Remember you can't enter numbers in the fields.";
+                UpdateUser();
+            }
+
+        }
+
+        protected void UpdateUser()
+        {
+            UserBussinessRules userBussinessRules = new UserBussinessRules();
+            //For password validation
+            string newPassword = textboxPasswordShowed.Value;
+            string passwordHashed = Session["User-PasswordHashed"].ToString();
+            bool verify = BCrypt.Net.BCrypt.Verify(newPassword, passwordHashed);
+            //Updating user
+            switch (userBussinessRules.UpdateRules(CreateUser()))
+            {
+                case 0:
+                    if (textboxUsername.Value != Session["User-UserName"].ToString())
+                    {
+                        hiddenUpdate.Value = "Transaction successful.";
+                        Session["UpdateTransaction"] = hiddenUpdate.Value;
+                        Response.Redirect("Default.aspx");
+                    }
+                    else if (verify == false)
+                    {
+                        hiddenUpdate.Value = "Transaction successful.";
+                        Session["UpdateTransaction"] = hiddenUpdate.Value;
+                        Response.Redirect("Default.aspx");
+                    }
+                    else
+                    {
+                        Session["User-Name"] = textboxName.Value;
+                        Session["User-LastName"] = textboxLastName.Value;
+                        Session["User-ConditionId"] = hiddenConditionValue.Value;
+                        Response.Redirect("Profile.aspx");
+                    }
+
+                    break;
+                case 1:
+                    buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
+                    break;
+                case 2:
+                    buttonStyle.buttonStyleRed(buttonErrors, "The lastname field is empty.");
+                    break;
+                case 3:
+                    buttonStyle.buttonStyleWhite(buttonErrors, "The username field is empty.");
+                    break;
+                case 4:
+                    buttonStyle.buttonStyleRed(buttonErrors, "The password field is empty.");
+                    break;
+                case 5:
+                    buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred during your update.");
+                    break;
             }
         }
-        protected User createUser()
+
+        protected User CreateUser()
         {
             User user = new Entities.User();
             Condition condition = new Condition();
-            //Creating user
-            user.Id = Convert.ToInt32(Session["User-Id"]);
-            user.Name = textboxName.Value;
-            user.LastName = textboxLastName.Value;
-            user.Username = textboxUsername.Value;
-            user.Password = textboxPasswordShowed.Value;
-            condition.Id = Convert.ToInt32(selectCondition.Value);
-            condition.Description = selectCondition.Items.FindByValue(selectCondition.Value).Text;
-            user.Condition = condition;
-            return user;
+            try
+            {
+                //Creating user
+                user.Id = Convert.ToInt32(Session["User-Id"]);
+                user.Name = textboxName.Value;
+                user.LastName = textboxLastName.Value;
+                user.Username = textboxUsername.Value;
+                user.Password = textboxPasswordShowed.Value;
+                condition.Id = Convert.ToInt32(selectCondition.Value);
+                condition.Description = selectCondition.Items.FindByValue(selectCondition.Value).Text;
+                user.Condition = condition;
+                return user;
+            }
+            catch
+            {
+                buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred validating your new data, please check it.");
+                return null;
+            }
         }
 
-        protected void disablingControls()
+        protected void DisablingControls()
         {
             //Disabling controls
             textboxName.Disabled = true;
@@ -174,45 +187,27 @@ namespace SYSPARK
             buttonAddNewCar.Visible = true;
             buttonUpdateMyInfo.Visible = true;
             trUpdate.Visible = false;
-            trErrors.Visible = false;
+            buttonErrors.Visible = false;
             trVehicle.Visible = true;
             trCode.Visible = false;
             selectCondition.Disabled = true;
         }
 
-        protected void enableControls()
+        protected void EnableControls()
         {
             //Enabling controls
             textboxName.Disabled = false;
             textboxLastName.Disabled = false;
             textboxUsername.Disabled = false;
             textboxPasswordShowed.Disabled = false;
-            selectVehicle.Disabled = true;
+            selectVehicle.Disabled = false;
             buttonAddNewCar.Visible = false;
             buttonUpdateMyInfo.Visible = false;
             trUpdate.Visible = true;
-            trErrors.Visible = true;
+            buttonErrors.Visible = true;
             trVehicle.Visible = false;
             trCode.Visible = true;
             selectCondition.Disabled = false;
-        }
-
-        protected void buttonErrorsStyleRed()
-        {
-            buttonErrors.Style.Add("background-color", "red");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleBlue()
-        {
-            buttonErrors.Style.Add("background-color", "blue");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleWhite()
-        {
-            buttonErrors.Style.Add("background-color", "white");
-            buttonErrors.Style.Add("color", "red");
         }
     }
 }

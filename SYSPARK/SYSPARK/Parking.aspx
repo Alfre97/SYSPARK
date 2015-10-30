@@ -35,7 +35,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <label  class="logo">SYSPARK > Home > Parking</label>
+                                <span class="logo">SYSPARK > Home > Parking</span>
                             </span>
                         </a>
                         <label id="info">
@@ -101,7 +101,7 @@
                 </tr>
             </table>
             <br />
-            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" visible="true" disabled="disabled" style="background-color: transparent;"></button>
+            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent;" />
             <input type="hidden" id="hiddenParkingName" runat="server" />
             <div class="table-responsive">
                 <table id="tableGray">

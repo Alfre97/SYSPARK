@@ -15,21 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/profile.css" />
-    <script>
-        function setValue(x, y) {
-            var select = document.getElementById(x);
-            var hiddenValue = document.getElementById(y);
-            var position = select.selectedIndex;
-            hiddenValue.value = select.options[position].value;
-
-            if (hiddenValue.value > 1) {
-                document.getElementById("textboxCode").style.display = "unset";
-                $("#textboxCode").show();
-            }
-            else
-                $("#textboxCode").hide();
-        }
-    </script>
+    <script type="text/javascript" src="assets/js/Profile.js"></script>
 </head>
 <body>
     <form id="formProfile" runat="server">
@@ -41,7 +27,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <label class="logo">SYSPARK > Home > Profile</label>
+                                <span class="logo">SYSPARK > Home > Profile</span>
                             </span>
                         </a>
                     </div>
@@ -50,34 +36,37 @@
         </div>
 
         <div id="allContentInProfile">
+            <br />
+                <input type="button" id="buttonErrors" runat="server" visible="false"/>
+            <br />
             <h1>Profile</h1>
             <br />
             <table id="tableProfile" border="0">
                 <tr>
                     <td>
-                        <a>Name:</a><br />
+                        <span>Name:</span><br />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
-                    <td><a>Lastname:</a><br />
+                    <td><span>Lastname:</span><br />
                         <input type="text" id="textboxLastName" runat="server" placeholder=" Last name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
-                    <td><a>Username:</a><br />
+                    <td><span>Username:</span><br />
                         <input type="text" id="textboxUsername" runat="server" placeholder=" User name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a>Password:</a><br />
+                        <span>Password:</span><br />
                         <input type="text" id="textboxPasswordShowed" runat="server" placeholder=" Password" disabled="disabled" />
                     </td>
                 </tr>
                 <tr id="trVehicle" runat="server">
                     <td>
-                        <a>Vehicle:</a><br />
+                        <span>Vehicle:</span><br />
                         <select id="selectVehicle" runat="server">
                         </select>
                     </td>
@@ -85,14 +74,15 @@
                 <tr>
                     <td>
                         <input type="hidden" id="hiddenConditionValue" runat="server" value="1" />
-                        <a>Condition:</a><br />
+                        <span>Condition:</span><br />
                         <select id="selectCondition" runat="server" disabled="disabled" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
                     </td>
                 </tr>
                 <tr id="trCode" runat="server">
                     <td>
-                        <input type="text" id="textboxCode" placeholder=" Code" runat="server" />
+                        <input type="hidden" id="hiddenVisibleValue" runat="server" value="0"/>
+                        <input type="text" id="textboxCode" placeholder=" University card" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -107,13 +97,6 @@
                         <input type="hidden" id="hiddenUpdate" runat="server" />
                         <button onserverclick=" ButtonCancelUpdate_Click" type="button" id="buttonCancelUpdate" runat="server">Cancel</button>
                         <button onserverclick=" ButtonUpdate_Click" type="button" id="buttonUpdate" runat="server">Update</button>
-                        <br />
-                    </td>
-                </tr>
-                <tr runat="server" id="trErrors">
-                    <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" />
-                        <br />
                     </td>
                 </tr>
             </table>

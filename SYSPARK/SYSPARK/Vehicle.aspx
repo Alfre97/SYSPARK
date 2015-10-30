@@ -17,7 +17,7 @@
 </head>
 <body>
     <form id="formVehicle" runat="server">
-    <div class="Header">
+        <div class="Header">
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
@@ -25,7 +25,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <label class="logo">SYSPARK > Home > Profile > Vehicle</label>
+                                <span class="logo">SYSPARK > Home > Profile > Vehicle</span>
                             </span>
                         </a>
                     </div>
@@ -34,6 +34,9 @@
         </div>
 
         <div id="allContentInVehicle">
+            <br />
+            <input type="button" id="buttonErrors" runat="server" visible="false"/>
+            <br />
             <h1>Vehicle</h1>
             <br />
             <table id="tableVehicle" border="0">
@@ -45,18 +48,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <select id="selectType" runat="server">
+                        <input type="hidden" runat="server" id="hiddenTypeValue" />
+                        <select id="selectType" runat="server" onchange="setValue('selectType', 'hiddenTypeValue')">
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button onserverclick=" ButtonVehicle_Click" type="button" id="buttonAddNewCar" runat="server">Add vehicle</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" id="buttonErrors" runat="server" value="" />
+                        <br />
                     </td>
                 </tr>
             </table>

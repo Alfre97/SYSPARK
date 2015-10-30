@@ -78,7 +78,10 @@
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\parking.css" />
     <Content Include="assets\js\Parking.js" />
-    <Content Include="Code.aspx" />
+    <Content Include="assets\js\Profile.js" />
+    <Content Include="assets\js\Registration.js" />
+    <Content Include="assets\js\Vehicle.js" />
+    <Content Include="UniversityCard.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Parking.aspx" />
@@ -125,15 +128,16 @@
   <ItemGroup>
     <Compile Include="App_BussinessRules\ParkingBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
-    <Compile Include="App_Data\CodeData.cs" />
+    <Compile Include="App_Data\UniversityCardData.cs" />
+    <Compile Include="App_Entities\UniversityCard.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="App_Utility\ButtonStyle.cs" />
-    <Compile Include="Code.aspx.cs">
-      <DependentUpon>Code.aspx</DependentUpon>
+    <Compile Include="UniversityCard.aspx.cs">
+      <DependentUpon>UniversityCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Code.aspx.designer.cs">
-      <DependentUpon>Code.aspx</DependentUpon>
+    <Compile Include="UniversityCard.aspx.designer.cs">
+      <DependentUpon>UniversityCard.aspx</DependentUpon>
     </Compile>
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>

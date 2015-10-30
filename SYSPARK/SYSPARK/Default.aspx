@@ -26,11 +26,11 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <label class="logo">SYSPARK > Login</label>
+                                <span class="logo">SYSPARK > Login</span>
                             </span>
                         </a>
                         <div id="navbar-right">
-                            <a onclick="location.href='Registration.aspx'" style="color: white; font-size: 12pt;">You are not registred?</a>
+                            <a onclick="location.href='Registration.aspx'" style="color: white; font-size: 12pt;">You are not registered?</a>
                         </div>
                     </div>
                 </div>

@@ -22,6 +22,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlForm Registration;
         
         /// <summary>
+        /// buttonErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
+        
+        /// <summary>
         /// textboxName control.
         /// </summary>
         /// <remarks>
@@ -76,13 +85,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectCondition;
         
         /// <summary>
-        /// trCode control.
+        /// hiddenVisibleValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCode;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenVisibleValue;
         
         /// <summary>
         /// textboxCode control.
@@ -110,23 +119,5 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonRegister;
-        
-        /// <summary>
-        /// trErrors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trErrors;
-        
-        /// <summary>
-        /// buttonErrors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
     }
 }

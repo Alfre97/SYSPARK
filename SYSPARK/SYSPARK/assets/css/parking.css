@@ -8,12 +8,6 @@ body {
     background-size: cover;
 }
 
-#errors {
-    width: 100%;
-    height: auto;
-    text-align: center;
-}
-
 #tableParking {
     background-color: #a5a5a5;
     text-align: center;
@@ -90,12 +84,13 @@ div {
 }
 
 #buttonErrors {
+    border-radius: 5px 5px;
+    color: black;
     background-color: transparent;
+    border: none;
+    border-style: none;
     width: auto;
     height: auto;
-    border: none;
-    margin: auto auto;
-    border-radius: 5px 5px;
 }
 
 #info {

@@ -1,4 +1,5 @@
 ﻿using SYSPARK.App_BussinessRules;
+using SYSPARK.App_Utility;
 using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
@@ -14,6 +15,7 @@ namespace SYSPARK
 {
     public partial class AddNewCar : System.Web.UI.Page
     {
+        ButtonStyle buttonStyle = new ButtonStyle();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-Id"] == null)
@@ -29,59 +31,56 @@ namespace SYSPARK
 
         protected void ButtonVehicle_Click(object sender, EventArgs e)
         {
+
             insertVehicle();
+
         }
 
         protected void insertVehicle()
         {
             VehicleTypeData vehicleTypeData = new VehicleTypeData();
             VehicleBussinessRules vehicleBussinessRules = new VehicleBussinessRules();
-            int insertResult = vehicleBussinessRules.InsertVehicle(createVehicle(), Convert.ToInt32(Session["User-Id"]));
-            switch (insertResult)
+            Vehicle vehicle = createVehicle();
+            if (vehicle != null)
             {
-                case 0:
-                    Session["VehicleInserted"] = "VehicleInserted";
-                    Response.Redirect("Profile.aspx");
-                    break;
-                case 1:
-                    buttonErrorsStyleWhite();
-                    buttonErrors.Value = "The license field is empty.";
-                    break;
-                case 2:
-                    buttonErrorsStyleRed();
-                    buttonErrors.Value = "The license can only contain seven characters.";
-                    break;
+                int insertResult = vehicleBussinessRules.InsertVehicle(vehicle, Convert.ToInt32(Session["User-Id"]));
+                switch (insertResult)
+                {
+                    case 0:
+                        Session["VehicleInserted"] = "VehicleInserted";
+                        Response.Redirect("Profile.aspx");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "The license field is empty.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonErrors, "The license can only contain seven characters.");
+                        break;
+                }
+            }
+            else
+            {
+                buttonStyle.buttonStyleRed(buttonErrors, "Invalid data, please check it.");
             }
         }
 
         protected Vehicle createVehicle()
         {
-            //Creating the vehicle
-            Vehicle vehicle = new Vehicle();
-            VehicleType vehicleType = new VehicleType(); 
-            vehicle.VehiclePlate = textboxLicense.Value;
-            vehicleType.Id = Convert.ToInt32(selectType.Value);
-            vehicleType.Description = selectType.Items.FindByValue(selectType.Value).Text;
-            vehicle.Type = vehicleType;
-            return vehicle;
-        }
-
-        protected void buttonErrorsStyleRed()
-        {
-            buttonErrors.Style.Add("background-color", "red");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleBlue()
-        {
-            buttonErrors.Style.Add("background-color", "blue");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleWhite()
-        {
-            buttonErrors.Style.Add("background-color", "white");
-            buttonErrors.Style.Add("color", "red");
+            try
+            {
+                //Creating the vehicle
+                Vehicle vehicle = new Vehicle();
+                VehicleType vehicleType = new VehicleType();
+                vehicle.VehiclePlate = textboxLicense.Value;
+                vehicleType.Id = Convert.ToInt32(hiddenTypeValue.Value);
+                vehicleType.Description = selectType.Items.FindByValue(hiddenTypeValue.Value).Text;
+                vehicle.Type = vehicleType;
+                return vehicle;
+            }
+            catch (FormatException)
+            {
+                return null;
+            }
         }
     }
 }

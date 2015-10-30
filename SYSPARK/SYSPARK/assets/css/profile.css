@@ -18,7 +18,7 @@ body {
     text-align: center;
     border-radius: 25px 25px;
     margin: 0 auto;
-    width: 300px;
+    width: 24%;
     height: 400px;
     color: white;
 }
@@ -27,7 +27,7 @@ body {
     background-color: transparent;
 }
 
-a {
+table#tableProfile tr td span {
     color: black;
     font-size: 10pt;
     background-color: white;
@@ -94,7 +94,13 @@ div {
 }
 
 #buttonErrors {
+    border-radius: 5px 5px;
+    color: black;
     background-color: transparent;
+    border: none;
+    border-style: none;
+    width: auto;
+    height: auto;
 }
 
 #buttonAddNewCar {
@@ -122,9 +128,9 @@ div {
 }
 
 #textboxCode {
-    display: none;
+    visibility: hidden;
     float: left;
-    margin-left: 30px;
+    margin-left: 44px;
 }
 
 .logo {

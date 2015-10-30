@@ -71,9 +71,13 @@ div {
 }
 
 #buttonErrors {
+    border-radius: 5px 5px;
+    color: black;
     background-color: transparent;
-    height: 25px;
+    border: none;
+    border-style: none;
     width: auto;
+    height: auto;
 }
 
 .logo {
@@ -81,4 +85,3 @@ div {
     font-size: 15pt;
     width: auto;
 }
-

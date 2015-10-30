@@ -15,21 +15,7 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/registration.css" />
 </head>
-<script>
-    function setValue(x, y) {
-        var select = document.getElementById(x);
-        var hiddenValue = document.getElementById(y);
-        var position = select.selectedIndex;
-        hiddenValue.value = select.options[position].value;
-
-        if (hiddenValue.value > 1) {
-            document.getElementById("textboxCode").style.display = "unset";
-            $("#textboxCode").show();
-        }
-        else
-            $("#textboxCode").hide();
-    }
-</script>
+<script type="text/javascript" src="assets/js/Registration.js"></script>
 <body>
     <form id="Registration" runat="server">
         <div class="Header">
@@ -40,7 +26,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <label class="logo">SYSPARK > Registration</label>
+                                <span class="logo">SYSPARK > Registration</span>
                             </span>
                         </a>
                         <label id="info">
@@ -55,6 +41,9 @@
         <br />
         <br />
         <div id="allContentInRegistration">
+            <br />
+            <input type="button" id="buttonErrors" runat="server" visible="false"/>
+            <br />
             <h1>Registration</h1>
             <br />
             <table id="tableRegistration" border="0">
@@ -90,9 +79,10 @@
                         <br />
                     </td>
                 </tr>
-                <tr id="trCode" runat="server">
+                <tr>
                     <td>
-                        <input type="text" id="textboxCode" placeholder=" Code" runat="server" />
+                        <input type="hidden" id="hiddenVisibleValue" runat="server" value="0"/>
+                        <input type="text" id="textboxCode" placeholder=" University card" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -100,11 +90,6 @@
                         <input id="hiddenTransaction" type="hidden" runat="server" />
                         <button onserverclick=" buttonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
                         <br />
-                    </td>
-                </tr>
-                <tr id="trErrors" runat="server" visible="false">
-                    <td>
-                        <input type="button" id="buttonErrors" runat="server" />
                     </td>
                 </tr>
             </table>

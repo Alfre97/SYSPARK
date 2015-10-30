@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Code.aspx.cs" Inherits="SYSPARK.Code" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UniversityCard.aspx.cs" Inherits="SYSPARK.Code" %>
 
 <!DOCTYPE html>
 

@@ -71,7 +71,13 @@ div {
 }
 
 #buttonErrors {
+    border-radius: 5px 5px;
+    color: black;
     background-color: transparent;
+    border: none;
+    border-style: none;
+    width: auto;
+    height: auto;
 }
 
 #info {
@@ -86,7 +92,7 @@ div {
 }
 
 #textboxCode {
-    display: none;
+    visibility: hidden;
     float: left;
     margin-left: 30px;
 }

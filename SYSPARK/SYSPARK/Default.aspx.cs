@@ -1,4 +1,5 @@
-﻿using SYSPARK.BussinessRules;
+﻿using SYSPARK.App_Utility;
+using SYSPARK.BussinessRules;
 using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
@@ -14,21 +15,20 @@ namespace SYSPARK
 {
     public partial class Login : Page
     {
+        ButtonStyle buttonStyle = new ButtonStyle();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["hiddenTransaction"] != null)
             {
                 textBoxUsername.Value = Session["RegistrationUserName"].ToString();
                 textBoxUsername.Value = Session["RegistrationPassword"].ToString();
-                buttonErrorsStyleBlue();
-                buttonErrors.Value = "Registration successful.";
+                buttonStyle.buttonStyleBlue(buttonErrors, "Registration successful.");
                 Session.Clear();
             }
 
             if (Session["UpdateTransaction"] != null)
             {
-                buttonErrorsStyleBlue();
-                buttonErrors.Value = "Update successful.";
+                buttonStyle.buttonStyleBlue(buttonErrors, "Update successful.");
                 Session.Clear();
             }
         }
@@ -52,24 +52,6 @@ namespace SYSPARK
             Session["User-ConditionId"] = user.Condition.Id;
         }
 
-        protected void buttonErrorsStyleRed()
-        {
-            buttonErrors.Style.Add("background-color", "red");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleBlue()
-        {
-            buttonErrors.Style.Add("background-color", "blue");
-            buttonErrors.Style.Add("color", "white");
-        }
-
-        protected void buttonErrorsStyleWhite()
-        {
-            buttonErrors.Style.Add("background-color", "white");
-            buttonErrors.Style.Add("color", "red");
-        }
-
         protected void CheckUserNameAndPassword()
         {
             LoginBussinessRules login = new LoginBussinessRules();
@@ -79,12 +61,10 @@ namespace SYSPARK
             switch (login.ValidateFields(username, password))
             {
                 case 0:
-                    buttonErrorsStyleWhite();
-                    buttonErrors.Value = "The username field is empty.";
+                    buttonStyle.buttonStyleWhite(buttonErrors, "The username field is empty.");
                     break;
                 case 1:
-                    buttonErrorsStyleRed();
-                    buttonErrors.Value = "The password field is empty.";
+                    buttonStyle.buttonStyleRed(buttonErrors, "The password field is empty.");
                     break;
                 case 2:
                     if (login.LoginUserName(username) == true)
@@ -97,16 +77,12 @@ namespace SYSPARK
                         }
                         else
                         {
-                            buttonErrorsStyleWhite();
-                            buttonErrors.Value = "Invalid password.";
+                            buttonStyle.buttonStyleWhite(buttonErrors, "Invalid password.");
                             textBoxPassword.Value = string.Empty;
                         }
                     }
                     else
-                    {
-                        buttonErrorsStyleRed();
-                        buttonErrors.Value = "Invalid username.";
-                    }
+                        buttonStyle.buttonStyleRed(buttonErrors, "Invalid username.");
                     break;
             }
         }
