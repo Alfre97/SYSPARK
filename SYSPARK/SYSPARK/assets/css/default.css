@@ -12,6 +12,7 @@
     color: white;
     
 }
+
 h1 {
     color: white;
     text-align: center;
@@ -71,4 +72,10 @@ label {
 #navbar-right {
     float: right;
     margin-top: 25px;
+}
+
+.logo {
+    color: white;
+    font-size: 15pt;
+    width: auto;
 }

@@ -20,7 +20,7 @@ body {
     width: 100%;
 }
 
-#logo {
+.logo {
     color: white;
     font-size: 15pt;
     width: auto;
@@ -198,7 +198,7 @@ div nav ul li {
     display: inline;
 }
 
-    div nav ul li button {
+div nav ul li button {
         font-size: 12pt;
         margin-top: 5px;
         margin-right: 5px;

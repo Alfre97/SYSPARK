@@ -14,6 +14,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/parking.css" />
+    <script type="text/javascript" src="assets/js/Parking.js"></script>
+    <style type="text/css">
+        .desmarcado {
+            background: white;
+        }
+
+        .marcado {
+            background: #629675;
+        }
+    </style>
 </head>
 <body>
     <form id="formParking" runat="server">
@@ -21,10 +31,11 @@
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="Home.aspx">
-                            <span style="color: white;">
-                                <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
-                                SYSPARK > Registration
+                        <a class="navbar-brand" id="navbar-brand" href="Home.aspx">
+                            <!-- Company and name logo -->
+                            <span>
+                                <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
+                                <label  class="logo">SYSPARK > Home > Parking</label>
                             </span>
                         </a>
                         <label id="info">
@@ -82,12 +93,31 @@
                 </tr>
                 <tr>
                     <td>
+                        <button type="button" id="buttonClear">Clear</button>
                         <button onserverclick=" AddParking_Click" type="button" id="buttonAddParking" runat="server">Add parking</button>
                         <br />
                         <br />
                     </td>
                 </tr>
             </table>
+            <br />
+            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" visible="true" disabled="disabled" style="background-color: transparent;"></button>
+            <input type="hidden" id="hiddenParkingName" runat="server" />
+            <div class="table-responsive">
+                <table id="tableGray">
+                    <tr>
+                        <td>
+                            <input type="button" runat="server" id="buttonInfoParkingTable" value="Please, after any operation select one parking!" />
+                            <table class="table" id="tableParkings">
+                                <asp:PlaceHolder ID="placeHolderTableParking" runat="server"></asp:PlaceHolder>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>

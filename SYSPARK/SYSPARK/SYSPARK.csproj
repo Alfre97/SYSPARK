@@ -77,6 +77,7 @@
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\parking.css" />
+    <Content Include="assets\js\Parking.js" />
     <Content Include="Code.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
@@ -126,6 +127,7 @@
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
     <Compile Include="App_Data\CodeData.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
+    <Compile Include="App_Utility\ButtonStyle.cs" />
     <Compile Include="Code.aspx.cs">
       <DependentUpon>Code.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

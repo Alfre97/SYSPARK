@@ -19,9 +19,31 @@ body {
     text-align: center;
     border-radius: 25px 25px;
     margin: 0 auto;
-    width: 300px;
+    width: 24%;
     height: 300px;
     color: white;
+}
+
+@media screen and (max-width: 1100px) {
+    #tableParking {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #tableParking {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #tableParking {
+        width: 80%;
+    }
+
+    #tableGray {
+        width: 100%;
+    }
 }
 
 #allContentInParking {
@@ -38,7 +60,7 @@ div table tr td input {
     border-radius: 5px 5px;
     border-style: none;
     height: 25px;
-    width: 240px;
+    width: 70%;
     color: black;
 }
 
@@ -87,8 +109,69 @@ div {
     border-radius: 10px 10px;
 }
 
-#buttonAddParking {
-    width: 240px;
+#buttonClear {
+    width: 35%;
     float: left;
-    margin-left: 30px;
+    margin-left: 15%;
+}
+
+#buttonAddParking {
+    width: 35%;
+    float: right;
+    margin-right: 15%;
+}
+
+#tableGray {
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 80%;
+    height: 30%;
+    color: white;
+}
+
+#tableParkings {
+    background-color: white;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+    color: black;
+}
+
+table#tableParkings button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px 5px;
+    width: auto;
+    height: auto;
+}
+
+table#tableParkings th {
+    text-align: center;
+    border-top: none;
+}
+
+#buttonDelete {
+    background-color: transparent;
+}
+
+#table#tableParkings tr {
+    border-radius: 25px 25px;
+    height: auto;
+    width: auto;
+}
+
+#buttonInfoParkingTable {
+    background-color: blue;
+    color: white;
+}
+
+.logo {
+    color: white;
+    font-size: 15pt;
+    width: auto;
 }

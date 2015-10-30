@@ -16,17 +16,17 @@
     <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
 </head>
 <body>
-    <%@ PreviousPageType VirtualPath="Registration.aspx" %>
     <form runat="server">
         <!-- Navbar star -->
         <div class="Header">
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="Default.aspx">
-                            <span style="color: white;">
-                                <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
-                                SYSPARK > Login
+                        <a class="navbar-brand" id="navbar-brand" href="Default.aspx">
+                            <!-- Company and name logo -->
+                            <span>
+                                <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
+                                <label class="logo">SYSPARK > Login</label>
                             </span>
                         </a>
                         <div id="navbar-right">

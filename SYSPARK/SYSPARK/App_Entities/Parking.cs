@@ -7,6 +7,7 @@ namespace SYSPARK.Entities
 {
     public class Parking
     {
+        private int id;
         private string name;
         private int totalSpace;
         private int carSpace;
@@ -14,6 +15,19 @@ namespace SYSPARK.Entities
         private int handicapSpace;
         private int busSpace;
         private List<Space> spaceList = new List<Space>();
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
 
         public string Name
         {

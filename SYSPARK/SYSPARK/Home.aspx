@@ -23,13 +23,13 @@
         <div class=" nav navbar-default" id="navDefault" role="navigation">
             <div class="container" id="containerNavbar-top">
                 <nav class="navbar-header" id="navbar-top-header">
-                    <div class="navbar-brand" id="navbar-brand">
+                    <a class="navbar-brand" id="navbar-brand"  href="Home.aspx" >
                         <!-- Company and name logo -->
-                        <label id="logo">
-                            <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                            SYSPARK &gt; Home
-                        </label>
-                    </div>
+                        <span>
+                            <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
+                            <label class="logo">SYSPARK > Home</label>
+                        </span>
+                    </a>
                     <!-- TextBox and Button Search -->
                     <div class="nav" id="search">
                         <input type="text" placeholder=" Search" id="TextBoxSearch" />

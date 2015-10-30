@@ -1,6 +1,7 @@
 ﻿using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -8,9 +9,9 @@ namespace SYSPARK.App_BussinessRules
 {
     public class ParkingBussinessRules
     {
+        ParkingData parkingData = new ParkingData();
         public int InsertParking(Parking parking)
         {
-            ParkingData parkingData = new ParkingData();
             SpaceData spaceData = new SpaceData();
             List<Space> spaceList = new List<Space>();
 
@@ -32,15 +33,46 @@ namespace SYSPARK.App_BussinessRules
                 return 8;
             else
             {
-                parkingData.InsertParking(parking);
-                spaceList = spaceData.createSpaceList(
-                    spaceData.createListCarSpace(parking.Name, parking.CarSpace),
-                    spaceData.createListMotorcycleSpace(parking.Name, parking.MotorcycleSpace),
-                    spaceData.createListHandicapSpace(parking.Name, parking.HandicapSpace),
-                    spaceData.createListBusSpace(parking.Name, parking.BusSpace)
-                    );
-                spaceData.InsertSpace(spaceList);
+                try
+                {
+                    parkingData.InsertParking(parking);
+                    try
+                    {
+                        parking = parkingData.getParkingId(parking);
+                        spaceList = spaceData.createSpaceList(
+                                            spaceData.createListCarSpace(parking),
+                                            spaceData.createListMotorcycleSpace(parking),
+                                            spaceData.createListHandicapSpace(parking),
+                                            spaceData.createListBusSpace(parking)
+                                            );
+                        spaceData.InsertSpace(spaceList);
+                        return 0;
+                    }
+                    catch (Exception)
+                    {
+                        parkingData.DeleteParking(parking.Name);
+                        return 9;
+                    }
+                }
+                catch (SqlException)
+                {
+                    return 10;
+                }
+            }
+        }
+
+        public int DeleteParking(string parkingName)
+        {
+            try
+            {
+                if (parkingName.Equals(string.Empty))
+                    return 2;
+                parkingData.DeleteParking(parkingName);
                 return 0;
+            }
+            catch (SqlException)
+            {
+                return 1;
             }
         }
     }

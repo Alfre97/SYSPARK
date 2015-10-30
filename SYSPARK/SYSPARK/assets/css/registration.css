@@ -96,3 +96,9 @@ div {
     float: left;
     margin-left: 30px;
 }
+
+.logo {
+    color: white;
+    font-size: 15pt;
+    width: auto;
+}

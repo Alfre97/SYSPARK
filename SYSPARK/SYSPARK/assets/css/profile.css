@@ -110,7 +110,7 @@ div {
 }
 
 #buttonCancelUpdate {
-     width: 115px;
+    width: 115px;
     float: left;
     margin-left: 30px;
 }
@@ -125,4 +125,10 @@ div {
     display: none;
     float: left;
     margin-left: 30px;
+}
+
+.logo {
+    color: white;
+    font-size: 15pt;
+    width: auto;
 }

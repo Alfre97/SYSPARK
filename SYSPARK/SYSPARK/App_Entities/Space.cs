@@ -9,7 +9,7 @@ namespace SYSPARK.Entities
     {
         private int id;
         private string name;
-        private string parkingName;
+        private int parkingId;
         private string type;
 
         public int Id
@@ -38,16 +38,16 @@ namespace SYSPARK.Entities
             }
         }
 
-        public string ParkingName
+        public int ParkingId
         {
             get
             {
-                return parkingName;
+                return parkingId;
             }
 
             set
             {
-                parkingName = value;
+                parkingId = value;
             }
         }
 

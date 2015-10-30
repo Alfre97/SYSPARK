@@ -36,10 +36,11 @@
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="Registration.aspx">
-                            <span style="color: white;">
-                                <img class="logo" src="assets/img/LogoSYSPARK.jpg" height="40" style="border-radius: 5px 5px;" />
-                                SYSPARK > Registration
+                        <a class="navbar-brand" id="navbar-brand" href="Registration.aspx">
+                            <!-- Company and name logo -->
+                            <span>
+                                <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
+                                <label class="logo">SYSPARK > Registration</label>
                             </span>
                         </a>
                         <label id="info">

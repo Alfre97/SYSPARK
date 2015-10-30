@@ -14,79 +14,72 @@ namespace SYSPARK
         public void InsertSpace(List<Space> spaceList)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
-            try
-            {
                 foreach (Space space in spaceList)
                 {
                     using (SqlCommand insert = new SqlCommand(@"InsertSpace", connection))
                     {
                         insert.CommandType = CommandType.StoredProcedure;
                         insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = space.Name;
-                        insert.Parameters.Add("@ParkingName", SqlDbType.VarChar).Value = space.ParkingName;
+                        insert.Parameters.Add("@ParkingId", SqlDbType.Int).Value = space.Id;
                         insert.Parameters.Add("@Type", SqlDbType.VarChar).Value = space.Type;
                         insert.ExecuteNonQuery();
                     }
                 }
                 connection = ManageDatabaseConnection("Close");
-            }
-            catch (SqlException)
-            {
-                connection = ManageDatabaseConnection("Close");
-            }
         }
 
-        public List<Space> createListCarSpace(string parkingName, int carSpace)
+        public List<Space> createListCarSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
-            for (int i = 1; i < carSpace; i++)
+            for (int i = 1; i <= parking.CarSpace; i++)
             {
                 Space space = new Space();
-                space.Name = parkingName + "-" + i;
-                space.ParkingName = parkingName;
+                space.Name = parking.Name + "-" + i;
+                space.ParkingId = parking.Id;
                 space.Type = "Car";
                 spaceList.Add(space);
             }
             return spaceList;
         }
 
-        public List<Space> createListMotorcycleSpace(string parkingName, int motorcycleSpace)
+        public List<Space> createListMotorcycleSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
-            for (int i = 1; i < motorcycleSpace; i++)
+            for (int i = 1; i <= parking.MotorcycleSpace; i++)
             {
                 Space space = new Space();
-                space.Name = parkingName + "-" + i;
-                space.ParkingName = parkingName;
+                space.Name = parking.Name + "-" + i;
+                space.ParkingId = parking.Id;
                 space.Type = "Motorcyle";
                 spaceList.Add(space);
             }
             return spaceList;
         }
 
-        public List<Space> createListHandicapSpace(string parkingName, int handicapSpace)
+        public List<Space> createListHandicapSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
 
-            for (int i = 1; i < handicapSpace; i++)
+            for (int i = 1; i <= parking.HandicapSpace; i++)
             {
                 Space space = new Space();
-                space.Name = parkingName + "-" + i;
-                space.ParkingName = parkingName;
+                space.Name = parking.Name + "-" + i;
+                space.ParkingId = parking.Id;
                 space.Type = "Handicap";
                 spaceList.Add(space);
             }
             return spaceList;
         }
 
-        public List<Space> createListBusSpace(string parkingName, int busSpace)
+        public List<Space> createListBusSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
 
-            for (int i = 1; i < busSpace; i++)
+            for (int i = 1; i <= parking.BusSpace; i++)
             {
                 Space space = new Space();
-                space.Name = parkingName + "-" + i;
-                space.ParkingName = parkingName;
+                space.Name = parking.Name + "-" + i;
+                space.ParkingId = parking.Id;
                 space.Type = "Bus";
                 spaceList.Add(space);
             }
@@ -106,6 +99,18 @@ namespace SYSPARK
                 allSpaceList.Add(space);
 
             return allSpaceList;
+        }
+
+        public void deleteSpace(string parkingName)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand delete = new SqlCommand(@"DeleteSpace", connection))
+            {
+                delete.CommandType = CommandType.StoredProcedure;
+                delete.Parameters.Add("@ParkingName", SqlDbType.VarChar).Value = parkingName;
+                delete.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
         }
     }
 }
