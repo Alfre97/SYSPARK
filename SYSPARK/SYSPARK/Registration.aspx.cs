@@ -66,7 +66,7 @@ namespace SYSPARK
         protected void InsertUser()
         {
             UserBussinessRules userBussinessRules = new UserBussinessRules();
-            switch (userBussinessRules.RegistrationRules(createUser()))
+            switch (userBussinessRules.RegistrationRules(CreateUser()))
             {
                 case 0:
                     hiddenTransaction.Value = "Transaction successful.";
@@ -93,7 +93,7 @@ namespace SYSPARK
             }
         }
 
-        protected User createUser()
+        protected User CreateUser()
         {
             User user = new User();
             Condition condition = new Condition();

@@ -8,10 +8,10 @@ function setValue(x, y) {
 
     if (hiddenValue.value > 1) {
         $("#textboxCode").css('visibility', 'visible');
-        $("#hiddenConditionValue").val('1');
+        $("#hiddenVisibleValue").val("1");
     }
     else {
         $("#textboxCode").css('visibility', 'hidden');
-        $("#hiddenConditionValue").val('0');
+        $("#hiddenVisibleValue").val("0");
     }
 }
