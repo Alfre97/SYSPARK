@@ -26,5 +26,19 @@ namespace SYSPARK.Data
                 return dataTableCode;
             }
         }
+
+        public void UpdateCard(UniversityCard universityCard)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand update = new SqlCommand(@"SelectUniversityCard", connection))
+            {
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@UniversityCard", SqlDbType.VarChar).Value = universityCard.Card;
+                update.Parameters.Add("@Used", SqlDbType.Bit).Value = universityCard.Used;
+                update.Parameters.Add("@UserId", SqlDbType.Int).Value = universityCard.UserId;
+                update.ExecuteNonQuery();
+                connection = ManageDatabaseConnection("Close");
+            }
+        }
     }
 }

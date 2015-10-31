@@ -20,8 +20,6 @@ namespace SYSPARK
         {
             if (Session["hiddenTransaction"] != null)
             {
-                textBoxUsername.Value = Session["RegistrationUserName"].ToString();
-                textBoxUsername.Value = Session["RegistrationPassword"].ToString();
                 buttonStyle.buttonStyleBlue(buttonErrors, "Registration successful.");
                 Session.Clear();
             }
@@ -49,7 +47,7 @@ namespace SYSPARK
             Session["User-UserName"] = user.Username;
             Session["User-Password"] = textBoxPassword.Value;
             Session["User-PasswordHashed"] = user.Password;
-            Session["User-ConditionId"] = user.Condition.Id;
+            Session["User-ConditionId"] = user.Role.Id;
         }
 
         protected void CheckUserNameAndPassword()

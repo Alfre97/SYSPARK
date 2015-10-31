@@ -29,14 +29,14 @@ namespace SYSPARK.Data
         public User sendUser(DataTable dataTableUserInfo)
         {
             User user = new User();
-            Condition condition = new Condition();
+            Role condition = new Role();
             user.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["Id"]);
             user.Name = dataTableUserInfo.Rows[0]["Name"].ToString();
             user.LastName = dataTableUserInfo.Rows[0]["LastName"].ToString();
             user.Username = dataTableUserInfo.Rows[0]["UserName"].ToString();
             user.Password = dataTableUserInfo.Rows[0]["Password"].ToString();
             condition.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
-            user.Condition = condition;
+            user.Role = condition;
             return user;
         }
 
@@ -57,7 +57,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
                 insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
                 insert.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
-                insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Condition.Id;
+                insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -74,7 +74,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
                 insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
                 insert.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
-                insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Condition.Id;
+                insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");

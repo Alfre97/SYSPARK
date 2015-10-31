@@ -181,10 +181,6 @@ namespace SYSPARK
                         break;
                 }
             }
-            else
-            {
-                buttonStyle.buttonStyleRed(buttonErrors, "Parking is null.");
-            }
         }
 
         protected void clearControls()

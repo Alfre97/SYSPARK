@@ -104,25 +104,25 @@ div {
 }
 
 #buttonAddNewCar {
-    width: 115px;
+    width: 35%;
     float: left;
     margin-left: 30px;
 }
 
 #buttonUpdateMyInfo {
-    width: 115px;
+    width: 35%;
     float: right;
     margin-right: 30px;
 }
 
 #buttonCancelUpdate {
-    width: 115px;
+    width: 35%;
     float: left;
     margin-left: 30px;
 }
 
 #buttonUpdate {
-    width: 115px;
+    width: 35%;
     float: right;
     margin-right: 30px;
 }
@@ -130,11 +130,23 @@ div {
 #textboxCode {
     visibility: hidden;
     float: left;
-    margin-left: 44px;
+    margin-left: 30px;
 }
 
 .logo {
     color: white;
     font-size: 15pt;
     width: auto;
+}
+
+@media screen and (max-width: 1000px){
+    #tableProfile {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    #tableProfile {
+        width: 80%;
+    }
 }

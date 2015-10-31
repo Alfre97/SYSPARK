@@ -15,7 +15,7 @@ namespace SYSPARK
                 Response.Redirect("Default.aspx");
 
             int userCondition = Convert.ToInt32(Session["User-ConditionId"]);
-            if(userCondition == 1)
+            if(userCondition < 2)
             {
                 trReports.Visible = false;
                 trParking.Visible = false;

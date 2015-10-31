@@ -37,7 +37,7 @@
 
         <div id="allContentInProfile">
             <br />
-                <input type="button" id="buttonErrors" runat="server" visible="false"/>
+            <input type="button" id="buttonErrors" runat="server" visible="false" />
             <br />
             <h1>Profile</h1>
             <br />
@@ -74,21 +74,21 @@
                 <tr>
                     <td>
                         <input type="hidden" id="hiddenConditionValue" runat="server" value="1" />
-                        <span>Condition:</span><br />
+                        <span>Role:</span><br />
                         <select id="selectCondition" runat="server" disabled="disabled" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
                     </td>
                 </tr>
-                <tr id="trCode" runat="server">
+                <tr id="trCode" runat="server" visible="false">
                     <td>
-                        <input type="hidden" id="hiddenVisibleValue" runat="server" value="0"/>
-                        <input type="text" id="textboxCode" placeholder=" University card" runat="server" />
+                        <input type="hidden" id="hiddenVisibleValue" runat="server" value="0" />
+                        <input type="password" id="textboxCode" placeholder=" University card" runat="server" />
                     </td>
                 </tr>
-                <tr>
+                <tr  id="trFirstOptions" runat="server">
                     <td>
                         <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Vehicle</button>
-                        <button onserverclick=" ButtonUpdateMyInfo_Click" type="button" id="buttonUpdateMyInfo" runat="server">Update my info</button>
+                        <button onserverclick=" ButtonUpdateMyInfo_Click" type="button" id="buttonUpdateMyInfo" runat="server">Update</button>
                         <br />
                     </td>
                 </tr>

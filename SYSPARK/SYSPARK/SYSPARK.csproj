@@ -199,7 +199,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Entities\Condition.cs" />
+    <Compile Include="App_Entities\Role.cs" />
     <Compile Include="App_Entities\Parking.cs" />
     <Compile Include="App_Entities\Reservation.cs" />
     <Compile Include="App_Entities\Space.cs" />

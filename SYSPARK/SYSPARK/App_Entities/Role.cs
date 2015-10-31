@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SYSPARK.Entities
 {
-    public class Condition
+    public class Role
     {
         private int id;
         private string description;

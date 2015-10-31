@@ -13,7 +13,7 @@ namespace SYSPARK.Entities
         private string username;
         private string password;
         private List<Vehicle> vehicleList;
-        private Condition condition;
+        private Role role;
 
         public int Id
         {
@@ -93,16 +93,16 @@ namespace SYSPARK.Entities
             }
         }
 
-        public Condition Condition
+        public Role Role
         {
             get
             {
-                return condition;
+                return role;
             }
 
             set
             {
-                condition = value;
+                role = value;
             }
         }
     }

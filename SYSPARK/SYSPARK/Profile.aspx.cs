@@ -156,7 +156,7 @@ namespace SYSPARK
         protected User CreateUser()
         {
             User user = new Entities.User();
-            Condition condition = new Condition();
+            Role role = new Role();
             try
             {
                 //Creating user
@@ -165,9 +165,11 @@ namespace SYSPARK
                 user.LastName = textboxLastName.Value;
                 user.Username = textboxUsername.Value;
                 user.Password = textboxPasswordShowed.Value;
-                condition.Id = Convert.ToInt32(selectCondition.Value);
-                condition.Description = selectCondition.Items.FindByValue(selectCondition.Value).Text;
-                user.Condition = condition;
+                if (hiddenVisibleValue.Value.Equals("1"))
+                    role.Id = Convert.ToInt32(hiddenConditionValue.Value);
+                else
+                    role.Id = Convert.ToInt32(Session["User-ConditionId"]);
+                user.Role = role;
                 return user;
             }
             catch
@@ -188,6 +190,7 @@ namespace SYSPARK
             buttonUpdateMyInfo.Visible = true;
             trUpdate.Visible = false;
             buttonErrors.Visible = false;
+            trFirstOptions.Visible = true;
             trVehicle.Visible = true;
             trCode.Visible = false;
             selectCondition.Disabled = true;
@@ -205,6 +208,7 @@ namespace SYSPARK
             buttonUpdateMyInfo.Visible = false;
             trUpdate.Visible = true;
             buttonErrors.Visible = true;
+            trFirstOptions.Visible = false;
             trVehicle.Visible = false;
             trCode.Visible = true;
             selectCondition.Disabled = false;

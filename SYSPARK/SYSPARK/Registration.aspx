@@ -82,7 +82,7 @@
                 <tr>
                     <td>
                         <input type="hidden" id="hiddenVisibleValue" runat="server" value="0"/>
-                        <input type="text" id="textboxCode" placeholder=" University card" runat="server" />
+                        <input type="password" id="textboxCode" placeholder=" University card" runat="server" />
                     </td>
                 </tr>
                 <tr>

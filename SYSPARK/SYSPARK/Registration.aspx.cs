@@ -46,12 +46,23 @@ namespace SYSPARK
                     buttonStyle.buttonStyleRed(buttonErrors, "University card field is empty.");
                 else
                 {
-                    UniversityCard univarsityCard = new UniversityCard(); 
-                    univarsityCard.Card = textboxCode.Value;
-                    dataTableUCard = UCardData.getCard(univarsityCard); 
+                    UniversityCard universityCard = new UniversityCard();
+                    universityCard.Card = textboxCode.Value;
+                    dataTableUCard = UCardData.getCard(universityCard);
                     if (dataTableUCard.Rows.Count > 0)
                     {
-                            InsertUser();
+                        if (Convert.ToInt32(dataTableUCard.Rows[0]["Used"]) == 0)
+                        {
+                            if (Convert.ToInt32(dataTableUCard.Rows[0]["RoleId"]) == Convert.ToInt32(hiddenConditionValue.Value))
+                            {
+                                InsertUser();
+                                UpdateUniversityCard(dataTableUCard);
+                            }
+                            else
+                                buttonStyle.buttonStyleWhite(buttonErrors, "You can't use this code for this role.");
+                        }
+                        else
+                            buttonStyle.buttonStyleRed(buttonErrors, "The entered code is already used.");
                     }
                     else
                         buttonStyle.buttonStyleWhite(buttonErrors, "The entered code does not exist.");
@@ -65,50 +76,75 @@ namespace SYSPARK
 
         protected void InsertUser()
         {
-            UserBussinessRules userBussinessRules = new UserBussinessRules();
-            switch (userBussinessRules.RegistrationRules(CreateUser()))
+            User user = CreateUser();
+            if (user != null)
             {
-                case 0:
-                    hiddenTransaction.Value = "Transaction successful.";
-                    Session["RegistrationUserName"] = textboxUsernameR.Value;
-                    Session["RegistrationPassword"] = textboxPasswordR.Value;
-                    Session["HiddenTransaction"] = hiddenTransaction.Value;
-                    Response.Redirect("Default.aspx");
-                    break;
-                case 1:
-                    buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
-                    break;
-                case 2:
-                    buttonStyle.buttonStyleRed(buttonErrors, "The lastname field is empty.");
-                    break;
-                case 3:
-                    buttonStyle.buttonStyleWhite(buttonErrors, "The username field is empty.");
-                    break;
-                case 4:
-                    buttonStyle.buttonStyleRed(buttonErrors, "The password field is empty.");
-                    break;
-                case 5:
-                    buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred during your registration.");
-                    break;
+                UserBussinessRules userBussinessRules = new UserBussinessRules();
+                switch (userBussinessRules.RegistrationRules(user))
+                {
+                    case 0:
+                        hiddenTransaction.Value = "Transaction successful.";
+                        Session["HiddenTransaction"] = hiddenTransaction.Value;
+                        Response.Redirect("Default.aspx");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonErrors, "The lastname field is empty.");
+                        break;
+                    case 3:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "The username field is empty.");
+                        break;
+                    case 4:
+                        buttonStyle.buttonStyleRed(buttonErrors, "The password field is empty.");
+                        break;
+                    case 5:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred during your registration.");
+                        break;
+                }
             }
+        }
+
+        protected void UpdateUniversityCard(DataTable dataTableUCard)
+        {
+            UniversityCardData uCardData = new UniversityCardData();
+            uCardData.UpdateCard(CreateUCard(dataTableUCard));
         }
 
         protected User CreateUser()
         {
             User user = new User();
-            Condition condition = new Condition();
-            //User
-            user.Name = textboxName.Value;
-            user.LastName = textboxLastName.Value;
-            user.Username = textboxUsernameR.Value;
-            user.Password = textboxPasswordR.Value;
-            //Condition
+            Role role = new Role();
+            try
+            {
+                //User
+                user.Name = textboxName.Value;
+                user.LastName = textboxLastName.Value;
+                user.Username = textboxUsernameR.Value;
+                user.Password = textboxPasswordR.Value;
+                //Role
+                role.Id = Convert.ToInt32(hiddenConditionValue.Value);
+                //Inserting registration data
+                user.Role = role;
+                return user;
+            }
+            catch (FormatException)
+            {
+                buttonStyle.buttonStyleRed(buttonErrors, "Invalid data, please check it or contact with us.");
+                return null;
+            }
+        }
 
-            condition.Id = Convert.ToInt32(hiddenConditionValue.Value);
-            condition.Description = selectCondition.Items.FindByValue(hiddenConditionValue.Value).Text;
-            //Inserting registration data
-            user.Condition = condition;
-            return user;
+        protected UniversityCard CreateUCard(DataTable dataTableUCard)
+        {
+            UniversityCard uCard = new UniversityCard();
+            UserData userData = new UserData();
+            User user = userData.sendUser(userData.getUser(textboxUsernameR.Value));
+            uCard.Card = dataTableUCard.Rows[0]["UniversityCard"].ToString();
+            uCard.UserId = user.Id;
+            uCard.Used = 1;
+            return uCard;
         }
     }
 }

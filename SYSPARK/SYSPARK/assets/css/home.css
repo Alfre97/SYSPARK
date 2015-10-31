@@ -233,7 +233,7 @@ div nav ul li button {
     background-color: transparent;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 500px) {
     #navbar-right {
         background-color: #197d67;
         float: right;

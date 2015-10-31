@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SYSPARK.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,8 @@ namespace SYSPARK.App_Entities
     {
         private string card;
         private int userId;
+        private int used;
+        private int RoleId;
 
         public string Card
         {
@@ -33,6 +36,32 @@ namespace SYSPARK.App_Entities
             set
             {
                 userId = value;
+            }
+        }
+
+        public int Used
+        {
+            get
+            {
+                return used;
+            }
+
+            set
+            {
+                used = value;
+            }
+        }
+
+        public int RoleId1
+        {
+            get
+            {
+                return RoleId;
+            }
+
+            set
+            {
+                RoleId = value;
             }
         }
     }
