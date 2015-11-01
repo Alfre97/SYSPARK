@@ -77,6 +77,8 @@
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\parking.css" />
+    <Content Include="assets\img\UlatinaLogo.png" />
+    <Content Include="assets\js\Default.js" />
     <Content Include="assets\js\Parking.js" />
     <Content Include="assets\js\Profile.js" />
     <Content Include="assets\js\Registration.js" />

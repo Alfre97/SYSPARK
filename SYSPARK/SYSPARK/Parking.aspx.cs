@@ -128,7 +128,7 @@ namespace SYSPARK
                     parking.BusSpace = Convert.ToInt32(textboxBusSpace.Value);
                     return parking;
                 }
-                return parking;
+                return null;
             }
             catch (FormatException)
             {

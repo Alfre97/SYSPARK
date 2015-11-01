@@ -47,10 +47,10 @@
         <br />
         <br />
         <br />
-        <div id="errors">
-            <input type="button" id="buttonErrors" runat="server" value="" visible="false" />
-        </div>
         <div id="allContentInParking">
+            <br />
+            <input type="button" id="buttonErrors" runat="server" disabled="disabled" visible="false"/>
+            <br />
             <h1>Parking</h1>
             <br />
             <table id="tableParking" border="0">

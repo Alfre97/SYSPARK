@@ -14,6 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
+    <script type="text/javascript" src="assets/js/Default.js"></script>
 </head>
 <body>
     <form runat="server">
@@ -46,14 +47,16 @@
             <br />
         </section>
         <div id="allContentInLogin">
+            <br />
+            <input type="button" id="buttonErrors" runat="server" visible="false" disabled="disabled"/>
+            <br />
             <h1>Access</h1>
             <br />
             <table border="0" id="tableLogin">
                 <tr>
                     <td>
                         <br />
-                        <input type="button" id="buttonErrors" runat="server" value="Your welcome!" style="color: white;" />
-                        <br />
+                        <img id="imgUlatinaLogo" src="assets/img/UlatinaLogo.png" />
                         <br />
                     </td>
                 </tr>
@@ -82,6 +85,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <button onclick="clear()" id="buttonClear" type="submit">Clean</button>
                         <button onserverclick=" enterButton_Click" id="buttonEnter" type="submit" runat="server">
                             Enter</button>
                         <br />

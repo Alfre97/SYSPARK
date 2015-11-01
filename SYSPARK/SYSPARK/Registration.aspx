@@ -42,7 +42,7 @@
         <br />
         <div id="allContentInRegistration">
             <br />
-            <input type="button" id="buttonErrors" runat="server" visible="false"/>
+            <input type="button" id="buttonErrors" runat="server" visible="false" disabled="disabled"/>
             <br />
             <h1>Registration</h1>
             <br />
@@ -94,6 +94,9 @@
                 </tr>
             </table>
         </div>
+        <br />
+        <br />
+        <br />
     </form>
 </body>
 </html>

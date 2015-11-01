@@ -1,4 +1,4 @@
-﻿$(document).ready(setValue(x, y));
+﻿$(document).ready();
 
 function setValue(x, y) {
     var select = document.getElementById(x);

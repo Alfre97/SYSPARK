@@ -8,9 +8,73 @@
     border-radius: 100px 100px;
     text-align: center;
     margin: 0 auto;
-    width: 290px;
+    width: 20%;
     color: white;
-    
+}
+
+#imgUlatinaLogo {
+    width: 80%;
+    height: 70px;
+}
+
+@media screen and (max-width: 1300px) {
+    #tableLogin {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #tableLogin {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #tableLogin {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #tableLogin {
+        width: 25%;
+    }
+
+    #imgUlatinaLogo {
+        width: 80%;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #tableLogin {
+        width: 50%;
+    }
+
+    #imgUlatinaLogo {
+        width: 80%;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #tableLogin {
+        width: 60%;
+    }
+
+    input.TextBoxUsername {
+        width: 80%;
+    }
+
+    input.TextBoxPassword {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #tableLogin {
+        width: 70%;
+    }
 }
 
 h1 {
@@ -18,25 +82,36 @@ h1 {
     text-align: center;
 }
 
+#buttonClear {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+    height: auto;
+    width: auto;
+}
+
 #buttonEnter {
     border-radius: 5px 5px;
     color: black;
     background-color: white;
     border-style: none;
+    height: auto;
+    width: auto;
 }
 
 input.TextBoxUsername {
     border-radius: 5px 5px;
     border-style: none;
     height: 25px;
-    width: 240px;
+    width: 70%;
 }
 
 input.TextBoxPassword {
     border-radius: 5px 5px;
     border-style: none;
     height: 25px;
-    width: 240px;
+    width: 70%;
 }
 
 #buttonErrors {
@@ -46,7 +121,7 @@ input.TextBoxPassword {
     border-style: none;
 }
 
-label { 
+label {
     font-size: 7pt;
     color: white;
     width: 100%;
@@ -55,6 +130,8 @@ label {
 
 #allContentInLogin {
     text-align: center;
+    height: auto;
+    width: auto;
 }
 
 .navbar default-navbar navbar-static-top {
@@ -66,7 +143,7 @@ label {
 }
 
 .navbar-header {
-     width: 100%;
+    width: 100%;
 }
 
 #navbar-right {
