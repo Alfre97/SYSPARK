@@ -18,21 +18,9 @@ body {
     color: white;
 }
 
-@media screen and (max-width: 1100px) {
-    #tableParking {
-        width: 40%;
-    }
-}
-
-@media screen and (max-width: 770px) {
-    #tableParking {
-        width: 60%;
-    }
-}
-
 @media screen and (max-width: 400px) {
     #tableParking {
-        width: 80%;
+        width: 100%;
     }
 
     #tableGray {
