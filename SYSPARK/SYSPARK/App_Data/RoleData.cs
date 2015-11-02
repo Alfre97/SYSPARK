@@ -24,5 +24,17 @@ namespace SYSPARK.Data
             connection = ManageDatabaseConnection("Close");
             return dataTableCondition;
         }
+
+        public void InsertRole(Role role)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand insert = new SqlCommand(@"InsertRole", connection))
+            {
+                insert.CommandType = CommandType.StoredProcedure;
+                insert.Parameters.Add("@Description", SqlDbType.VarChar).Value = role.Description;
+                insert.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
     }
 }

@@ -34,7 +34,45 @@
             </div>
         </div>
 
-
+        <div id="allContentInRole">
+            <br />
+            <input type="button" id="buttonErrors" runat="server" visible="false"/>
+            <br />
+            <h1>Vehicle</h1>
+            <br />
+            <table id="tableRole" border="0">
+                <tr>
+                    <td>
+                        <br />
+                        <input type="text" id="textboxRole" runat="server" placeholder=" Role name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onserverclick=" AddRole_Click" type="button" id="buttonAddRole" runat="server">Add role</button>
+                        <br />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent;" />
+            <input type="hidden" id="hiddenRoleName" runat="server" />
+            <div class="table-responsive">
+                <table id="tableGray">
+                    <tr>
+                        <td>
+                            <input type="button" runat="server" id="buttonInfoRoleTable" value="Please, after any operation select one role!" />
+                            <table class="table" id="tableRoles">
+                                <asp:PlaceHolder ID="placeHolderTableRole" runat="server"></asp:PlaceHolder>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <br />
+            <br />
+        </div>
     </form>
 </body>
 </html>

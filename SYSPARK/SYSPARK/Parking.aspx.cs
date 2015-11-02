@@ -28,7 +28,7 @@ namespace SYSPARK
 
         protected void AddParking_Click(object sender, EventArgs e)
         {
-            InsertAndExceptions();
+            InsertParking();
             fillTable();
         }
 
@@ -137,7 +137,7 @@ namespace SYSPARK
             }
         }
 
-        protected void InsertAndExceptions()
+        protected void InsertParking()
         {
             Parking parking = createParking();
             SpaceData spaceData = new SpaceData();

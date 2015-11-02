@@ -18,3 +18,80 @@ h1 {
     font-size: 15pt;
     width: auto;
 }
+
+#allContentInRole {
+    text-align: center;
+    height: auto;
+}
+
+#buttonErrors {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: transparent;
+    border: none;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
+
+#tableRole {
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 300px;
+    height: 150px;
+    color: white;
+}
+
+div table tr td input {
+    border-radius: 5px 5px;
+    border-style: none;
+    height: 25px;
+    width: 240px;
+    color: black;
+}
+
+div table tr td button {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
+
+@media screen and (max-width: 400px) {
+    #tableRole {
+        width: 100%;
+    }
+}
+
+#tableGray {
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 80%;
+    height: 30%;
+    color: white;
+}
+
+#buttonDelete {
+    background-color: transparent;
+}
+
+#tableRoles {
+    background-color: white;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+    color: black;
+}
+
+#buttonInfoRoleTable {
+    background-color: blue;
+    color: white;
+}
