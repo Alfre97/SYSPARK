@@ -10,10 +10,11 @@ namespace SYSPARK.App_BussinessRules
 {
     public class RoleBussinessRules
     {
+        RoleData roleData = new RoleData();
         public int InsertRole(Role role)
         {
-            RoleData roleData = new RoleData();
-            try {
+            try
+            {
                 roleData.InsertRole(role);
                 return 0;
             }
@@ -21,8 +22,26 @@ namespace SYSPARK.App_BussinessRules
             {
                 return 1;
             }
-            
 
+
+        }
+
+        public int DeleteRole(int roleId)
+        {
+            try
+            {
+                if (roleId.Equals(string.Empty))
+                    return 2;
+                else
+                {
+                    roleData.DeleteRole(roleId);
+                    return 0;
+                }
+            }
+            catch (SqlException)
+            {
+                return 1;
+            }
         }
     }
 }

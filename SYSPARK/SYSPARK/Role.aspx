@@ -15,6 +15,15 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/role.css" />
     <script type="text/javascript" src="assets/js/Role.js"></script>
+    <style type="text/css">
+        .desmarcado {
+            background: white;
+        }
+
+        .marcado {
+            background: #629675;
+        }
+    </style>
 </head>
 <body>
     <form id="formRole" runat="server">
@@ -49,6 +58,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <button onclick="clear()" type="button" id="buttonClear" runat="server">Clean</button>
                         <button onserverclick=" AddRole_Click" type="button" id="buttonAddRole" runat="server">Add role</button>
                         <br />
                     </td>

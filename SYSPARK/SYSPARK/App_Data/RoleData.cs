@@ -36,5 +36,17 @@ namespace SYSPARK.Data
             }
             connection = ManageDatabaseConnection("Close");
         }
+
+        public void DeleteRole(int roleId)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand delete = new SqlCommand(@"DeleteRole", connection))
+            {
+                delete.CommandType = CommandType.StoredProcedure;
+                delete.Parameters.Add("@RoleId", SqlDbType.Int).Value = roleId;
+                delete.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
     }
 }

@@ -23,30 +23,30 @@ namespace SYSPARK
             if (Session["User-Id"] == null)
             Response.Redirect("Default.aspx");
 
-            fillTable();
+            FillTable();
         }
 
         protected void AddParking_Click(object sender, EventArgs e)
         {
             InsertParking();
-            fillTable();
+            FillTable();
         }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            deleteParking();
+            DeleteParking();
         }
 
-        protected void deleteParking()
+        protected void DeleteParking()
         {
             switch (parkingBussinessRules.DeleteParking(hiddenParkingName.Value))
             {
                 case 0:
-                    fillTable();
+                    FillTable();
                     buttonStyle.buttonStyleBlue(buttonInfoParkingTable, "Parking deleted successful.");
                     break;
                 case 1:
-                    fillTable();
+                    FillTable();
                     buttonStyle.buttonStyleRed(buttonInfoParkingTable, "This parking has linked data can not be deleted.");
                     break;
                 case 2:
@@ -55,7 +55,7 @@ namespace SYSPARK
             }
         }
 
-        protected void fillTable()
+        protected void FillTable()
         {
             ParkingData parkingData = new ParkingData();
             //Populating a DataTable from database.
@@ -101,7 +101,7 @@ namespace SYSPARK
 
         }
 
-        protected Parking createParking()
+        protected Parking CreateParking()
         {
             Parking parking = new Parking();
             try
@@ -139,14 +139,14 @@ namespace SYSPARK
 
         protected void InsertParking()
         {
-            Parking parking = createParking();
+            Parking parking = CreateParking();
             SpaceData spaceData = new SpaceData();
             if (parking != null)
             {
                 switch (parkingBussinessRules.InsertParking(parking))
                 {
                     case 0:
-                        clearControls();
+                        ClearControls();
                         buttonStyle.buttonStyleBlue(buttonErrors, "Parking created sucessfully.");
                         break;
                     case 1:
@@ -183,7 +183,7 @@ namespace SYSPARK
             }
         }
 
-        protected void clearControls()
+        protected void ClearControls()
         {
             textboxParkingName.Value = string.Empty;
             textboxTotalSpace.Value = string.Empty;

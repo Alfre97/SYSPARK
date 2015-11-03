@@ -65,6 +65,10 @@ div table tr td button {
     #tableRole {
         width: 100%;
     }
+
+    #tableGray {
+        width: 100%;
+    }
 }
 
 #tableGray {
@@ -73,7 +77,7 @@ div table tr td button {
     border-radius: 25px 25px;
     margin: 0 auto;
     width: 80%;
-    height: 30%;
+    height: auto;
     color: white;
 }
 
@@ -94,4 +98,36 @@ div table tr td button {
 #buttonInfoRoleTable {
     background-color: blue;
     color: white;
+}
+
+table#tableRoles button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px 5px;
+    width: auto;
+    height: auto;
+}
+
+table#tableRoles th {
+    text-align: center;
+    border-top: none;
+}
+
+#table#tableRoles tr {
+    border-radius: 25px 25px;
+    height: auto;
+    width: auto;
+}
+
+#buttonClear {
+    width: 115px;
+    float: left;
+    margin-left: 30px;
+}
+
+#buttonAddRole {
+    width: 115px;
+    float: right;
+    margin-right: 30px;
 }
