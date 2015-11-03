@@ -1,6 +1,9 @@
-﻿$(document).ready();
+﻿var counter = 1;
 
-var counter = 1;
+function deleteParking() {
+    $("#buttonDelete").click();
+}
+
 function getValue(row) {
     var hiddenParkingValue = $("#hiddenParkingName");
     row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
@@ -27,6 +30,3 @@ $("#buttonClear").click(
     });
 };
 
-function deleteParking() {
-    $("#buttonDelete").click();
-}

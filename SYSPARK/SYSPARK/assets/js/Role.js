@@ -1,4 +1,6 @@
-﻿var counter = 1;
+﻿&(document).ready(counter, getValue(row), clear(), deleteRole());
+
+var counter = 1;
 function getValue(row) {
     var hiddenParkingValue = $("#hiddenRoleName");
     row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
@@ -14,9 +16,9 @@ function getValue(row) {
 }
 
 function clear() {
-    $("#buttonClear").click(
+    document.getElementById("buttonClear").click(
         function clean() {
-            $("#textboxRole").val('');
+            document.getElementById("textboxRole").value = "";
         });
 };
 

@@ -101,7 +101,7 @@
                 </tr>
             </table>
             <br />
-            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent;" />
+            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent; border: none;" />
             <input type="hidden" id="hiddenParkingName" runat="server" />
             <div class="table-responsive">
                 <table id="tableGray">

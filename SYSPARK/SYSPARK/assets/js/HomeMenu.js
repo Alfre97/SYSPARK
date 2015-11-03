@@ -1,4 +1,4 @@
-﻿$(document).ready(main);
+﻿$(document).ready(counter, main());
 
 var counter = 1;
 function main() {

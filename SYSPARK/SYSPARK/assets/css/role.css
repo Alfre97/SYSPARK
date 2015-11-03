@@ -72,6 +72,7 @@ div table tr td button {
 }
 
 #tableGray {
+    border: none;
     background-color: #a5a5a5;
     text-align: center;
     border-radius: 25px 25px;
@@ -130,4 +131,8 @@ table#tableRoles th {
     width: 115px;
     float: right;
     margin-right: 30px;
+}
+
+.table-responsive {
+    border: none;
 }

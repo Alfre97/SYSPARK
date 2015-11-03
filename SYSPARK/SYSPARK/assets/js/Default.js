@@ -1,7 +1,5 @@
 ﻿function clear() {
-    $("#buttonClear").click(
-        function clean() {
-            $("#textBoxUsername").val('');
-            $("#textBoxPassword").val('');
-        });
-};
+    alert("Hola");
+    document.getElementById("textBoxUsername").innerHTML = "";
+    document.getElementById("textBoxPassword").innerHTML = "";
+}

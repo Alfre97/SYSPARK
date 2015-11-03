@@ -14,7 +14,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
-    <script type="text/javascript" src="assets/js/Default.js"></script>
+    <script>
+        function clear() {
+            alert("Hola");
+            document.getElementById("textBoxUsername").innerHTML = "";
+            document.getElementById("textBoxPassword").innerHTML = "";
+        }
+    </script>
 </head>
 <body>
     <form runat="server">
@@ -48,7 +54,7 @@
         </section>
         <div id="allContentInLogin">
             <br />
-            <input type="button" id="buttonErrors" runat="server" visible="false" disabled="disabled"/>
+            <input type="button" id="buttonErrors" runat="server" visible="false" disabled="disabled" />
             <br />
             <h1>Access</h1>
             <br />
@@ -85,7 +91,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button onclick="clear()" id="buttonClear" type="submit">Clean</button>
+                        <button id="buttonClear" type="submit" onclick="clear()">Clean</button>
                         <button onserverclick=" enterButton_Click" id="buttonEnter" type="submit" runat="server">
                             Enter</button>
                         <br />
