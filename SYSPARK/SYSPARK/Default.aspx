@@ -14,13 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
-    <script>
-        function clear() {
-            alert("Hola");
-            document.getElementById("textBoxUsername").innerHTML = "";
-            document.getElementById("textBoxPassword").innerHTML = "";
-        }
-    </script>
+    <script type="text/javascript" src="assets/js/Default.js"></script>
 </head>
 <body>
     <form runat="server">
@@ -91,7 +85,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button id="buttonClear" type="submit" onclick="clear()">Clean</button>
+                        <button id="buttonClear" type="button" onclick="clearingSomeControls()">Clean</button>
                         <button onserverclick=" enterButton_Click" id="buttonEnter" type="submit" runat="server">
                             Enter</button>
                         <br />

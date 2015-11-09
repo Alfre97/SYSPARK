@@ -15,7 +15,7 @@ function getValue(row) {
     }
 }
 
-function clear() {
+function clearingSomeControls() {
     document.getElementById("buttonClear").click(
         function clean() {
             document.getElementById("textboxRole").value = "";

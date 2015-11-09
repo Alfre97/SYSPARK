@@ -49,7 +49,7 @@
         <br />
         <div id="allContentInParking">
             <br />
-            <input type="button" id="buttonErrors" runat="server" disabled="disabled" visible="false"/>
+            <input type="button" id="buttonErrors" runat="server" disabled="disabled" visible="false" />
             <br />
             <h1>Parking</h1>
             <br />
@@ -93,15 +93,17 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="buttonClear">Clear</button>
+                        <button type="button" id="buttonClear" onclick="clearingSomeControls()" runat="server">Clear</button>
                         <button onserverclick=" AddParking_Click" type="button" id="buttonAddParking" runat="server">Add parking</button>
+                        <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server" visible="true">Update</button>
                         <br />
                         <br />
                     </td>
                 </tr>
             </table>
             <br />
-            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent; border: none;" />
+            <button onserverclick=" Edit_Click" type="button" id="buttonEdit" runat="server" disabled="disabled" />
+            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" />
             <input type="hidden" id="hiddenParkingName" runat="server" />
             <div class="table-responsive">
                 <table id="tableGray">

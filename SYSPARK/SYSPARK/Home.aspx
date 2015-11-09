@@ -47,8 +47,6 @@
                     <td>
                         <br />
                         <br />
-                        <br />
-                        <br />
                     </td>
                 </tr>
                 <tr id="trReservation" runat="server">

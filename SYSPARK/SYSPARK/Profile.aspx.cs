@@ -52,6 +52,7 @@ namespace SYSPARK
             textboxLastName.Value = Session["User-LastName"].ToString();
             textboxUsername.Value = Session["User-UserName"].ToString();
             textboxPasswordShowed.Value = Session["User-Password"].ToString();
+            hiddenConditionValue.Value = Session["User-ConditionId"].ToString();
             selectCondition.Value = Session["User-ConditionId"].ToString();
         }
 
@@ -87,10 +88,18 @@ namespace SYSPARK
                 {
                     if (dataTableUCard.Rows.Count > 0)
                     {
-                        if (Convert.ToInt32(dataTableUCard.Rows[0]["UserId"]) == Convert.ToInt32(Session["User-Id"]))
-                            UpdateUser();
+                        if (dataTableUCard.Rows[0]["UserId"] == null)
+                        {
+                            buttonStyle.buttonStyleWhite(buttonErrors, "This code didn't have a registered user.");
+                        }
                         else
-                            buttonStyle.buttonStyleRed(buttonErrors, "This code does not belong to you if continues you will be banned.");
+                        {
+                            if (Convert.ToInt32(dataTableUCard.Rows[0]["UserId"]) == Convert.ToInt32(Session["User-Id"]))
+                                UpdateUser();
+                            else
+                                buttonStyle.buttonStyleRed(buttonErrors, "This code does not belong to you if continues you will be banned.");
+                        }
+                        
                     }
                     else
                         buttonStyle.buttonStyleWhite(buttonErrors, "The entered code does not exist.");

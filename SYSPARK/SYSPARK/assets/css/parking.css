@@ -13,7 +13,7 @@ body {
     text-align: center;
     border-radius: 25px 25px;
     margin: 0 auto;
-    width: 350px;
+    width: 325px;
     height: 300px;
     color: white;
 }
@@ -92,15 +92,20 @@ input#buttonErrors {
 }
 
 #buttonClear {
-    width: 35%;
+    width: 30%;
     float: left;
     margin-left: 15%;
 }
 
 #buttonAddParking {
-    width: 35%;
+    width: 30%;
     float: right;
     margin-right: 15%;
+}
+
+#buttonUpdate {
+    background-color: transparent;
+    border: none;
 }
 
 #tableGray {
@@ -139,6 +144,12 @@ table#tableParkings th {
 
 #buttonDelete {
     background-color: transparent;
+    border: none;
+}
+
+#buttonEdit {
+    background-color: transparent;
+    border: none;
 }
 
 #table#tableParkings tr {

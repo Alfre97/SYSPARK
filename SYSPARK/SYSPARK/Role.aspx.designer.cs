@@ -40,15 +40,6 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxRole;
         
         /// <summary>
-        /// buttonClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonClear;
-        
-        /// <summary>
         /// buttonAddRole control.
         /// </summary>
         /// <remarks>

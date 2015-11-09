@@ -1,24 +1,19 @@
-﻿var counter = 1;
-
+﻿//Desition wheater do or not the function getValue
 function deleteParking() {
     $("#buttonDelete").click();
 }
 
 function getValue(row) {
-    var hiddenParkingValue = $("#hiddenParkingName");
-    row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
-    if (counter === 1) {
-        hiddenParkingValue.value = row.cells[1].childNodes[0].nodeValue;
-        alert(hiddenParkingValue.value);
-        counter = 0;
+    if (row.className == 'marcado') {
+        row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
+        $("#hiddenParkingName").val('');
     } else {
-        hiddenParkingValue.value = "";
-        alert(hiddenParkingValue.value);
-        counter = 1;
+        row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
+        $("#hiddenParkingName").val(row.cells[0].childNodes[0].nodeValue);
     }
 }
 
-function clear(){
+function clearingSomeControls(){
 $("#buttonClear").click(
     function clean() {
         $("#textboxParkingName").val('');

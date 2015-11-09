@@ -1,5 +1,4 @@
-﻿function clear() {
-    alert("Hola");
-    document.getElementById("textBoxUsername").innerHTML = "";
-    document.getElementById("textBoxPassword").innerHTML = "";
-}
+﻿function clearingSomeControls() {
+    document.getElementById("textBoxUsername").value = '';
+    document.getElementById("textBoxPassword").value = '';
+};

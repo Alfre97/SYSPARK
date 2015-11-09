@@ -11,30 +11,47 @@ namespace SYSPARK
 {
     public class SpaceData : DataBaseConnection
     {
+        public List<Space> spaceList(Parking parking)
+        {
+            List<Space> spaceList = new List<Space>();
+            
+            foreach (Space space in createListCarSpace(parking))
+                spaceList.Add(space);
+            foreach (Space space in createListMotorcycleSpace(parking))
+                spaceList.Add(space);
+            foreach (Space space in createListHandicapSpace(parking))
+                spaceList.Add(space);
+            foreach (Space space in createListBusSpace(parking))
+                spaceList.Add(space);
+
+            return spaceList;
+        }
+
         public void InsertSpace(List<Space> spaceList)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
-                foreach (Space space in spaceList)
+
+            foreach (Space space in spaceList)
+            {
+                using (SqlCommand insert = new SqlCommand(@"InsertSpace", connection))
                 {
-                    using (SqlCommand insert = new SqlCommand(@"InsertSpace", connection))
-                    {
-                        insert.CommandType = CommandType.StoredProcedure;
-                        insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = space.Name;
-                        insert.Parameters.Add("@ParkingId", SqlDbType.Int).Value = space.Id;
-                        insert.Parameters.Add("@Type", SqlDbType.VarChar).Value = space.Type;
-                        insert.ExecuteNonQuery();
-                    }
+                    insert.CommandType = CommandType.StoredProcedure;
+                    insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = space.Name;
+                    insert.Parameters.Add("@ParkingId", SqlDbType.Int).Value = space.ParkingId;
+                    insert.Parameters.Add("@Type", SqlDbType.VarChar).Value = space.Type;
+                    insert.ExecuteNonQuery();
                 }
-                connection = ManageDatabaseConnection("Close");
+            }
+            connection = ManageDatabaseConnection("Close");
         }
 
         public List<Space> createListCarSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
+            Space space = new Space();
             for (int i = 1; i <= parking.CarSpace; i++)
             {
-                Space space = new Space();
-                space.Name = parking.Name + "-" + i;
+                space.Name = parking.Name + "-" + i + "-Car";
                 space.ParkingId = parking.Id;
                 space.Type = "Car";
                 spaceList.Add(space);
@@ -45,10 +62,10 @@ namespace SYSPARK
         public List<Space> createListMotorcycleSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
+            Space space = new Space();
             for (int i = 1; i <= parking.MotorcycleSpace; i++)
             {
-                Space space = new Space();
-                space.Name = parking.Name + "-" + i;
+                space.Name = parking.Name + "-" + i + "-Motorcycle";
                 space.ParkingId = parking.Id;
                 space.Type = "Motorcyle";
                 spaceList.Add(space);
@@ -59,11 +76,10 @@ namespace SYSPARK
         public List<Space> createListHandicapSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
-
+            Space space = new Space();
             for (int i = 1; i <= parking.HandicapSpace; i++)
             {
-                Space space = new Space();
-                space.Name = parking.Name + "-" + i;
+                space.Name = parking.Name + "-" + i + "-Handicap";
                 space.ParkingId = parking.Id;
                 space.Type = "Handicap";
                 spaceList.Add(space);
@@ -74,43 +90,15 @@ namespace SYSPARK
         public List<Space> createListBusSpace(Parking parking)
         {
             List<Space> spaceList = new List<Space>();
-
+            Space space = new Space();
             for (int i = 1; i <= parking.BusSpace; i++)
             {
-                Space space = new Space();
-                space.Name = parking.Name + "-" + i;
+                space.Name = parking.Name + "-" + i + "-Bus";
                 space.ParkingId = parking.Id;
                 space.Type = "Bus";
                 spaceList.Add(space);
             }
             return spaceList;
-        }
-
-        public List<Space> createSpaceList(List<Space> listCarSpace, List<Space> motorcycleSpace, List<Space> handicapSpace, List<Space> busSpace)
-        {
-            List<Space> allSpaceList = new List<Space>();
-            foreach (Space space in listCarSpace)
-                allSpaceList.Add(space);
-            foreach (Space space in motorcycleSpace)
-                allSpaceList.Add(space);
-            foreach (Space space in handicapSpace)
-                allSpaceList.Add(space);
-            foreach (Space space in busSpace)
-                allSpaceList.Add(space);
-
-            return allSpaceList;
-        }
-
-        public void deleteSpace(string parkingName)
-        {
-            SqlConnection connection = ManageDatabaseConnection("Open");
-            using (SqlCommand delete = new SqlCommand(@"DeleteSpace", connection))
-            {
-                delete.CommandType = CommandType.StoredProcedure;
-                delete.Parameters.Add("@ParkingName", SqlDbType.VarChar).Value = parkingName;
-                delete.ExecuteNonQuery();
-            }
-            connection = ManageDatabaseConnection("Close");
         }
     }
 }
