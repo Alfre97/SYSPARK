@@ -47,6 +47,7 @@
                 <tr>
                     <td>
                         <input id="hiddenParkingValue" type="hidden" runat="server"/>
+                        <span>Parking:</span><br />
                         <select id="selectParking" runat="server" onchange="setValue('selectParking', 'hiddenParkingValue')">
                         </select>
                         <br /> 
