@@ -1,4 +1,4 @@
-﻿-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Role.aspx.cs" Inherits="SYSPARK.AddNewCondition" %>
+﻿-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Role.aspx.cs" Inherits="SYSPARK.RolePage" %>
 
 <!DOCTYPE html>
 
@@ -60,13 +60,14 @@
                     <td>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear">Clean</button>
                         <button onserverclick=" AddRole_Click" type="button" id="buttonAddRole" runat="server">Add role</button>
+                        <button type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
                 </tr>
             </table>
             <br />
-            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent;" />
-            <input type="hidden" id="hiddenRoleName" runat="server" />
+            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent; border: none;" />
+            <input type="hidden" id="hiddenRoleId" runat="server"/>
             <div class="table-responsive">
                 <table id="tableGray">
                     <tr>

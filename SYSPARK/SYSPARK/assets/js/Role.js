@@ -1,27 +1,35 @@
-﻿&(document).ready(counter, getValue(row), clear(), deleteRole());
+﻿//Desition wheater do or not the function getValue
+function deleteRole() {
+    $("#buttonDelete").click();
+}
 
-var counter = 1;
 function getValue(row) {
-    var hiddenParkingValue = $("#hiddenRoleName");
-    row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
-    if (counter === 1) {
-        hiddenParkingValue.value = row.cells[0].childNodes[0].nodeValue;
-        alert(hiddenParkingValue.value);
-        counter = 0;
+    if (row.className == 'marcado') {
+        row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
+        $("#hiddenRoleId").val('');
     } else {
-        hiddenParkingValue.value = "";
-        alert(hiddenParkingValue.value);
-        counter = 1;
+        row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
+        $("#hiddenRoleId").val(row.cells[0].childNodes[0].nodeValue);
     }
 }
 
 function clearingSomeControls() {
-    document.getElementById("buttonClear").click(
+    $("#buttonClear").click(
         function clean() {
-            document.getElementById("textboxRole").value = "";
+            $("#textboxRole").val('');
         });
 };
 
-function deleteRole() {
-    $("#buttonDelete").click();
+function setValues(row) {
+    if ($("#hiddenRoleId").val() === "") {
+        $("#buttonInfoRoleTable").css('background-color', 'red');
+        document.getElementById('buttonInfoRoleTable').value = 'Please, after any operation select one role!';
+
+    } else {
+        $("#textboxRole").val(row.cells[1].childNodes[0].nodeValue);
+        $("#hiddenRoleId").val(row.cells[0].childNodes[0].nodeValue);
+        $("#buttonClear").hide();
+        $("#buttonAddRole").hide();
+        $("#buttonUpdate").css('visibility', 'visible');
+    }
 }

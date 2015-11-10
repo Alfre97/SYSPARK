@@ -10,7 +10,7 @@
 namespace SYSPARK {
     
     
-    public partial class AddNewCondition {
+    public partial class RolePage {
         
         /// <summary>
         /// formRole control.
@@ -49,6 +49,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddRole;
         
         /// <summary>
+        /// buttonUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdate;
+        
+        /// <summary>
         /// buttonDelete control.
         /// </summary>
         /// <remarks>
@@ -58,13 +67,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonDelete;
         
         /// <summary>
-        /// hiddenRoleName control.
+        /// hiddenRoleId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenRoleName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenRoleId;
         
         /// <summary>
         /// buttonInfoRoleTable control.

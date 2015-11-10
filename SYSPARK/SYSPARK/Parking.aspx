@@ -95,7 +95,7 @@
                     <td>
                         <button type="button" id="buttonClear" onclick="clearingSomeControls()" runat="server">Clear</button>
                         <button onserverclick=" AddParking_Click" type="button" id="buttonAddParking" runat="server">Add parking</button>
-                        <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server" visible="true">Update</button>
+                        <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                         <br />
                     </td>
@@ -104,7 +104,7 @@
             <br />
             <button onserverclick=" Edit_Click" type="button" id="buttonEdit" runat="server" disabled="disabled" />
             <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" />
-            <input type="hidden" id="hiddenParkingName" runat="server" />
+            <input type="hidden" id="hiddenParkingId" runat="server" />
             <div class="table-responsive">
                 <table id="tableGray">
                     <tr>

@@ -25,16 +25,25 @@ namespace SYSPARK.Data
             return dataTableCondition;
         }
 
-        public void InsertRole(Role role)
+        public int InsertRole(Role role)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
-            using (SqlCommand insert = new SqlCommand(@"InsertRole", connection))
+            try
             {
-                insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@Description", SqlDbType.VarChar).Value = role.Description;
-                insert.ExecuteNonQuery();
+                using (SqlCommand insert = new SqlCommand(@"InsertRole", connection))
+                {
+                    insert.CommandType = CommandType.StoredProcedure;
+                    insert.Parameters.Add("@Description", SqlDbType.VarChar).Value = role.Description;
+                    insert.ExecuteNonQuery();
+                }
+                connection = ManageDatabaseConnection("Close");
+                return 0;
             }
-            connection = ManageDatabaseConnection("Close");
+            catch
+            {
+                connection = ManageDatabaseConnection("Close");
+                return 1;
+            }
         }
 
         public void DeleteRole(int roleId)

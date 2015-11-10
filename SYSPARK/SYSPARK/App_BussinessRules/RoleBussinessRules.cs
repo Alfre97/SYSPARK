@@ -11,6 +11,7 @@ namespace SYSPARK.App_BussinessRules
     public class RoleBussinessRules
     {
         RoleData roleData = new RoleData();
+
         public int InsertRole(Role role)
         {
             try

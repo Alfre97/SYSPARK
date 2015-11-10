@@ -5,6 +5,7 @@ using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -13,7 +14,7 @@ using System.Web.UI.WebControls;
 
 namespace SYSPARK
 {
-    public partial class AddNewCondition : System.Web.UI.Page
+    public partial class RolePage : System.Web.UI.Page
     {
         RoleBussinessRules roleRules = new RoleBussinessRules();
         ButtonStyle buttonStyle = new ButtonStyle();
@@ -21,13 +22,14 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["User-Id"] == null)
-                //Response.Redirect("Default.aspx");
+            //Response.Redirect("Default.aspx");
             FillTable();
         }
 
         protected void AddRole_Click(object sender, EventArgs e)
         {
             InsertRole(CreateRole());
+            FillTable();
         }
 
         protected void InsertRole(Role role)
@@ -37,9 +39,20 @@ namespace SYSPARK
                 if (textboxRole.Value.Equals(string.Empty))
                     buttonStyle.buttonStyleRed(buttonErrors, "The role name field is empty.");
                 else
-                    roleRules.InsertRole(role);
-            }
+                {
+                    switch (roleRules.InsertRole(role))
+                    {
+                        case 0:
+                            textboxRole.Value = "";
+                            buttonStyle.buttonStyleBlue(buttonErrors, "Role added successful.");
+                            break;
+                        case 1:
+                            buttonStyle.buttonStyleRed(buttonErrors, "An ocurred creating the role, please check data or contact we us.");
+                            break;
 
+                    }
+                }
+            }
         }
 
         protected Role CreateRole()
@@ -80,15 +93,15 @@ namespace SYSPARK
             //Building the Data rows.
             foreach (DataRow row in dt.Rows)
             {
-                html.Append("<tr onclick='getValue(this)' style='cursor:pointer' class='desmarcado'>");
+                html.Append("<tr class='desmarcado'>");
                 foreach (DataColumn column in dt.Columns)
                 {
-                    html.Append("<td>");
+                    html.Append("<td onclick='getValue(this.parentNode)' style='cursor:pointer'>");
                     html.Append(row[column.ColumnName]);
                     html.Append("</td>");
                 }
                 html.Append("<td>");
-                html.Append("<button onclick='' type='button'>Editar</button>");
+                html.Append("<button onclick='setValues(this.parentNode.parentNode)' type='button'>Editar</button>");
                 html.Append("</td>");
                 html.Append("<td>");
                 html.Append("<button onclick='deleteRole()' type='button'>Eliminar</button>");
@@ -106,11 +119,12 @@ namespace SYSPARK
         protected void Delete_Click(object sender, EventArgs e)
         {
             DeleteRole();
+            FillTable();
         }
 
         protected void DeleteRole()
         {
-            switch (roleRules.DeleteRole(Convert.ToInt32(hiddenRoleName.Value)))
+            switch (roleRules.DeleteRole(Convert.ToInt32(hiddenRoleId.Value)))
             {
                 case 0:
                     FillTable();

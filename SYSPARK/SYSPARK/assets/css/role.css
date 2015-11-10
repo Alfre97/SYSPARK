@@ -99,6 +99,8 @@ div table tr td button {
 #buttonInfoRoleTable {
     background-color: blue;
     color: white;
+    height: auto;
+    width: auto;
 }
 
 table#tableRoles button {
@@ -135,4 +137,8 @@ table#tableRoles th {
 
 .table-responsive {
     border: none;
+}
+
+#buttonUpdate {
+    visibility: hidden;
 }

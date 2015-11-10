@@ -43,7 +43,7 @@ namespace SYSPARK
         {
             try
             {
-                switch (parkingBussinessRules.DeleteParking(Convert.ToInt32(hiddenParkingName.Value)))
+                switch (parkingBussinessRules.DeleteParking(Convert.ToInt32(hiddenParkingId.Value)))
                 {
                     case 0:
                         buttonStyle.buttonStyleBlue(buttonInfoParkingTable, "Parking deleted successful.");
@@ -89,7 +89,7 @@ namespace SYSPARK
             //Building the Data rows.
             foreach (DataRow row in dt.Rows)
             {
-                html.Append("<tr class='desmarcado' >");
+                html.Append("<tr class='desmarcado'>");
                 foreach (DataColumn column in dt.Columns)
                 {
                     html.Append("<td style='cursor:pointer' onclick='getValue(this.parentNode)'>");
@@ -97,7 +97,7 @@ namespace SYSPARK
                     html.Append("</td>");
                 }
                 html.Append("<td>");
-                html.Append("<button onclick='' type='button'>Editar</button>");
+                html.Append("<button onclick='setValues(this.parentNode.parentNode)' type='button'>Editar</button>");
                 html.Append("</td>");
                 html.Append("<td>");
                 html.Append("<button onclick='deleteParking()' type='button'>Eliminar</button>");
@@ -211,7 +211,7 @@ namespace SYSPARK
 
         protected Parking GetParking()
         {
-            if (hiddenParkingName.Value.Equals(string.Empty))
+            if (hiddenParkingId.Value.Equals(string.Empty))
             {
                 buttonStyle.buttonStyleRed(buttonInfoParkingTable, "Please, select a parking to edit.");
                 return null;
@@ -222,7 +222,7 @@ namespace SYSPARK
                 Parking parking = new Parking();
                 try
                 {
-                    parkingData.SendParking(parkingData.GetParking(Convert.ToInt32(hiddenParkingName.Value)));
+                    parkingData.SendParking(parkingData.GetParking(Convert.ToInt32(hiddenParkingId.Value)));
                 }
                 catch (SqlException)
                 {

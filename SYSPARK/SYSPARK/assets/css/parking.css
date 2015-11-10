@@ -172,3 +172,13 @@ table#tableParkings th {
 .table-responsive {
     border: none;
 }
+
+#buttonUpdate {
+    visibility: hidden;
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
