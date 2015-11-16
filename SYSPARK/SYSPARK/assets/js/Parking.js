@@ -13,17 +13,14 @@ function getValue(row) {
     }
 }
 
-function clearingSomeControls(){
-$("#buttonClear").click(
-    function clean() {
-        $("#textboxParkingName").val('');
-        $("#textboxTotalSpace").val('');
-        $("#textboxCarSpace").val('');
-        $("#textboxMotorCycleSpace").val('');
-        $("#textboxBusSpace").val('');
-        $("#textboxHandicapSpace").val('');
-    });
-};
+function clearingSomeControls() {
+    $("#textboxParkingName").val('');
+    $("#textboxTotalSpace").val('');
+    $("#textboxCarSpace").val('');
+    $("#textboxMotorCycleSpace").val('');
+    $("#textboxBusSpace").val('');
+    $("#textboxHandicapSpace").val('');
+}
 
 function setValues(row) {
     if ($("#hiddenParkingId").val() === "") {

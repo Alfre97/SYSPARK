@@ -16,15 +16,20 @@ namespace SYSPARK.App_BussinessRules
         {
             try
             {
-                roleData.InsertRole(role);
-                return 0;
+                if (role.Description.Equals(string.Empty))
+                {
+                    return 1;
+                }
+                else
+                {
+                    roleData.InsertRole(role);
+                    return 0;
+                }
             }
             catch (SqlException)
             {
-                return 1;
+                return 2;
             }
-
-
         }
 
         public int DeleteRole(int roleId)
@@ -42,6 +47,27 @@ namespace SYSPARK.App_BussinessRules
             catch (SqlException)
             {
                 return 1;
+            }
+        }
+
+        public int UpdateRole(Role role)
+        {
+
+            try
+            {
+                if (role.Description.Equals(string.Empty))
+                {
+                    return 1;
+                }
+                else
+                {
+                    roleData.UpdateRole(role);
+                    return 0;
+                }
+            }
+            catch (SqlException)
+            {
+                return 2;
             }
         }
     }

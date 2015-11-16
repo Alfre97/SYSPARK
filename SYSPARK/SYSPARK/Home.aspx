@@ -118,7 +118,7 @@
             <div class="container">
                 <nav class="navbar-header" id="navbar-header-bottom">
                     <label id="options">Options</label>
-                    <button type="button" id="buttonNavToogleOptions" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-right">
+                    <button onclick="main()" type="button" id="buttonNavToogleOptions" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-right">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar" style="background-color: #3d3737"></span>
                         <span class="icon-bar" style="background-color: #3d3737"></span>

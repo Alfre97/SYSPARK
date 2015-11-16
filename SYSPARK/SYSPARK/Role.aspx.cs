@@ -21,8 +21,8 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["User-Id"] == null)
-            //Response.Redirect("Default.aspx");
+            if (Session["User-Id"] == null)
+            Response.Redirect("Default.aspx");
             FillTable();
         }
 
@@ -36,21 +36,19 @@ namespace SYSPARK
         {
             if (role != null)
             {
-                if (textboxRole.Value.Equals(string.Empty))
-                    buttonStyle.buttonStyleRed(buttonErrors, "The role name field is empty.");
-                else
+                switch (roleRules.InsertRole(role))
                 {
-                    switch (roleRules.InsertRole(role))
-                    {
-                        case 0:
-                            textboxRole.Value = "";
-                            buttonStyle.buttonStyleBlue(buttonErrors, "Role added successful.");
-                            break;
-                        case 1:
-                            buttonStyle.buttonStyleRed(buttonErrors, "An ocurred creating the role, please check data or contact we us.");
-                            break;
+                    case 0:
+                        textboxRole.Value = "";
+                        buttonStyle.buttonStyleBlue(buttonErrors, "Role added successful.");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "Role name field is empty.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred creating the role, please check data or contact we us.");
+                        break;
 
-                    }
                 }
             }
         }
@@ -113,7 +111,6 @@ namespace SYSPARK
             //Append the HTML string to Placeholder.
             placeHolderTableRole.Controls.Clear();
             placeHolderTableRole.Controls.Add(new Literal { Text = html.ToString() });
-
         }
 
         protected void Delete_Click(object sender, EventArgs e)
@@ -128,15 +125,47 @@ namespace SYSPARK
             {
                 case 0:
                     FillTable();
-                    buttonStyle.buttonStyleBlue(buttonInfoRoleTable, "Parking deleted successful.");
+                    buttonStyle.buttonStyleBlue(buttonInfoRoleTable, "Role deleted successful.");
                     break;
                 case 1:
                     FillTable();
-                    buttonStyle.buttonStyleRed(buttonInfoRoleTable, "This parking has linked data can not be deleted.");
+                    buttonStyle.buttonStyleRed(buttonInfoRoleTable, "This role has linked data can not be deleted.");
                     break;
                 case 2:
-                    buttonStyle.buttonStyleRed(buttonInfoRoleTable, "Please, select a parking to delete.");
+                    buttonStyle.buttonStyleRed(buttonInfoRoleTable, "Please, select a role to delete.");
                     break;
+            }
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+            Role role = CreateRole();
+            role.Id = Convert.ToInt32(hiddenRoleId.Value);
+            UpdateRole(CreateRole());
+            buttonClear.Style.Add("visibility", "visible");
+            buttonAddRole.Style.Add("visibility", "visible");
+            buttonUpdate.Style.Add("visibility", "hidden");
+            FillTable();
+        }
+        
+        protected void UpdateRole(Role role)
+        {
+            if (role != null)
+            {
+                switch (roleRules.UpdateRole(role))
+                {
+                    case 0:
+                        textboxRole.Value = "";
+                        buttonStyle.buttonStyleBlue(buttonErrors, "Role updated successful.");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "Role name field is empty.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred updating the role, please check data or contact we us.");
+                        break;
+
+                }
             }
         }
     }

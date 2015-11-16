@@ -14,11 +14,8 @@ function getValue(row) {
 }
 
 function clearingSomeControls() {
-    $("#buttonClear").click(
-        function clean() {
-            $("#textboxRole").val('');
-        });
-};
+    $("#textboxRole").val('');
+}
 
 function setValues(row) {
     if ($("#hiddenRoleId").val() === "") {
@@ -28,8 +25,8 @@ function setValues(row) {
     } else {
         $("#textboxRole").val(row.cells[1].childNodes[0].nodeValue);
         $("#hiddenRoleId").val(row.cells[0].childNodes[0].nodeValue);
-        $("#buttonClear").hide();
-        $("#buttonAddRole").hide();
+        $("#buttonClear").css('visibility', 'hidden');
+        $("#buttonAddRole").css('visibility', 'hidden');
         $("#buttonUpdate").css('visibility', 'visible');
     }
 }

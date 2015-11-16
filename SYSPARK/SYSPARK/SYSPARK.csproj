@@ -78,6 +78,8 @@
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\parking.css" />
     <Content Include="assets\css\role.css" />
+    <Content Include="assets\css\universityCard.css" />
+    <Content Include="assets\css\vehicleType.css" />
     <Content Include="assets\img\UlatinaLogo.png" />
     <Content Include="assets\js\Default.js" />
     <Content Include="assets\js\Parking.js" />
@@ -85,6 +87,7 @@
     <Content Include="assets\js\Registration.js" />
     <Content Include="assets\js\Role.js" />
     <Content Include="assets\js\Vehicle.js" />
+    <Content Include="assets\js\VehicleType.js" />
     <Content Include="UniversityCard.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
@@ -133,6 +136,7 @@
     <Compile Include="App_BussinessRules\ParkingBussinessRules.cs" />
     <Compile Include="App_BussinessRules\RoleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
+    <Compile Include="App_BussinessRules\VehicleTypeBussinessRules.cs" />
     <Compile Include="App_Data\UniversityCardData.cs" />
     <Compile Include="App_Entities\UniversityCard.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />

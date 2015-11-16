@@ -25,25 +25,16 @@ namespace SYSPARK.Data
             return dataTableCondition;
         }
 
-        public int InsertRole(Role role)
+        public void InsertRole(Role role)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
-            try
+            using (SqlCommand insert = new SqlCommand(@"InsertRole", connection))
             {
-                using (SqlCommand insert = new SqlCommand(@"InsertRole", connection))
-                {
-                    insert.CommandType = CommandType.StoredProcedure;
-                    insert.Parameters.Add("@Description", SqlDbType.VarChar).Value = role.Description;
-                    insert.ExecuteNonQuery();
-                }
-                connection = ManageDatabaseConnection("Close");
-                return 0;
+                insert.CommandType = CommandType.StoredProcedure;
+                insert.Parameters.Add("@Description", SqlDbType.VarChar).Value = role.Description;
+                insert.ExecuteNonQuery();
             }
-            catch
-            {
-                connection = ManageDatabaseConnection("Close");
-                return 1;
-            }
+            connection = ManageDatabaseConnection("Close");
         }
 
         public void DeleteRole(int roleId)
@@ -54,6 +45,19 @@ namespace SYSPARK.Data
                 delete.CommandType = CommandType.StoredProcedure;
                 delete.Parameters.Add("@RoleId", SqlDbType.Int).Value = roleId;
                 delete.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
+
+        public void UpdateRole(Role role)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand update = new SqlCommand(@"UpdateRole", connection))
+            {
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@Id", SqlDbType.Int).Value = role.Id;
+                update.Parameters.Add("@Description", SqlDbType.VarChar).Value = role.Description;
+                update.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
         }

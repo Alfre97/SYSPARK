@@ -42,12 +42,11 @@
                 </div>
             </div>
         </div>
-
         <div id="allContentInRole">
             <br />
             <input type="button" id="buttonErrors" runat="server" visible="false"/>
             <br />
-            <h1>Vehicle</h1>
+            <h1>Role</h1>
             <br />
             <table id="tableRole" border="0">
                 <tr>
@@ -58,9 +57,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <button onclick="clearingSomeControls()" type="button" id="buttonClear">Clean</button>
+                        <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
                         <button onserverclick=" AddRole_Click" type="button" id="buttonAddRole" runat="server">Add role</button>
-                        <button type="button" id="buttonUpdate" runat="server">Update</button>
+                        <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
                 </tr>
