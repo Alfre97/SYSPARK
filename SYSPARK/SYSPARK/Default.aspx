@@ -30,9 +30,6 @@
                                 <span class="logo">SYSPARK > Login</span>
                             </span>
                         </a>
-                        <div id="navbar-right">
-                            <a onclick="location.href='Registration.aspx'" style="color: white; font-size: 12pt;">You are not registered?</a>
-                        </div>
                     </div>
                 </div>
             </div>

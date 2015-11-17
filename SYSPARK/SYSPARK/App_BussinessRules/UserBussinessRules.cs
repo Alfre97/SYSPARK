@@ -14,14 +14,16 @@ namespace SYSPARK.BussinessRules
         {
             try
             {
-                if (user.Name == "")
+                if (user.Name.Equals(string.Empty))
                     return 1;
-                else if (user.LastName == "")
+                else if (user.LastName.Equals(string.Empty))
                     return 2;
-                else if (user.Username == "")
+                else if (user.Username.Equals(string.Empty))
                     return 3;
-                else if (user.Password == "")
+                else if (user.Password.Equals(string.Empty))
                     return 4;
+                else if (user.UniversityCard.Equals(string.Empty))
+                    return 6;
                 else
                 {
                     userData.InsertUser(user);
@@ -38,14 +40,16 @@ namespace SYSPARK.BussinessRules
         {
             try
             {
-                if (user.Name == "")
+                if (user.Name.Equals(string.Empty))
                     return 1;
-                else if (user.LastName == "")
+                else if (user.LastName.Equals(string.Empty))
                     return 2;
-                else if (user.Username == "")
+                else if (user.Username.Equals(string.Empty))
                     return 3;
-                else if (user.Password == "")
+                else if (user.Password.Equals(string.Empty))
                     return 4;
+                else if (user.UniversityCard.Equals(string.Empty))
+                    return 6;
                 else
                 {
                     userData.UpdateUser(user);

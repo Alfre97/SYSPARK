@@ -37,6 +37,7 @@ namespace SYSPARK.Data
             user.Password = dataTableUserInfo.Rows[0]["Password"].ToString();
             condition.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
             user.Role = condition;
+            user.UniversityCard = Convert.ToInt32(dataTableUserInfo.Rows[0]["UniversityCard"]);
             return user;
         }
 
@@ -58,6 +59,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
                 insert.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
                 insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
+                insert.Parameters.Add("@UniversityCard", SqlDbType.Int).Value = user.UniversityCard;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -75,6 +77,7 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
                 insert.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
                 insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
+                insert.Parameters.Add("@UniversityCard", SqlDbType.Int).Value = user.UniversityCard;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");

@@ -106,8 +106,20 @@ body {
     margin-top: 15px;
 }
 
+#buttonUser{
+    background-color: #d11c1c;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
 #buttonParking {
-    background-color: #494141;
+    background-color: #524d4d;
     height: 60px;
     border-radius: 5px 5px;
     color: white;

@@ -1,21 +1,16 @@
-﻿using SYSPARK.App_Entities;
-using SYSPARK.App_Utility;
+﻿using SYSPARK.App_Utility;
 using SYSPARK.BussinessRules;
 using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace SYSPARK
 {
     public partial class Profile : System.Web.UI.Page
     {
         ButtonStyle buttonStyle = new ButtonStyle();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-Id"] == null)
@@ -54,6 +49,7 @@ namespace SYSPARK
             textboxPasswordShowed.Value = Session["User-Password"].ToString();
             hiddenConditionValue.Value = Session["User-ConditionId"].ToString();
             selectCondition.Value = Session["User-ConditionId"].ToString();
+            textboxUniversityCard.Value = Session["User-UniversityCard"].ToString();
         }
 
         protected void ButtonUpdateMyInfo_Click(object sender, EventArgs e)
@@ -63,53 +59,13 @@ namespace SYSPARK
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            Validation();
+            UpdateUser();
         }
 
         protected void ButtonCancelUpdate_Click(object sender, EventArgs e)
         {
             DisablingControls();
             FillTableWithUserInfo();
-        }
-
-        protected void Validation()
-        {
-            //Declare variables
-            UniversityCardData UCardData = new UniversityCardData();
-            UniversityCard universityCard = new UniversityCard();
-            universityCard.Card = textboxCode.Value;
-            DataTable dataTableUCard = UCardData.getCard(universityCard);
-
-            if (hiddenVisibleValue.Value.Equals("1"))
-            {
-                if (textboxCode.Value.Equals(string.Empty))
-                    buttonStyle.buttonStyleRed(buttonErrors, "University card field is empty.");
-                else
-                {
-                    if (dataTableUCard.Rows.Count > 0)
-                    {
-                        if (dataTableUCard.Rows[0]["UserId"] == null)
-                        {
-                            buttonStyle.buttonStyleWhite(buttonErrors, "This code didn't have a registered user.");
-                        }
-                        else
-                        {
-                            if (Convert.ToInt32(dataTableUCard.Rows[0]["UserId"]) == Convert.ToInt32(Session["User-Id"]))
-                                UpdateUser();
-                            else
-                                buttonStyle.buttonStyleRed(buttonErrors, "This code does not belong to you if continues you will be banned.");
-                        }
-                        
-                    }
-                    else
-                        buttonStyle.buttonStyleWhite(buttonErrors, "The entered code does not exist.");
-                }
-            }
-            else
-            {
-                UpdateUser();
-            }
-
         }
 
         protected void UpdateUser()
@@ -159,6 +115,9 @@ namespace SYSPARK
                 case 5:
                     buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred during your update.");
                     break;
+                case 6:
+                    buttonStyle.buttonStyleRed(buttonErrors, "The university card field is empty.");
+                    break;
             }
         }
 
@@ -174,11 +133,9 @@ namespace SYSPARK
                 user.LastName = textboxLastName.Value;
                 user.Username = textboxUsername.Value;
                 user.Password = textboxPasswordShowed.Value;
-                if (hiddenVisibleValue.Value.Equals("1"))
-                    role.Id = Convert.ToInt32(hiddenConditionValue.Value);
-                else
-                    role.Id = Convert.ToInt32(Session["User-ConditionId"]);
+                role.Id = Convert.ToInt32(Session["User-ConditionId"]);
                 user.Role = role;
+                user.UniversityCard = Convert.ToInt32(textboxUniversityCard.Value);
                 return user;
             }
             catch
@@ -201,8 +158,6 @@ namespace SYSPARK
             buttonErrors.Visible = false;
             trFirstOptions.Visible = true;
             trVehicle.Visible = true;
-            trCode.Visible = false;
-            selectCondition.Disabled = true;
         }
 
         protected void EnableControls()
@@ -219,8 +174,6 @@ namespace SYSPARK
             buttonErrors.Visible = true;
             trFirstOptions.Visible = false;
             trVehicle.Visible = false;
-            trCode.Visible = true;
-            selectCondition.Disabled = false;
         }
     }
 }

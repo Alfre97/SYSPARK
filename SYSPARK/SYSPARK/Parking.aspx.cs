@@ -97,10 +97,10 @@ namespace SYSPARK
                     html.Append("</td>");
                 }
                 html.Append("<td>");
-                html.Append("<button onclick='setValues(this.parentNode.parentNode)' type='button'>Editar</button>");
+                html.Append("<button onclick='setValues(this.parentNode.parentNode)' type='button'>Edit</button>");
                 html.Append("</td>");
                 html.Append("<td>");
-                html.Append("<button onclick='deleteParking()' type='button'>Eliminar</button>");
+                html.Append("<button onclick='deleteParking()' type='button'>Delete</button>");
                 html.Append("</td>");
                 html.Append("</tr>");
             }

@@ -22,11 +22,11 @@
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" id="navbar-brand" href="Registration.aspx">
+                        <a class="navbar-brand" id="navbar-brand" href="Home.aspx">
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <span class="logo">SYSPARK > Registration</span>
+                                <span class="logo">SYSPARK > Home > Registration</span>
                             </span>
                         </a>
                         <label id="info">
@@ -81,13 +81,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="hidden" id="hiddenVisibleValue" runat="server" value="0"/>
-                        <input type="password" id="textboxCode" placeholder=" University card" runat="server" />
+                        <input type="text" id="textboxUniversityCard" placeholder=" University card" runat="server" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenTransaction" type="hidden" runat="server" />
                         <button onserverclick=" buttonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
                         <br />
                     </td>

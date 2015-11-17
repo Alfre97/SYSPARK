@@ -73,6 +73,12 @@
                         <br />
                     </td>
                 </tr>
+                <tr id="trUser" runat="server">
+                    <td>
+                        <button type="button" id="buttonUser" onclick="location.href='Registration.aspx'" runat="server">User</button>
+                        <br />
+                    </td>
+                </tr>
                 <tr id="trParking" runat="server">
                     <td>
                         <button type="button" id="buttonParking" onclick="location.href='Parking.aspx'" runat="server">Parking</button>

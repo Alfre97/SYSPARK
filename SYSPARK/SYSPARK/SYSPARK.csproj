@@ -88,7 +88,6 @@
     <Content Include="assets\js\Role.js" />
     <Content Include="assets\js\Vehicle.js" />
     <Content Include="assets\js\VehicleType.js" />
-    <Content Include="UniversityCard.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Parking.aspx" />
@@ -137,17 +136,8 @@
     <Compile Include="App_BussinessRules\RoleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleTypeBussinessRules.cs" />
-    <Compile Include="App_Data\UniversityCardData.cs" />
-    <Compile Include="App_Entities\UniversityCard.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="App_Utility\ButtonStyle.cs" />
-    <Compile Include="UniversityCard.aspx.cs">
-      <DependentUpon>UniversityCard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UniversityCard.aspx.designer.cs">
-      <DependentUpon>UniversityCard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

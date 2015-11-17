@@ -14,6 +14,7 @@ namespace SYSPARK.Entities
         private string password;
         private List<Vehicle> vehicleList;
         private Role role;
+        private int universityCard;
 
         public int Id
         {
@@ -103,6 +104,19 @@ namespace SYSPARK.Entities
             set
             {
                 role = value;
+            }
+        }
+
+        public int UniversityCard
+        {
+            get
+            {
+                return universityCard;
+            }
+
+            set
+            {
+                universityCard = value;
             }
         }
     }

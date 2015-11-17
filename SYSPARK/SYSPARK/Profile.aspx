@@ -36,9 +36,7 @@
         </div>
 
         <div id="allContentInProfile">
-            <br />
             <input type="button" id="buttonErrors" runat="server" visible="false" />
-            <br />
             <h1>Profile</h1>
             <br />
             <table id="tableProfile" border="0">
@@ -49,7 +47,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><span>Lastname:</span><br />
+                    <td><span>Last name:</span><br />
                         <input type="text" id="textboxLastName" runat="server" placeholder=" Last name" disabled="disabled" />
                     </td>
                 </tr>
@@ -79,15 +77,15 @@
                         </select>
                     </td>
                 </tr>
-                <tr id="trCode" runat="server" visible="false">
+                <tr>
                     <td>
-                        <input type="hidden" id="hiddenVisibleValue" runat="server" value="0" />
-                        <input type="password" id="textboxCode" placeholder=" University card" runat="server" />
+                        <span>University Card:</span><br />
+                        <input type="text" id="textboxUniversityCard" placeholder=" University card" runat="server" disabled="disabled" />
                     </td>
                 </tr>
                 <tr  id="trFirstOptions" runat="server">
                     <td>
-                        <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Vehicle</button>
+                        <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Add Vehicle</button>
                         <button onserverclick=" ButtonUpdateMyInfo_Click" type="button" id="buttonUpdateMyInfo" runat="server">Update</button>
                         <br />
                     </td>

@@ -16,6 +16,7 @@ namespace SYSPARK
     public partial class Login : Page
     {
         ButtonStyle buttonStyle = new ButtonStyle();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["hiddenTransaction"] != null)
@@ -48,6 +49,7 @@ namespace SYSPARK
             Session["User-Password"] = textBoxPassword.Value;
             Session["User-PasswordHashed"] = user.Password;
             Session["User-ConditionId"] = user.Role.Id;
+            Session["User-UniversityCard"] = user.UniversityCard;
         }
 
         protected void CheckUserNameAndPassword()

@@ -103,31 +103,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectCondition;
         
         /// <summary>
-        /// trCode control.
+        /// textboxUniversityCard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCode;
-        
-        /// <summary>
-        /// hiddenVisibleValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenVisibleValue;
-        
-        /// <summary>
-        /// textboxCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword textboxCode;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxUniversityCard;
         
         /// <summary>
         /// trFirstOptions control.

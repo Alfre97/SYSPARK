@@ -128,7 +128,7 @@ div {
 }
 
 #textboxCode {
-    visibility: hidden;
+    visibility: visible;
     float: left;
     margin-left: 30px;
 }
