@@ -24,6 +24,8 @@ namespace SYSPARK.BussinessRules
                     return 4;
                 else if (user.UniversityCard.Equals(string.Empty))
                     return 6;
+                else if (user.Campus.Id.Equals(string.Empty))
+                    return 7;
                 else
                 {
                     userData.InsertUser(user);
@@ -50,6 +52,8 @@ namespace SYSPARK.BussinessRules
                     return 4;
                 else if (user.UniversityCard.Equals(string.Empty))
                     return 6;
+                else if (user.Campus.Id.Equals(string.Empty))
+                    return 7;
                 else
                 {
                     userData.UpdateUser(user);

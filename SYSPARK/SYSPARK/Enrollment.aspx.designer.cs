@@ -10,16 +10,16 @@
 namespace SYSPARK {
     
     
-    public partial class AddNewCar {
+    public partial class Enrollment {
         
         /// <summary>
-        /// formVehicle control.
+        /// formEnrollment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formVehicle;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formEnrollment;
         
         /// <summary>
         /// buttonErrors control.
@@ -40,84 +40,57 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxLicense;
         
         /// <summary>
-        /// hiddenTypeValue control.
+        /// textboxParkingName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenTypeValue;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxParkingName;
         
         /// <summary>
-        /// selectType control.
+        /// textboxTotalSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectType;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxTotalSpace;
         
         /// <summary>
-        /// buttonClear control.
+        /// textboxCarSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonClear;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxCarSpace;
         
         /// <summary>
-        /// buttonAddNewCar control.
+        /// textboxMotorCycleSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddNewCar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxMotorCycleSpace;
         
         /// <summary>
-        /// buttonUpdate control.
+        /// textboxBusSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxBusSpace;
         
         /// <summary>
-        /// buttonDelete control.
+        /// textboxHandicapSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonDelete;
-        
-        /// <summary>
-        /// hiddenVehicleId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenVehicleId;
-        
-        /// <summary>
-        /// buttonInfoVehicleTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonInfoVehicleTable;
-        
-        /// <summary>
-        /// placeHolderTableVehicle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderTableVehicle;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxHandicapSpace;
     }
 }

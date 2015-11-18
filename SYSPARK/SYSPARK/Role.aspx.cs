@@ -141,7 +141,7 @@ namespace SYSPARK
         {
             Role role = CreateRole();
             role.Id = Convert.ToInt32(hiddenRoleId.Value);
-            UpdateRole(CreateRole());
+            UpdateRole(role);
             buttonClear.Style.Add("visibility", "visible");
             buttonAddRole.Style.Add("visibility", "visible");
             buttonUpdate.Style.Add("visibility", "hidden");

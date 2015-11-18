@@ -42,6 +42,7 @@
             <table id="tableProfile" border="0">
                 <tr>
                     <td>
+                        <br />
                         <span>Name:</span><br />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled" />
                     </td>
@@ -62,6 +63,13 @@
                         <input type="text" id="textboxPasswordShowed" runat="server" placeholder=" Password" disabled="disabled" />
                     </td>
                 </tr>
+                 <tr>
+                    <td>
+                        <span>University Card:</span><br />
+                        <input type="text" id="textboxUniversityCard" placeholder=" University card" runat="server" disabled="disabled" />
+                        <br />
+                    </td>
+                </tr>
                 <tr id="trVehicle" runat="server">
                     <td>
                         <span>Vehicle:</span><br />
@@ -71,7 +79,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="hidden" id="hiddenConditionValue" runat="server" value="1" />
+                        <input type="hidden" id="hiddenConditionValue" runat="server" />
                         <span>Role:</span><br />
                         <select id="selectCondition" runat="server" disabled="disabled" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
@@ -79,14 +87,17 @@
                 </tr>
                 <tr>
                     <td>
-                        <span>University Card:</span><br />
-                        <input type="text" id="textboxUniversityCard" placeholder=" University card" runat="server" disabled="disabled" />
+                        <input type="hidden" id="hiddenCampusValue" runat="server" />
+                        <span>Role:</span><br />
+                        <select id="selectCampus" runat="server" disabled="disabled" onchange="setValue('selectCampus', 'hiddenCampusValue')">
+                        </select>
                     </td>
                 </tr>
                 <tr  id="trFirstOptions" runat="server">
                     <td>
                         <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Add Vehicle</button>
                         <button onserverclick=" ButtonUpdateMyInfo_Click" type="button" id="buttonUpdateMyInfo" runat="server">Update</button>
+                        <br />
                         <br />
                     </td>
                 </tr>

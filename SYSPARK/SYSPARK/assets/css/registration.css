@@ -108,3 +108,12 @@ div {
     font-size: 15pt;
     width: auto;
 }
+
+#selectCampus {
+    width: 240px;
+    background-color: white;
+    height: 25px;
+    color: black;
+    border: none;
+    border-radius: 5px 5px;
+}

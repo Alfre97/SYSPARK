@@ -32,12 +32,12 @@ namespace SYSPARK
             }
         }
 
-        protected void enterButton_Click(object sender, EventArgs e)
+        protected void EnterButton_Click(object sender, EventArgs e)
         {
             CheckUserNameAndPassword();
         }
 
-        protected void saveSession()
+        protected void SaveSession()
         {
             //Saving th user data for use in all the app
             UserData userData = new UserData();
@@ -50,6 +50,7 @@ namespace SYSPARK
             Session["User-PasswordHashed"] = user.Password;
             Session["User-ConditionId"] = user.Role.Id;
             Session["User-UniversityCard"] = user.UniversityCard;
+            Session["User-CampusId"] = user.Campus.Id;
         }
 
         protected void CheckUserNameAndPassword()
@@ -71,7 +72,7 @@ namespace SYSPARK
                     {
                         if (login.LoginPassword(password, username) == true)
                         {
-                            saveSession();
+                            SaveSession();
                             textBoxPassword.Value = string.Empty;
                             Response.Redirect("Home.aspx");
                         }

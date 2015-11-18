@@ -85,6 +85,24 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxHandicapSpace;
         
         /// <summary>
+        /// hiddenCampusValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenCampusValue;
+        
+        /// <summary>
+        /// selectCampus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selectCampus;
+        
+        /// <summary>
         /// buttonClear control.
         /// </summary>
         /// <remarks>

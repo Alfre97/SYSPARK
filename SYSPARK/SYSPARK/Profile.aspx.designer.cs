@@ -67,6 +67,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxPasswordShowed;
         
         /// <summary>
+        /// textboxUniversityCard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxUniversityCard;
+        
+        /// <summary>
         /// trVehicle control.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,22 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectCondition;
         
         /// <summary>
-        /// textboxUniversityCard control.
+        /// hiddenCampusValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxUniversityCard;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenCampusValue;
+        
+        /// <summary>
+        /// selectCampus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selectCampus;
         
         /// <summary>
         /// trFirstOptions control.

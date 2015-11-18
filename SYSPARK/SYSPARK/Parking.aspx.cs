@@ -24,6 +24,13 @@ namespace SYSPARK
             if (Session["User-Id"] == null)
                 Response.Redirect("Default.aspx");
 
+            //Select campus
+            CampusData campusData = new CampusData();
+            selectCampus.DataSource = campusData.DataTableCampus();
+            selectCampus.DataValueField = "Id";
+            selectCampus.DataTextField = "Description";
+            selectCampus.DataBind();
+
             FillTable();
         }
 
@@ -136,6 +143,7 @@ namespace SYSPARK
                     parking.MotorcycleSpace = Convert.ToInt32(textboxMotorCycleSpace.Value);
                     parking.HandicapSpace = Convert.ToInt32(textboxHandicapSpace.Value);
                     parking.BusSpace = Convert.ToInt32(textboxBusSpace.Value);
+                    parking.Campus.Id = Convert.ToInt32(hiddenCampusValue.Value);
                     return parking;
                 }
                 return null;

@@ -13,19 +13,29 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (Session["User-Id"] == null)
+            //Response.Redirect("Default.aspx");
+
             Session["RegistrationUserName"] = string.Empty;
             Session["RegistrationPassword"] = string.Empty;
             Session["HiddenTransaction"] = string.Empty;
+
             //Select conditionType
             RoleData roleData = new RoleData();
-            DataTable condition = roleData.DataTableRole();
-            selectCondition.DataSource = condition;
+            selectCondition.DataSource = roleData.DataTableRole();
             selectCondition.DataValueField = "Id";
             selectCondition.DataTextField = "Description";
             selectCondition.DataBind();
+
+            //Select campus
+            CampusData campusData = new CampusData();
+            selectCampus.DataSource = campusData.DataTableCampus();
+            selectCampus.DataValueField = "Id";
+            selectCampus.DataTextField = "Description";
+            selectCampus.DataBind();
         }
 
-        protected void buttonRegister_Click(object sender, EventArgs e)
+        protected void ButtonRegister_Click(object sender, EventArgs e)
         {
             InsertUser(CreateUser());
         }
@@ -66,7 +76,6 @@ namespace SYSPARK
         protected User CreateUser()
         {
             User user = new User();
-            Role role = new Role();
             try
             {
                 //User
@@ -74,10 +83,22 @@ namespace SYSPARK
                 user.LastName = textboxLastName.Value;
                 user.Username = textboxUsernameR.Value;
                 user.Password = textboxPasswordR.Value;
-                //Role
-                role.Id = Convert.ToInt32(hiddenConditionValue.Value);
-                //Inserting registration data
-                user.Role = role;
+                if (hiddenConditionValue.Value.Equals(string.Empty))
+                {
+                    buttonStyle.buttonStyleWhite(buttonErrors, "Select, one role please.");
+                    return null;
+                }
+                else
+                {
+                    user.Role.Id = Convert.ToInt32(hiddenConditionValue.Value);
+                    if (hiddenCampusValue.Value.Equals(string.Empty))
+                    {
+                        buttonStyle.buttonStyleWhite(buttonErrors, "Select, one campus please.");
+                        return null;
+                    }
+                    else
+                        user.Campus.Id = Convert.ToInt32(hiddenCampusValue.Value);
+                }
                 user.UniversityCard = Convert.ToInt32(textboxUniversityCard.Value);
                 return user;
             }

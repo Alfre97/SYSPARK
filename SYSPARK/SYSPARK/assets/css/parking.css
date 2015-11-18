@@ -182,3 +182,12 @@ table#tableParkings th {
     width: auto;
     height: auto;
 }
+
+#selectCampus {
+    width: 240px;
+    background-color: white;
+    height: 25px;
+    color: black;
+    border: none;
+    border-radius: 5px 5px;
+}

@@ -37,6 +37,7 @@ namespace SYSPARK
                 insert.Parameters.Add("@MotorcycleSpace", SqlDbType.Int).Value = parking.MotorcycleSpace;
                 insert.Parameters.Add("@HandicapSpace", SqlDbType.Int).Value = parking.HandicapSpace;
                 insert.Parameters.Add("@BusSpace", SqlDbType.Int).Value = parking.BusSpace;
+                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.Campus.Id;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -84,6 +85,7 @@ namespace SYSPARK
                 update.Parameters.Add("@MotorcycleSpace", SqlDbType.Int).Value = parking.MotorcycleSpace;
                 update.Parameters.Add("@HandicapSpace", SqlDbType.Int).Value = parking.HandicapSpace;
                 update.Parameters.Add("@BusSpace", SqlDbType.Int).Value = parking.BusSpace;
+                update.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.Campus.Id;
                 update.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -113,6 +115,7 @@ namespace SYSPARK
             parking.MotorcycleSpace = Convert.ToInt32(dataTableParkingInfo.Rows[0]["MotorcycleSpace"]);
             parking.HandicapSpace = Convert.ToInt32(dataTableParkingInfo.Rows[0]["HandicapSpace"]);
             parking.BusSpace = Convert.ToInt32(dataTableParkingInfo.Rows[0]["BusSpace"]);
+            parking.Campus.Id = Convert.ToInt32(dataTableParkingInfo.Rows[0]["CampusId"]);
             return parking;
         }
     }

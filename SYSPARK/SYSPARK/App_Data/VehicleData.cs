@@ -20,13 +20,13 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@TypeId", SqlDbType.Int).Value = vehicle.Type.Id;
                 insert.Parameters.Add("@VehiclePlate", SqlDbType.VarChar).Value = vehicle.VehiclePlate;
                 insert.Parameters.Add("@UserId", SqlDbType.Int).Value = userId;
-                insert.Parameters.Add("@VehicleId", SqlDbType.Int).Value = getVehicleId(vehicle.VehiclePlate);
+                insert.Parameters.Add("@VehicleId", SqlDbType.Int).Value = GetVehicleId(vehicle.VehiclePlate);
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
         }
 
-        public int getVehicleId(string vehiclePlate)
+        public int GetVehicleId(string vehiclePlate)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
             DataTable dataTableVehicleId = new DataTable();
@@ -56,6 +56,37 @@ namespace SYSPARK.Data
             }
             connection = ManageDatabaseConnection("Close");
             return dataTableuservehicle;
+        }
+
+        public DataTable DataTableVehicle()
+        {
+            return null;
+        }
+
+        public void DeleteVehicle(int vehicleId)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand delete = new SqlCommand(@"DeleteVehicle", connection))
+            {
+                delete.CommandType = CommandType.StoredProcedure;
+                delete.Parameters.Add("@VehicleId", SqlDbType.Int).Value = vehicleId;
+                delete.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
+
+        public void UpdateVehicle(Vehicle vehicle)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand update = new SqlCommand(@"UpdateVehicle", connection))
+            {
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@Id", SqlDbType.Int).Value = vehicle.Id;
+                update.Parameters.Add("@TypeId", SqlDbType.VarChar).Value = vehicle.Type.Id;
+                update.Parameters.Add("@VehiclePlate", SqlDbType.Int).Value = vehicle.VehiclePlate;
+                update.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
         }
     }
 }

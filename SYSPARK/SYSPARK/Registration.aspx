@@ -44,7 +44,7 @@
             <br />
             <input type="button" id="buttonErrors" runat="server" visible="false" disabled="disabled"/>
             <br />
-            <h1>Registration</h1>
+            <h1>User</h1>
             <br />
             <table id="tableRegistration" border="0">
                 <tr>
@@ -73,7 +73,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenConditionValue" type="hidden" runat="server" value="1" />
+                        <input type="text" id="textboxUniversityCard" placeholder=" University card" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="hiddenConditionValue" type="hidden" runat="server" />
                         <select id="selectCondition" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
                         <br />
@@ -81,12 +86,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxUniversityCard" placeholder=" University card" runat="server" />
+                        <input id="hiddenCampusValue" type="hidden" runat="server" />
+                        <select id="selectCampus" runat="server" onchange="setValue('selectCampus', 'hiddenCampusValue')">
+                        </select>
+                        <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button onserverclick=" buttonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
+                        <button onserverclick=" ButtonRegister_Click" type="button" id="buttonRegister" runat="server">Register</button>
                         <br />
                     </td>
                 </tr>

@@ -93,6 +93,14 @@
                 </tr>
                 <tr>
                     <td>
+                        <input id="hiddenCampusValue" type="hidden" runat="server" />
+                        <select id="selectCampus" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')">
+                        </select>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <button type="button" id="buttonClear" onclick="clearingSomeControls()" runat="server">Clear</button>
                         <button onserverclick=" AddParking_Click" type="button" id="buttonAddParking" runat="server">Add parking</button>
                         <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>

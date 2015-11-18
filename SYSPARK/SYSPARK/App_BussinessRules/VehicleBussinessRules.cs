@@ -10,6 +10,8 @@ namespace SYSPARK.App_BussinessRules
 {
     public class VehicleBussinessRules
     {
+        VehicleData vehicleData = new VehicleData();
+
         public int InsertVehicle(Vehicle vehicle, int userId)
         {
             try
@@ -19,7 +21,6 @@ namespace SYSPARK.App_BussinessRules
                     return 1;
                 }
                 //Inserting vehicle
-                VehicleData vehicleData = new VehicleData();
                 vehicleData.InsertVehicle(vehicle, userId);
             }
             catch (SqlException)
@@ -27,6 +28,45 @@ namespace SYSPARK.App_BussinessRules
                 return 2;
             }
             return 0;
+        }
+
+        public int DeleteVehicle(int vehicleId)
+        {
+            try
+            {
+                if (vehicleId.Equals(string.Empty))
+                    return 2;
+                else
+                {
+                    vehicleData.DeleteVehicle(vehicleId);
+                    return 0;
+                }
+            }
+            catch (SqlException)
+            {
+                return 1;
+            }
+        }
+
+        public int UpdateVehicle(Vehicle vehicle)
+        {
+
+            try
+            {
+                if (vehicle.VehiclePlate.Equals(string.Empty))
+                {
+                    return 1;
+                }
+                else
+                {
+                    vehicleData.UpdateVehicle(vehicle);
+                    return 0;
+                }
+            }
+            catch (SqlException)
+            {
+                return 2;
+            }
         }
     }
 }

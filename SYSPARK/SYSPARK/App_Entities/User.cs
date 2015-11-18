@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SYSPARK.App_Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,7 @@ namespace SYSPARK.Entities
         private List<Vehicle> vehicleList;
         private Role role;
         private int universityCard;
+        private Campus campus;
 
         public int Id
         {
@@ -117,6 +119,19 @@ namespace SYSPARK.Entities
             set
             {
                 universityCard = value;
+            }
+        }
+
+        public Campus Campus
+        {
+            get
+            {
+                return campus;
+            }
+
+            set
+            {
+                campus = value;
             }
         }
     }

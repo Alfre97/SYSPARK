@@ -37,6 +37,14 @@ namespace SYSPARK
             selectVehicle.DataValueField = "Id";
             selectVehicle.DataTextField = "VehiclePlate";
             selectVehicle.DataBind();
+
+            //Select Campus
+            CampusData campusData = new CampusData();
+            selectCampus.DataSource = campusData.DataTableCampus();
+            selectCampus.DataValueField = "Id";
+            selectCampus.DataTextField = "Description";
+            selectCampus.DataBind();
+
             //Fill table with user info
             FillTableWithUserInfo();
         }
@@ -50,6 +58,7 @@ namespace SYSPARK
             hiddenConditionValue.Value = Session["User-ConditionId"].ToString();
             selectCondition.Value = Session["User-ConditionId"].ToString();
             textboxUniversityCard.Value = Session["User-UniversityCard"].ToString();
+            selectCampus.Value = Session["User-CampusId"].ToString();
         }
 
         protected void ButtonUpdateMyInfo_Click(object sender, EventArgs e)
@@ -133,9 +142,9 @@ namespace SYSPARK
                 user.LastName = textboxLastName.Value;
                 user.Username = textboxUsername.Value;
                 user.Password = textboxPasswordShowed.Value;
-                role.Id = Convert.ToInt32(Session["User-ConditionId"]);
-                user.Role = role;
+                user.Role.Id = Convert.ToInt32(Session["User-ConditionId"]);
                 user.UniversityCard = Convert.ToInt32(textboxUniversityCard.Value);
+                user.Campus.Id = Convert.ToInt32(Session["User-CampusId"]);
                 return user;
             }
             catch

@@ -14,6 +14,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/Vehicle.css" />
+    <script type="text/javascript" src="assets/js/Vehicle.js"></script>
+    <style type="text/css">
+        .desmarcado {
+            background: white;
+        }
+
+        .marcado {
+            background: #629675;
+        }
+    </style>
 </head>
 <body>
     <form id="formVehicle" runat="server">
@@ -55,11 +65,31 @@
                 </tr>
                 <tr>
                     <td>
+                        <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
                         <button onserverclick=" ButtonVehicle_Click" type="button" id="buttonAddNewCar" runat="server">Add vehicle</button>
+                        <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
                 </tr>
             </table>
+            <br />
+            <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent; border: none;" />
+            <input type="hidden" id="hiddenVehicleId" runat="server"/>
+            <div class="table-responsive">
+                <table id="tableGray">
+                    <tr>
+                        <td>
+                            <input type="button" runat="server" id="buttonInfoVehicleTable" value="Please, after any operation select one role!" />
+                            <table class="table" id="tableVehicles">
+                                <asp:PlaceHolder ID="placeHolderTableVehicle" runat="server"></asp:PlaceHolder>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>

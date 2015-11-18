@@ -33,6 +33,8 @@ namespace SYSPARK.App_BussinessRules
                 return 8;
             else if (parking.CarSpace + parking.MotorcycleSpace + parking.HandicapSpace + parking.BusSpace < parking.TotalSpace)
                 return 11;
+            else if (parking.Campus.Id.Equals(string.Empty))
+                return 12;
             else
             {
                 try
@@ -92,6 +94,8 @@ namespace SYSPARK.App_BussinessRules
                 return 8;
             else if (parking.CarSpace + parking.MotorcycleSpace + parking.HandicapSpace + parking.BusSpace < parking.TotalSpace)
                 return 9;
+            else if (parking.Campus.Id.Equals(string.Empty))
+                return 12;
             else
             {
                 try
