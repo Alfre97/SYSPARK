@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SYSPARK.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,6 @@ namespace SYSPARK.App_Entities
     {
         private DateTime initialDate;
         private DateTime finalDate;
-        private Campus campus;
         private bool status;
 
         public DateTime InitialDate
@@ -35,19 +35,6 @@ namespace SYSPARK.App_Entities
             set
             {
                 finalDate = value;
-            }
-        }
-
-        public Campus Campus
-        {
-            get
-            {
-                return campus;
-            }
-
-            set
-            {
-                campus = value;
             }
         }
 

@@ -13,11 +13,15 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["User-Id"] == null)
-            //Response.Redirect("Default.aspx");
+            if (Session["User-Id"] == null)
+            Response.Redirect("Default.aspx");
 
-            Session["RegistrationUserName"] = string.Empty;
-            Session["RegistrationPassword"] = string.Empty;
+            if (Session["hiddenTransaction"] != null)
+            {
+                buttonStyle.buttonStyleBlue(buttonErrors, "Registration successful.");
+                Session.Clear();
+            }
+
             Session["HiddenTransaction"] = string.Empty;
 
             //Select conditionType
@@ -49,7 +53,11 @@ namespace SYSPARK
                 {
                     case 0:
                         Session["HiddenTransaction"] = 1;
-                        Response.Redirect("Default.aspx");
+                        textboxName.Value = string.Empty;
+                        textboxLastName.Value = string.Empty;
+                        textboxUsernameR.Value = string.Empty;
+                        textboxPasswordR.Value = string.Empty;
+                        textboxUniversityCard.Value = string.Empty;
                         break;
                     case 1:
                         buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");

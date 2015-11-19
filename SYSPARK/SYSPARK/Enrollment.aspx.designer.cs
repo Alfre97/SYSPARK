@@ -31,66 +31,66 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
         
         /// <summary>
-        /// textboxLicense control.
+        /// textboxName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxLicense;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxName;
         
         /// <summary>
-        /// textboxParkingName control.
+        /// textboxUnversityCard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxParkingName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxUnversityCard;
         
         /// <summary>
-        /// textboxTotalSpace control.
+        /// dateInitialDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxTotalSpace;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateInitialDate;
         
         /// <summary>
-        /// textboxCarSpace control.
+        /// dateFinalDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxCarSpace;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateFinalDate;
         
         /// <summary>
-        /// textboxMotorCycleSpace control.
+        /// selectCampus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxMotorCycleSpace;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selectCampus;
         
         /// <summary>
-        /// textboxBusSpace control.
+        /// textboxStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxBusSpace;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxStatus;
         
         /// <summary>
-        /// textboxHandicapSpace control.
+        /// ButtonAddEnrollment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxHandicapSpace;
+        protected global::System.Web.UI.HtmlControls.HtmlButton ButtonAddEnrollment;
     }
 }

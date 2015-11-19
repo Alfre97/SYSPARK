@@ -17,6 +17,7 @@ namespace SYSPARK.Entities
         private Role role;
         private int universityCard;
         private Campus campus;
+        private Enrollment enrollment;
 
         public int Id
         {
@@ -132,6 +133,19 @@ namespace SYSPARK.Entities
             set
             {
                 campus = value;
+            }
+        }
+
+        public Enrollment Enrollment
+        {
+            get
+            {
+                return enrollment;
+            }
+
+            set
+            {
+                enrollment = value;
             }
         }
     }

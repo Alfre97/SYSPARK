@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/Vehicle.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/enrollment.css" />
 </head>
 <body>
     <form id="formEnrollment" runat="server">
@@ -43,43 +43,43 @@
                 <tr>
                     <td>
                         <br />
-                        <input type="text" id="textboxLicense" runat="server" placeholder=" Lisence" />
+                        <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <br />
-                        <input type="text" id="textboxParkingName" placeholder=" Parking name" runat="server" />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" id="textboxTotalSpace" placeholder=" Total space" runat="server" />
+                        <input type="text" id="textboxUnversityCard" placeholder=" University Card" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxCarSpace" placeholder=" Car space" runat="server" />
+                        <input type="date" id="dateInitialDate" placeholder=" Initial Date" runat="server" min="2015-09-11" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxMotorCycleSpace" placeholder=" Motorcycle space" runat="server" />
+                        <input type="date" id="dateFinalDate" placeholder=" Final Date" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxBusSpace" placeholder=" Bus space" runat="server" />
+                        <select id="selectCampus" placeholder=" Campus" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" id="textboxHandicapSpace" placeholder=" Handicap space" runat="server" />
+                        <input type="text" id="textboxStatus" placeholder=" Status" runat="server" disabled="disabled"/>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="ButtonAddEnrollment" runat="server" disabled="disabled">Activate Enrollment</button>
+                        <br />
                         <br />
                     </td>
                 </tr>

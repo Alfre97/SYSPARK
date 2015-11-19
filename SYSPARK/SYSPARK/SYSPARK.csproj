@@ -138,6 +138,7 @@
     <Compile Include="App_BussinessRules\RoleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleTypeBussinessRules.cs" />
+    <Compile Include="App_Data\EnrollmentData.cs" />
     <Compile Include="App_Data\CampusData.cs" />
     <Compile Include="App_Entities\Campus.cs" />
     <Compile Include="App_Entities\Enrollment.cs" />

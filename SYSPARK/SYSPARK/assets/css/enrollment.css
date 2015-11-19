@@ -19,7 +19,7 @@ h1 {
     width: auto;
 }
 
-#allContentInVehicle {
+#allContentInEnrollment {
     text-align: center;
     height: auto;
 }
@@ -34,7 +34,7 @@ h1 {
     height: auto;
 }
 
-#tableVehicle {
+#tableEnrollment {
     background-color: #a5a5a5;
     text-align: center;
     border-radius: 25px 25px;
@@ -52,7 +52,7 @@ div table tr td input {
     color: black;
 }
 
-#selectType {
+#selectCampus {
     width: 240px;
     background-color: white;
     height: 25px;

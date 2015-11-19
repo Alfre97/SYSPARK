@@ -9,6 +9,7 @@ namespace SYSPARK.App_Entities
     {
         private int id;
         private string description;
+        private List<Campus> parkingList;
 
         public int Id
         {
@@ -33,6 +34,19 @@ namespace SYSPARK.App_Entities
             set
             {
                 description = value;
+            }
+        }
+
+        public List<Campus> ParkingList
+        {
+            get
+            {
+                return parkingList;
+            }
+
+            set
+            {
+                parkingList = value;
             }
         }
     }
