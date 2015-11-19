@@ -89,9 +89,11 @@
     <Content Include="assets\js\Role.js" />
     <Content Include="assets\js\Vehicle.js" />
     <Content Include="assets\js\VehicleType.js" />
+    <Content Include="CampusPage.aspx" />
     <Content Include="EnrollmentPage.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="LapsePage.aspx" />
     <Content Include="Parking.aspx" />
     <Content Include="ShowParking.aspx" />
     <Content Include="Vehicle.aspx" />
@@ -140,10 +142,18 @@
     <Compile Include="App_BussinessRules\VehicleTypeBussinessRules.cs" />
     <Compile Include="App_Data\EnrollmentData.cs" />
     <Compile Include="App_Data\CampusData.cs" />
+    <Compile Include="App_Data\LapseData.cs" />
     <Compile Include="App_Entities\Enrollment.cs" />
     <Compile Include="App_Entities\Campus.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="App_Utility\ButtonStyle.cs" />
+    <Compile Include="CampusPage.aspx.cs">
+      <DependentUpon>CampusPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CampusPage.aspx.designer.cs">
+      <DependentUpon>CampusPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EnrollmentPage.aspx.cs">
       <DependentUpon>EnrollmentPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +174,14 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Entities\Lapse.cs" />
+    <Compile Include="LapsePage.aspx.cs">
+      <DependentUpon>LapsePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LapsePage.aspx.designer.cs">
+      <DependentUpon>LapsePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Parking.aspx.cs">
       <DependentUpon>Parking.aspx</DependentUpon>

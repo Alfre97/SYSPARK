@@ -31,7 +31,8 @@ namespace SYSPARK
         {
             Enrollment enrollment = new Enrollment();
             enrollment.Id = Convert.ToInt32(dataTableEnrollment.Rows[0]["Id"]);
-            enrollment.Lapse.
+            enrollment.Lapse.Id = Convert.ToInt32(dataTableEnrollment.Rows[0]["LapseId"]);
+            return enrollment;
         }
 
         public void InsertEnrollment(Enrollment enrollment)

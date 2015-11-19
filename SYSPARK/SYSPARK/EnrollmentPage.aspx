@@ -43,6 +43,7 @@
                 <tr>
                     <td>
                         <br />
+                        <input type="hidden" id="hiddenEnrollmentId" runat="server" />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled"/>
                     </td>
                 </tr>
@@ -54,13 +55,13 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="date" id="dateInitialDate" placeholder=" dd/mmmm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
+                        <input type="date" id="dateInitialDate" placeholder=" Initial date: dd/mmmm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="date" id="dateFinalDate" placeholder=" dd/mmmm/aaaa" runat="server" disabled="disabled"/>
+                        <input type="date" id="dateFinalDate" placeholder=" Final date: dd/mmmm/aaaa" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>

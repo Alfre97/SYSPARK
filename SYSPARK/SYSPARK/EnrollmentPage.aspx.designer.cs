@@ -31,6 +31,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
         
         /// <summary>
+        /// hiddenEnrollmentId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenEnrollmentId;
+        
+        /// <summary>
         /// textboxName control.
         /// </summary>
         /// <remarks>
