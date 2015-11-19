@@ -32,7 +32,7 @@ namespace SYSPARK
 
             //Fill select my cars
             VehicleData vehicleData = new VehicleData();
-            DataTable dataTableVehicleOfUser = vehicleData.GetUserVehicle(Convert.ToInt32(Session["User-Id"]));
+            DataTable dataTableVehicleOfUser = vehicleData.DataTableUserVehicle(vehicleData.SendVehicleList(vehicleData.GetUserVehicle(Session["User-UserName"].ToString())));
             selectVehicle.DataSource = dataTableVehicleOfUser;
             selectVehicle.DataValueField = "Id";
             selectVehicle.DataTextField = "VehiclePlate";
@@ -133,11 +133,9 @@ namespace SYSPARK
         protected User CreateUser()
         {
             User user = new Entities.User();
-            Role role = new Role();
             try
             {
                 //Creating user
-                user.Id = Convert.ToInt32(Session["User-Id"]);
                 user.Name = textboxName.Value;
                 user.LastName = textboxLastName.Value;
                 user.Username = textboxUsername.Value;
@@ -159,7 +157,6 @@ namespace SYSPARK
             //Disabling controls
             textboxName.Disabled = true;
             textboxLastName.Disabled = true;
-            textboxUsername.Disabled = true;
             textboxPasswordShowed.Disabled = true;
             buttonAddNewCar.Visible = true;
             buttonUpdateMyInfo.Visible = true;
@@ -174,7 +171,6 @@ namespace SYSPARK
             //Enabling controls
             textboxName.Disabled = false;
             textboxLastName.Disabled = false;
-            textboxUsername.Disabled = false;
             textboxPasswordShowed.Disabled = false;
             selectVehicle.Disabled = false;
             buttonAddNewCar.Visible = false;

@@ -29,7 +29,6 @@ namespace SYSPARK.Data
         public User sendUser(DataTable dataTableUserInfo)
         {
             User user = new User();
-            user.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["Id"]);
             user.Name = dataTableUserInfo.Rows[0]["Name"].ToString();
             user.LastName = dataTableUserInfo.Rows[0]["LastName"].ToString();
             user.Username = dataTableUserInfo.Rows[0]["UserName"].ToString();
@@ -37,6 +36,7 @@ namespace SYSPARK.Data
             user.Role.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
             user.UniversityCard = Convert.ToInt32(dataTableUserInfo.Rows[0]["UniversityCard"]);
             user.Campus.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["CampusId"]);
+            user.Enrollment.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["EnrollmentId"]);
             return user;
         }
 
@@ -71,7 +71,6 @@ namespace SYSPARK.Data
             using (SqlCommand insert = new SqlCommand(@"UpdateUser", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@Id", SqlDbType.Int).Value = user.Id;
                 insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = user.Name;
                 insert.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
                 insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;

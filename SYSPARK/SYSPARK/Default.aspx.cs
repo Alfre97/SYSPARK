@@ -42,7 +42,6 @@ namespace SYSPARK
             //Saving th user data for use in all the app
             UserData userData = new UserData();
             User user = userData.sendUser(userData.getUser(textBoxUsername.Value));
-            Session["User-Id"] = user.Id;
             Session["User-Name"] = user.Name;
             Session["User-LastName"] = user.LastName;
             Session["User-UserName"] = user.Username;
@@ -51,6 +50,7 @@ namespace SYSPARK
             Session["User-ConditionId"] = user.Role.Id;
             Session["User-UniversityCard"] = user.UniversityCard;
             Session["User-CampusId"] = user.Campus.Id;
+            Session["User-EnrollmentId"] = user.Enrollment.Id;
         }
 
         protected void CheckUserNameAndPassword()

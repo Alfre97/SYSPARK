@@ -89,7 +89,7 @@
     <Content Include="assets\js\Role.js" />
     <Content Include="assets\js\Vehicle.js" />
     <Content Include="assets\js\VehicleType.js" />
-    <Content Include="Enrollment.aspx" />
+    <Content Include="EnrollmentPage.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Parking.aspx" />
@@ -140,16 +140,16 @@
     <Compile Include="App_BussinessRules\VehicleTypeBussinessRules.cs" />
     <Compile Include="App_Data\EnrollmentData.cs" />
     <Compile Include="App_Data\CampusData.cs" />
-    <Compile Include="App_Entities\Campus.cs" />
     <Compile Include="App_Entities\Enrollment.cs" />
+    <Compile Include="App_Entities\Campus.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="App_Utility\ButtonStyle.cs" />
-    <Compile Include="Enrollment.aspx.cs">
-      <DependentUpon>Enrollment.aspx</DependentUpon>
+    <Compile Include="EnrollmentPage.aspx.cs">
+      <DependentUpon>EnrollmentPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Enrollment.aspx.designer.cs">
-      <DependentUpon>Enrollment.aspx</DependentUpon>
+    <Compile Include="EnrollmentPage.aspx.designer.cs">
+      <DependentUpon>EnrollmentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>

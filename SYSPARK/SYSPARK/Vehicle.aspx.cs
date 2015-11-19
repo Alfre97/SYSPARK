@@ -89,7 +89,7 @@ namespace SYSPARK
         {
             VehicleData vehicleData = new VehicleData();
             //Populating a DataTable from database.
-            DataTable dt = vehicleData.GetUserVehicle(Convert.ToInt32(Session["User-Id"]));
+            DataTable dt = vehicleData.DataTableUserVehicle(vehicleData.SendVehicleList(vehicleData.GetUserVehicle(Session["User-UserName"].ToString())));
 
             //Building an HTML string.
             StringBuilder html = new StringBuilder();

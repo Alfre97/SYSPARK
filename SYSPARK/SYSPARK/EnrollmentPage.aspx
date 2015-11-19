@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Enrollment.aspx.cs" Inherits="SYSPARK.Enrollment" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EnrollmentPage.aspx.cs" Inherits="SYSPARK.EnrollmentPage" %>
 
 <!DOCTYPE html>
 
@@ -54,13 +54,13 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="date" id="dateInitialDate" placeholder=" Initial Date" runat="server" min="2015-09-11" disabled="disabled"/>
+                        <input type="date" id="dateInitialDate" placeholder=" dd/mmmm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="date" id="dateFinalDate" placeholder=" Final Date" runat="server" disabled="disabled"/>
+                        <input type="date" id="dateFinalDate" placeholder=" dd/mmmm/aaaa" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
@@ -78,7 +78,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="ButtonAddEnrollment" runat="server" disabled="disabled">Activate Enrollment</button>
+                        <button type="button" id="ButtonActivateEnrollment" runat="server" disabled="disabled">Activate Enrollment</button>
                         <br />
                         <br />
                     </td>

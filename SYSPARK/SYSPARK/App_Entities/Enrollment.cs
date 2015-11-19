@@ -1,5 +1,4 @@
-﻿using SYSPARK.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,46 +7,32 @@ namespace SYSPARK.App_Entities
 {
     public class Enrollment
     {
-        private DateTime initialDate;
-        private DateTime finalDate;
-        private bool status;
+        private int id;
+        private Lapse lapse;
 
-        public DateTime InitialDate
+        public int Id
         {
             get
             {
-                return initialDate;
+                return id;
             }
 
             set
             {
-                initialDate = value;
+                id = value;
             }
         }
 
-        public DateTime FinalDate
+        public Lapse Lapse
         {
             get
             {
-                return finalDate;
+                return lapse;
             }
 
             set
             {
-                finalDate = value;
-            }
-        }
-
-        public bool Status
-        {
-            get
-            {
-                return status;
-            }
-
-            set
-            {
-                status = value;
+                lapse = value;
             }
         }
     }

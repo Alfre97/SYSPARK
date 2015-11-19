@@ -8,7 +8,6 @@ namespace SYSPARK.Entities
 {
     public class User
     {
-        private int id;
         private string name;
         private string lastName;
         private string username;
@@ -18,19 +17,6 @@ namespace SYSPARK.Entities
         private int universityCard;
         private Campus campus;
         private Enrollment enrollment;
-
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
 
         public string Name
         {
