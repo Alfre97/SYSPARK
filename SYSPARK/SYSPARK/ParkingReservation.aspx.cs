@@ -12,9 +12,14 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-Id"] == null)
+            if (Session["User-UserName"] == null)
                 Response.Redirect("Default.aspx");
 
+            FillSelectParking();
+        }
+
+        protected void FillSelectParking()
+        {
             //Select parking
             ParkingData parkingData = new ParkingData();
             DataTable dataTableParking = parkingData.DataTableParking();

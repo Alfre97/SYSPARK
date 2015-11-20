@@ -36,5 +36,19 @@ namespace SYSPARK
             lapse.Status = Convert.ToBoolean(dataTableLapse.Rows[0]["Status"]);
             return lapse;
         }
+
+        public DataTable DataTableLapseOn()
+        {
+            DataTable dataTableLapseOn = new DataTable();
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand select = new SqlCommand(@"SelectLapseOn", connection))
+            {
+                select.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adap = new SqlDataAdapter(select);
+                adap.Fill(dataTableLapseOn);
+            }
+            connection = ManageDatabaseConnection("Close");
+            return dataTableLapseOn;
+        }
     }
 }

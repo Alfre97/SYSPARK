@@ -21,17 +21,21 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-Id"] == null)
+            if (Session["User-UserName"] == null)
                 Response.Redirect("Default.aspx");
 
+            FillVehicleType();
+            FillTable();
+        }
+
+        protected void FillVehicleType()
+        {
             VehicleTypeData vehicleTypedata = new VehicleTypeData();
             DataTable condition = vehicleTypedata.DataTableAllVehicleType();
             selectType.DataSource = condition;
             selectType.DataTextField = "Description";
             selectType.DataValueField = "Id";
             selectType.DataBind();
-
-            FillTable();
         }
 
         protected void ButtonVehicle_Click(object sender, EventArgs e)

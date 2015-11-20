@@ -87,8 +87,7 @@
                 <tr>
                     <td>
                         <input id="hiddenCampusValue" type="hidden" runat="server" />
-                        <select id="selectCampus" runat="server" onchange="setValue('selectCampus', 'hiddenCampusValue')">
-                        </select>
+                        <select id="selectCampus" runat="server" onchange="setValue('selectCampus', 'hiddenCampusValue')"></select>
                         <br />
                     </td>
                 </tr>

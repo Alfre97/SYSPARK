@@ -12,14 +12,14 @@ namespace SYSPARK
 {
     public class EnrollmentData : DataBaseConnection
     {
-        public DataTable DataTableUserEnrollment(int enrollmentId)
+        public DataTable DataTableUserEnrollment(string enrollmentUniqueIdentifier)
         {
             DataTable dataTableEnrollment = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"SelectUserEnrollment", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
-                select.Parameters.Add("@EnrollmentId", SqlDbType.Int).Value = enrollmentId;
+                select.Parameters.Add("@EnrollmentUniqueIdentifier", SqlDbType.VarChar).Value = enrollmentUniqueIdentifier;
                 SqlDataAdapter adap = new SqlDataAdapter(select);
                 adap.Fill(dataTableEnrollment);
             }
@@ -30,7 +30,7 @@ namespace SYSPARK
         public Enrollment SendUserEnrollment(DataTable dataTableEnrollment)
         {
             Enrollment enrollment = new Enrollment();
-            enrollment.Id = Convert.ToInt32(dataTableEnrollment.Rows[0]["Id"]);
+            enrollment.UniqueIdentifier = dataTableEnrollment.Rows[0]["UniqueIdentifier"].ToString();
             enrollment.Lapse.Id = Convert.ToInt32(dataTableEnrollment.Rows[0]["LapseId"]);
             return enrollment;
         }
@@ -41,6 +41,7 @@ namespace SYSPARK
             using (SqlCommand insert = new SqlCommand(@"InsertEnrollment", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
+                insert.Parameters.Add("@UniqueIdentifier", SqlDbType.Int).Value = enrollment.UniqueIdentifier;
                 insert.Parameters.Add("@LapseId", SqlDbType.Int).Value = enrollment.Lapse.Id;
                 insert.ExecuteNonQuery();
             }
@@ -53,7 +54,7 @@ namespace SYSPARK
             using (SqlCommand update = new SqlCommand(@"UpdateEnrollment", connection))
             {
                 update.CommandType = CommandType.StoredProcedure;
-                update.Parameters.Add("@Id", SqlDbType.Int).Value = enrollment.Id;
+                update.Parameters.Add("@UniqueIdentifier", SqlDbType.VarChar).Value = enrollment.UniqueIdentifier;
                 update.Parameters.Add("@LapseId", SqlDbType.Int).Value = enrollment.Lapse.Id;
                 update.ExecuteNonQuery();
             }

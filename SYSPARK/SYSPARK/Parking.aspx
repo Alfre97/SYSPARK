@@ -118,6 +118,8 @@
                     <tr>
                         <td>
                             <input type="button" runat="server" id="buttonInfoParkingTable" value="Please, after any operation select one parking!" />
+                            <input type="hidden" id="hiddenCampusToViewValue" runat="server" />
+                            <select id="selectCampusToView" runat="server" onchange="setValue('selectCampusToView', 'hiddenCampusToViewValue')" onserverchange=" FillTable"></select>
                             <table class="table" id="tableParkings">
                                 <asp:PlaceHolder ID="placeHolderTableParking" runat="server"></asp:PlaceHolder>
                             </table>

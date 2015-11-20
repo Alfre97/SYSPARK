@@ -13,7 +13,7 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-Id"] == null)
+            if (Session["User-UserName"] == null)
                 Response.Redirect("Default.aspx");
 
             if (Session["VehicleInserted"] != null)
@@ -21,15 +21,24 @@ namespace SYSPARK
                 buttonStyle.buttonStyleBlue(buttonErrors, "Vehicle added successfully.");
             }
 
-            //All controls are disable by default
-            //Fill select condition
-            RoleData roleData = new RoleData();
-            DataTable Condition = roleData.DataTableRole();
-            selectCondition.DataSource = Condition;
-            selectCondition.DataValueField = "Id";
-            selectCondition.DataTextField = "Description";
-            selectCondition.DataBind();
+            FillSelectCampus();
+            FillSelectVehicle();
+            FillSelectCondition();
+            FillTableWithUserInfo();
+        }
 
+        protected void FillSelectCampus()
+        {
+            //Select Campus
+            CampusData campusData = new CampusData();
+            selectCampus.DataSource = campusData.DataTableCampus();
+            selectCampus.DataValueField = "Id";
+            selectCampus.DataTextField = "Description";
+            selectCampus.DataBind();
+        }
+
+        protected void FillSelectVehicle()
+        {
             //Fill select my cars
             VehicleData vehicleData = new VehicleData();
             DataTable dataTableVehicleOfUser = vehicleData.DataTableUserVehicle(vehicleData.SendVehicleList(vehicleData.GetUserVehicle(Session["User-UserName"].ToString())));
@@ -37,16 +46,17 @@ namespace SYSPARK
             selectVehicle.DataValueField = "Id";
             selectVehicle.DataTextField = "VehiclePlate";
             selectVehicle.DataBind();
+        }
 
-            //Select Campus
-            CampusData campusData = new CampusData();
-            selectCampus.DataSource = campusData.DataTableCampus();
-            selectCampus.DataValueField = "Id";
-            selectCampus.DataTextField = "Description";
-            selectCampus.DataBind();
-
-            //Fill table with user info
-            FillTableWithUserInfo();
+        protected void FillSelectCondition()
+        {
+            //Fill select condition
+            RoleData roleData = new RoleData();
+            DataTable Condition = roleData.DataTableRole();
+            selectCondition.DataSource = Condition;
+            selectCondition.DataValueField = "Id";
+            selectCondition.DataTextField = "Description";
+            selectCondition.DataBind();
         }
 
         protected void FillTableWithUserInfo()

@@ -21,17 +21,32 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-Id"] == null)
+            if (Session["User-UserName"] == null)
                 Response.Redirect("Default.aspx");
 
+            FillSelectCampus();
+            FillSelectCampusToView();
+            FillTable();
+        }
+        
+        protected void FillSelectCampusToView()
+        {
+            //Select campus ti view
+            CampusData campusData = new CampusData();
+            selectCampusToView.DataSource = campusData.DataTableCampus();
+            selectCampusToView.DataValueField = "Id";
+            selectCampusToView.DataTextField = "Description";
+            selectCampusToView.DataBind();
+        }
+
+        protected void FillSelectCampus()
+        {
             //Select campus
             CampusData campusData = new CampusData();
             selectCampus.DataSource = campusData.DataTableCampus();
             selectCampus.DataValueField = "Id";
             selectCampus.DataTextField = "Description";
             selectCampus.DataBind();
-
-            FillTable();
         }
 
         protected void AddParking_Click(object sender, EventArgs e)
@@ -70,11 +85,11 @@ namespace SYSPARK
 
         }
 
-        protected void FillTable()
+        protected void FillTable(object sender, EventArgs e)
         {
             ParkingData parkingData = new ParkingData();
             //Populating a DataTable from database.
-            DataTable dt = parkingData.DataTableParking();
+            DataTable dt = parkingData.DataTableParking(Convert.ToInt32(hiddenCampusToViewValue.Value));
 
             //Building an HTML string.
             StringBuilder html = new StringBuilder();

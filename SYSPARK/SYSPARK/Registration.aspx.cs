@@ -13,24 +13,31 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-Id"] == null)
-            Response.Redirect("Default.aspx");
+            if (Session["User-UserName"] == null)
+                Response.Redirect("Default.aspx");
 
             if (Session["hiddenTransaction"] != null)
             {
                 buttonStyle.buttonStyleBlue(buttonErrors, "Registration successful.");
-                Session.Clear();
+                Session["HiddenTransaction"] = string.Empty;
             }
 
-            Session["HiddenTransaction"] = string.Empty;
+            FillSelectCondition();
+            FillSelectCampus();
+        }
 
+        protected void FillSelectCondition()
+        {
             //Select conditionType
             RoleData roleData = new RoleData();
             selectCondition.DataSource = roleData.DataTableRole();
             selectCondition.DataValueField = "Id";
             selectCondition.DataTextField = "Description";
             selectCondition.DataBind();
+        }
 
+        protected void FillSelectCampus()
+        {
             //Select campus
             CampusData campusData = new CampusData();
             selectCampus.DataSource = campusData.DataTableCampus();

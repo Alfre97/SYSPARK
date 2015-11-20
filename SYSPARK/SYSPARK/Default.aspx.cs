@@ -50,7 +50,7 @@ namespace SYSPARK
             Session["User-ConditionId"] = user.Role.Id;
             Session["User-UniversityCard"] = user.UniversityCard;
             Session["User-CampusId"] = user.Campus.Id;
-            Session["User-EnrollmentId"] = user.Enrollment.Id;
+            Session["User-EnrollmentUniqueIdentifier"] = user.Enrollment.UniqueIdentifier;
         }
 
         protected void CheckUserNameAndPassword()

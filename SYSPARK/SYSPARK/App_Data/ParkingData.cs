@@ -11,14 +11,16 @@ namespace SYSPARK
 {
     public class ParkingData : DataBaseConnection
     {
-        public DataTable DataTableParking()
+        public DataTable DataTableParking(int campusId)
         {
             DataTable dataTableParking = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"SelectParking", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
+
                 SqlDataAdapter adap = new SqlDataAdapter(select);
+                select.Parameters.Add("@CampusId", SqlDbType.Int).Value = campusId;
                 adap.Fill(dataTableParking);
                 connection = ManageDatabaseConnection("Close");
                 return dataTableParking;

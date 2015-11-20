@@ -36,7 +36,7 @@ namespace SYSPARK.Data
             user.Role.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
             user.UniversityCard = Convert.ToInt32(dataTableUserInfo.Rows[0]["UniversityCard"]);
             user.Campus.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["CampusId"]);
-            user.Enrollment.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["EnrollmentId"]);
+            user.Enrollment.UniqueIdentifier = dataTableUserInfo.Rows[0]["EnrollmentUniqueIdentifier"].ToString();
             return user;
         }
 
@@ -68,17 +68,30 @@ namespace SYSPARK.Data
         public void UpdateUser(User user)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
-            using (SqlCommand insert = new SqlCommand(@"UpdateUser", connection))
+            using (SqlCommand update = new SqlCommand(@"UpdateUser", connection))
             {
-                insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = user.Name;
-                insert.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
-                insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
-                insert.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
-                insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
-                insert.Parameters.Add("@UniversityCard", SqlDbType.Int).Value = user.UniversityCard;
-                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = user.Campus.Id;
-                insert.ExecuteNonQuery();
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@Name", SqlDbType.VarChar).Value = user.Name;
+                update.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
+                update.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
+                update.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
+                update.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
+                update.Parameters.Add("@UniversityCard", SqlDbType.Int).Value = user.UniversityCard;
+                update.Parameters.Add("@CampusId", SqlDbType.Int).Value = user.Campus.Id;
+                update.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
+
+        public void UpdateUserEnrollment(string userName, string enrollmentUniqueIdentifier)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand update = new SqlCommand(@"UpdateUserEnrollment", connection))
+            {
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@UserName", SqlDbType.VarChar).Value = userName;
+                update.Parameters.Add("@EnrollmentUniqueIdentifier", SqlDbType.VarChar).Value = enrollmentUniqueIdentifier;
+                update.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
         }
