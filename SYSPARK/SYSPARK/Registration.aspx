@@ -29,10 +29,6 @@
                                 <span class="logo">SYSPARK > Home > Registration</span>
                             </span>
                         </a>
-                        <label id="info">
-                            Note: If want to register your acount like a teacher or administrative,
-                            <br />
-                            you have have to ask for an special code to validate it.</label>
                     </div>
                 </div>
             </div>
@@ -79,8 +75,7 @@
                 <tr>
                     <td>
                         <input id="hiddenConditionValue" type="hidden" runat="server" />
-                        <select id="selectCondition" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')">
-                        </select>
+                        <select id="selectCondition" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')"></select>
                         <br />
                     </td>
                 </tr>

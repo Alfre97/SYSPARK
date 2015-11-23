@@ -1,4 +1,5 @@
-﻿using SYSPARK.App_Utility;
+﻿using SYSPARK.App_Entities;
+using SYSPARK.App_Utility;
 using SYSPARK.BussinessRules;
 using SYSPARK.Data;
 using SYSPARK.Entities;
@@ -13,8 +14,8 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-UserName"] == null)
-                Response.Redirect("Default.aspx");
+            //if (Session["User-UserName"] == null)
+            //Response.Redirect("Default.aspx");
 
             if (Session["hiddenTransaction"] != null)
             {
@@ -30,7 +31,8 @@ namespace SYSPARK
         {
             //Select conditionType
             RoleData roleData = new RoleData();
-            selectCondition.DataSource = roleData.DataTableRole();
+            DataTable dataTableRole = roleData.DataTableRole();
+            selectCondition.DataSource = dataTableRole;
             selectCondition.DataValueField = "Id";
             selectCondition.DataTextField = "Description";
             selectCondition.DataBind();
@@ -40,7 +42,8 @@ namespace SYSPARK
         {
             //Select campus
             CampusData campusData = new CampusData();
-            selectCampus.DataSource = campusData.DataTableCampus();
+            DataTable dataTableCampus = campusData.DataTableCampus();
+            selectCampus.DataSource = dataTableCampus;
             selectCampus.DataValueField = "Id";
             selectCampus.DataTextField = "Description";
             selectCampus.DataBind();
@@ -56,15 +59,16 @@ namespace SYSPARK
             if (user != null)
             {
                 UserBussinessRules userBussinessRules = new UserBussinessRules();
+
                 switch (userBussinessRules.RegistrationRules(user))
                 {
                     case 0:
-                        Session["HiddenTransaction"] = 1;
                         textboxName.Value = string.Empty;
                         textboxLastName.Value = string.Empty;
                         textboxUsernameR.Value = string.Empty;
                         textboxPasswordR.Value = string.Empty;
                         textboxUniversityCard.Value = string.Empty;
+                        buttonStyle.buttonStyleBlue(buttonErrors, "User registered sucessful.");
                         break;
                     case 1:
                         buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
@@ -91,6 +95,8 @@ namespace SYSPARK
         protected User CreateUser()
         {
             User user = new User();
+            Role role = new Role();
+            Campus campus = new Campus();
             try
             {
                 //User
@@ -105,14 +111,16 @@ namespace SYSPARK
                 }
                 else
                 {
-                    user.Role.Id = Convert.ToInt32(hiddenConditionValue.Value);
+                    role.Id = Convert.ToInt32(hiddenConditionValue.Value);
+                    user.Role = role;
                     if (hiddenCampusValue.Value.Equals(string.Empty))
                     {
                         buttonStyle.buttonStyleWhite(buttonErrors, "Select, one campus please.");
                         return null;
                     }
                     else
-                        user.Campus.Id = Convert.ToInt32(hiddenCampusValue.Value);
+                        campus.Id = Convert.ToInt32(hiddenCampusValue.Value);
+                    user.Campus = campus;
                 }
                 user.UniversityCard = Convert.ToInt32(textboxUniversityCard.Value);
                 return user;

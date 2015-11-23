@@ -22,7 +22,7 @@ namespace SYSPARK
         {
             //Select parking
             ParkingData parkingData = new ParkingData();
-            DataTable dataTableParking = parkingData.DataTableParking();
+            DataTable dataTableParking = parkingData.DataTableParking(Convert.ToInt32(Session["User-CampusId"]));
             selectParking.DataSource = dataTableParking;
             selectParking.DataValueField = "Name";
             selectParking.DataTextField = "Name";

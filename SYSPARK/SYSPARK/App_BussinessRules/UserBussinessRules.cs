@@ -2,6 +2,7 @@
 using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,7 @@ namespace SYSPARK.BussinessRules
     public class UserBussinessRules
     {
         UserData userData = new UserData();
+
         public int RegistrationRules(User user)
         {
             try
@@ -32,7 +34,7 @@ namespace SYSPARK.BussinessRules
                     return 0;
                 }
             }
-            catch (Exception)
+            catch (SqlException)
             {
                 return 5;
             }
@@ -60,7 +62,7 @@ namespace SYSPARK.BussinessRules
                     return 0;
                 }
             }
-            catch (Exception)
+            catch (SqlException)
             {
                 return 5;
             }

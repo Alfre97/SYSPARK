@@ -1,4 +1,5 @@
-﻿using SYSPARK.DataBase;
+﻿using SYSPARK.App_Entities;
+using SYSPARK.DataBase;
 using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
@@ -29,14 +30,20 @@ namespace SYSPARK.Data
         public User sendUser(DataTable dataTableUserInfo)
         {
             User user = new User();
+            Role role = new Role();
+            Campus campus = new Campus();
+            Enrollment enrollment = new Enrollment();
             user.Name = dataTableUserInfo.Rows[0]["Name"].ToString();
             user.LastName = dataTableUserInfo.Rows[0]["LastName"].ToString();
             user.Username = dataTableUserInfo.Rows[0]["UserName"].ToString();
             user.Password = dataTableUserInfo.Rows[0]["Password"].ToString();
-            user.Role.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
+            role.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
+            user.Role = role;
             user.UniversityCard = Convert.ToInt32(dataTableUserInfo.Rows[0]["UniversityCard"]);
-            user.Campus.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["CampusId"]);
-            user.Enrollment.UniqueIdentifier = dataTableUserInfo.Rows[0]["EnrollmentUniqueIdentifier"].ToString();
+            campus.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["CampusId"]);
+            user.Campus = campus;
+            enrollment.UniqueIdentifier = dataTableUserInfo.Rows[0]["EnrollmentUniqueIdentifier"].ToString();
+            user.Enrollment = enrollment;
             return user;
         }
 

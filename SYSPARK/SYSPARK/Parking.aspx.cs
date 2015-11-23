@@ -26,7 +26,6 @@ namespace SYSPARK
 
             FillSelectCampus();
             FillSelectCampusToView();
-            FillTable();
         }
         
         protected void FillSelectCampusToView()
@@ -52,13 +51,11 @@ namespace SYSPARK
         protected void AddParking_Click(object sender, EventArgs e)
         {
             InsertParking(CreateParking());
-            FillTable();
         }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
             DeleteParking();
-            FillTable();
         }
 
         protected void DeleteParking()
