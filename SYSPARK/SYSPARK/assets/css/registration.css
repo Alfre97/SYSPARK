@@ -8,13 +8,22 @@ body {
     background-size: cover;
 }
 
+table#tableRegistration tr td span {
+    color: black;
+    width: 240px;
+    font-size: 8pt;
+    background-color: white;
+    border: none;
+    border-radius: 5px 5px;
+}
+
 #tableRegistration {
     background-color: #a5a5a5;
     text-align: center;
     border-radius: 25px 25px;
     margin: 0 auto;
     width: 300px;
-    height: 300px;
+    height: 375px;
     color: white;
 }
 
@@ -61,7 +70,7 @@ div {
     width: 100%;
 }
 
-#selectCondition {
+select {
     width: 240px;
     background-color: white;
     height: 25px;
@@ -91,12 +100,6 @@ div {
     border-radius: 10px 10px;
 }
 
-#textboxCode {
-    visibility: visible;
-    float: left;
-    margin-left: 30px;
-}
-
 #buttonRegister {
     width: 240px;
     float: left;
@@ -107,13 +110,4 @@ div {
     color: white;
     font-size: 15pt;
     width: auto;
-}
-
-#selectCampus {
-    width: 240px;
-    background-color: white;
-    height: 25px;
-    color: black;
-    border: none;
-    border-radius: 5px 5px;
 }

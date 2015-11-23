@@ -98,13 +98,7 @@ namespace SYSPARK
             switch (userBussinessRules.UpdateRules(CreateUser()))
             {
                 case 0:
-                    if (textboxUsername.Value != Session["User-UserName"].ToString())
-                    {
-                        hiddenUpdate.Value = "Transaction successful.";
-                        Session["UpdateTransaction"] = hiddenUpdate.Value;
-                        Response.Redirect("Default.aspx");
-                    }
-                    else if (verify == false)
+                    if (verify == false)
                     {
                         hiddenUpdate.Value = "Transaction successful.";
                         Session["UpdateTransaction"] = hiddenUpdate.Value;
@@ -112,10 +106,8 @@ namespace SYSPARK
                     }
                     else
                     {
-                        Session["User-Name"] = textboxName.Value;
                         Session["User-LastName"] = textboxLastName.Value;
-                        Session["User-ConditionId"] = hiddenConditionValue.Value;
-                        Response.Redirect("Profile.aspx");
+                        FillTableWithUserInfo();
                     }
 
                     break;
@@ -142,7 +134,7 @@ namespace SYSPARK
 
         protected User CreateUser()
         {
-            User user = new Entities.User();
+            User user = new User();
             try
             {
                 //Creating user

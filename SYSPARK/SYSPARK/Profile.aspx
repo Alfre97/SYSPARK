@@ -27,7 +27,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <span class="logo">SYSPARK > Home > Profile</span>
+                                <span class="logo">| SYSPARK | Home | Profile |</span>
                             </span>
                         </a>
                     </div>
@@ -42,37 +42,36 @@
             <table id="tableProfile" border="0">
                 <tr>
                     <td>
-                        <br />
-                        <span>Name:</span><br />
+                        <span>Name</span><br />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
-                    <td><span>Last name:</span><br />
+                    <td><span>Last name</span><br />
                         <input type="text" id="textboxLastName" runat="server" placeholder=" Last name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
-                    <td><span>Username:</span><br />
+                    <td><span>Username</span><br />
                         <input type="text" id="textboxUsername" runat="server" placeholder=" User name" disabled="disabled" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>Password:</span><br />
+                        <span>Password</span><br />
                         <input type="text" id="textboxPasswordShowed" runat="server" placeholder=" Password" disabled="disabled" />
                     </td>
                 </tr>
                  <tr>
                     <td>
-                        <span>University Card:</span><br />
+                        <span>University Card</span><br />
                         <input type="text" id="textboxUniversityCard" placeholder=" University card" runat="server" disabled="disabled" />
                         <br />
                     </td>
                 </tr>
                 <tr id="trVehicle" runat="server">
                     <td>
-                        <span>Vehicle:</span><br />
+                        <span>Vehicle</span><br />
                         <select id="selectVehicle" runat="server">
                         </select>
                     </td>
@@ -80,7 +79,7 @@
                 <tr>
                     <td>
                         <input type="hidden" id="hiddenConditionValue" runat="server" />
-                        <span>Role:</span><br />
+                        <span>Role</span><br />
                         <select id="selectCondition" runat="server" disabled="disabled" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
                     </td>
@@ -88,17 +87,17 @@
                 <tr>
                     <td>
                         <input type="hidden" id="hiddenCampusValue" runat="server" />
-                        <span>Role:</span><br />
+                        <span>Campus</span><br />
                         <select id="selectCampus" runat="server" disabled="disabled" onchange="setValue('selectCampus', 'hiddenCampusValue')">
                         </select>
+                        <br />
+                        <br />
                     </td>
                 </tr>
                 <tr  id="trFirstOptions" runat="server">
                     <td>
                         <button type="button" id="buttonAddNewCar" runat="server" onclick="location.href='Vehicle.aspx'">Add Vehicle</button>
                         <button onserverclick=" ButtonUpdateMyInfo_Click" type="button" id="buttonUpdateMyInfo" runat="server">Update</button>
-                        <br />
-                        <br />
                     </td>
                 </tr>
                 <tr runat="server" id="trUpdate" visible="false">

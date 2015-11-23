@@ -27,7 +27,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <span class="logo">SYSPARK > Login</span>
+                                <span class="logo">| SYSPARK | Login |</span>
                             </span>
                         </a>
                     </div>

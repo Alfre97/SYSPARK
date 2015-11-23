@@ -31,8 +31,7 @@ namespace SYSPARK
         {
             //Select conditionType
             RoleData roleData = new RoleData();
-            DataTable dataTableRole = roleData.DataTableRole();
-            selectCondition.DataSource = dataTableRole;
+            selectCondition.DataSource = roleData.DataTableRole();
             selectCondition.DataValueField = "Id";
             selectCondition.DataTextField = "Description";
             selectCondition.DataBind();
@@ -42,8 +41,7 @@ namespace SYSPARK
         {
             //Select campus
             CampusData campusData = new CampusData();
-            DataTable dataTableCampus = campusData.DataTableCampus();
-            selectCampus.DataSource = dataTableCampus;
+            selectCampus.DataSource = campusData.DataTableCampus();
             selectCampus.DataValueField = "Id";
             selectCampus.DataTextField = "Description";
             selectCampus.DataBind();
@@ -105,23 +103,15 @@ namespace SYSPARK
                 user.Username = textboxUsernameR.Value;
                 user.Password = textboxPasswordR.Value;
                 if (hiddenConditionValue.Value.Equals(string.Empty))
-                {
-                    buttonStyle.buttonStyleWhite(buttonErrors, "Select, one role please.");
-                    return null;
-                }
+                    role.Id = Convert.ToInt32(selectCondition.Items[0].Value);
                 else
-                {
                     role.Id = Convert.ToInt32(hiddenConditionValue.Value);
-                    user.Role = role;
-                    if (hiddenCampusValue.Value.Equals(string.Empty))
-                    {
-                        buttonStyle.buttonStyleWhite(buttonErrors, "Select, one campus please.");
-                        return null;
-                    }
-                    else
-                        campus.Id = Convert.ToInt32(hiddenCampusValue.Value);
-                    user.Campus = campus;
-                }
+                if (hiddenCampusValue.Value.Equals(string.Empty))
+                    campus.Id = Convert.ToInt32(selectCampus.Items[0].Value);
+                else
+                    campus.Id = Convert.ToInt32(hiddenCampusValue.Value);
+                user.Campus = campus;
+                user.Role = role;
                 user.UniversityCard = Convert.ToInt32(textboxUniversityCard.Value);
                 return user;
             }

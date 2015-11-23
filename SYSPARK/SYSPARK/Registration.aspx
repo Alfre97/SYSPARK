@@ -26,15 +26,13 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <span class="logo">SYSPARK > Home > Registration</span>
+                                <span class="logo">| SYSPARK | Home | Registration |</span>
                             </span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <br />
-        <br />
         <br />
         <div id="allContentInRegistration">
             <br />
@@ -74,6 +72,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <span>Choose a Role</span><br />
                         <input id="hiddenConditionValue" type="hidden" runat="server" />
                         <select id="selectCondition" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')"></select>
                         <br />
@@ -81,6 +80,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <span>Choose a Campus</span><br />
                         <input id="hiddenCampusValue" type="hidden" runat="server" />
                         <select id="selectCampus" runat="server" onchange="setValue('selectCampus', 'hiddenCampusValue')"></select>
                         <br />
@@ -94,9 +94,6 @@
                 </tr>
             </table>
         </div>
-        <br />
-        <br />
-        <br />
     </form>
 </body>
 </html>

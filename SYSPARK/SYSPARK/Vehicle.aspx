@@ -35,7 +35,7 @@
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <span class="logo">SYSPARK > Home > Profile > Vehicle</span>
+                                <span class="logo">| SYSPARK | Home | Profile | Vehicle |</span>
                             </span>
                         </a>
                     </div>
@@ -58,6 +58,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <span>Select a Vehicle Type</span><br />
                         <input type="hidden" runat="server" id="hiddenTypeValue" />
                         <select id="selectType" runat="server" onchange="setValue('selectType', 'hiddenTypeValue')">
                         </select>

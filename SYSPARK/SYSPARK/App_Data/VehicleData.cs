@@ -11,7 +11,7 @@ namespace SYSPARK.Data
 {
     public class VehicleData : DataBaseConnection
     {
-        public void InsertVehicle(Vehicle vehicle, int userId)
+        public void InsertVehicle(Vehicle vehicle, string userName)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand insert = new SqlCommand(@"InsertVehicle", connection))
@@ -19,7 +19,7 @@ namespace SYSPARK.Data
                 insert.CommandType = CommandType.StoredProcedure;
                 insert.Parameters.Add("@TypeId", SqlDbType.Int).Value = vehicle.Type.Id;
                 insert.Parameters.Add("@VehiclePlate", SqlDbType.VarChar).Value = vehicle.VehiclePlate;
-                insert.Parameters.Add("@UserId", SqlDbType.Int).Value = userId;
+                insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = userName;
                 insert.Parameters.Add("@VehicleId", SqlDbType.Int).Value = GetVehicleId(vehicle.VehiclePlate);
                 insert.ExecuteNonQuery();
             }

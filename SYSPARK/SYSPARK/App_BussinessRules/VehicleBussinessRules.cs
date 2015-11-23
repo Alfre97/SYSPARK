@@ -12,7 +12,7 @@ namespace SYSPARK.App_BussinessRules
     {
         VehicleData vehicleData = new VehicleData();
 
-        public int InsertVehicle(Vehicle vehicle, int userId)
+        public int InsertVehicle(Vehicle vehicle, string userName)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace SYSPARK.App_BussinessRules
                     return 1;
                 }
                 //Inserting vehicle
-                vehicleData.InsertVehicle(vehicle, userId);
+                vehicleData.InsertVehicle(vehicle, userName);
             }
             catch (SqlException)
             {

@@ -49,7 +49,7 @@ namespace SYSPARK
             VehicleBussinessRules vehicleBussinessRules = new VehicleBussinessRules();
             if (vehicle != null)
             {
-                int insertResult = vehicleBussinessRules.InsertVehicle(vehicle, Convert.ToInt32(Session["User-Id"]));
+                int insertResult = vehicleBussinessRules.InsertVehicle(vehicle, Session["User-UserName"].ToString());
                 switch (insertResult)
                 {
                     case 0:
@@ -78,8 +78,16 @@ namespace SYSPARK
                 Vehicle vehicle = new Vehicle();
                 VehicleType vehicleType = new VehicleType();
                 vehicle.VehiclePlate = textboxLicense.Value;
-                vehicleType.Id = Convert.ToInt32(hiddenTypeValue.Value);
-                vehicleType.Description = selectType.Items.FindByValue(hiddenTypeValue.Value).Text;
+                if (hiddenTypeValue.Value.Equals(string.Empty))
+                {
+                    vehicleType.Id = Convert.ToInt32(selectType.Items[0].Value);
+                    vehicleType.Description = selectType.Items[0].Text;
+                }
+                else
+                {
+                    vehicleType.Id = Convert.ToInt32(hiddenTypeValue.Value);
+                    vehicleType.Description = selectType.Items.FindByValue(hiddenTypeValue.Value).Text;
+                }
                 vehicle.Type = vehicleType;
                 return vehicle;
             }
