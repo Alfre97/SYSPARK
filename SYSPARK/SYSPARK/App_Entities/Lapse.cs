@@ -8,6 +8,7 @@ namespace SYSPARK.App_Entities
     public class Lapse
     {
         private int id;
+        private string name;
         private DateTime initialDate;
         private DateTime finalDate;
         private bool status;
@@ -22,6 +23,19 @@ namespace SYSPARK.App_Entities
             set
             {
                 id = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
             }
         }
 

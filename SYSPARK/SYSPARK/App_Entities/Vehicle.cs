@@ -7,20 +7,19 @@ namespace SYSPARK.Entities
 {
     public class Vehicle
     {
-        private int id;
-        private VehicleType type;
         private string vehiclePlate;
+        private VehicleType type;
 
-        public int Id
+        public string VehiclePlate
         {
             get
             {
-                return id;
+                return vehiclePlate;
             }
 
             set
             {
-                id = value;
+                vehiclePlate = value;
             }
         }
 
@@ -34,19 +33,6 @@ namespace SYSPARK.Entities
             set
             {
                 type = value;
-            }
-        }
-
-        public string VehiclePlate
-        {
-            get
-            {
-                return vehiclePlate;
-            }
-
-            set
-            {
-                vehiclePlate = value;
             }
         }
     }

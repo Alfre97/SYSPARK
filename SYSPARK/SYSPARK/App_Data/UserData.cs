@@ -31,19 +31,13 @@ namespace SYSPARK.Data
         {
             User user = new User();
             Role role = new Role();
-            Campus campus = new Campus();
-            Enrollment enrollment = new Enrollment();
             user.Name = dataTableUserInfo.Rows[0]["Name"].ToString();
             user.LastName = dataTableUserInfo.Rows[0]["LastName"].ToString();
             user.Username = dataTableUserInfo.Rows[0]["UserName"].ToString();
             user.Password = dataTableUserInfo.Rows[0]["Password"].ToString();
-            role.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["ConditionId"]);
+            role.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["RoleId"]);
             user.Role = role;
             user.UniversityCard = Convert.ToInt32(dataTableUserInfo.Rows[0]["UniversityCard"]);
-            campus.Id = Convert.ToInt32(dataTableUserInfo.Rows[0]["CampusId"]);
-            user.Campus = campus;
-            enrollment.UniqueIdentifier = dataTableUserInfo.Rows[0]["EnrollmentUniqueIdentifier"].ToString();
-            user.Enrollment = enrollment;
             return user;
         }
 
@@ -54,7 +48,7 @@ namespace SYSPARK.Data
             return password;
         }
 
-        public void InsertUser(User user)
+        public void InsertUser(User user, Campus campus)
         {
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand insert = new SqlCommand(@"InsertUser", connection))
@@ -64,9 +58,11 @@ namespace SYSPARK.Data
                 insert.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
                 insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
                 insert.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
-                insert.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
+                insert.Parameters.Add("@RoleId", SqlDbType.Int).Value = user.Role.Id;
+                insert.Parameters.Add("@RoleName", SqlDbType.VarChar).Value = user.Role.Name;
                 insert.Parameters.Add("@UniversityCard", SqlDbType.Int).Value = user.UniversityCard;
-                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = user.Campus.Id;
+                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = campus.Id;
+                insert.Parameters.Add("@CampusName", SqlDbType.VarChar).Value = campus.Name;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -82,9 +78,8 @@ namespace SYSPARK.Data
                 update.Parameters.Add("@LastName", SqlDbType.VarChar).Value = user.LastName;
                 update.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.Username;
                 update.Parameters.Add("@Password", SqlDbType.VarChar).Value = EncryptPassword(user.Password);
-                update.Parameters.Add("@ConditionId", SqlDbType.Int).Value = user.Role.Id;
+                update.Parameters.Add("@RoleId", SqlDbType.Int).Value = user.Role.Id;
                 update.Parameters.Add("@UniversityCard", SqlDbType.Int).Value = user.UniversityCard;
-                update.Parameters.Add("@CampusId", SqlDbType.Int).Value = user.Campus.Id;
                 update.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");

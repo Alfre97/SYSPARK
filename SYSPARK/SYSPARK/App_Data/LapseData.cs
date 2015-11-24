@@ -31,6 +31,7 @@ namespace SYSPARK
         {
             Lapse lapse = new Lapse();
             lapse.Id = Convert.ToInt32(dataTableLapse.Rows[0]["Id"]);
+            lapse.Name = dataTableLapse.Rows[0]["Name"].ToString();
             lapse.InitialDate = Convert.ToDateTime(dataTableLapse.Rows[0]["InitialDate"]);
             lapse.FinalDate = Convert.ToDateTime(dataTableLapse.Rows[0]["FinalDate"]);
             lapse.Status = Convert.ToBoolean(dataTableLapse.Rows[0]["Status"]);

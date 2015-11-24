@@ -12,14 +12,14 @@ namespace SYSPARK
 {
     public class EnrollmentData : DataBaseConnection
     {
-        public DataTable DataTableUserEnrollment(string enrollmentUniqueIdentifier)
+        public DataTable DataTableUserEnrollment(string userName)
         {
             DataTable dataTableEnrollment = new DataTable();
             SqlConnection connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"SelectUserEnrollment", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
-                select.Parameters.Add("@EnrollmentUniqueIdentifier", SqlDbType.VarChar).Value = enrollmentUniqueIdentifier;
+                select.Parameters.Add("@UserName", SqlDbType.VarChar).Value = userName;
                 SqlDataAdapter adap = new SqlDataAdapter(select);
                 adap.Fill(dataTableEnrollment);
             }
@@ -30,8 +30,9 @@ namespace SYSPARK
         public Enrollment SendUserEnrollment(DataTable dataTableEnrollment)
         {
             Enrollment enrollment = new Enrollment();
-            enrollment.UniqueIdentifier = dataTableEnrollment.Rows[0]["UniqueIdentifier"].ToString();
+            enrollment.Id = Convert.ToInt32(dataTableEnrollment.Rows[0]["Id"]);
             enrollment.Lapse.Id = Convert.ToInt32(dataTableEnrollment.Rows[0]["LapseId"]);
+            enrollment.Lapse.Name = dataTableEnrollment.Rows[0]["LapseName"].ToString();
             return enrollment;
         }
 
@@ -41,8 +42,9 @@ namespace SYSPARK
             using (SqlCommand insert = new SqlCommand(@"InsertEnrollment", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@UniqueIdentifier", SqlDbType.Int).Value = enrollment.UniqueIdentifier;
+                insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = enrollment.UserName;
                 insert.Parameters.Add("@LapseId", SqlDbType.Int).Value = enrollment.Lapse.Id;
+                insert.Parameters.Add("@LapseName", SqlDbType.VarChar).Value = enrollment.Lapse.Name;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -54,8 +56,9 @@ namespace SYSPARK
             using (SqlCommand update = new SqlCommand(@"UpdateEnrollment", connection))
             {
                 update.CommandType = CommandType.StoredProcedure;
-                update.Parameters.Add("@UniqueIdentifier", SqlDbType.VarChar).Value = enrollment.UniqueIdentifier;
+                update.Parameters.Add("@UserName", SqlDbType.VarChar).Value = enrollment.UserName;
                 update.Parameters.Add("@LapseId", SqlDbType.Int).Value = enrollment.Lapse.Id;
+                update.Parameters.Add("@LapseName", SqlDbType.VarChar).Value = enrollment.Lapse.Name;
                 update.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");

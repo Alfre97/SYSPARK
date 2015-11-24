@@ -8,7 +8,6 @@ namespace SYSPARK.Entities
     public class Reservation
     {
         private int id;
-        private Parking parking;
         private Space space;
         private User user;
         private Vehicle vehicle;
@@ -25,19 +24,6 @@ namespace SYSPARK.Entities
             set
             {
                 id = value;
-            }
-        }
-
-        public Parking Parking
-        {
-            get
-            {
-                return parking;
-            }
-
-            set
-            {
-                parking = value;
             }
         }
 

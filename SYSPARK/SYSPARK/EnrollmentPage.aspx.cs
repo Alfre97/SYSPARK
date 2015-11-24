@@ -1,7 +1,9 @@
 ﻿using SYSPARK.App_Entities;
+using SYSPARK.App_Utility;
 using SYSPARK.Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,9 +16,8 @@ namespace SYSPARK
         EnrollmentData enrollmentData = new EnrollmentData();
         LapseData lapseData = new LapseData();
         CampusData campusData = new CampusData();
-        Enrollment enrollment = new Enrollment();
-        Lapse lapse = new Lapse();
         UserData userData = new UserData();
+        ButtonStyle buttonStyle = new ButtonStyle();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,74 +30,93 @@ namespace SYSPARK
 
         protected void SetEnrollmentValues()
         {
-            if (Session["User-EnrollmentUniqueIdentifier"].Equals(string.Empty))
+            DataTable dataTableUserEnrollement = enrollmentData.DataTableUserEnrollment(Session["User-UserName"].ToString());
+            if (dataTableUserEnrollement.Rows.Count > 0)
             {
-                ButtonActivateEnrollment.Disabled = true;
+                buttonActivateEnrollment.Disabled = true;
                 //Setting values to the enrollment
                 textboxName.Value = Session["User-Name"].ToString() + " " + Session["User-LastName"].ToString();
                 textboxUnversityCard.Value = Session["User-UniversityCard"].ToString();
-                selectCampus.Value = Session["User-CampusId"].ToString();
-            }
-            else
-            {
-                //Getting UserEnrollment and EnrollmentLapse 
-                enrollment = enrollmentData.SendUserEnrollment(enrollmentData.DataTableUserEnrollment(Session["User-EnrollmentUniqueIdentifier"].ToString()));
-                lapse = lapseData.SendLapse(lapseData.DataTableEnrollmentLapse(enrollment.Lapse.Id));
-                hiddenEnrollmentId.Value = enrollment.UniqueIdentifier;
-                dateInitialDate.Value = lapse.InitialDate.ToString();
-                dateFinalDate.Value = lapse.FinalDate.ToString();
+                dateInitialDate.Value = dataTableUserEnrollement.Rows[0]["InitialDate"].ToString();
+                dateFinalDate.Value = dataTableUserEnrollement.Rows[0]["FinalDate"].ToString();
 
-                if (lapse.Status == true)
+                if (Convert.ToInt32(dataTableUserEnrollement.Rows[0]["Status"]) == 0)
+                {
+                    buttonActivateEnrollment.Disabled = false;
+                    textboxStatus.Value = "Off";
+                    textboxStatus.Style.Add("color", "white");
+                    textboxStatus.Style.Add("background-color", "red");
+                    buttonStyle.buttonStyleWhite(buttonErrors, "Your enrollment is inactive." + "\n" + "Please click 'Activate enrollment'.");
+                }
+                else
                 {
                     textboxStatus.Value = "On";
                     textboxStatus.Style.Add("color", "white");
                     textboxStatus.Style.Add("background-color", "green");
                 }
-                else
-                {
-                    ButtonActivateEnrollment.Disabled = false;
-                    textboxStatus.Value = "Off";
-                    textboxStatus.Style.Add("color", "white");
-                    textboxStatus.Style.Add("background-color", "red");
-                }
-
-                //Setting values to the enrollment
-                textboxName.Value = Session["User-Name"].ToString() + " " + Session["User-LastName"].ToString();
-                textboxUnversityCard.Value = Session["User-UniversityCard"].ToString();
-                selectCampus.Value = Session["User-CampusId"].ToString();
             }
-
+            else
+            {
+                buttonStyle.buttonStyleRed(buttonErrors, "You don't have an enrollment." + "\n" + "Please click 'Create enrollment'.");
+                buttonCreateEnrollment.Visible = true;
+                buttonActivateEnrollment.Visible = false;
+            }
         }
 
         protected void FillSelectCampus()
         {
             //Select campus
-            selectCampus.DataSource = campusData.DataTableCampus();
+            selectCampus.DataSource = campusData.DataTableUserCampus(campusData.SendCampusList(campusData.GetUserCampus(Session["User-UserName"].ToString())));
             selectCampus.DataValueField = "Id";
-            selectCampus.DataTextField = "Description";
+            selectCampus.DataTextField = "Name";
             selectCampus.DataBind();
+        }
+
+        protected void ButtonCreateEnrollment_Click(object sender, EventArgs e)
+        {
+            InsertEnrollment(CreateEnrollment());
         }
 
         protected void ButtonActivateEnrollment_Click(object sender, EventArgs e)
         {
-            ActivateEnrollment();
+            ActivateEnrollment(CreateEnrollment());
         }
 
-        protected void ActivateEnrollment()
+        protected void ActivateEnrollment(Enrollment enrollment)
         {
-            //Getting tha lapse who is on.
-            lapse = lapseData.SendLapse(lapseData.DataTableLapseOn());
-            enrollment.UniqueIdentifier = "Enrollment of: " + Session["User-UserName"].ToString();
-            enrollment.Lapse.Id = lapse.Id;
-
-            if (Session["User-EnrollmentUniqueIdentifier"].Equals(string.Empty))
-            {
-                enrollmentData.InsertEnrollment(enrollment);
-                userData.UpdateUserEnrollment(Session["User-UserName"].ToString(), enrollment.UniqueIdentifier);
-            }
-            else
+            try
             {
                 enrollmentData.UpdateEnrollment(enrollment);
+                buttonActivateEnrollment.Disabled = true;
+            }
+            catch (Exception)
+            {
+                buttonStyle.buttonStyleRed(buttonErrors, "Ops an error ocurred activating your enrollment." + "\n" + "Please, try again.");
+            }
+
+        }
+
+        protected Enrollment CreateEnrollment()
+        {
+            Lapse lapse = new Lapse();
+            Enrollment enrollment = new Enrollment();
+            lapse = lapseData.SendLapse(lapseData.DataTableLapseOn());
+            enrollment.UserName = Session["User-UserName"].ToString();
+            enrollment.Lapse = lapse;
+            return enrollment;
+        }
+
+        protected void InsertEnrollment(Enrollment enrollment)
+        {
+            try
+            {
+                enrollmentData.InsertEnrollment(enrollment);
+                buttonActivateEnrollment.Visible = true;
+                buttonCreateEnrollment.Visible = false;
+            }
+            catch(Exception)
+            {
+                buttonStyle.buttonStyleRed(buttonErrors, "Ops an error ocurred creating your enrollment." + "\n" + "Please, try again.");
             }
         }
     }

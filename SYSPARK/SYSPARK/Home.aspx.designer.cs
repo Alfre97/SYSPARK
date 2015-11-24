@@ -166,22 +166,22 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonVehicleType;
         
         /// <summary>
-        /// trCode control.
+        /// trEnrollment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCode;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trEnrollment;
         
         /// <summary>
-        /// buttonCode control.
+        /// buttonEnrollment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCode;
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonEnrollment;
         
         /// <summary>
         /// trConfiguration control.

@@ -16,12 +16,10 @@ namespace SYSPARK.App_BussinessRules
         {
             try
             {
-                if(vehicle.VehiclePlate.Equals(string.Empty))
-                {
+                if (vehicle.VehiclePlate.Equals(string.Empty))
                     return 1;
-                }
-                //Inserting vehicle
-                vehicleData.InsertVehicle(vehicle, userName);
+                else
+                    vehicleData.InsertVehicle(vehicle, userName);
             }
             catch (SqlException)
             {
@@ -30,15 +28,15 @@ namespace SYSPARK.App_BussinessRules
             return 0;
         }
 
-        public int DeleteVehicle(int vehicleId)
+        public int DeleteVehicle(string vehiclePlate)
         {
             try
             {
-                if (vehicleId.Equals(string.Empty))
+                if (vehiclePlate.Equals(string.Empty))
                     return 2;
                 else
                 {
-                    vehicleData.DeleteVehicle(vehicleId);
+                    vehicleData.DeleteVehicle(vehiclePlate);
                     return 0;
                 }
             }

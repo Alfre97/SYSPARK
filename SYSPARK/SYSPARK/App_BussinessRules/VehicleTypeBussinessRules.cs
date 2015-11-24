@@ -16,7 +16,7 @@ namespace SYSPARK.App_BussinessRules
         {
             try
             {
-                if (vehicleType.Description.Equals(string.Empty))
+                if (vehicleType.Name.Equals(string.Empty))
                 {
                     return 1;
                 }
@@ -54,7 +54,7 @@ namespace SYSPARK.App_BussinessRules
         {
             try
             {
-                if (vehicleType.Description.Equals(string.Empty))
+                if (vehicleType.Name.Equals(string.Empty))
                 {
                     return 1;
                 }

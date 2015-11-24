@@ -14,7 +14,7 @@ using System.Web.UI.WebControls;
 
 namespace SYSPARK
 {
-    public partial class AddNewCar : System.Web.UI.Page
+    public partial class VehiclePage : System.Web.UI.Page
     {
         VehicleBussinessRules vehicleRules = new VehicleBussinessRules();
         ButtonStyle buttonStyle = new ButtonStyle();
@@ -33,7 +33,7 @@ namespace SYSPARK
             VehicleTypeData vehicleTypedata = new VehicleTypeData();
             DataTable condition = vehicleTypedata.DataTableAllVehicleType();
             selectType.DataSource = condition;
-            selectType.DataTextField = "Description";
+            selectType.DataTextField = "Name";
             selectType.DataValueField = "Id";
             selectType.DataBind();
         }
@@ -47,14 +47,15 @@ namespace SYSPARK
         {
             VehicleTypeData vehicleTypeData = new VehicleTypeData();
             VehicleBussinessRules vehicleBussinessRules = new VehicleBussinessRules();
+
             if (vehicle != null)
             {
                 int insertResult = vehicleBussinessRules.InsertVehicle(vehicle, Session["User-UserName"].ToString());
                 switch (insertResult)
                 {
                     case 0:
-                        Session["VehicleInserted"] = "VehicleInserted";
-                        Response.Redirect("Profile.aspx");
+                        buttonStyle.buttonStyleBlue(buttonErrors, "Vehicle added sucessful.");
+                        FillTable();
                         break;
                     case 1:
                         buttonStyle.buttonStyleWhite(buttonErrors, "The license field is empty.");
@@ -81,12 +82,12 @@ namespace SYSPARK
                 if (hiddenTypeValue.Value.Equals(string.Empty))
                 {
                     vehicleType.Id = Convert.ToInt32(selectType.Items[0].Value);
-                    vehicleType.Description = selectType.Items[0].Text;
+                    vehicleType.Name = selectType.Items[0].Text;
                 }
                 else
                 {
                     vehicleType.Id = Convert.ToInt32(hiddenTypeValue.Value);
-                    vehicleType.Description = selectType.Items.FindByValue(hiddenTypeValue.Value).Text;
+                    vehicleType.Name = selectType.Items.FindByValue(hiddenTypeValue.Value).Text;
                 }
                 vehicle.Type = vehicleType;
                 return vehicle;
@@ -150,7 +151,7 @@ namespace SYSPARK
 
         protected void DeleteVehicle()
         {
-            switch (vehicleRules.DeleteVehicle(Convert.ToInt32(hiddenVehicleId.Value)))
+            switch (vehicleRules.DeleteVehicle(hiddenVehiclePlate.Value))
             {
                 case 0:
                     FillTable();
@@ -158,7 +159,7 @@ namespace SYSPARK
                     break;
                 case 1:
                     FillTable();
-                    buttonStyle.buttonStyleRed(buttonInfoVehicleTable, "This vehicle has linked data can not be deleted.");
+                    buttonStyle.buttonStyleRed(buttonInfoVehicleTable, "This vehicle has linked data can't be deleted.");
                     break;
                 case 2:
                     buttonStyle.buttonStyleRed(buttonInfoVehicleTable, "Please, select a vehicle to delete.");
@@ -169,7 +170,7 @@ namespace SYSPARK
         protected void Update_Click(object sender, EventArgs e)
         {
             Vehicle vehicle = CreateVehicle();
-            vehicle.Id = Convert.ToInt32(hiddenVehicleId.Value);
+            vehicle.VehiclePlate = hiddenVehiclePlate.Value;
             UpdateVehicle(vehicle);
             buttonClear.Style.Add("visibility", "visible");
             buttonAddNewCar.Style.Add("visibility", "visible");

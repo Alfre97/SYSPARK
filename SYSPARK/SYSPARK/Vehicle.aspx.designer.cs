@@ -10,7 +10,7 @@
 namespace SYSPARK {
     
     
-    public partial class AddNewCar {
+    public partial class VehiclePage {
         
         /// <summary>
         /// formVehicle control.
@@ -94,13 +94,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonDelete;
         
         /// <summary>
-        /// hiddenVehicleId control.
+        /// hiddenVehiclePlate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenVehicleId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenVehiclePlate;
         
         /// <summary>
         /// buttonInfoVehicleTable control.

@@ -7,19 +7,33 @@ namespace SYSPARK.App_Entities
 {
     public class Enrollment
     {
-        private string uniqueIdentifier;
+        private int id;
+        private string userName;
         private Lapse lapse;
 
-        public string UniqueIdentifier
+        public int Id
         {
             get
             {
-                return uniqueIdentifier;
+                return id;
             }
 
             set
             {
-                uniqueIdentifier = value;
+                id = value;
+            }
+        }
+
+        public string UserName
+        {
+            get
+            {
+                return userName;
+            }
+
+            set
+            {
+                userName = value;
             }
         }
 

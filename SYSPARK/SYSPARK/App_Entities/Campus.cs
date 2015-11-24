@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SYSPARK.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,8 @@ namespace SYSPARK.App_Entities
     public class Campus
     {
         private int id;
-        private string description;
-        private List<Campus> parkingList;
+        private string name;
+        private List<Parking> parkingList;
 
         public int Id
         {
@@ -24,20 +25,20 @@ namespace SYSPARK.App_Entities
             }
         }
 
-        public string Description
+        public string Name
         {
             get
             {
-                return description;
+                return name;
             }
 
             set
             {
-                description = value;
+                name = value;
             }
         }
 
-        public List<Campus> ParkingList
+        public List<Parking> ParkingList
         {
             get
             {

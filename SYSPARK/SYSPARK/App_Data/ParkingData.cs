@@ -11,6 +11,8 @@ namespace SYSPARK
 {
     public class ParkingData : DataBaseConnection
     {
+        SqlConnection connection = new SqlConnection();
+
         public DataTable DataTableParking(int campusId)
         {
             DataTable dataTableParking = new DataTable();
@@ -29,7 +31,7 @@ namespace SYSPARK
 
         public void InsertParking(Parking parking)
         {
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand insert = new SqlCommand(@"InsertParking", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
@@ -39,7 +41,7 @@ namespace SYSPARK
                 insert.Parameters.Add("@MotorcycleSpace", SqlDbType.Int).Value = parking.MotorcycleSpace;
                 insert.Parameters.Add("@HandicapSpace", SqlDbType.Int).Value = parking.HandicapSpace;
                 insert.Parameters.Add("@BusSpace", SqlDbType.Int).Value = parking.BusSpace;
-                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.Campus.Id;
+                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.CampusId;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -47,7 +49,7 @@ namespace SYSPARK
 
         public void DeleteParking(int parkingId)
         {
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand delete = new SqlCommand(@"DeleteParkingSpace", connection))
             {
                 delete.CommandType = CommandType.StoredProcedure;
@@ -60,7 +62,7 @@ namespace SYSPARK
         public Parking GetParkingId(Parking parking)
         {
             DataTable dataTableParking = new DataTable();
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"GetParkingId", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
@@ -76,7 +78,7 @@ namespace SYSPARK
 
         public void UpdateParking(Parking parking)
         {
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand update = new SqlCommand(@"UpdateParking", connection))
             {
                 update.CommandType = CommandType.StoredProcedure;
@@ -87,7 +89,7 @@ namespace SYSPARK
                 update.Parameters.Add("@MotorcycleSpace", SqlDbType.Int).Value = parking.MotorcycleSpace;
                 update.Parameters.Add("@HandicapSpace", SqlDbType.Int).Value = parking.HandicapSpace;
                 update.Parameters.Add("@BusSpace", SqlDbType.Int).Value = parking.BusSpace;
-                update.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.Campus.Id;
+                update.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.CampusId;
                 update.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -96,7 +98,7 @@ namespace SYSPARK
         public DataTable GetParking(int id)
         {
             DataTable dataTableParkingInfo = new DataTable();
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"GetParking", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
@@ -117,7 +119,7 @@ namespace SYSPARK
             parking.MotorcycleSpace = Convert.ToInt32(dataTableParkingInfo.Rows[0]["MotorcycleSpace"]);
             parking.HandicapSpace = Convert.ToInt32(dataTableParkingInfo.Rows[0]["HandicapSpace"]);
             parking.BusSpace = Convert.ToInt32(dataTableParkingInfo.Rows[0]["BusSpace"]);
-            parking.Campus.Id = Convert.ToInt32(dataTableParkingInfo.Rows[0]["CampusId"]);
+            parking.CampusId = Convert.ToInt32(dataTableParkingInfo.Rows[0]["CampusId"]);
             return parking;
         }
     }

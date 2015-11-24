@@ -1,4 +1,5 @@
-﻿using SYSPARK.Data;
+﻿using SYSPARK.App_Entities;
+using SYSPARK.Data;
 using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace SYSPARK.BussinessRules
     {
         UserData userData = new UserData();
 
-        public int RegistrationRules(User user)
+        public int RegistrationRules(User user, Campus campus)
         {
             try
             {
@@ -26,11 +27,13 @@ namespace SYSPARK.BussinessRules
                     return 4;
                 else if (user.UniversityCard.Equals(string.Empty))
                     return 6;
-                else if (user.Campus.Id.Equals(string.Empty))
+                else if (campus.Id.Equals(string.Empty))
                     return 7;
+                else if (campus.Name.Equals(string.Empty))
+                    return 8;
                 else
                 {
-                    userData.InsertUser(user);
+                    userData.InsertUser(user, campus);
                     return 0;
                 }
             }
@@ -54,8 +57,6 @@ namespace SYSPARK.BussinessRules
                     return 4;
                 else if (user.UniversityCard.Equals(string.Empty))
                     return 6;
-                else if (user.Campus.Id.Equals(string.Empty))
-                    return 7;
                 else
                 {
                     userData.UpdateUser(user);

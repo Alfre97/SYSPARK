@@ -80,7 +80,9 @@ label {
     width: auto;
 }
 
-.navbar default-navbar navbar-static-top {
+#navDefault {
+    background-color: transparent;
+    border: none;
     width: 100%;
 }
 

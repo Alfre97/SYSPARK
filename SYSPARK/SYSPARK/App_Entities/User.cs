@@ -15,7 +15,6 @@ namespace SYSPARK.Entities
         private List<Vehicle> vehicleList;
         private Role role;
         private int universityCard;
-        private Campus campus;
         private Enrollment enrollment;
 
         public string Name
@@ -106,19 +105,6 @@ namespace SYSPARK.Entities
             set
             {
                 universityCard = value;
-            }
-        }
-
-        public Campus Campus
-        {
-            get
-            {
-                return campus;
-            }
-
-            set
-            {
-                campus = value;
             }
         }
 

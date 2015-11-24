@@ -59,7 +59,7 @@ namespace SYSPARK
             Role role = new Role();
             try
             {
-                role.Description = textboxRole.Value;
+                role.Name = textboxRole.Value;
                 return role;
             }
             catch (FormatException)

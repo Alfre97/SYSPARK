@@ -16,7 +16,8 @@ namespace SYSPARK.Entities
         private int handicapSpace;
         private int busSpace;
         private List<Space> spaceList = new List<Space>();
-        private Campus campus;
+        private int campusId;
+        private string campusName;
 
         public int Id
         {
@@ -122,16 +123,29 @@ namespace SYSPARK.Entities
             }
         }
 
-        public Campus Campus
+        public int CampusId
         {
             get
             {
-                return campus;
+                return campusId;
             }
 
             set
             {
-                campus = value;
+                campusId = value;
+            }
+        }
+
+        public string CampusName
+        {
+            get
+            {
+                return campusName;
+            }
+
+            set
+            {
+                campusName = value;
             }
         }
     }

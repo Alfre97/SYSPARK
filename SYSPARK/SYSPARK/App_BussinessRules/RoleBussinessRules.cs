@@ -16,7 +16,7 @@ namespace SYSPARK.App_BussinessRules
         {
             try
             {
-                if (role.Description.Equals(string.Empty))
+                if (role.Name.Equals(string.Empty))
                 {
                     return 1;
                 }
@@ -55,7 +55,7 @@ namespace SYSPARK.App_BussinessRules
 
             try
             {
-                if (role.Description.Equals(string.Empty))
+                if (role.Name.Equals(string.Empty))
                 {
                     return 1;
                 }

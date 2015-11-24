@@ -47,10 +47,8 @@ namespace SYSPARK
             Session["User-UserName"] = user.Username;
             Session["User-Password"] = textBoxPassword.Value;
             Session["User-PasswordHashed"] = user.Password;
-            Session["User-ConditionId"] = user.Role.Id;
+            Session["User-RoleId"] = user.Role.Id;
             Session["User-UniversityCard"] = user.UniversityCard;
-            Session["User-CampusId"] = user.Campus.Id;
-            Session["User-EnrollmentUniqueIdentifier"] = user.Enrollment.UniqueIdentifier;
         }
 
         protected void CheckUserNameAndPassword()

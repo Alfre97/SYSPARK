@@ -31,7 +31,7 @@ namespace SYSPARK.Data
             using (SqlCommand insert = new SqlCommand(@"InsertVehicleType", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@Description", SqlDbType.VarChar).Value = vehicleType.Description;
+                insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = vehicleType.Name;
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -56,7 +56,7 @@ namespace SYSPARK.Data
             {
                 update.CommandType = CommandType.StoredProcedure;
                 update.Parameters.Add("@Id", SqlDbType.Int).Value = vehicleType.Id;
-                update.Parameters.Add("@Description", SqlDbType.VarChar).Value = vehicleType.Description;
+                update.Parameters.Add("@Name", SqlDbType.VarChar).Value = vehicleType.Name;
                 update.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");

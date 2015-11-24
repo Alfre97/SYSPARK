@@ -38,8 +38,6 @@
                                 <span class="logo">| SYSPARK | Home | Parking |</span>
                             </span>
                         </a>
-                        <label id="info">
-                            Note: It is recommended that the name of the parking can be a letter of the alphabet.</label>
                     </div>
                 </div>
             </div>
@@ -94,6 +92,7 @@
                 <tr>
                     <td>
                         <input id="hiddenCampusValue" type="hidden" runat="server" />
+                        <span>Campus</span><br />
                         <select id="selectCampus" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')">
                         </select>
                         <br />

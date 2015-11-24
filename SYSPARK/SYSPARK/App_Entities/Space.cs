@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SYSPARK.App_Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,9 @@ namespace SYSPARK.Entities
         private int id;
         private string name;
         private int parkingId;
-        private string type;
+        private string parkingName;
+        private int parkingCampusId;
+        private SpaceType spaceType;
 
         public int Id
         {
@@ -51,16 +54,42 @@ namespace SYSPARK.Entities
             }
         }
 
-        public string Type
+        public string ParkingName
         {
             get
             {
-                return type;
+                return parkingName;
             }
 
             set
             {
-                type = value;
+                parkingName = value;
+            }
+        }
+
+        public int ParkingCampusId
+        {
+            get
+            {
+                return parkingCampusId;
+            }
+
+            set
+            {
+                parkingCampusId = value;
+            }
+        }
+
+        public SpaceType SpaceType
+        {
+            get
+            {
+                return spaceType;
+            }
+
+            set
+            {
+                spaceType = value;
             }
         }
     }

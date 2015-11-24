@@ -18,14 +18,14 @@
 <body>
     <form id="formEnrollment" runat="server">
         <div class="Header">
-            <div class="navbar default-navbar navbar-static-top" role="navigation">
+            <div class="navbar navbar-default" id="navDefault" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" id="navbar-brand" href="Home.aspx">
                             <!-- Company and name logo -->
                             <span>
                                 <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
-                                <span class="logo">| SYSPARK | Home | Profile | Vehicle |</span>
+                                <span class="logo">| SYSPARK | Home | Enrollment |</span>
                             </span>
                         </a>
                     </div>
@@ -67,7 +67,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <select id="selectCampus" placeholder=" Campus" runat="server" disabled="disabled"/>
+                        <select id="selectCampus" placeholder=" Campus" runat="server"></select>
                         <br />
                     </td>
                 </tr>
@@ -79,7 +79,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="button" id="ButtonActivateEnrollment" runat="server" disabled="disabled">Activate Enrollment</button>
+                        <button onserverclick=" ButtonCreateEnrollment_Click" type="button" id="buttonCreateEnrollment" runat="server" visible="false">Create Enrollment</button>
+                        <button onserverclick=" ButtonActivateEnrollment_Click" type="button" id="buttonActivateEnrollment" runat="server" disabled="disabled">Activate Enrollment</button>
                         <br />
                         <br />
                     </td>

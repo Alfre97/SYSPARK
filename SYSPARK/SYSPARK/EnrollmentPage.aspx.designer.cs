@@ -94,12 +94,21 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxStatus;
         
         /// <summary>
-        /// ButtonActivateEnrollment control.
+        /// buttonCreateEnrollment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton ButtonActivateEnrollment;
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCreateEnrollment;
+        
+        /// <summary>
+        /// buttonActivateEnrollment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonActivateEnrollment;
     }
 }

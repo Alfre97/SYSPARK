@@ -97,9 +97,9 @@
                         <br />
                     </td>
                 </tr>
-                <tr id="trCode" runat="server">
+                <tr id="trEnrollment" runat="server">
                     <td>
-                        <button type="button" id="buttonCode" onclick="location.href='Code.aspx'" runat="server">Access Code</button>
+                        <button type="button" id="buttonEnrollment" onclick="location.href='EnrollmentPage.aspx'" runat="server">Enrollment</button>
                         <br />
                     </td>
                 </tr>

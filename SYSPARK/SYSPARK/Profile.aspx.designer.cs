@@ -112,6 +112,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectCondition;
         
         /// <summary>
+        /// trCampus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCampus;
+        
+        /// <summary>
         /// hiddenCampusValue control.
         /// </summary>
         /// <remarks>

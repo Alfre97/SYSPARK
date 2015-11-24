@@ -145,6 +145,7 @@
     <Compile Include="App_Data\LapseData.cs" />
     <Compile Include="App_Entities\Enrollment.cs" />
     <Compile Include="App_Entities\Campus.cs" />
+    <Compile Include="App_Entities\SpaceType.cs" />
     <Compile Include="App_Entities\VehicleType.cs" />
     <Compile Include="App_Utility\ButtonStyle.cs" />
     <Compile Include="CampusPage.aspx.cs">

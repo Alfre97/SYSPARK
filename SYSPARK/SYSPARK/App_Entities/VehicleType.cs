@@ -8,7 +8,7 @@ namespace SYSPARK.Entities
     public class VehicleType
     {
         private int id;
-        private string description;
+        private string name;
 
         public int Id
         {
@@ -23,16 +23,16 @@ namespace SYSPARK.Entities
             }
         }
 
-        public string Description
+        public string Name
         {
             get
             {
-                return description;
+                return name;
             }
 
             set
             {
-                description = value;
+                name = value;
             }
         }
     }

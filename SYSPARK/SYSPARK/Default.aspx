@@ -20,7 +20,7 @@
     <form runat="server">
         <!-- Navbar star -->
         <div class="Header">
-            <div class="navbar default-navbar navbar-static-top" role="navigation">
+            <div class="navbar navbar-default" id="navDefault" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" id="navbar-brand" href="Default.aspx">
@@ -82,9 +82,8 @@
                 </tr>
                 <tr>
                     <td>
+                        <button onserverclick=" EnterButton_Click" id="buttonEnter" type="submit" runat="server">Enter</button>
                         <button id="buttonClear" type="button" onclick="clearingSomeControls()">Clean</button>
-                        <button onserverclick=" EnterButton_Click" id="buttonEnter" type="submit" runat="server">
-                            Enter</button>
                         <br />
                         <br />
                     </td>

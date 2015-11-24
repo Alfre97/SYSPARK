@@ -34,7 +34,7 @@ namespace SYSPARK
             CampusData campusData = new CampusData();
             selectCampusToView.DataSource = campusData.DataTableCampus();
             selectCampusToView.DataValueField = "Id";
-            selectCampusToView.DataTextField = "Description";
+            selectCampusToView.DataTextField = "Name";
             selectCampusToView.DataBind();
         }
 
@@ -44,7 +44,7 @@ namespace SYSPARK
             CampusData campusData = new CampusData();
             selectCampus.DataSource = campusData.DataTableCampus();
             selectCampus.DataValueField = "Id";
-            selectCampus.DataTextField = "Description";
+            selectCampus.DataTextField = "Name";
             selectCampus.DataBind();
         }
 
@@ -155,7 +155,16 @@ namespace SYSPARK
                     parking.MotorcycleSpace = Convert.ToInt32(textboxMotorCycleSpace.Value);
                     parking.HandicapSpace = Convert.ToInt32(textboxHandicapSpace.Value);
                     parking.BusSpace = Convert.ToInt32(textboxBusSpace.Value);
-                    parking.Campus.Id = Convert.ToInt32(hiddenCampusValue.Value);
+                    if (hiddenCampusToViewValue.Value.Equals(string.Empty))
+                    {
+                        parking.CampusId = Convert.ToInt32(selectCampus.Items[0].Value);
+                        parking.CampusName = selectCampus.Items[0].Text;
+                    }
+                    else
+                    {
+                        parking.CampusId = Convert.ToInt32(hiddenCampusValue.Value);
+                        parking.CampusName = selectCampus.Items[Convert.ToInt32(hiddenCampusValue.Value)].ToString();
+                    }
                     return parking;
                 }
                 return null;

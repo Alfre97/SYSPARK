@@ -82,7 +82,7 @@ namespace SYSPARK
             VehicleType vehicleType = new VehicleType();
             try
             {
-                vehicleType.Description = textboxVehicleType.Value;
+                vehicleType.Name = textboxVehicleType.Value;
                 return vehicleType;
             }
             catch (FormatException)

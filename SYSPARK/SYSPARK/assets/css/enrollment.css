@@ -19,6 +19,16 @@ h1 {
     width: auto;
 }
 
+.container {
+    width: 100%;
+}
+
+#navDefault {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+}
+
 #allContentInEnrollment {
     text-align: center;
     height: auto;
@@ -40,7 +50,7 @@ h1 {
     border-radius: 25px 25px;
     margin: 0 auto;
     width: 300px;
-    height: 250px;
+    height: 350px;
     color: white;
 }
 

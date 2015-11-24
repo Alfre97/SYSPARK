@@ -14,8 +14,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/registration.css" />
-</head>
 <script type="text/javascript" src="assets/js/Registration.js"></script>
+</head>
 <body>
     <form id="Registration" runat="server">
         <div class="Header">

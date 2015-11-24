@@ -31,9 +31,9 @@ namespace SYSPARK
         {
             //Select Campus
             CampusData campusData = new CampusData();
-            selectCampus.DataSource = campusData.DataTableCampus();
+            selectCampus.DataSource = campusData.DataTableUserCampus(campusData.SendCampusList(campusData.GetUserCampus(Session["User-UserName"].ToString())));
             selectCampus.DataValueField = "Id";
-            selectCampus.DataTextField = "Description";
+            selectCampus.DataTextField = "Name";
             selectCampus.DataBind();
         }
 
@@ -55,7 +55,7 @@ namespace SYSPARK
             DataTable Condition = roleData.DataTableRole();
             selectCondition.DataSource = Condition;
             selectCondition.DataValueField = "Id";
-            selectCondition.DataTextField = "Description";
+            selectCondition.DataTextField = "Name";
             selectCondition.DataBind();
         }
 
@@ -65,10 +65,9 @@ namespace SYSPARK
             textboxLastName.Value = Session["User-LastName"].ToString();
             textboxUsername.Value = Session["User-UserName"].ToString();
             textboxPasswordShowed.Value = Session["User-Password"].ToString();
-            hiddenConditionValue.Value = Session["User-ConditionId"].ToString();
-            selectCondition.Value = Session["User-ConditionId"].ToString();
+            hiddenConditionValue.Value = Session["User-RoleId"].ToString();
+            selectCondition.Value = Session["User-RoleId"].ToString();
             textboxUniversityCard.Value = Session["User-UniversityCard"].ToString();
-            selectCampus.Value = Session["User-CampusId"].ToString();
         }
 
         protected void ButtonUpdateMyInfo_Click(object sender, EventArgs e)
@@ -79,6 +78,7 @@ namespace SYSPARK
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
             UpdateUser();
+            EnableControls();
         }
 
         protected void ButtonCancelUpdate_Click(object sender, EventArgs e)
@@ -106,10 +106,10 @@ namespace SYSPARK
                     }
                     else
                     {
+                        Session["User-Name"] = textboxName.Value;
                         Session["User-LastName"] = textboxLastName.Value;
                         FillTableWithUserInfo();
                     }
-
                     break;
                 case 1:
                     buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
@@ -144,7 +144,6 @@ namespace SYSPARK
                 user.Password = textboxPasswordShowed.Value;
                 user.Role.Id = Convert.ToInt32(Session["User-ConditionId"]);
                 user.UniversityCard = Convert.ToInt32(textboxUniversityCard.Value);
-                user.Campus.Id = Convert.ToInt32(Session["User-CampusId"]);
                 return user;
             }
             catch
@@ -166,6 +165,7 @@ namespace SYSPARK
             buttonErrors.Visible = false;
             trFirstOptions.Visible = true;
             trVehicle.Visible = true;
+            trCampus.Visible = true;
         }
 
         protected void EnableControls()
@@ -181,6 +181,7 @@ namespace SYSPARK
             buttonErrors.Visible = true;
             trFirstOptions.Visible = false;
             trVehicle.Visible = false;
+            trCampus.Visible = false;
         }
     }
 }
