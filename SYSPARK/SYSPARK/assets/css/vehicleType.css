@@ -19,6 +19,18 @@ h1 {
     width: auto;
 }
 
+#navDefault {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+}
+
+.navbar navbar-default {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+}
+
 #allContentInVehicleType {
     text-align: center;
     height: auto;

@@ -12,7 +12,12 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-UserName"] == null)
-                Response.Redirect("Default.aspx");
+               Response.Redirect("Default.aspx");
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

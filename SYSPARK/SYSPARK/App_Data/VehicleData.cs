@@ -19,7 +19,8 @@ namespace SYSPARK.Data
             using (SqlCommand insert = new SqlCommand(@"InsertVehicle", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
-                insert.Parameters.Add("@VehiclePlate", SqlDbType.Int).Value = vehicle.VehiclePlate;
+                insert.Parameters.Add("@UserName", SqlDbType.VarChar).Value = userName;
+                insert.Parameters.Add("@VehiclePlate", SqlDbType.VarChar).Value = vehicle.VehiclePlate;
                 insert.Parameters.Add("@VehicleTypeId", SqlDbType.Int).Value = vehicle.Type.Id;
                 insert.Parameters.Add("@VehicleTypeName", SqlDbType.VarChar).Value = vehicle.Type.Name;
                 insert.ExecuteNonQuery();
@@ -59,33 +60,34 @@ namespace SYSPARK.Data
             return dataTableUserVehicle;
         }
 
-        public List<int> SendVehicleList(DataTable dataTableUserVehicles)
+        public List<string> SendVehicleList(DataTable dataTableUserVehicles)
         {
-            List<int> vehicleList = new List<int>();
+            List<string> vehicleList = new List<string>();
             for (int i = 0; i < dataTableUserVehicles.Rows.Count; i++)
             {
-                vehicleList.Add(Convert.ToInt32(dataTableUserVehicles.Rows[i]["VehiclePlate"]));
+                vehicleList.Add(dataTableUserVehicles.Rows[i]["VehiclePlate"].ToString());
             }
             return vehicleList;
         }
 
-        public DataTable DataTableUserVehicle(List<int> vehicleList)
+        public DataTable DataTableUserVehicle(List<string> vehicleList)
         {
             DataTable dataTableUserVehicle = new DataTable();
             //DataTable dataTableUserVehicleToSave = new DataTable();
-            connection = ManageDatabaseConnection("Open");
-
-            using (SqlCommand select = new SqlCommand(@"SelectVehicle", connection))
+            for (int i = 0; i < vehicleList.Count; i++)
             {
-                for (int i = 0; i < vehicleList.Count; i++)
+                using (SqlCommand select = new SqlCommand(@"SelectVehicle", connection))
                 {
+                    connection = ManageDatabaseConnection("Open");
+
                     select.CommandType = CommandType.StoredProcedure;
                     select.Parameters.Add("@Plate", SqlDbType.VarChar).Value = vehicleList[i];
                     SqlDataAdapter adap = new SqlDataAdapter(select);
                     adap.Fill(dataTableUserVehicle);
+
+                    connection = ManageDatabaseConnection("Close");
                 }
             }
-            connection = ManageDatabaseConnection("Close");
             return dataTableUserVehicle;
         }
 

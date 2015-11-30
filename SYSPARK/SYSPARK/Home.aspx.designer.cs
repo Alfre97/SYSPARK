@@ -130,6 +130,24 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonParking;
         
         /// <summary>
+        /// trCampus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCampus;
+        
+        /// <summary>
+        /// buttonCampus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCampus;
+        
+        /// <summary>
         /// trRole control.
         /// </summary>
         /// <remarks>
@@ -164,6 +182,24 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonVehicleType;
+        
+        /// <summary>
+        /// trLapse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trLapse;
+        
+        /// <summary>
+        /// buttonLapse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonLapse;
         
         /// <summary>
         /// trEnrollment control.

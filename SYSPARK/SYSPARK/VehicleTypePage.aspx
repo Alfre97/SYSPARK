@@ -28,7 +28,7 @@
 <body>
     <form id="formVehicleType" runat="server">
     <div class="Header">
-            <div class="navbar default-navbar navbar-static-top" role="navigation">
+            <div class="navbar navbar-default" id="navDefault" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" id="navbar-brand" href="Home.aspx">

@@ -20,7 +20,7 @@
 <body>
     <form runat="server">
         <!-- Navbar -->
-        <div class=" nav navbar-default" id="navDefault" role="navigation">
+        <div class="nav navbar-default" id="navDefault" role="navigation">
             <div class="container" id="containerNavbar-top">
                 <nav class="navbar-header" id="navbar-top-header">
                     <a class="navbar-brand" id="navbar-brand"  href="Home.aspx" >
@@ -85,6 +85,12 @@
                         <br />
                     </td>
                 </tr>
+                <tr id="trCampus" runat="server">
+                    <td>
+                        <button type="button" id="buttonCampus" onclick="location.href='CampusPage.aspx'" runat="server">Campus</button>
+                        <br />
+                    </td>
+                </tr>
                 <tr id="trRole" runat="server">
                     <td>
                         <button type="button" id="buttonRole" onclick="location.href='Role.aspx'" runat="server">Role</button>
@@ -94,6 +100,12 @@
                 <tr id="trVehicleType" runat="server">
                     <td>
                         <button type="button" id="buttonVehicleType" onclick="location.href='VehicleTypePage.aspx'" runat="server">Vehicle Type</button>
+                        <br />
+                    </td>
+                </tr>
+                <tr id="trLapse" runat="server">
+                    <td>
+                        <button type="button" id="buttonLapse" onclick="location.href='LapsePage.aspx'" runat="server">Lapse</button>
                         <br />
                     </td>
                 </tr>

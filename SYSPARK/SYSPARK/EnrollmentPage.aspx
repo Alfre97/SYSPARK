@@ -55,13 +55,13 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="date" id="dateInitialDate" placeholder=" Initial date: dd/mmmm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
+                        <input type="date" id="dateInitialDate" placeholder=" Initial date: dd/mm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="date" id="dateFinalDate" placeholder=" Final date: dd/mmmm/aaaa" runat="server" disabled="disabled"/>
+                        <input type="date" id="dateFinalDate" placeholder=" Final date: dd/mm/aaaa" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>

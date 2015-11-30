@@ -77,12 +77,15 @@
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\enrollment.css" />
     <Content Include="assets\css\home.css" />
+    <Content Include="assets\css\lapse.css" />
     <Content Include="assets\css\parking.css" />
     <Content Include="assets\css\role.css" />
     <Content Include="assets\css\universityCard.css" />
     <Content Include="assets\css\vehicleType.css" />
     <Content Include="assets\img\UlatinaLogo.png" />
+    <Content Include="assets\js\Campus.js" />
     <Content Include="assets\js\Default.js" />
+    <Content Include="assets\js\Lapse.js" />
     <Content Include="assets\js\Parking.js" />
     <Content Include="assets\js\Profile.js" />
     <Content Include="assets\js\Registration.js" />
@@ -115,6 +118,7 @@
     <Content Include="packages.config" />
     <Content Include="assets\less\main.less" />
     <Content Include="assets\less\responsive.less" />
+    <Content Include="assets\css\campus.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

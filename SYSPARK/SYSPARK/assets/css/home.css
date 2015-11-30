@@ -142,6 +142,30 @@ body {
     margin-top: 15px;
 }
 
+#buttonLapse {
+    background-color: #4893c3;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonCampus {
+    background-color: #cc7393;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
 #buttonRole {
     background-color: #783706;
     height: 60px;

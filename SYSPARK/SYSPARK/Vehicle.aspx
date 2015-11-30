@@ -66,8 +66,8 @@
                 </tr>
                 <tr>
                     <td>
+                        <button onserverclick=" ButtonVehicle_Click" type="button" id="buttonAddNewCar" runat="server">Add Vehicle</button>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
-                        <button onserverclick=" ButtonVehicle_Click" type="button" id="buttonAddNewCar" runat="server">Add vehicle</button>
                         <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
