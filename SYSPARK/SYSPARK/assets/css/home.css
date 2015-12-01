@@ -50,20 +50,20 @@ body {
     display: inline;
 }
 
-#PageOptions {
+#tableHome {
     margin: auto auto;
-    margin-right: 0;
     height: auto;
-    width: 85%;
+    width: 100%;
 }
 
 #buttonParkReservation {
+    float: left;
     background-color: #28a522;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 80%;
     border: none;
     font-size: 25pt;
     margin: auto auto auto auto;
@@ -71,132 +71,143 @@ body {
 }
 
 #buttonMyProfile {
+    float: right;
     background-color: #405e32;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonReports {
+    float: left;
     background-color: #309d97;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonHistory {
+    float: right;
     background-color: #0ba173;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonUser{
+    float: left;
     background-color: #d11c1c;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonParking {
+    float: right;
     background-color: #524d4d;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonVehicleType {
+    float: left;
     background-color: #e83232;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonLapse {
+    float: right;
     background-color: #4893c3;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonCampus {
+    float: left;
     background-color: #cc7393;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonRole {
+    float: right;
     background-color: #783706;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonEnrollment {
+    float: left;
     background-color: #064b78;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
 }
 
 #buttonConfiguration {
+    float: right;
     background-color: #3d3737;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
     text-align: left;
-    width: 100%;
+    width: 45%;
     border: none;
     font-size: 25pt;
     margin-top: 15px;
@@ -234,7 +245,7 @@ div nav ul li {
     display: inline;
 }
 
-    div nav ul li button {
+div nav ul li button {
         font-size: 12pt;
         margin-top: 5px;
         margin-right: 5px;
@@ -269,6 +280,20 @@ div nav ul li {
     background-color: transparent;
 }
 
+#tableHome button {
+    width: 80%;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+@media screen and (max-width: 1000px) {
+    #tableHome button {
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 20%;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     #navbar-right {
         background-color: #197d67;
@@ -287,7 +312,7 @@ div nav ul li {
         float: none;
     }
 
-        div nav ul li button {
+    div nav ul li button {
             border: none;
             background-color: white;
             color: #197d67;
@@ -296,8 +321,4 @@ div nav ul li {
             margin-top: 10px;
             margin-left: 10%;
         }
-
-    #buttonParkReservation {
-        height: auto;
-    }
 }

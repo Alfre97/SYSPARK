@@ -118,7 +118,7 @@
     <Content Include="packages.config" />
     <Content Include="assets\less\main.less" />
     <Content Include="assets\less\responsive.less" />
-    <Content Include="assets\css\campus.scss" />
+    <Content Include="assets\css\campus.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -140,6 +140,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_BussinessRules\CampusBussinessRules.cs" />
+    <Compile Include="App_BussinessRules\LapseBussinessRules.cs" />
     <Compile Include="App_BussinessRules\ParkingBussinessRules.cs" />
     <Compile Include="App_BussinessRules\RoleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />

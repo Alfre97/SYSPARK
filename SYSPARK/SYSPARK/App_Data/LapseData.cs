@@ -12,6 +12,20 @@ namespace SYSPARK
 {
     public class LapseData : DataBaseConnection
     {
+        public DataTable DataTableLapse()
+        {
+            DataTable dataTableLapse = new DataTable();
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand select = new SqlCommand(@"SelectLapse", connection))
+            {
+                select.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adap = new SqlDataAdapter(select);
+                adap.Fill(dataTableLapse);
+            }
+            connection = ManageDatabaseConnection("Close");
+            return dataTableLapse;
+        }
+
         public DataTable DataTableEnrollmentLapse(int lapseId)
         {
             DataTable dataTableLapse = new DataTable();
@@ -51,5 +65,21 @@ namespace SYSPARK
             connection = ManageDatabaseConnection("Close");
             return dataTableLapseOn;
         }
+
+        public void InsertLapse(Lapse lapse)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand insert = new SqlCommand(@"InsertLapse", connection))
+            {
+                insert.CommandType = CommandType.StoredProcedure;
+                insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = lapse.Name;
+                insert.Parameters.Add("@InitialDate", SqlDbType.Date).Value = lapse.InitialDate;
+                insert.Parameters.Add("@FinalDate", SqlDbType.Date).Value = lapse.FinalDate;
+                insert.Parameters.Add("@Status", SqlDbType.Bit).Value = lapse.Status;
+                insert.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
+
     }
 }

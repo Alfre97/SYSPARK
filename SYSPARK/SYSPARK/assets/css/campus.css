@@ -23,49 +23,12 @@ h1 {
     width: 100%;
 }
 
-#spanOn {
-    float: left;
-    margin-left: 30px;
-    width: 115px;
-}
-
-#spanOff {
-    float: right;
-    margin-right: 30px;
-    width: 115px;
-}
-
-#radioStatusOn {
-    background-color: white;
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin-left: 75px;
-}
-
-#radioStatusOff {
-    background-color: white;
-    width: 20px;
-    height: 20px;
-    float: right;
-    margin-right: 75px;
-}
-
-table tr td span {
-    color: black;
-    width: 240px;
-    font-size: 8pt;
-    background-color: white;
-    border: none;
-    border-radius: 5px 5px;
-}
-
 #navDefault {
     background-color: transparent;
     width: 100%;
 }
 
-#allContentInLapse {
+#allContentInCampus {
     text-align: center;
     height: auto;
 }
@@ -80,13 +43,13 @@ table tr td span {
     height: auto;
 }
 
-#tableLapse {
+#tableCampus {
     background-color: #a5a5a5;
     text-align: center;
     border-radius: 25px 25px;
     margin: 0 auto;
     width: 300px;
-    height: 350px;
+    height: 150px;
     color: white;
 }
 
@@ -107,7 +70,7 @@ div table tr td button {
     height: auto;
 }
 
-#buttonAddRole {
+#buttonAddCampus {
     width: 115px;
 }
 
@@ -140,7 +103,7 @@ div table tr td button {
     background-color: transparent;
 }
 
-#tableLapses {
+#tableCampuses {
     background-color: white;
     text-align: center;
     border-radius: 25px 25px;
@@ -150,14 +113,14 @@ div table tr td button {
     color: black;
 }
 
-#buttonInfoLapseTable {
+#buttonInfoCampusTable {
     background-color: blue;
     color: white;
     height: auto;
     width: auto;
 }
 
-table#tableLapses button {
+table#tableCampuses button {
     background-color: black;
     color: white;
     border: none;
@@ -166,12 +129,12 @@ table#tableLapses button {
     height: auto;
 }
 
-table#tableLapses th {
+table#tableCampuses th {
     text-align: center;
     border-top: none;
 }
 
-#table#tableLapses tr {
+#table#tableCampuses tr {
     border-radius: 25px 25px;
     height: auto;
     width: auto;
@@ -183,7 +146,7 @@ table#tableLapses th {
     margin-left: 30px;
 }
 
-#buttonAddLapse {
+#buttonAddCampus {
     width: 115px;
     float: right;
     margin-right: 30px;

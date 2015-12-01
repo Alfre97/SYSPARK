@@ -6,10 +6,10 @@ function deleteRole() {
 function getValue(row) {
     if (row.className == 'marcado') {
         row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
-        $("#hiddenRoleId").val('');
+        $("#hiddenLapseId").val('');
     } else {
         row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
-        $("#hiddenRoleId").val(row.cells[0].childNodes[0].nodeValue);
+        $("#hiddenLapseId").val(row.cells[0].childNodes[0].nodeValue);
     }
 }
 
@@ -17,18 +17,23 @@ function clearingSomeControls() {
     $("#textboxLapse").val('');
     $("#dateInitialDate").val('');
     $("#dateFinalDate").val('');
-    $("#textboxLapse").val('');
-    $("#textboxLapse").val('');
+    $("#radioStatusOn").val('');
+    $("#radioStatusOff").val('');
 }
 
 function setValues(row) {
-    if ($("#hiddenRoleId").val() === "") {
-        $("#buttonInfoRoleTable").css('background-color', 'red');
-        document.getElementById('buttonInfoRoleTable').value = 'Please, after any operation select one role!';
+    if ($("#hiddenLapseId").val() === "") {
+        $("#buttonInfoLapseTable").css('background-color', 'red');
+        document.getElementById('buttonInfoLapseTable').value = 'Please, after any operation select one lapse!';
 
     } else {
-        $("#textboxRole").val(row.cells[1].childNodes[0].nodeValue);
-        $("#hiddenRoleId").val(row.cells[0].childNodes[0].nodeValue);
+        $("#textboxLapse").val(row.cells[1].childNodes[0].nodeValue);
+        $("#dateInitialDate").val(row.cells[1].childNodes[0].nodeValue);
+        $("#dateFinalDate").val(row.cells[1].childNodes[0].nodeValue);
+        $("#radioStatusOn").val(row.cells[1].childNodes[0].nodeValue);
+        $("#radioStatusOff").val(row.cells[1].childNodes[0].nodeValue);
+
+        $("#hiddenLapseId").val(row.cells[0].childNodes[0].nodeValue);
         $("#buttonClear").css('visibility', 'hidden');
         $("#buttonAddRole").css('visibility', 'hidden');
         $("#buttonUpdate").css('visibility', 'visible');

@@ -18,8 +18,6 @@ namespace SYSPARK
             if(userCondition != 3)
             {
                 trReports.Visible = false;
-                trParking.Visible = false;
-                trRole.Visible = false;
                 trVehicleType.Visible = false;
                 trEnrollment.Visible = false;
                 trUser.Visible = false;

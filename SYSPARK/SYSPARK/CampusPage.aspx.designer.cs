@@ -40,24 +40,6 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textboxCampus;
         
         /// <summary>
-        /// dateInitialDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateInitialDate;
-        
-        /// <summary>
-        /// dateFinalDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateFinalDate;
-        
-        /// <summary>
         /// buttonClear control.
         /// </summary>
         /// <remarks>
@@ -67,13 +49,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonClear;
         
         /// <summary>
-        /// buttonAddRole control.
+        /// buttonAddCampus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddRole;
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddCampus;
         
         /// <summary>
         /// buttonUpdate control.
@@ -94,30 +76,30 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonDelete;
         
         /// <summary>
-        /// hiddenLapseId control.
+        /// hiddenCampusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenLapseId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenCampusId;
         
         /// <summary>
-        /// buttonInfoLapseTable control.
+        /// buttonInfoCampusTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonInfoLapseTable;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonInfoCampusTable;
         
         /// <summary>
-        /// placeHolderTableLapse control.
+        /// placeHolderTableCampus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderTableLapse;
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderTableCampus;
     }
 }

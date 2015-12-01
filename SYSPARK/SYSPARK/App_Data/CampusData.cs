@@ -1,4 +1,5 @@
-﻿using SYSPARK.DataBase;
+﻿using SYSPARK.App_Entities;
+using SYSPARK.DataBase;
 using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,30 @@ namespace SYSPARK
                 }
             }
             return dataTableUserCampus;
+        }
+
+        public void InsertCampus(Campus campus)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand insert = new SqlCommand(@"InsertCampus", connection))
+            {
+                insert.CommandType = CommandType.StoredProcedure;
+                insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = campus.Name;
+                insert.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
+
+        public void DeleteCampus(int campusId)
+        {
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand delete = new SqlCommand(@"DeleteCampus", connection))
+            {
+                delete.CommandType = CommandType.StoredProcedure;
+                delete.Parameters.Add("@Id", SqlDbType.Int).Value = campusId;
+                delete.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
         }
     }
 }

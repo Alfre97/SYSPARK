@@ -40,9 +40,9 @@
             </div>
         </div>
 
-        <!-- Page options -->
+        <!-- Table home -->
         <div>
-            <table id="PageOptions">
+            <table id="tableHome">
                 <tr>
                     <td>
                         <br />
@@ -51,11 +51,8 @@
                 </tr>
                 <tr id="trReservation" runat="server">
                     <td>
-                        <button type="button" id="buttonParkReservation" onclick="location.href='ParkingReservation.aspx'" runat="server">Parking Reservation</button>
-                        <br />
+                        <button type="button" id="buttonParkReservation" onclick="location.href='ParkingReservation.aspx'" runat="server">Reservation</button>
                     </td>
-                </tr>
-                <tr id="trProfile" runat="server">
                     <td>
                         <button type="button" id="buttonMyProfile" onclick="location.href='Profile.aspx'" runat="server">My Profile</button>
                         <br />
@@ -64,10 +61,7 @@
                 <tr id="trReports" runat="server">
                     <td>
                         <button type="button" id="buttonReports" onclick="location.href='Reports.aspx'" runat="server">Reports</button>
-                        <br />
                     </td>
-                </tr>
-                <tr id="trHistory" runat="server">
                     <td>
                         <button type="button" id="buttonHistory" onclick="location.href='History.aspx'" runat="server">History</button>
                         <br />
@@ -76,10 +70,7 @@
                 <tr id="trUser" runat="server">
                     <td>
                         <button type="button" id="buttonUser" onclick="location.href='Registration.aspx'" runat="server">User</button>
-                        <br />
                     </td>
-                </tr>
-                <tr id="trParking" runat="server">
                     <td>
                         <button type="button" id="buttonParking" onclick="location.href='Parking.aspx'" runat="server">Parking</button>
                         <br />
@@ -88,10 +79,7 @@
                 <tr id="trCampus" runat="server">
                     <td>
                         <button type="button" id="buttonCampus" onclick="location.href='CampusPage.aspx'" runat="server">Campus</button>
-                        <br />
                     </td>
-                </tr>
-                <tr id="trRole" runat="server">
                     <td>
                         <button type="button" id="buttonRole" onclick="location.href='Role.aspx'" runat="server">Role</button>
                         <br />
@@ -100,10 +88,7 @@
                 <tr id="trVehicleType" runat="server">
                     <td>
                         <button type="button" id="buttonVehicleType" onclick="location.href='VehicleTypePage.aspx'" runat="server">Vehicle Type</button>
-                        <br />
                     </td>
-                </tr>
-                <tr id="trLapse" runat="server">
                     <td>
                         <button type="button" id="buttonLapse" onclick="location.href='LapsePage.aspx'" runat="server">Lapse</button>
                         <br />
@@ -112,10 +97,7 @@
                 <tr id="trEnrollment" runat="server">
                     <td>
                         <button type="button" id="buttonEnrollment" onclick="location.href='EnrollmentPage.aspx'" runat="server">Enrollment</button>
-                        <br />
                     </td>
-                </tr>
-                <tr id="trConfiguration" runat="server">
                     <td>
                         <button type="button" id="buttonConfiguration" runat="server">Configuration</button>
                         <br />

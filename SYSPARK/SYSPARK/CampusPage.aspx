@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampusPage.aspx.cs" Inherits="SYSPARK.CampusPage" %>
+﻿e<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampusPage.aspx.cs" Inherits="SYSPARK.CampusPage" %>
 
 <!DOCTYPE html>
 
@@ -57,30 +57,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <span>Initial Date</span><br />
-                        <input type="date" id="dateInitialDate" placeholder=" Initial date: dd/mm/aaaa" runat="server" min="2015-09-11" />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Final Date</span><br />
-                        <input type="date" id="dateFinalDate" placeholder=" Final date: dd/mm/aaaa" runat="server" />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Status</span><br />
-                        <span id="spanOn">On</span><span id="spanOff">Off</span><br />
-                        <input type="radio" id="radioStatusOn"/>
-                        <input type="radio" id="radioStatusOff"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
-                        <button type="button" id="buttonAddRole" runat="server">Add Lapse</button>
+                        <button onserverclick="AddCampus_Click" type="button" id="buttonAddCampus" runat="server">Add Campus</button>
                         <button type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
@@ -88,14 +66,14 @@
             </table>
             <br />
             <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent; border: none;" />
-            <input type="hidden" id="hiddenLapseId" runat="server" />
+            <input type="hidden" id="hiddenCampusId" runat="server" />
             <div class="table-responsive">
                 <table id="tableGray">
                     <tr>
                         <td>
-                            <input type="button" runat="server" id="buttonInfoLapseTable" value="Please, after any operation select one role!" />
-                            <table class="table" id="tableLapses">
-                                <asp:PlaceHolder ID="placeHolderTableLapse" runat="server"></asp:PlaceHolder>
+                            <input type="button" runat="server" id="buttonInfoCampusTable" value="Please, after any operation select one role!" />
+                            <table class="table" id="tableCampuses">
+                                <asp:PlaceHolder ID="placeHolderTableCampus" runat="server"></asp:PlaceHolder>
                             </table>
                         </td>
                     </tr>

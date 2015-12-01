@@ -56,9 +56,9 @@ namespace SYSPARK
 
         protected Role CreateRole()
         {
-            Role role = new Role();
             try
             {
+                Role role = new Role();
                 role.Name = textboxRole.Value;
                 return role;
             }

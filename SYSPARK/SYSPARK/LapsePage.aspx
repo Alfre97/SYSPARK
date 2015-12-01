@@ -73,14 +73,14 @@
                     <td>
                         <span>Status</span><br />
                         <span id="spanOn">On</span><span id="spanOff">Off</span><br />
-                        <input type="radio" id="radioStatusOn"/>
-                        <input type="radio" id="radioStatusOff"/>
+                        <input type="radio" id="radioStatusOn" runat="server"/>
+                        <input type="radio" id="radioStatusOff" runat="server"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
-                        <button type="button" id="buttonAddRole" runat="server">Add Lapse</button>
+                        <button onserverclick="AddLapse_Click" type="button" id="buttonAddLapse" runat="server">Add Lapse</button>
                         <button type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
