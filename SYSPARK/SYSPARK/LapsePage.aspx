@@ -72,9 +72,10 @@
                 <tr>
                     <td>
                         <span>Status</span><br />
+                        <input type="hidden" id="hiddenStatusValue" runat="server" />
                         <span id="spanOn">On</span><span id="spanOff">Off</span><br />
-                        <input type="radio" id="radioStatusOn" runat="server"/>
-                        <input type="radio" id="radioStatusOff" runat="server"/>
+                        <input type="checkbox" id="radioStatusOn" onchange="checkedDesicion('radioStatusOn', 'radioStatusOff', 'hiddenStatusValue')"/>
+                        <input type="checkbox" id="radioStatusOff" onchange="checkedDesicion('radioStatusOn', 'radioStatusOff', 'hiddenStatusValue')"/>
                     </td>
                 </tr>
                 <tr>

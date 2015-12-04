@@ -58,22 +58,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateFinalDate;
         
         /// <summary>
-        /// radioStatusOn control.
+        /// hiddenStatusValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioStatusOn;
-        
-        /// <summary>
-        /// radioStatusOff control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioStatusOff;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenStatusValue;
         
         /// <summary>
         /// buttonClear control.

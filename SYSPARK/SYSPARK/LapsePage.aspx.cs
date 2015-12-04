@@ -21,6 +21,8 @@ namespace SYSPARK
         {
             if (Session["User-UserName"] == null)
                Response.Redirect("Default.aspx");
+
+            FillTable();
         }
 
         protected void Delete_Click(object sender, EventArgs e)
@@ -82,10 +84,15 @@ namespace SYSPARK
                 lapse.InitialDate = Convert.ToDateTime(dateInitialDate.Value);
                 lapse.FinalDate = Convert.ToDateTime(dateFinalDate.Value);
 
-                if (radioStatusOn.Checked)
+                if (hiddenStatusValue.Value.Equals(string.Empty))
+                {
+                    buttonStyle.buttonStyleRed(buttonErrors, "Please input the status of the lapse.");
+                    return null;
+                }
+                if (hiddenStatusValue.Value.Equals("true"))
                     lapse.Status = true;
                 else if
-                    (radioStatusOff.Checked)
+                    (hiddenStatusValue.Value.Equals("false"))
                        lapse.Status = false;
                 return lapse;
             }

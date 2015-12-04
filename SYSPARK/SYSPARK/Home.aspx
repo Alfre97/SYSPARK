@@ -54,7 +54,7 @@
                         <button type="button" id="buttonParkReservation" onclick="location.href='ParkingReservation.aspx'" runat="server">Reservation</button>
                     </td>
                     <td>
-                        <button type="button" id="buttonMyProfile" onclick="location.href='Profile.aspx'" runat="server">My Profile</button>
+                        <button type="button" id="buttonMyProfile" onclick="location.href='Profile.aspx'" runat="server">Profile</button>
                         <br />
                     </td>
                 </tr>

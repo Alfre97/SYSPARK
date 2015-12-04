@@ -1,4 +1,6 @@
 ﻿//Desition wheater do or not the function getValue
+var counter = 0;
+
 function deleteRole() {
     $("#buttonDelete").click();
 }
@@ -37,5 +39,37 @@ function setValues(row) {
         $("#buttonClear").css('visibility', 'hidden');
         $("#buttonAddRole").css('visibility', 'hidden');
         $("#buttonUpdate").css('visibility', 'visible');
+    }
+}
+
+function checkedDesicion(x, y, z) {
+    var radioOn = document.getElementById(x);
+    var radioOff = document.getElementById(y);
+    var hidden = document.getElementById(z);
+
+    if (counter == 1) {
+        if (radioOff.checked == true) {
+            radioOn.checked = false;
+            hidden.value = "false";
+            counter = 0;
+        }
+    }
+    else if (counter == 2) {
+        if (radioOn.checked == true) {
+            radioOff.checked = false;
+            hidden.value = "true";
+            counter = 0;
+        }
+    } else {
+        if (radioOn.checked == true) {
+            radioOff.checked = false;
+            hidden.value = "true";
+            counter = 1;
+        }
+        if (radioOff.checked == true) {
+            radioOn.checked = false;
+            hidden.value = "false";
+            counter = 2;
+        }
     }
 }

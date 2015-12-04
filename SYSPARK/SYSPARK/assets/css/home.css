@@ -286,11 +286,13 @@ div nav ul li button {
     margin-left: 100px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1050px) {
     #tableHome button {
         margin-left: 0px;
         margin-right: 0px;
-        font-size: 20%;
+        font-size: 150%;
+        width: 90%;
+        text-align: center;
     }
 }
 

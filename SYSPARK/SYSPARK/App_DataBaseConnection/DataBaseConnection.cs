@@ -24,10 +24,9 @@ namespace SYSPARK.DataBase
                     sqlConnection.Close();
                 }
             }
-            catch (SqlException sqlException)
-
+            catch (SqlException)
             {
-                throw sqlException;
+                
             }
 
             return sqlConnection;
