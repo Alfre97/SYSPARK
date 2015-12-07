@@ -74,6 +74,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Utility\bootstrap.css" />
+    <Content Include="App_Utility\bootstrap.min.css" />
+    <Content Include="App_Utility\bootstrap.min.js" />
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\enrollment.css" />
     <Content Include="assets\css\home.css" />

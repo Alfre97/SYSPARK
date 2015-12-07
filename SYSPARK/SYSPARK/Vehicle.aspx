@@ -10,8 +10,8 @@
     <!-- JQuery Library -->
     <script src="App_Utility/jquery.js"></script>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="App_Utility/bootstrap.min.css" />
+    <script src="App_Utility/bootstrap.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/Vehicle.css" />
     <script type="text/javascript" src="assets/js/Vehicle.js"></script>
