@@ -44,41 +44,55 @@
                     <td>
                         <br />
                         <input type="hidden" id="hiddenEnrollmentId" runat="server" />
+                        <span>User</span><br />
                         <input type="text" id="textboxName" runat="server" placeholder=" Name" disabled="disabled"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <span>University Card</span><br />
                         <input type="text" id="textboxUnversityCard" placeholder=" University Card" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <span>Lapse Name</span><br />
+                        <input type="text" id="textboxLapseName" placeholder=" Lapse name" runat="server" disabled="disabled"/>
+                        <br />
+                    </td>
+                    </tr>
+                <tr>
+                    <td>
+                        <span>Initial Date</span><br />
                         <input type="date" id="dateInitialDate" placeholder=" Initial date: dd/mm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <span>Final Date</span><br />
                         <input type="date" id="dateFinalDate" placeholder=" Final date: dd/mm/aaaa" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <span>Campus Avaible</span><br />
                         <select id="selectCampus" placeholder=" Campus" runat="server"></select>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <span>Status</span><br />
                         <input type="text" id="textboxStatus" placeholder=" Status" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <br />
                         <button onserverclick=" ButtonCreateEnrollment_Click" type="button" id="buttonCreateEnrollment" runat="server" visible="false">Create Enrollment</button>
                         <button onserverclick=" ButtonActivateEnrollment_Click" type="button" id="buttonActivateEnrollment" runat="server" disabled="disabled">Activate Enrollment</button>
                         <br />

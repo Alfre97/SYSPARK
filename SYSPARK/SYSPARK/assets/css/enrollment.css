@@ -34,6 +34,15 @@ h1 {
     height: auto;
 }
 
+table tr td span {
+    color: black;
+    width: 240px;
+    font-size: 8pt;
+    background-color: white;
+    border: none;
+    border-radius: 5px 5px;
+}
+
 #buttonErrors {
     border-radius: 5px 5px;
     color: black;

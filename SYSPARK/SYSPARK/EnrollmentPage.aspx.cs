@@ -31,16 +31,19 @@ namespace SYSPARK
         protected void SetEnrollmentValues()
         {
             DataTable dataTableUserEnrollement = enrollmentData.DataTableUserEnrollment(Session["User-UserName"].ToString());
+            DataTable dataTableEnrollmentLapse = lapseData.DataTableEnrollmentLapse(Convert.ToInt32(dataTableUserEnrollement.Rows[0]["LapseId"]));
+
             if (dataTableUserEnrollement.Rows.Count > 0)
             {
                 buttonActivateEnrollment.Disabled = true;
                 //Setting values to the enrollment
                 textboxName.Value = Session["User-Name"].ToString() + " " + Session["User-LastName"].ToString();
                 textboxUnversityCard.Value = Session["User-UniversityCard"].ToString();
-                dateInitialDate.Value = dataTableUserEnrollement.Rows[0]["InitialDate"].ToString();
-                dateFinalDate.Value = dataTableUserEnrollement.Rows[0]["FinalDate"].ToString();
+                textboxLapseName.Value = dataTableUserEnrollement.Rows[0]["LapseName"].ToString();
+                dateInitialDate.Value = dataTableEnrollmentLapse.Rows[0]["InitialDate"].ToString();
+                dateFinalDate.Value = dataTableEnrollmentLapse.Rows[0]["FinalDate"].ToString();
 
-                if (Convert.ToInt32(dataTableUserEnrollement.Rows[0]["Status"]) == 0)
+                if (Convert.ToInt32(dataTableEnrollmentLapse.Rows[0]["Status"]) == 0)
                 {
                     buttonActivateEnrollment.Disabled = false;
                     textboxStatus.Value = "Off";
@@ -75,11 +78,13 @@ namespace SYSPARK
         protected void ButtonCreateEnrollment_Click(object sender, EventArgs e)
         {
             InsertEnrollment(CreateEnrollment());
+            SetEnrollmentValues();
         }
 
         protected void ButtonActivateEnrollment_Click(object sender, EventArgs e)
         {
             ActivateEnrollment(CreateEnrollment());
+            SetEnrollmentValues();
         }
 
         protected void ActivateEnrollment(Enrollment enrollment)

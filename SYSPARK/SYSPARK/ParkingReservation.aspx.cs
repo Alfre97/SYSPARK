@@ -386,6 +386,9 @@ namespace SYSPARK
                     case 10:
                         buttonStyle.buttonStyleRed(buttonErrors, "The initial hour can't be less than the actual hour.");
                         break;
+                    case 11:
+                        buttonStyle.buttonStyleRed(buttonErrors, "The initial hour can't be equals than the final hour.");
+                        break;
                 }
             }
         }
@@ -394,7 +397,8 @@ namespace SYSPARK
         {
             ReservationData reservationData = new ReservationData();
             DataTable dt = reservationData.DataTableUserReservation(Session["User-UserName"].ToString());
-            if (Convert.ToDateTime(dt.Rows[0]["CheckOut"]) > DateTime.Now){
+            if (Convert.ToDateTime(dt.Rows[0]["CheckOut"]) > DateTime.Now)
+            {
                 buttonStyle.buttonStyleRed(buttonErrors, "You can't have more than one reserve active.");
             }
             else

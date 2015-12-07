@@ -33,6 +33,8 @@ namespace SYSPARK.BussinessRules
                     return 9;
                 else if (reservation.CheckIn < DateTime.Now)
                     return 10;
+                else if (reservation.CheckIn == reservation.CheckOut)
+                    return 11;
                 else
                 {
                     reservationData.InsertReservation(reservation);
