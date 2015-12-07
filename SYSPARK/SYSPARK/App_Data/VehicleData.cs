@@ -13,6 +13,23 @@ namespace SYSPARK.Data
     {
         SqlConnection connection = new SqlConnection();
 
+        public DataTable DataTableVehicle()
+        {
+            DataTable dataTableVehicle = new DataTable();
+            connection = ManageDatabaseConnection("Open");
+            using (SqlCommand select = new SqlCommand(@"SelectAllVehicle", connection))
+            {
+                connection = ManageDatabaseConnection("Open");
+
+                select.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adap = new SqlDataAdapter(select);
+                adap.Fill(dataTableVehicle);
+
+                connection = ManageDatabaseConnection("Close");
+            }
+            return dataTableVehicle;
+        }
+
         public void InsertVehicle(Vehicle vehicle, string userName)
         {
             connection = ManageDatabaseConnection("Open");
@@ -91,29 +108,19 @@ namespace SYSPARK.Data
             return dataTableUserVehicle;
         }
 
-        public void DeleteVehicle(string vehiclePlate)
+        public void DeleteVehicle(string vehiclePlate, string userName)
         {
             connection = ManageDatabaseConnection("Open");
             using (SqlCommand delete = new SqlCommand(@"DeleteVehicle", connection))
             {
                 delete.CommandType = CommandType.StoredProcedure;
-                delete.Parameters.Add("@VehiclePlate", SqlDbType.VarChar).Value = vehiclePlate;
+                delete.Parameters.Add("@Plate", SqlDbType.VarChar).Value = vehiclePlate;
+                delete.Parameters.Add("@UserName", SqlDbType.VarChar).Value = userName;
+
                 delete.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
         }
-
-        /*public void DeleteUserVehicle(string userName, int vehicleId)
-        {
-            connection = ManageDatabaseConnection("Open");
-            using (SqlCommand delete = new SqlCommand(@"DeleteVehicle", connection))
-            {
-                delete.CommandType = CommandType.StoredProcedure;
-                delete.Parameters.Add("@Vehicle", SqlDbType.Int).Value = vehicleId;
-                delete.ExecuteNonQuery();
-            }
-            connection = ManageDatabaseConnection("Close");
-        }*/
 
         public void UpdateVehicle(Vehicle vehicle)
         {

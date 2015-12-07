@@ -10,16 +10,16 @@
 namespace SYSPARK {
     
     
-    public partial class VehicleTypePage {
+    public partial class SpaceTypePage {
         
         /// <summary>
-        /// formVehicleType control.
+        /// formSpaceType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formVehicleType;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formSpaceType;
         
         /// <summary>
         /// buttonErrors control.
@@ -31,13 +31,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors;
         
         /// <summary>
-        /// textboxVehicleType control.
+        /// textboxSpace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxVehicleType;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textboxSpace;
         
         /// <summary>
         /// buttonClear control.
@@ -49,13 +49,13 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonClear;
         
         /// <summary>
-        /// buttonAddVehicleType control.
+        /// buttonAddSpaceType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddVehicleType;
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddSpaceType;
         
         /// <summary>
         /// buttonCancelUpdate control.
@@ -85,30 +85,30 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonDelete;
         
         /// <summary>
-        /// hiddenVehicleTypeId control.
+        /// hiddenSpaceTypeId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenVehicleTypeId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenSpaceTypeId;
         
         /// <summary>
-        /// buttonInfoVehicleTypeTable control.
+        /// buttonInfoSpaceTypeTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonInfoVehicleTypeTable;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonInfoSpaceTypeTable;
         
         /// <summary>
-        /// placeHolderTableRole control.
+        /// placeHolderTableSpaceType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderTableRole;
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderTableSpaceType;
     }
 }

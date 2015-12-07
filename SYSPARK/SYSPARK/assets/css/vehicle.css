@@ -38,6 +38,13 @@ table tr td span {
     border-radius: 5px 5px;
 }
 
+#buttonCancelUpdate {
+    visibility: hidden;
+    width: 35%;
+    float: left;
+    margin-left: 30px;
+}
+
 .navbar navbar-default {
     background-color: transparent;
     width: 100%;

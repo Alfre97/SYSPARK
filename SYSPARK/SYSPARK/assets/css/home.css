@@ -83,9 +83,9 @@ body {
     margin-top: 15px;
 }
 
-#buttonReports {
+#buttonHistory {
     float: left;
-    background-color: #309d97;
+    background-color: #0ba173;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
@@ -96,9 +96,9 @@ body {
     margin-top: 15px;
 }
 
-#buttonHistory {
+#buttonEnrollment {
     float: right;
-    background-color: #0ba173;
+    background-color: #064b78;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
@@ -122,8 +122,21 @@ body {
     margin-top: 15px;
 }
 
-#buttonParking {
+#buttonCampus {
     float: right;
+    background-color: #cc7393;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 45%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonParking {
+    float: left;
     background-color: #524d4d;
     height: 60px;
     border-radius: 5px 5px;
@@ -135,8 +148,34 @@ body {
     margin-top: 15px;
 }
 
-#buttonVehicleType {
+#buttonSpace {
+    float: right;
+    background-color: #ef6de5;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 45%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonVehicle {
     float: left;
+    background-color: #0ba173;
+    height: 60px;
+    border-radius: 5px 5px;
+    color: white;
+    text-align: left;
+    width: 45%;
+    border: none;
+    font-size: 25pt;
+    margin-top: 15px;
+}
+
+#buttonVehicleType {
+    float: right;
     background-color: #e83232;
     height: 60px;
     border-radius: 5px 5px;
@@ -149,7 +188,7 @@ body {
 }
 
 #buttonLapse {
-    float: right;
+    float: left;
     background-color: #4893c3;
     height: 60px;
     border-radius: 5px 5px;
@@ -161,9 +200,9 @@ body {
     margin-top: 15px;
 }
 
-#buttonCampus {
-    float: left;
-    background-color: #cc7393;
+#buttonReports {
+    float: right;
+    background-color: #309d97;
     height: 60px;
     border-radius: 5px 5px;
     color: white;
@@ -175,21 +214,8 @@ body {
 }
 
 #buttonRole {
-    float: right;
-    background-color: #783706;
-    height: 60px;
-    border-radius: 5px 5px;
-    color: white;
-    text-align: left;
-    width: 45%;
-    border: none;
-    font-size: 25pt;
-    margin-top: 15px;
-}
-
-#buttonEnrollment {
     float: left;
-    background-color: #064b78;
+    background-color: #783706;
     height: 60px;
     border-radius: 5px 5px;
     color: white;

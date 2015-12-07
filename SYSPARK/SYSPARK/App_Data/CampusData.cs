@@ -97,5 +97,19 @@ namespace SYSPARK
             }
             connection = ManageDatabaseConnection("Close");
         }
+
+        public void UpdateCampus(Campus campus)
+        {
+            connection = ManageDatabaseConnection("Open");
+            using (SqlCommand update = new SqlCommand(@"UpdateCampus", connection))
+            {
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@Id", SqlDbType.Int).Value = campus.Id;
+                update.Parameters.Add("@Name", SqlDbType.VarChar).Value = campus.Name;
+                update.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
+
     }
 }

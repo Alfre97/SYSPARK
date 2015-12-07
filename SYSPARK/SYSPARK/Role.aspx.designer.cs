@@ -58,6 +58,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonAddRole;
         
         /// <summary>
+        /// buttonCancelUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonCancelUpdate;
+        
+        /// <summary>
         /// buttonUpdate control.
         /// </summary>
         /// <remarks>

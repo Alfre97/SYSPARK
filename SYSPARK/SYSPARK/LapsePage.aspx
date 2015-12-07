@@ -27,7 +27,6 @@
 </head>
 <body>
     <form id="formLapse" runat="server">
-        <div class="Header">
             <div class="nav navbar-default" id="navDefault" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
@@ -41,7 +40,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         <div id="allContentInLapse">
             <br />
             <input type="button" id="buttonErrors" runat="server" visible="false" />
@@ -58,14 +56,14 @@
                 <tr>
                     <td>
                         <span>Initial Date</span><br />
-                        <input type="date" id="dateInitialDate" placeholder=" Initial date: dd/mm/aaaa" runat="server" min="2015-09-11" />
+                        <input type="text" id="dateInitialDate" placeholder=" Initial date: dd/mm/aaaa" runat="server" min="2015-09-11" />
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span>Final Date</span><br />
-                        <input type="date" id="dateFinalDate" placeholder=" Final date: dd/mm/aaaa" runat="server" />
+                        <input type="text" id="dateFinalDate" placeholder=" Final date: dd/mm/aaaa" runat="server" />
                         <br />
                     </td>
                 </tr>
@@ -74,15 +72,16 @@
                         <span>Status</span><br />
                         <input type="hidden" id="hiddenStatusValue" runat="server" />
                         <span id="spanOn">On</span><span id="spanOff">Off</span><br />
-                        <input type="checkbox" id="radioStatusOn" onchange="checkedDesicion('radioStatusOn', 'radioStatusOff', 'hiddenStatusValue')"/>
-                        <input type="checkbox" id="radioStatusOff" onchange="checkedDesicion('radioStatusOn', 'radioStatusOff', 'hiddenStatusValue')"/>
+                        <input type="checkbox" id="checkBoxStatusOn" onchange="checkedDesicion('checkBoxStatusOn', 'checkBoxStatusOff', 'hiddenStatusValue')"/>
+                        <input type="checkbox" id="checkBoxStatusOff" onchange="checkedDesicion('checkBoxStatusOn', 'checkBoxStatusOff', 'hiddenStatusValue')"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
                         <button onserverclick="AddLapse_Click" type="button" id="buttonAddLapse" runat="server">Add Lapse</button>
-                        <button type="button" id="buttonUpdate" runat="server">Update</button>
+                        <button onclick="cancelUpdate()" type="button" id="buttonCancelUpdate" runat="server">Cancel</button>
+                        <button onserverclick="Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
                 </tr>

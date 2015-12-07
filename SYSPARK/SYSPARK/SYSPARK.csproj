@@ -77,20 +77,23 @@
     <Content Include="App_Utility\jquery.js" />
     <Content Include="assets\css\enrollment.css" />
     <Content Include="assets\css\home.css" />
+    <Content Include="assets\css\space.css" />
     <Content Include="assets\css\lapse.css" />
     <Content Include="assets\css\parking.css" />
     <Content Include="assets\css\role.css" />
-    <Content Include="assets\css\universityCard.css" />
+    <Content Include="assets\css\spaceType.css" />
     <Content Include="assets\css\vehicleType.css" />
     <Content Include="assets\img\UlatinaLogo.png" />
     <Content Include="assets\js\Campus.js" />
     <Content Include="assets\js\Default.js" />
+    <Content Include="assets\js\Space.js" />
     <Content Include="assets\js\Lapse.js" />
     <Content Include="assets\js\Parking.js" />
     <Content Include="assets\js\Profile.js" />
     <Content Include="assets\js\Registration.js" />
     <Content Include="assets\js\Role.js" />
     <Content Include="assets\js\Vehicle.js" />
+    <Content Include="assets\js\SpaceType.js" />
     <Content Include="assets\js\VehicleType.js" />
     <Content Include="CampusPage.aspx" />
     <Content Include="EnrollmentPage.aspx" />
@@ -99,6 +102,8 @@
     <Content Include="LapsePage.aspx" />
     <Content Include="Parking.aspx" />
     <Content Include="ShowParking.aspx" />
+    <Content Include="SpacePage.aspx" />
+    <Content Include="SpaceType.aspx" />
     <Content Include="Vehicle.aspx" />
     <Content Include="assets\css\vehicle.css" />
     <Content Include="Role.aspx" />
@@ -119,6 +124,7 @@
     <Content Include="assets\less\main.less" />
     <Content Include="assets\less\responsive.less" />
     <Content Include="assets\css\campus.css" />
+    <Content Include="assets\css\history.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,6 +142,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Reports.aspx" />
+    <Content Include="VehiclePage.aspx" />
     <Content Include="VehicleTypePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -144,11 +151,15 @@
     <Compile Include="App_BussinessRules\LapseBussinessRules.cs" />
     <Compile Include="App_BussinessRules\ParkingBussinessRules.cs" />
     <Compile Include="App_BussinessRules\RoleBussinessRules.cs" />
+    <Compile Include="App_BussinessRules\SpaceBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleTypeBussinessRules.cs" />
+    <Compile Include="App_Data\HistoryData.cs" />
     <Compile Include="App_Data\EnrollmentData.cs" />
     <Compile Include="App_Data\CampusData.cs" />
     <Compile Include="App_Data\LapseData.cs" />
+    <Compile Include="App_Data\ReservationData.cs" />
+    <Compile Include="App_Data\SpaceTypeData.cs" />
     <Compile Include="App_Entities\Enrollment.cs" />
     <Compile Include="App_Entities\Campus.cs" />
     <Compile Include="App_Entities\SpaceType.cs" />
@@ -205,6 +216,20 @@
     </Compile>
     <Compile Include="ShowParking.aspx.designer.cs">
       <DependentUpon>ShowParking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SpacePage.aspx.cs">
+      <DependentUpon>SpacePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SpacePage.aspx.designer.cs">
+      <DependentUpon>SpacePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceType.aspx.cs">
+      <DependentUpon>SpaceType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SpaceType.aspx.designer.cs">
+      <DependentUpon>SpaceType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vehicle.aspx.cs">
       <DependentUpon>Vehicle.aspx</DependentUpon>
@@ -275,6 +300,13 @@
     </Compile>
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VehiclePage.aspx.cs">
+      <DependentUpon>VehiclePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VehiclePage.aspx.designer.cs">
+      <DependentUpon>VehiclePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="VehicleTypePage.aspx.cs">
       <DependentUpon>VehicleTypePage.aspx</DependentUpon>

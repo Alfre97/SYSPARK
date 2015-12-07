@@ -28,5 +28,15 @@ function setValues(row) {
         $("#buttonClear").css('visibility', 'hidden');
         $("#buttonAddRole").css('visibility', 'hidden');
         $("#buttonUpdate").css('visibility', 'visible');
+        $("#buttonCancelUpdate").css('visibility', 'visible');
     }
+}
+
+function cancelUpdate() {
+    $("#textboxRole").val('');
+    $("#hiddenRoleId").val('');
+    $("#buttonClear").css('visibility', 'visible');
+    $("#buttonAddRole").css('visibility', 'visible');
+    $("#buttonUpdate").css('visibility', 'hidden');
+    $("#buttonCancelUpdate").css('visibility', 'hidden');
 }

@@ -116,8 +116,13 @@ namespace SYSPARK
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            DeleteRole();
-            FillTable();
+            if (hiddenRoleId.Value != string.Empty)
+            {
+                DeleteRole();
+                FillTable();
+            }
+            else
+                buttonStyle.buttonStyleRed(buttonInfoRoleTable, "Please, select a role to delete.");
         }
 
         protected void DeleteRole()
@@ -140,15 +145,23 @@ namespace SYSPARK
 
         protected void Update_Click(object sender, EventArgs e)
         {
-            Role role = CreateRole();
-            role.Id = Convert.ToInt32(hiddenRoleId.Value);
-            UpdateRole(role);
-            buttonClear.Style.Add("visibility", "visible");
-            buttonAddRole.Style.Add("visibility", "visible");
-            buttonUpdate.Style.Add("visibility", "hidden");
-            FillTable();
+            try
+            {
+                Role role = CreateRole();
+                role.Id = Convert.ToInt32(hiddenRoleId.Value);
+                UpdateRole(role);
+                buttonClear.Style.Add("visibility", "visible");
+                buttonAddRole.Style.Add("visibility", "visible");
+                buttonUpdate.Style.Add("visibility", "hidden");
+                FillTable();
+            }
+            catch (FormatException)
+            {
+                buttonStyle.buttonStyleRed(buttonInfoRoleTable, "Please after any operation select one role.");
+            }
+
         }
-        
+
         protected void UpdateRole(Role role)
         {
             if (role != null)

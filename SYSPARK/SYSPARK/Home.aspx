@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Home SYSPARK</title>
+    <title>Home</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
@@ -23,7 +23,7 @@
         <div class="nav navbar-default" id="navDefault" role="navigation">
             <div class="container" id="containerNavbar-top">
                 <nav class="navbar-header" id="navbar-top-header">
-                    <a class="navbar-brand" id="navbar-brand"  href="Home.aspx" >
+                    <a class="navbar-brand" id="navbar-brand" href="Home.aspx">
                         <!-- Company and name logo -->
                         <span>
                             <img src="assets/img/LogoSYSPARK.jpg" height="50" style="border-radius: 5px 5px;" />
@@ -49,7 +49,7 @@
                         <br />
                     </td>
                 </tr>
-                <tr id="trReservation" runat="server">
+                <tr>
                     <td>
                         <button type="button" id="buttonParkReservation" onclick="location.href='ParkingReservation.aspx'" runat="server">Reservation</button>
                     </td>
@@ -58,60 +58,65 @@
                         <br />
                     </td>
                 </tr>
-                <tr id="trReports" runat="server">
-                    <td>
-                        <button type="button" id="buttonReports" onclick="location.href='Reports.aspx'" runat="server">Reports</button>
-                    </td>
+                <tr>
                     <td>
                         <button type="button" id="buttonHistory" onclick="location.href='History.aspx'" runat="server">History</button>
-                        <br />
                     </td>
-                </tr>
-                <tr id="trUser" runat="server">
-                    <td>
-                        <button type="button" id="buttonUser" onclick="location.href='Registration.aspx'" runat="server">User</button>
-                    </td>
-                    <td>
-                        <button type="button" id="buttonParking" onclick="location.href='Parking.aspx'" runat="server">Parking</button>
-                        <br />
-                    </td>
-                </tr>
-                <tr id="trCampus" runat="server">
-                    <td>
-                        <button type="button" id="buttonCampus" onclick="location.href='CampusPage.aspx'" runat="server">Campus</button>
-                    </td>
-                    <td>
-                        <button type="button" id="buttonRole" onclick="location.href='Role.aspx'" runat="server">Role</button>
-                        <br />
-                    </td>
-                </tr>
-                <tr id="trVehicleType" runat="server">
-                    <td>
-                        <button type="button" id="buttonVehicleType" onclick="location.href='VehicleTypePage.aspx'" runat="server">Vehicle Type</button>
-                    </td>
-                    <td>
-                        <button type="button" id="buttonLapse" onclick="location.href='LapsePage.aspx'" runat="server">Lapse</button>
-                        <br />
-                    </td>
-                </tr>
-                <tr id="trEnrollment" runat="server">
                     <td>
                         <button type="button" id="buttonEnrollment" onclick="location.href='EnrollmentPage.aspx'" runat="server">Enrollment</button>
-                    </td>
-                    <td>
-                        <button type="button" id="buttonConfiguration" runat="server">Configuration</button>
                         <br />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <br />
-                        <br />
-                        <br />
+                    <td id="User" runat="server">
+                        <button type="button" id="buttonUser" onclick="location.href='Registration.aspx'" runat="server">User</button>
+                    </td>
+                    <td id="Campus" runat="server">
+                        <button type="button" id="buttonCampus" onclick="location.href='CampusPage.aspx'" runat="server">Campus</button>
+                    <br />
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td id="Parking" runat="server">
+                        <button type="button" id="buttonParking" onclick="location.href='Parking.aspx'" runat="server">Parking</button>
+                    </td>
+                    <td id="Space" runat="server">
+                        <button type="button" id="buttonSpace" onclick="location.href='SpacePage.aspx'" runat="server">Space</button>
                         <br />
                     </td>
                 </tr>
+                <tr>
+                    <td id="Vehicle" runat="server">
+                        <button type="button" id="buttonVehicle" onclick="location.href='VehiclePage.aspx'" runat="server">Vehicle</button>
+                    </td>
+                    <td id="VehicleType" runat="server">
+                        <button type="button" id="buttonVehicleType" onclick="location.href='VehicleTypePage.aspx'" runat="server">Vehicle Type</button>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="Lapse" runat="server">
+                        <button type="button" id="buttonLapse" onclick="location.href='LapsePage.aspx'" runat="server">Lapse</button>
+                    </td>
+                    <td id="Reports" runat="server">
+                        <button type="button" id="buttonReports" onclick="location.href='Reports.aspx'" runat="server">Reports</button>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="Role" runat="server">
+                        <button type="button" id="buttonRole" onclick="location.href='Role.aspx'" runat="server">Role</button>
+                    </td>
+                    <td id="Configuration" runat="server">
+                        <button type="button" id="buttonConfiguration" runat="server">Configuration</button>
+                    </td>
+                </tr>
             </table>
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
 
         <div class="navbar-nav navbar-fixed-bottom" id="navbarBottom">

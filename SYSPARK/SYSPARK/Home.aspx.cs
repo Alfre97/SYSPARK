@@ -17,10 +17,15 @@ namespace SYSPARK
             int userCondition = Convert.ToInt32(Session["User-RoleId"]);
             if(userCondition != 3)
             {
-                trReports.Visible = false;
-                trVehicleType.Visible = false;
-                trEnrollment.Visible = false;
-                trUser.Visible = false;
+                Reports.Visible = false;
+                User.Visible = false;
+                Parking.Visible = false;
+                Campus.Visible = false;
+                Role.Visible = false;
+                Vehicle.Visible = false;
+                VehicleType.Visible = false;
+                Lapse.Visible = false;
+                Space.Visible = false;
             }
         }
 

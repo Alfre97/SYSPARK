@@ -11,6 +11,7 @@ namespace SYSPARK.Entities
         private int id;
         private string name;
         private int totalSpace;
+        private int freeSpace;
         private int carSpace;
         private int motorcycleSpace;
         private int handicapSpace;
@@ -55,6 +56,19 @@ namespace SYSPARK.Entities
             set
             {
                 totalSpace = value;
+            }
+        }
+
+        public int FreeSpace
+        {
+            get
+            {
+                return freeSpace;
+            }
+
+            set
+            {
+                freeSpace = value;
             }
         }
 

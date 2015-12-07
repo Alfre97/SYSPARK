@@ -34,5 +34,15 @@ function setValues(row) {
         $("#buttonClear").css('visibility', 'hidden');
         $("#buttonAddNewCar").css('visibility', 'hidden');
         $("#buttonUpdate").css('visibility', 'visible');
+        $("#buttonCancelUpdate").css('visibility', 'visible');
     }
+}
+
+function cancelUpdate() {
+    $("#textboxLicense").val('');
+    $("#hiddenVehicleId").val('');
+    $("#buttonClear").css('visibility', 'visible');
+    $("#buttonAddNewCar").css('visibility', 'visible');
+    $("#buttonUpdate").css('visibility', 'hidden');
+    $("#buttonCancelUpdate").css('visibility', 'hidden');
 }

@@ -20,14 +20,20 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-UserName"] == null)
-               Response.Redirect("Default.aspx");
+                Response.Redirect("Default.aspx");
 
             FillTable();
         }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-
+            if (hiddenLapseId.Value != string.Empty)
+            {
+                DeleteLapse();
+                FillTable();
+            }
+            else
+                buttonStyle.buttonStyleRed(buttonInfoLapseTable, "Please, select a lapse to delete.");
         }
 
         protected void FillTable()
@@ -86,14 +92,18 @@ namespace SYSPARK
 
                 if (hiddenStatusValue.Value.Equals(string.Empty))
                 {
-                    buttonStyle.buttonStyleRed(buttonErrors, "Please input the status of the lapse.");
+                    buttonStyle.buttonStyleRed(buttonErrors, "Please, input the status of the lapse.");
                     return null;
                 }
-                if (hiddenStatusValue.Value.Equals("true"))
-                    lapse.Status = true;
-                else if
-                    (hiddenStatusValue.Value.Equals("false"))
-                       lapse.Status = false;
+                else
+                {
+                    if (hiddenStatusValue.Value.Equals("true"))
+                        lapse.Status = true;
+                    else if
+                        (hiddenStatusValue.Value.Equals("false"))
+                        lapse.Status = false;
+                }
+
                 return lapse;
             }
             catch (FormatException)
@@ -118,6 +128,65 @@ namespace SYSPARK
                     case 0:
                         textboxLapse.Value = "";
                         buttonStyle.buttonStyleBlue(buttonErrors, "Lapse added successful.");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "Lapse name field is empty.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred creating the lapse, please check data or contact we us.");
+                        break;
+                    case 3:
+                        buttonStyle.buttonStyleRed(buttonErrors, "Lapse initial date is not set.");
+                        break;
+                    case 4:
+                        buttonStyle.buttonStyleRed(buttonErrors, "Lapse final date is not set.");
+                        break;
+                    case 5:
+                        buttonStyle.buttonStyleRed(buttonErrors, "Lapse status is not set.");
+                        break;
+                    case 6:
+                        buttonStyle.buttonStyleRed(buttonErrors, "Lapse initial date can't be highter than final date.");
+                        break;
+                    case 7:
+                        buttonStyle.buttonStyleRed(buttonErrors, "Lapse initial date can't be less than today.");
+                        break;
+                }
+            }
+        }
+
+        protected void DeleteLapse()
+        {
+            switch (lapseRules.DeleteLapse(Convert.ToInt32(hiddenLapseId.Value)))
+            {
+                case 0:
+                    FillTable();
+                    buttonStyle.buttonStyleBlue(buttonInfoLapseTable, "Lapse deleted successful.");
+                    break;
+                case 1:
+                    FillTable();
+                    buttonStyle.buttonStyleRed(buttonInfoLapseTable, "This lapse has linked data can not be deleted.");
+                    break;
+                case 2:
+                    buttonStyle.buttonStyleRed(buttonInfoLapseTable, "Please, select a lapse to delete.");
+                    break;
+            }
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+            UpdateLapse(CreateLapse());
+            FillTable();
+        }
+
+        protected void UpdateLapse(Lapse lapse)
+        {
+            if (lapse != null)
+            {
+                switch (lapseRules.UpdateLapse(lapse))
+                {
+                    case 0:
+                        textboxLapse.Value = "";
+                        buttonStyle.buttonStyleBlue(buttonErrors, "Lapse updated successful.");
                         break;
                     case 1:
                         buttonStyle.buttonStyleWhite(buttonErrors, "Lapse name field is empty.");

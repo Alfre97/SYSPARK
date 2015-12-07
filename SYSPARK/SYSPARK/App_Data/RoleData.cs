@@ -11,10 +11,12 @@ namespace SYSPARK.Data
 {
     public class RoleData : DataBaseConnection
     {
+        SqlConnection connection = new SqlConnection();
+
         public DataTable DataTableRole()
         {
             DataTable dataTableCondition = new DataTable();
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand selectCondition = new SqlCommand(@"SelectRole", connection))
             {
                 selectCondition.CommandType = CommandType.StoredProcedure;
@@ -27,7 +29,7 @@ namespace SYSPARK.Data
 
         public void InsertRole(Role role)
         {
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand insert = new SqlCommand(@"InsertRole", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
@@ -39,7 +41,7 @@ namespace SYSPARK.Data
 
         public void DeleteRole(int roleId)
         {
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand delete = new SqlCommand(@"DeleteRole", connection))
             {
                 delete.CommandType = CommandType.StoredProcedure;
@@ -51,7 +53,7 @@ namespace SYSPARK.Data
 
         public void UpdateRole(Role role)
         {
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand update = new SqlCommand(@"UpdateRole", connection))
             {
                 update.CommandType = CommandType.StoredProcedure;

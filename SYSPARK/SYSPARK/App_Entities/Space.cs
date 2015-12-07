@@ -14,6 +14,7 @@ namespace SYSPARK.Entities
         private string parkingName;
         private int parkingCampusId;
         private SpaceType spaceType;
+        private bool status;
 
         public int Id
         {
@@ -90,6 +91,19 @@ namespace SYSPARK.Entities
             set
             {
                 spaceType = value;
+            }
+        }
+
+        public bool Status
+        {
+            get
+            {
+                return status;
+            }
+
+            set
+            {
+                status = value;
             }
         }
     }

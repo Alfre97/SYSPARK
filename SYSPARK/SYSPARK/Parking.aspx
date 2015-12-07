@@ -42,9 +42,6 @@
                 </div>
             </div>
         </div>
-        <br />
-        <br />
-        <br />
         <div id="allContentInParking">
             <br />
             <input type="button" id="buttonErrors" runat="server" disabled="disabled" visible="false" />
@@ -93,7 +90,7 @@
                     <td>
                         <input id="hiddenCampusValue" type="hidden" runat="server" />
                         <span>Campus</span><br />
-                        <select id="selectCampus" runat="server" onchange="setValue('selectCondition', 'hiddenConditionValue')">
+                        <select id="selectCampus" runat="server" onchange="setValue('selectCampus', 'hiddenCampusValue')">
                         </select>
                         <br />
                     </td>
@@ -118,7 +115,8 @@
                         <td>
                             <input type="button" runat="server" id="buttonInfoParkingTable" value="Please, after any operation select one parking!" />
                             <input type="hidden" id="hiddenCampusToViewValue" runat="server" />
-                            <select id="selectCampusToView" runat="server" onchange="setValue('selectCampusToView', 'hiddenCampusToViewValue')" onserverchange=" FillTable"></select>
+                            <select id="selectCampusToView" runat="server" onchange="setValueCampusToView('selectCampusToView', 'hiddenCampusToViewValue')"></select>
+                            <button onserverclick=" FillTable" id="buttonSearch">Search</button>
                             <table class="table" id="tableParkings">
                                 <asp:PlaceHolder ID="placeHolderTableParking" runat="server"></asp:PlaceHolder>
                             </table>

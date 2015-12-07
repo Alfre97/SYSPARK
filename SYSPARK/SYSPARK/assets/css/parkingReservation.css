@@ -8,9 +8,13 @@ body {
     background-size: cover;
 }
 
-#allContent {
+#allContentInReservation {
     text-align: center;
     height: auto;
+}
+
+.container {
+    width: 100%;
 }
 
 #tableReservation {
@@ -18,12 +22,21 @@ body {
     text-align: center;
     border-radius: 25px 25px;
     margin: 0 auto;
-    width: 80%;
-    height: 300px;
+    width: 300px;
+    height: 400px;
     color: white;
 }
 
-#selectParking {
+table tr td span {
+    color: black;
+    width: 240px;
+    font-size: 8pt;
+    background-color: white;
+    border: none;
+    border-radius: 5px 5px;
+}
+
+select {
     width: 240px;
     background-color: white;
     height: 25px;
@@ -32,8 +45,142 @@ body {
     border-radius: 5px 5px;
 }
 
+h1 {
+    color: white;
+    text-align: center;
+}
+
+#navDefault {
+    background-color: transparent;
+    width: 100%;
+}
+
+#buttonErrors {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: transparent;
+    border: none;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
+
 .logo {
     color: white;
     font-size: 15pt;
     width: auto;
+}
+
+div table tr td input {
+    border-radius: 5px 5px;
+    border-style: none;
+    height: 25px;
+    width: 240px;
+    color: black;
+}
+
+#buttonCancelUpdate {
+    visibility: hidden;
+    width: 35%;
+    float: left;
+    margin-left: 30px;
+}
+
+div table tr td button {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
+
+#buttonReserve {
+    width: 115px;
+}
+
+#buttonClear {
+    width: 115px;
+}
+
+@media screen and (max-width: 400px) {
+    #tableRole {
+        width: 100%;
+    }
+
+    #tableGray {
+        width: 100%;
+    }
+}
+
+#tableGray {
+    border: none;
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    color: white;
+}
+
+#buttonDelete {
+    background-color: transparent;
+}
+
+#tableLapses {
+    background-color: white;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+    color: black;
+}
+
+#buttonInfoReservationTable {
+    background-color: blue;
+    color: white;
+    height: auto;
+    width: auto;
+}
+
+table#tableReservations button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px 5px;
+    width: auto;
+    height: auto;
+}
+
+table#tableReservations th {
+    text-align: center;
+    border-top: none;
+}
+
+#table#tableReservations tr {
+    border-radius: 25px 25px;
+    height: auto;
+    width: auto;
+}
+
+#buttonClear {
+    width: 115px;
+    float: left;
+    margin-left: 30px;
+}
+
+#buttonReserve {
+    width: 115px;
+    float: right;
+    margin-right: 30px;
+}
+
+.table-responsive {
+    border: none;
+}
+
+#buttonUpdate {
+    visibility: hidden;
 }

@@ -23,10 +23,10 @@
         .marcado {
             background: #629675;
         }
-    </style></head>
+    </style>
+</head>
 <body>
     <form id="formCampus" runat="server">
-    <div class="Header">
             <div class="nav navbar-default" id="navDefault" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
@@ -40,7 +40,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
         <div id="allContentInCampus">
             <br />
@@ -59,7 +58,7 @@
                     <td>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
                         <button onserverclick="AddCampus_Click" type="button" id="buttonAddCampus" runat="server">Add Campus</button>
-                        <button type="button" id="buttonUpdate" runat="server">Update</button>
+                        <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>
                 </tr>
@@ -71,7 +70,7 @@
                 <table id="tableGray">
                     <tr>
                         <td>
-                            <input type="button" runat="server" id="buttonInfoCampusTable" value="Please, after any operation select one role!" />
+                            <input type="button" runat="server" id="buttonInfoCampusTable" value="Please, after any operation select one campus!" />
                             <table class="table" id="tableCampuses">
                                 <asp:PlaceHolder ID="placeHolderTableCampus" runat="server"></asp:PlaceHolder>
                             </table>

@@ -29,6 +29,23 @@ namespace SYSPARK
             }
         }
 
+        public DataTable DataTableSearchParking(int campusId, string parkingName)
+        {
+            DataTable dataTableParking = new DataTable();
+            SqlConnection connection = ManageDatabaseConnection("Open");
+            using (SqlCommand select = new SqlCommand(@"SearchParking", connection))
+            {
+                select.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adap = new SqlDataAdapter(select);
+                select.Parameters.Add("@CampusId", SqlDbType.Int).Value = campusId;
+                select.Parameters.Add("@ParkingName", SqlDbType.VarChar).Value = parkingName;
+                adap.Fill(dataTableParking);
+            }
+            connection = ManageDatabaseConnection("Close");
+            return dataTableParking;
+        }
+
         public void InsertParking(Parking parking)
         {
             connection = ManageDatabaseConnection("Open");
@@ -36,12 +53,15 @@ namespace SYSPARK
             {
                 insert.CommandType = CommandType.StoredProcedure;
                 insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = parking.Name;
+                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.CampusId;
+                insert.Parameters.Add("@CampusName", SqlDbType.VarChar).Value = parking.CampusName;
                 insert.Parameters.Add("@TotalSpace", SqlDbType.Int).Value = parking.TotalSpace;
+                insert.Parameters.Add("@FreeSpace", SqlDbType.Int).Value = parking.FreeSpace;
                 insert.Parameters.Add("@CarSpace", SqlDbType.Int).Value = parking.CarSpace;
                 insert.Parameters.Add("@MotorcycleSpace", SqlDbType.Int).Value = parking.MotorcycleSpace;
                 insert.Parameters.Add("@HandicapSpace", SqlDbType.Int).Value = parking.HandicapSpace;
                 insert.Parameters.Add("@BusSpace", SqlDbType.Int).Value = parking.BusSpace;
-                insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.CampusId;
+                
                 insert.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");
@@ -59,21 +79,24 @@ namespace SYSPARK
             connection = ManageDatabaseConnection("Close");
         }
 
-        public Parking GetParkingId(Parking parking)
+        public int GetParkingId(string parkingName, int campusId)
         {
             DataTable dataTableParking = new DataTable();
+            int parkingId = 0;
+
             connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"GetParkingId", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
-                select.Parameters.Add("@ParkingName", SqlDbType.VarChar).Value = parking.Name;
+                select.Parameters.Add("@ParkingName", SqlDbType.VarChar).Value = parkingName;
+                select.Parameters.Add("@CampusId", SqlDbType.Int).Value = campusId;
                 SqlDataAdapter adap = new SqlDataAdapter(select);
                 adap.Fill(dataTableParking);
                 if (dataTableParking.Rows.Count > 0)
-                    parking.Id = Convert.ToInt32(dataTableParking.Rows[0]["Id"]);
-                connection = ManageDatabaseConnection("Close");
-                return parking;
+                    parkingId = Convert.ToInt32(dataTableParking.Rows[0]["Id"]);
+                connection = ManageDatabaseConnection("Close");             
             }
+            return parkingId;
         }
 
         public void UpdateParking(Parking parking)

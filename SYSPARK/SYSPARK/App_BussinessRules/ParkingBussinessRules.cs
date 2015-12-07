@@ -40,21 +40,37 @@ namespace SYSPARK.App_BussinessRules
                 try
                 {
                     parkingData.InsertParking(parking);
-                    try
-                    {
-                        parking = parkingData.GetParkingId(parking);
-                        //spaceData.InsertSpace(spaceData.spaceList(parking));
-                        return 0;
-                    }
-                    catch (Exception)
-                    {
-                        parkingData.DeleteParking(parking.Id);
-                        return 9;
-                    }
+                    return 0;
                 }
                 catch (SqlException)
                 {
                     return 10;
+                }
+            }
+        }
+
+        public int InsertParkingSpace(Parking parking)
+        {
+            SpaceData spaceData = new SpaceData();
+            try
+            {
+                parking.Id = parkingData.GetParkingId(parking.Name, parking.CampusId);
+                foreach (Space space in parking.SpaceList)
+                {
+                    spaceData.InsertSpace(space, 0);
+                }
+                return 0;
+            }
+            catch (SqlException)
+            {
+                try
+                {
+                    parkingData.DeleteParking(parking.Id);
+                    return 1;
+                }
+                catch (SqlException)
+                {
+                    return 2;
                 }
             }
         }

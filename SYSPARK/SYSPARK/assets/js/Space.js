@@ -1,6 +1,34 @@
 ﻿//Desition wheater do or not the function getValue
 var counter = 0;
 
+function setValueCampus(x, y) {
+    var select = document.getElementById(x);
+    var hiddenValue = document.getElementById(y);
+    var position = select.selectedIndex;
+    hiddenValue.value = select.options[position].value;
+}
+
+function setValueParkingToView(x, y) {
+    var select = document.getElementById(x);
+    var hiddenValue = document.getElementById(y);
+    var position = select.selectedIndex;
+    hiddenValue.value = select.options[position].value;
+}
+
+function setValueCampusToView(x, y) {
+    var select = document.getElementById(x);
+    var hiddenValue = document.getElementById(y);
+    var position = select.selectedIndex;
+    hiddenValue.value = select.options[position].value;
+}
+
+function setValue(x, y) {
+    var select = document.getElementById(x);
+    var hiddenValue = document.getElementById(y);
+    var position = select.selectedIndex;
+    hiddenValue.value = select.options[position].value;
+}
+
 function deleteRole() {
     $("#buttonDelete").click();
 }
@@ -8,15 +36,17 @@ function deleteRole() {
 function getValue(row) {
     if (row.className == 'marcado') {
         row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
-        $("#hiddenLapseId").val('');
+        $("#hiddenSpaceId").val('');
+        $("#hiddenSpaceTypeId").val('');
     } else {
         row.className = row.className == 'marcado' ? 'desmarcado' : 'marcado';
-        $("#hiddenLapseId").val(row.cells[0].childNodes[0].nodeValue);
+        $("#hiddenSpaceId").val(row.cells[0].childNodes[0].nodeValue);
+        $("#hiddenSpaceTypeId").val(row.cells[5].childNodes[0].nodeValue);
     }
 }
 
 function clearingSomeControls() {
-    $("#textboxLapse").val('');
+    $("#textboxSpace").val('');
     $("#dateInitialDate").val('');
     $("#dateFinalDate").val('');
     $("#radioStatusOn").val('');

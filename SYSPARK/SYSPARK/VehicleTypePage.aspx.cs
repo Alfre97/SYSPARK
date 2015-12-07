@@ -115,8 +115,13 @@ namespace SYSPARK
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            DeleteVehicleType();
-            FillTable();
+            if (hiddenVehicleTypeId.Value != string.Empty)
+            {
+                DeleteVehicleType();
+                FillTable();
+            }
+            else
+                buttonStyle.buttonStyleRed(buttonInfoVehicleTypeTable, "Please, select a vehicle type to delete.");
         }
 
         protected void DeleteVehicleType()
@@ -132,7 +137,7 @@ namespace SYSPARK
                     buttonStyle.buttonStyleRed(buttonInfoVehicleTypeTable, "This vehicle type has linked data can not be deleted.");
                     break;
                 case 2:
-                    buttonStyle.buttonStyleRed(buttonInfoVehicleTypeTable, "Please, select a vehicle type to delete.");
+                    buttonStyle.buttonStyleWhite(buttonInfoVehicleTypeTable, "Please, select a vehicle type to delete.");
                     break;
             }
         }

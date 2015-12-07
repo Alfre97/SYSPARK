@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VehicleTypePage.aspx.cs" Inherits="SYSPARK.VehicleTypePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SpaceType.aspx.cs" Inherits="SYSPARK.SpaceTypePage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Vehicle Type</title>
+    <title>Space Type</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- JQuery Library -->
@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/vehicleType.css" />
-    <script type="text/javascript" src="assets/js/VehicleType.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/spaceType.css" />
+    <script type="text/javascript" src="assets/js/SpaceType.js"></script>
     <style type="text/css">
         .desmarcado {
             background: white;
@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <form id="formVehicleType" runat="server">
+    <form id="formSpaceType" runat="server">
     <div class="Header">
             <div class="nav navbar-default" id="navDefault" role="navigation">
                 <div class="container">
@@ -47,19 +47,19 @@
             <br />
             <input type="button" id="buttonErrors" runat="server" visible="false"/>
             <br />
-            <h1>Vehicle Type</h1>
+            <h1>Space Type</h1>
             <br />
-            <table id="tableVehicleType" border="0">
+            <table id="tableSpaceType" border="0">
                 <tr>
                     <td>
                         <br />
-                        <input type="text" id="textboxVehicleType" runat="server" placeholder=" Vehicle type name" />
+                        <input type="text" id="textboxSpace" runat="server" placeholder=" Space type name" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
-                        <button onserverclick=" AddVehicleType_Click" type="button" id="buttonAddVehicleType" runat="server">Add Vehicle Type</button>
+                        <button onserverclick=" AddSpaceType_Click" type="button" id="buttonAddSpaceType" runat="server">Add space Type</button>
                         <button onclick="cancelUpdate()" type="button" id="buttonCancelUpdate" runat="server">Cancel</button>
                         <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
@@ -68,14 +68,14 @@
             </table>
             <br />
             <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" style="background-color: transparent; border: none;" />
-            <input type="hidden" id="hiddenVehicleTypeId" runat="server"/>
+            <input type="hidden" id="hiddenSpaceTypeId" runat="server"/>
             <div class="table-responsive">
                 <table id="tableGray">
                     <tr>
                         <td>
-                            <input type="button" runat="server" id="buttonInfoVehicleTypeTable" value="Please, after any operation select one vehicle type!" />
-                            <table class="table" id="tableVehicleTypes">
-                                <asp:PlaceHolder ID="placeHolderTableRole" runat="server"></asp:PlaceHolder>
+                            <input type="button" runat="server" id="buttonInfoSpaceTypeTable" value="Please, after any operation select one space type!" />
+                            <table class="table" id="tableSpaceTypes">
+                                <asp:PlaceHolder ID="placeHolderTableSpaceType" runat="server"></asp:PlaceHolder>
                             </table>
                         </td>
                     </tr>

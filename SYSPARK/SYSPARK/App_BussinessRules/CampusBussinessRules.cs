@@ -1,5 +1,4 @@
-﻿using SYSPARK.Data;
-using SYSPARK.Entities;
+﻿using SYSPARK.App_Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,35 +7,37 @@ using System.Web;
 
 namespace SYSPARK.App_BussinessRules
 {
-    public class VehicleBussinessRules
+    public class CampusBussinessRules
     {
-        VehicleData vehicleData = new VehicleData();
+        CampusData campusData = new CampusData();
 
-        public int InsertVehicle(Vehicle vehicle, string userName)
+        public int InsertCampus(Campus campus)
         {
             try
             {
-                if (vehicle.VehiclePlate.Equals(string.Empty))
+                if (campus.Name.Equals(string.Empty))
                     return 1;
                 else
-                    vehicleData.InsertVehicle(vehicle, userName);
+                {
+                    campusData.InsertCampus(campus);
+                    return 0;
+                }
             }
             catch (SqlException)
             {
                 return 2;
             }
-            return 0;
         }
 
-        public int DeleteVehicle(string vehiclePlate, string userName)
+        public int DeleteCampus(int campusId)
         {
             try
             {
-                if (vehiclePlate.Equals(string.Empty))
+                if (campusId.Equals(string.Empty))
                     return 2;
                 else
                 {
-                    vehicleData.DeleteVehicle(vehiclePlate, userName);
+                    campusData.DeleteCampus(campusId);
                     return 0;
                 }
             }
@@ -46,18 +47,18 @@ namespace SYSPARK.App_BussinessRules
             }
         }
 
-        public int UpdateVehicle(Vehicle vehicle)
+        public int UpdateCampus(Campus campus)
         {
 
             try
             {
-                if (vehicle.VehiclePlate.Equals(string.Empty))
+                if (campus.Name.Equals(string.Empty))
                 {
                     return 1;
                 }
                 else
                 {
-                    vehicleData.UpdateVehicle(vehicle);
+                    campusData.UpdateCampus(campus);
                     return 0;
                 }
             }
@@ -66,5 +67,6 @@ namespace SYSPARK.App_BussinessRules
                 return 2;
             }
         }
+
     }
 }

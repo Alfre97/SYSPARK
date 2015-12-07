@@ -14,7 +14,7 @@ using System.Web.UI.WebControls;
 
 namespace SYSPARK
 {
-    public partial class VehiclePage : System.Web.UI.Page
+    public partial class VehiclePage1 : System.Web.UI.Page
     {
         VehicleBussinessRules vehicleRules = new VehicleBussinessRules();
         ButtonStyle buttonStyle = new ButtonStyle();
@@ -102,7 +102,7 @@ namespace SYSPARK
         {
             VehicleData vehicleData = new VehicleData();
             //Populating a DataTable from database.
-            DataTable dt = vehicleData.DataTableUserVehicle(vehicleData.SendVehicleList(vehicleData.GetUserVehicle(Session["User-UserName"].ToString())));
+            DataTable dt = vehicleData.DataTableVehicle();
 
             //Building an HTML string.
             StringBuilder html = new StringBuilder();

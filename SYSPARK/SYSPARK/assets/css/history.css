@@ -1,0 +1,60 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../img/FondoNegro.jpg");
+    background-size: cover;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.logo {
+    color: white;
+    font-size: 15pt;
+    width: auto;
+}
+
+#navDefault {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+}
+
+.container {
+    width: 100%;
+}
+
+#tableGray {
+    border: none;
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    color: white;
+}
+
+#tableHistory {
+    background-color: white;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+    color: black;
+}
+
+select {
+    width: 240px;
+    background-color: white;
+    height: 25px;
+    color: black;
+    border: none;
+    border-radius: 5px 5px;
+}

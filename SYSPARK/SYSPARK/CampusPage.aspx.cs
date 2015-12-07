@@ -133,13 +133,52 @@ namespace SYSPARK
                         buttonStyle.buttonStyleRed(buttonInfoCampusTable, "This campus has linked data can not be deleted.");
                         break;
                     case 2:
-                        buttonStyle.buttonStyleRed(buttonInfoCampusTable, "Please, select a campus to delete.");
+                        buttonStyle.buttonStyleWhite(buttonInfoCampusTable, "Please, select a campus to delete.");
                         break;
                 }
             }
             catch
             {
                 buttonStyle.buttonStyleRed(buttonInfoCampusTable, "Please, select a campus to delete.");
+            }
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Campus campus = CreateCampus();
+                campus.Id = Convert.ToInt32(hiddenCampusId.Value);
+                UpdateCampus(campus);
+                buttonClear.Style.Add("visibility", "visible");
+                buttonAddCampus.Style.Add("visibility", "visible");
+                buttonUpdate.Style.Add("visibility", "hidden");
+                FillTable();
+            }
+            catch (FormatException)
+            {
+                buttonStyle.buttonStyleRed(buttonInfoCampusTable, "Please, after any operation select one campus!");
+            }
+        }
+
+        protected void UpdateCampus(Campus campus)
+        {
+            if (campus != null)
+            {
+                switch (campusRules.UpdateCampus(campus))
+                {
+                    case 0:
+                        textboxCampus.Value = "";
+                        buttonStyle.buttonStyleBlue(buttonErrors, "Campus updated successful.");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "Campus name field is empty.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred updating the campus, please check data or contact we us.");
+                        break;
+
+                }
             }
         }
     }

@@ -23,6 +23,32 @@ h1 {
     width: 100%;
 }
 
+#buttonCancelUpdate {
+    visibility: hidden;
+    width: 35%;
+    float: left;
+    margin-left: 30px;
+}
+
+table tr td span {
+    color: black;
+    width: 240px;
+    font-size: 8pt;
+    background-color: white;
+    border: none;
+    border-radius: 5px 5px;
+}
+
+#navDefault {
+    background-color: transparent;
+    width: 100%;
+}
+
+#allContentInSpace {
+    text-align: center;
+    height: auto;
+}
+
 #spanOn {
     float: left;
     margin-left: 30px;
@@ -51,30 +77,30 @@ h1 {
     margin-right: 75px;
 }
 
-#buttonCancelUpdate {
-    visibility: hidden;
-    width: 35%;
-    float: left;
-    margin-left: 30px;
-}
-
-table tr td span {
-    color: black;
+select {
     width: 240px;
-    font-size: 8pt;
     background-color: white;
+    height: 25px;
+    color: black;
     border: none;
     border-radius: 5px 5px;
 }
 
-#navDefault {
-    background-color: transparent;
-    width: 100%;
+#selectCampus {
+    width: 190px;
+    background-color: white;
+    height: 25px;
+    color: black;
+    border: none;
+    border-radius: 5px 5px;
+    float: left;
+    margin-left: 30px;
 }
 
-#allContentInLapse {
-    text-align: center;
-    height: auto;
+#buttonSearch {
+    width: 40px;
+    float: right;
+    margin-right: 30px;
 }
 
 #buttonErrors {
@@ -87,7 +113,7 @@ table tr td span {
     height: auto;
 }
 
-#tableLapse {
+#tableSpace {
     background-color: #a5a5a5;
     text-align: center;
     border-radius: 25px 25px;
@@ -112,10 +138,6 @@ div table tr td button {
     border-style: none;
     width: auto;
     height: auto;
-}
-
-#buttonAddRole {
-    width: 115px;
 }
 
 #buttonClear {
@@ -147,7 +169,7 @@ div table tr td button {
     background-color: transparent;
 }
 
-#tableLapses {
+#tableSpaces {
     background-color: white;
     text-align: center;
     border-radius: 25px 25px;
@@ -157,14 +179,14 @@ div table tr td button {
     color: black;
 }
 
-#buttonInfoLapseTable {
+#buttonInfoSpaceTable {
     background-color: blue;
     color: white;
     height: auto;
     width: auto;
 }
 
-table#tableLapses button {
+table#tableSpaces button {
     background-color: black;
     color: white;
     border: none;
@@ -173,12 +195,12 @@ table#tableLapses button {
     height: auto;
 }
 
-table#tableLapses th {
+table#tableSpaces th {
     text-align: center;
     border-top: none;
 }
 
-#table#tableLapses tr {
+#table#tableSpaces tr {
     border-radius: 25px 25px;
     height: auto;
     width: auto;
@@ -190,7 +212,7 @@ table#tableLapses th {
     margin-left: 30px;
 }
 
-#buttonAddLapse {
+#buttonAddSpace {
     width: 115px;
     float: right;
     margin-right: 30px;

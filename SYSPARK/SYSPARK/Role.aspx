@@ -27,8 +27,7 @@
 </head>
 <body>
     <form id="formRole" runat="server">
-        <div class="Header">
-            <div class="navbar default-navbar" id="navDefault" role="navigation">
+            <div class="nav navbar-default" id="navDefault" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" id="navbar-brand" href="Home.aspx">
@@ -41,7 +40,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         <div id="allContentInRole">
             <br />
             <input type="button" id="buttonErrors" runat="server" visible="false"/>
@@ -59,6 +57,7 @@
                     <td>
                         <button onclick="clearingSomeControls()" type="button" id="buttonClear" runat="server">Clean</button>
                         <button onserverclick=" AddRole_Click" type="button" id="buttonAddRole" runat="server">Add role</button>
+                        <button onclick="cancelUpdate()" type="button" id="buttonCancelUpdate" runat="server">Cancel</button>
                         <button onserverclick=" Update_Click" type="button" id="buttonUpdate" runat="server">Update</button>
                         <br />
                     </td>

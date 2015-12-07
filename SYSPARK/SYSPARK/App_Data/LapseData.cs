@@ -12,10 +12,12 @@ namespace SYSPARK
 {
     public class LapseData : DataBaseConnection
     {
+        SqlConnection connection = new SqlConnection();
+
         public DataTable DataTableLapse()
         {
             DataTable dataTableLapse = new DataTable();
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"SelectLapse", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
@@ -29,7 +31,7 @@ namespace SYSPARK
         public DataTable DataTableEnrollmentLapse(int lapseId)
         {
             DataTable dataTableLapse = new DataTable();
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"SelectEnrollmentLapse", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
@@ -55,7 +57,7 @@ namespace SYSPARK
         public DataTable DataTableLapseOn()
         {
             DataTable dataTableLapseOn = new DataTable();
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"SelectLapseOn", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
@@ -68,7 +70,7 @@ namespace SYSPARK
 
         public void InsertLapse(Lapse lapse)
         {
-            SqlConnection connection = ManageDatabaseConnection("Open");
+            connection = ManageDatabaseConnection("Open");
             using (SqlCommand insert = new SqlCommand(@"InsertLapse", connection))
             {
                 insert.CommandType = CommandType.StoredProcedure;
@@ -81,5 +83,33 @@ namespace SYSPARK
             connection = ManageDatabaseConnection("Close");
         }
 
+        public void DeleteLapse(int lapseId)
+        {
+            connection = ManageDatabaseConnection("Open");
+            using (SqlCommand delete = new SqlCommand(@"DeleteLapse", connection))
+            {
+                delete.CommandType = CommandType.StoredProcedure;
+                delete.Parameters.Add("@Id", SqlDbType.Int).Value = lapseId;
+                delete.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
+
+        public void UpdateLapse(Lapse lapse)
+        {
+            connection = ManageDatabaseConnection("Open");
+            using (SqlCommand update = new SqlCommand(@"UpdateLapse", connection))
+            {
+                update.CommandType = CommandType.StoredProcedure;
+                update.Parameters.Add("@Id", SqlDbType.Int).Value = lapse.Id;
+                update.Parameters.Add("@Name", SqlDbType.VarChar).Value = lapse.Name;
+                update.Parameters.Add("@InitialDate", SqlDbType.Date).Value = lapse.InitialDate;
+                update.Parameters.Add("@FinalDate", SqlDbType.Date).Value = lapse.FinalDate;
+                update.Parameters.Add("@Status", SqlDbType.Bit).Value = lapse.Status;
+
+                update.ExecuteNonQuery();
+            }
+            connection = ManageDatabaseConnection("Close");
+        }
     }
 }

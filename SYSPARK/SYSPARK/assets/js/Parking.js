@@ -28,6 +28,12 @@ function setValues(row) {
         document.getElementById('buttonInfoParkingTable').value = 'Please, after any operation select one role!';
 
     } else {
+        $("#textboxTotalSpace").attr("disabled", "disabled");
+        $("#textboxCarSpace").attr("disabled", "disabled");
+        $("#textboxMotorCycleSpace").attr("disabled", "disabled");
+        $("#textboxBusSpace").attr("disabled", "disabled");
+        $("#textboxHandicapSpace").attr("disabled", "disabled");
+
         $("#hiddenParkingId").val(row.cells[0].childNodes[0].nodeValue);
         $("#textboxParkingName").val(row.cells[1].childNodes[0].nodeValue);
         $("#textboxTotalSpace").val(row.cells[2].childNodes[0].nodeValue);
@@ -43,6 +49,13 @@ function setValues(row) {
 }
 
 function setValue(x, y) {
+    var select = document.getElementById(x);
+    var hiddenValue = document.getElementById(y);
+    var position = select.selectedIndex;
+    hiddenValue.value = select.options[position].value;
+}
+
+function setValueCampusToView(x, y) {
     var select = document.getElementById(x);
     var hiddenValue = document.getElementById(y);
     var position = select.selectedIndex;

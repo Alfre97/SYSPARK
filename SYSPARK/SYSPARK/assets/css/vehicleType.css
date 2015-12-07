@@ -25,10 +25,15 @@ h1 {
     border: none;
 }
 
-.navbar navbar-default {
-    background-color: transparent;
+.container {
     width: 100%;
-    border: none;
+}
+
+#buttonCancelUpdate {
+    visibility: hidden;
+    width: 35%;
+    float: left;
+    margin-left: 30px;
 }
 
 #allContentInVehicleType {
