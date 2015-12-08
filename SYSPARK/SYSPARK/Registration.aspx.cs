@@ -14,14 +14,8 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-UserName"] == null)
-            Response.Redirect("Default.aspx");
-
-            if (Session["hiddenTransaction"] != null)
-            {
-                buttonStyle.buttonStyleBlue(buttonErrors, "Registration successful.");
-                Session["HiddenTransaction"] = string.Empty;
-            }
+            //if (Session["User-UserName"] == null)
+            //Response.Redirect("Default.aspx");
 
             FillSelectCondition();
             FillSelectCampus();

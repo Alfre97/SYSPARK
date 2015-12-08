@@ -46,13 +46,14 @@ namespace SYSPARK
             return dataTableUserReservation;
         }
 
-        public DataTable DataTableReservation()
+        public DataTable DataTableReservation(int campusId)
         {
             DataTable dataTableReservation = new DataTable();
             connection = ManageDatabaseConnection("Open");
             using (SqlCommand select = new SqlCommand(@"SelectReservation", connection))
             {
                 select.CommandType = CommandType.StoredProcedure;
+                select.Parameters.Add("@CampusId", SqlDbType.Int).Value = campusId;
                 SqlDataAdapter adap = new SqlDataAdapter(select);
                 adap.Fill(dataTableReservation);
             }
@@ -109,6 +110,5 @@ namespace SYSPARK
             else
                 return null;
         }
-
     }
 }

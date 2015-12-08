@@ -306,9 +306,15 @@ namespace SYSPARK
         {
             ReservationData reservationData = new ReservationData();
             DataTable dt = new DataTable();
+            int campusId;
             //Populating a DataTable from database.
+            if (hiddenCampusToViewValue.Value.Equals(string.Empty))
+                campusId = Convert.ToInt32(selectCampusToView.Items[0].Value);
+            else
+                campusId = Convert.ToInt32(hiddenCampusToViewValue.Value);
+
             if (Convert.ToInt32(Session["User-RoleId"]) == 3)
-                dt = reservationData.DataTableReservation();
+                dt = reservationData.DataTableReservation(campusId);
             else
                 dt = reservationData.DataTableUserReservation(Session["User-UserName"].ToString());
             //Building an HTML string.
@@ -317,12 +323,38 @@ namespace SYSPARK
             //Building the Header row.
             html.Append("<tbody>");
             html.Append("<tr>");
-            foreach (DataColumn column in dt.Columns)
+            html.Append("<tbody>");
+            html.Append("<tr>");
+            html.Append("<th>");
+            html.Append("Id");
+            html.Append("</th>");
+            html.Append("<th>");
+            html.Append("Space");
+            html.Append("</th>");
+            html.Append("<th>");
+            html.Append("Parking");
+            html.Append("</th>");
+            html.Append("<th>");
+            html.Append("Campus");
+            html.Append("</th>");
+            html.Append("<th>");
+            html.Append("User");
+            html.Append("</th>");
+            html.Append("<th>");
+            html.Append("vehicle Plate");
+            html.Append("</th>");
+            html.Append("<th>");
+            html.Append("Initial Hour");
+            html.Append("</th>");
+            html.Append("<th>");
+            html.Append("Final Hour");
+            html.Append("</th>");
+            /*foreach (DataColumn column in dt.Columns)
             {
                 html.Append("<th>");
                 html.Append(column.ColumnName);
                 html.Append("</th>");
-            }
+            }*/
             html.Append("</tr>");
 
             //Building the Data rows.
@@ -420,7 +452,7 @@ namespace SYSPARK
             switch (reservationRules.SearchActiveReservation(reservation))
             {
                 case 0:
-                    CheckActiveReservation(reservation);
+                    CheckUserReservation(reservation);
                     break;
                 case 1:
                     buttonStyle.buttonStyleRed(buttonErrors, "The space selected already have reservations in that hours.");

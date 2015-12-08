@@ -52,30 +52,32 @@ namespace SYSPARK.BussinessRules
             List<Reservation> activeReservationList = reservationData.SendActiveReservationList(reservationData.SearchActiveReservation(reservation.Space.ParkingCampusId, reservation.Space.ParkingId, reservation.Space.Id));
             List<DateTime> reservationInsideHoursList = new List<DateTime>();
             List<DateTime> activeReservationInsideHoursList = new List<DateTime>();
-
-            for (DateTime i = reservation.CheckIn.AddHours(1); i < reservation.CheckOut; i = i.AddHours(1))
+            if (activeReservationList !=  null)
             {
-                reservationInsideHoursList.Add(i);
-            }
-
-            foreach (Reservation activeReservation in activeReservationList)
-            {
-                if (reservation.CheckIn == activeReservation.CheckIn)
-                    return 1;
-                else if (reservation.CheckOut == activeReservation.CheckOut)
-                    return 1;
-
-                for (DateTime i = activeReservation.CheckIn.AddHours(1); i < activeReservation.CheckOut; i = i.AddHours(1))
+                for (DateTime i = reservation.CheckIn.AddHours(1); i < reservation.CheckOut; i = i.AddHours(1))
                 {
-                    activeReservationInsideHoursList.Add(i);
+                    reservationInsideHoursList.Add(i);
                 }
 
-                foreach (DateTime reservationHour in reservationInsideHoursList)
+                foreach (Reservation activeReservation in activeReservationList)
                 {
-                    foreach (DateTime activeReservationHour in activeReservationInsideHoursList)
+                    if (reservation.CheckIn == activeReservation.CheckIn)
+                        return 1;
+                    else if (reservation.CheckOut == activeReservation.CheckOut)
+                        return 1;
+
+                    for (DateTime i = activeReservation.CheckIn.AddHours(1); i < activeReservation.CheckOut; i = i.AddHours(1))
                     {
-                        if (reservationHour == activeReservationHour)
-                            return 1;
+                        activeReservationInsideHoursList.Add(i);
+                    }
+
+                    foreach (DateTime reservationHour in reservationInsideHoursList)
+                    {
+                        foreach (DateTime activeReservationHour in activeReservationInsideHoursList)
+                        {
+                            if (reservationHour == activeReservationHour)
+                                return 1;
+                        }
                     }
                 }
             }

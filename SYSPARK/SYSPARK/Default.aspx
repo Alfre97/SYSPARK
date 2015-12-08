@@ -35,13 +35,6 @@
                 </div>
             </div>
         </div>
-
-        <section>
-            <br />
-            <br />
-            <br />
-            <br />
-        </section>
         <div id="allContentInLogin">
             <br />
             <input type="button" id="buttonErrors" runat="server" visible="false" disabled="disabled" />

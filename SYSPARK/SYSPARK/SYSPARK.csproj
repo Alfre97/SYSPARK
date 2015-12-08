@@ -130,6 +130,7 @@
     <Content Include="assets\less\responsive.less" />
     <Content Include="assets\css\campus.css" />
     <Content Include="assets\css\history.css" />
+    <None Include="Properties\PublishProfiles\SYSPARK.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -202,6 +202,24 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenReservationId;
         
         /// <summary>
+        /// hiddenCampusToViewValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenCampusToViewValue;
+        
+        /// <summary>
+        /// selectCampusToView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selectCampusToView;
+        
+        /// <summary>
         /// buttonInfoReservationTable control.
         /// </summary>
         /// <remarks>

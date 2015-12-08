@@ -12,7 +12,7 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-UserName"] == null)
-                Response.Redirect("Default.aspx");
+                Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
             int userCondition = Convert.ToInt32(Session["User-RoleId"]);
             if(userCondition != 3)
@@ -32,7 +32,7 @@ namespace SYSPARK
         protected void buttonLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();
-            Response.Redirect("Default.aspx");
+            Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
         }
     }
 }

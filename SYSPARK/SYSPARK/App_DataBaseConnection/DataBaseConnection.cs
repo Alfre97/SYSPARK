@@ -11,7 +11,7 @@ namespace SYSPARK.DataBase
         public SqlConnection ManageDatabaseConnection(String actionToPerform)
         {
             SqlConnection sqlConnection = new SqlConnection();
-            sqlConnection.ConnectionString = @"Data Source=ALFREDO-PC\SQLEXPRESS;Initial Catalog=SYSPARKDB;Integrated Security=True;Pooling=False";
+            sqlConnection.ConnectionString = @"Server=tcp:syspark.database.windows.net,1433;Database=SYSPARKDB;User ID=syspark@syspark;Password={Alfredo1997};Trusted_Connection=False;Encrypt=True;Connection Timeout=60;";
             try
             {
                 //Decision to weather open or close the database connection

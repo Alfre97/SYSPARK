@@ -147,6 +147,9 @@
                 <table id="tableGray">
                     <tr>
                         <td>
+                            <input type="hidden" id="hiddenCampusToViewValue" runat="server" />
+                            <select id="selectCampusToView" runat="server" onchange="setValue('selectCampusToView', 'hiddenCampusToViewValue')"></select>
+                            <button onserverclick=" FillTable" type="button" id="buttonSearch">Search</button>
                             <input type="button" runat="server" id="buttonInfoReservationTable" value="Please, after any operation select one reservation!" />
                             <table class="table" id="tableReservations">
                                 <asp:PlaceHolder ID="placeHolderTableReservations" runat="server"></asp:PlaceHolder>
