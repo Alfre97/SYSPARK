@@ -74,5 +74,41 @@ namespace SYSPARK
             connection = ManageDatabaseConnection("Close");
         }
 
+        public DataTable SearchActiveReservation(int campusId, int parkingId, int spaceId)
+        {
+            DataTable dataTableActiveReservation = new DataTable();
+            connection = ManageDatabaseConnection("Open");
+            using (SqlCommand select = new SqlCommand(@"SelectSpaceReservation", connection))
+            {
+                select.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adap = new SqlDataAdapter(select);
+                select.Parameters.Add("@CampusId", SqlDbType.Int).Value = campusId;
+                select.Parameters.Add("@ParkingId", SqlDbType.Int).Value = parkingId;
+                select.Parameters.Add("@SpaceId", SqlDbType.Int).Value = spaceId;
+                adap.Fill(dataTableActiveReservation);
+            }
+            connection = ManageDatabaseConnection("Close");
+            return dataTableActiveReservation;
+        }
+
+        public List<Reservation> SendActiveReservationList(DataTable dataTableReservation)
+        {
+            List<Reservation> reservationList = new List<Reservation>();
+            if (dataTableReservation.Rows.Count > 0)
+            {
+                for (int i = 0; i < dataTableReservation.Rows.Count; i++)
+                {
+                    Reservation reservation = new Reservation();
+                    reservation.CheckIn = Convert.ToDateTime(dataTableReservation.Rows[i]["CheckIn"]);
+                    reservation.CheckOut = Convert.ToDateTime(dataTableReservation.Rows[i]["CheckOut"]);
+                    reservationList.Add(reservation);
+                }
+                return reservationList;
+
+            }
+            else
+                return null;
+        }
+
     }
 }

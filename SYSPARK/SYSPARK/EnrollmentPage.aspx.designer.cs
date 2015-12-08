@@ -73,7 +73,7 @@ namespace SYSPARK {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateInitialDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dateInitialDate;
         
         /// <summary>
         /// dateFinalDate control.
@@ -82,7 +82,7 @@ namespace SYSPARK {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateFinalDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dateFinalDate;
         
         /// <summary>
         /// selectCampus control.

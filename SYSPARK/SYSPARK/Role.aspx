@@ -10,6 +10,7 @@
     <!-- JQuery Library -->
     <script src="App_Utility/jquery.js"></script>
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="App_Utility/bootstrap.css" />
     <link rel="stylesheet" href="App_Utility/bootstrap.min.css" />
     <script src="App_Utility/bootstrap.min.js"></script>
     <!-- CSS -->

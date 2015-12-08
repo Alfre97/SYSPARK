@@ -10,6 +10,7 @@
     <!-- JQuery Library -->
     <script src="App_Utility/jquery.js"></script>
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="App_Utility/bootstrap.css" />
     <link rel="stylesheet" href="App_Utility/bootstrap.min.css" />
     <script src="App_Utility/bootstrap.min.js"></script>
     <!-- CSS -->
@@ -37,14 +38,11 @@
             <table id="tableGray">
                 <tr>
                     <td>
+                        <input type="hidden" id="hiddenCampusToViewValue" runat="server" />
+                        <select id="selectCampusToView" runat="server" onchange="setValue('selectCampusToView', 'hiddenCampusToViewValue')"></select>
+                        <button onserverclick=" FillTable" type="button" id="buttonSearch">Search</button>
                         <table class="table" id="tableHistory">
-                            <tr>
-                                <td>
-                                    <input type="hidden" id="hiddenCampusToViewValue" runat="server" />
-                                    <select id="selectCampusToView" runat="server" onchange="setValue('selectCampusToView', 'hiddenCampusToViewValue')" onserverchange=" FillTable"></select>
-                                    <asp:PlaceHolder ID="placeHolderTableHistory" runat="server"></asp:PlaceHolder>
-                                </td>
-                            </tr>
+                            <asp:PlaceHolder ID="placeHolderTableHistory" runat="server"></asp:PlaceHolder>
                         </table>
                     </td>
                 </tr>

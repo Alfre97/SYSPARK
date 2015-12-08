@@ -10,6 +10,7 @@
     <!-- JQuery Library -->
     <script src="App_Utility/jquery.js"></script>
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="App_Utility/bootstrap.css" />
     <link rel="stylesheet" href="App_Utility/bootstrap.min.css" />
     <script src="App_Utility/bootstrap.min.js"></script>
     <!-- CSS -->
@@ -32,7 +33,6 @@
                 </div>
             </div>
         </div>
-
         <div id="allContentInEnrollment">
             <br />
             <input type="button" id="buttonErrors" runat="server" visible="false" />
@@ -65,14 +65,14 @@
                 <tr>
                     <td>
                         <span>Initial Date</span><br />
-                        <input type="date" id="dateInitialDate" placeholder=" Initial date: dd/mm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
+                        <input type="text" id="dateInitialDate" placeholder=" Initial date: dd/mm/aaaa" runat="server" min="2015-09-11" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span>Final Date</span><br />
-                        <input type="date" id="dateFinalDate" placeholder=" Final date: dd/mm/aaaa" runat="server" disabled="disabled"/>
+                        <input type="text" id="dateFinalDate" placeholder=" Final date: dd/mm/aaaa" runat="server" disabled="disabled"/>
                         <br />
                     </td>
                 </tr>
@@ -95,6 +95,7 @@
                         <br />
                         <button onserverclick=" ButtonCreateEnrollment_Click" type="button" id="buttonCreateEnrollment" runat="server" visible="false">Create Enrollment</button>
                         <button onserverclick=" ButtonActivateEnrollment_Click" type="button" id="buttonActivateEnrollment" runat="server" disabled="disabled">Activate Enrollment</button>
+                        <button type="button" onclick="window.print();">Print</button>
                         <br />
                         <br />
                     </td>

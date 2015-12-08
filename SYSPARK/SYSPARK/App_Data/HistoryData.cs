@@ -14,7 +14,7 @@ namespace SYSPARK
     {
         SqlConnection connection = new SqlConnection();
 
-        public DataTable DataTableUserHistory(string userName)
+        public DataTable DataTableUserHistory(string userName, int campusId)
         {
             DataTable dataTableUserHistory = new DataTable();
             connection = ManageDatabaseConnection("Open");
@@ -22,6 +22,7 @@ namespace SYSPARK
             {
                 select.CommandType = CommandType.StoredProcedure;
                 select.Parameters.Add("@UserName", SqlDbType.VarChar).Value = userName;
+                select.Parameters.Add("@CampusId", SqlDbType.Int).Value = campusId;
                 SqlDataAdapter adap = new SqlDataAdapter(select);
                 adap.Fill(dataTableUserHistory);
             }

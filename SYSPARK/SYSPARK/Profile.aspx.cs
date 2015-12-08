@@ -77,8 +77,7 @@ namespace SYSPARK
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            UpdateUser();
-            EnableControls();
+                UpdateUser(CreateUser());
         }
 
         protected void ButtonCancelUpdate_Click(object sender, EventArgs e)
@@ -87,54 +86,58 @@ namespace SYSPARK
             FillTableWithUserInfo();
         }
 
-        protected void UpdateUser()
+        protected void UpdateUser(User user)
         {
-            UserBussinessRules userBussinessRules = new UserBussinessRules();
-            //For password validation
-            string newPassword = textboxPasswordShowed.Value;
-            string passwordHashed = Session["User-PasswordHashed"].ToString();
-            bool verify = BCrypt.Net.BCrypt.Verify(newPassword, passwordHashed);
-            //Updating user
-            switch (userBussinessRules.UpdateRules(CreateUser()))
+            if (user != null)
             {
-                case 0:
-                    if (verify == false)
-                    {
-                        hiddenUpdate.Value = "Transaction successful.";
-                        Session["UpdateTransaction"] = hiddenUpdate.Value;
-                        Response.Redirect("Default.aspx");
-                    }
-                    else
-                    {
-                        Session["User-Name"] = textboxName.Value;
-                        Session["User-LastName"] = textboxLastName.Value;
-                        FillTableWithUserInfo();
-                    }
-                    break;
-                case 1:
-                    buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
-                    break;
-                case 2:
-                    buttonStyle.buttonStyleRed(buttonErrors, "The lastname field is empty.");
-                    break;
-                case 3:
-                    buttonStyle.buttonStyleWhite(buttonErrors, "The username field is empty.");
-                    break;
-                case 4:
-                    buttonStyle.buttonStyleRed(buttonErrors, "The password field is empty.");
-                    break;
-                case 5:
-                    buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred during your update.");
-                    break;
-                case 6:
-                    buttonStyle.buttonStyleRed(buttonErrors, "The university card field is empty.");
-                    break;
+                UserBussinessRules userBussinessRules = new UserBussinessRules();
+                //For password validation
+                string newPassword = textboxPasswordShowed.Value;
+                string passwordHashed = Session["User-PasswordHashed"].ToString();
+                bool verify = BCrypt.Net.BCrypt.Verify(newPassword, passwordHashed);
+                //Updating user
+                switch (userBussinessRules.UpdateRules(user))
+                {
+                    case 0:
+                        if (verify == false)
+                        {
+                            Response.Redirect("Default.aspx");
+                        }
+                        else
+                        {
+                            Session["User-Name"] = textboxName.Value;
+                            Session["User-LastName"] = textboxLastName.Value;
+                            FillTableWithUserInfo();
+                            DisablingControls();
+                        }
+                        buttonStyle.buttonStyleBlue(buttonErrors, "User updated succesful.");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "The name field is empty.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonErrors, "The lastname field is empty.");
+                        break;
+                    case 3:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "The username field is empty.");
+                        break;
+                    case 4:
+                        buttonStyle.buttonStyleRed(buttonErrors, "The password field is empty.");
+                        break;
+                    case 5:
+                        buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred during your update.");
+                        break;
+                    case 6:
+                        buttonStyle.buttonStyleRed(buttonErrors, "The university card field is empty.");
+                        break;
+                }
             }
         }
 
         protected User CreateUser()
         {
             User user = new User();
+            Role role = new Role();
             try
             {
                 //Creating user
@@ -142,7 +145,8 @@ namespace SYSPARK
                 user.LastName = textboxLastName.Value;
                 user.Username = textboxUsername.Value;
                 user.Password = textboxPasswordShowed.Value;
-                user.Role.Id = Convert.ToInt32(Session["User-ConditionId"]);
+                role.Id = Convert.ToInt32(Session["User-ConditionId"]);
+                user.Role = role;
                 user.UniversityCard = Convert.ToInt32(textboxUniversityCard.Value);
                 return user;
             }

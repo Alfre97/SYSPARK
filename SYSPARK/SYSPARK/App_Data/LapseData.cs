@@ -45,13 +45,19 @@ namespace SYSPARK
 
         public Lapse SendLapse(DataTable dataTableLapse)
         {
-            Lapse lapse = new Lapse();
-            lapse.Id = Convert.ToInt32(dataTableLapse.Rows[0]["Id"]);
-            lapse.Name = dataTableLapse.Rows[0]["Name"].ToString();
-            lapse.InitialDate = Convert.ToDateTime(dataTableLapse.Rows[0]["InitialDate"]);
-            lapse.FinalDate = Convert.ToDateTime(dataTableLapse.Rows[0]["FinalDate"]);
-            lapse.Status = Convert.ToBoolean(dataTableLapse.Rows[0]["Status"]);
-            return lapse;
+            if (dataTableLapse.Rows.Count > 0)
+            {
+                Lapse lapse = new Lapse();
+                lapse.Id = Convert.ToInt32(dataTableLapse.Rows[0]["Id"]);
+                lapse.Name = dataTableLapse.Rows[0]["Name"].ToString();
+                lapse.InitialDate = Convert.ToDateTime(dataTableLapse.Rows[0]["InitialDate"]);
+                lapse.FinalDate = Convert.ToDateTime(dataTableLapse.Rows[0]["FinalDate"]);
+                lapse.Status = Convert.ToBoolean(dataTableLapse.Rows[0]["Status"]);
+                return lapse;
+
+            }
+            else
+                return null;
         }
 
         public DataTable DataTableLapseOn()

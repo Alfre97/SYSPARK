@@ -17,6 +17,7 @@ namespace SYSPARK
     {
         ButtonStyle buttonStyle = new ButtonStyle();
         ReservationBussinessRules reservationRules = new ReservationBussinessRules();
+        ReservationData reservationData = new ReservationData();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -297,17 +298,19 @@ namespace SYSPARK
 
         protected void ButtonReserve_Click(object sender, EventArgs e)
         {
-            CheckUserReservation();
+            CheckActiveReservation(CreateReservation());
             FillTable();
         }
 
         protected void FillTable()
         {
             ReservationData reservationData = new ReservationData();
-
+            DataTable dt = new DataTable();
             //Populating a DataTable from database.
-            DataTable dt = reservationData.DataTableUserReservation(Session["User-UserName"].ToString());
-
+            if (Convert.ToInt32(Session["User-RoleId"]) == 3)
+                dt = reservationData.DataTableReservation();
+            else
+                dt = reservationData.DataTableUserReservation(Session["User-UserName"].ToString());
             //Building an HTML string.
             StringBuilder html = new StringBuilder();
 
@@ -393,17 +396,35 @@ namespace SYSPARK
             }
         }
 
-        protected void CheckUserReservation()
+        protected void CheckUserReservation(Reservation reservation)
         {
-            ReservationData reservationData = new ReservationData();
             DataTable dt = reservationData.DataTableUserReservation(Session["User-UserName"].ToString());
-            if (Convert.ToDateTime(dt.Rows[0]["CheckOut"]) > DateTime.Now)
+            if (dt.Rows.Count > 0)
             {
-                buttonStyle.buttonStyleRed(buttonErrors, "You can't have more than one reserve active.");
+                if (Convert.ToDateTime(dt.Rows[0]["CheckOut"]) > DateTime.Now)
+                {
+                    buttonStyle.buttonStyleRed(buttonErrors, "You can't have more than one reserve active.");
+                }
+                else
+                {
+                    InsertReservation(reservation);
+                }
             }
             else
+                InsertReservation(reservation);
+
+        }
+
+        protected void CheckActiveReservation(Reservation reservation)
+        {
+            switch (reservationRules.SearchActiveReservation(reservation))
             {
-                InsertReservation(CreateReservation());
+                case 0:
+                    CheckActiveReservation(reservation);
+                    break;
+                case 1:
+                    buttonStyle.buttonStyleRed(buttonErrors, "The space selected already have reservations in that hours.");
+                    break;
             }
         }
     }

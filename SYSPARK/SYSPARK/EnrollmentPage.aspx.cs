@@ -35,27 +35,38 @@ namespace SYSPARK
 
             if (dataTableUserEnrollement.Rows.Count > 0)
             {
-                buttonActivateEnrollment.Disabled = true;
-                //Setting values to the enrollment
-                textboxName.Value = Session["User-Name"].ToString() + " " + Session["User-LastName"].ToString();
-                textboxUnversityCard.Value = Session["User-UniversityCard"].ToString();
-                textboxLapseName.Value = dataTableUserEnrollement.Rows[0]["LapseName"].ToString();
-                dateInitialDate.Value = dataTableEnrollmentLapse.Rows[0]["InitialDate"].ToString();
-                dateFinalDate.Value = dataTableEnrollmentLapse.Rows[0]["FinalDate"].ToString();
+                if (dataTableEnrollmentLapse.Rows.Count > 0)
+                {
+                    buttonActivateEnrollment.Disabled = true;
+                    //Setting values to the enrollment
+                    textboxName.Value = Session["User-Name"].ToString() + " " + Session["User-LastName"].ToString();
+                    textboxUnversityCard.Value = Session["User-UniversityCard"].ToString();
+                    textboxLapseName.Value = dataTableUserEnrollement.Rows[0]["LapseName"].ToString();
+                    dateInitialDate.Value = dataTableEnrollmentLapse.Rows[0]["InitialDate"].ToString();
+                    dateFinalDate.Value = dataTableEnrollmentLapse.Rows[0]["FinalDate"].ToString();
 
-                if (Convert.ToInt32(dataTableEnrollmentLapse.Rows[0]["Status"]) == 0)
+                    if (Convert.ToInt32(dataTableEnrollmentLapse.Rows[0]["Status"]) == 0)
+                    {
+                        buttonActivateEnrollment.Disabled = false;
+                        textboxStatus.Value = "Off";
+                        textboxStatus.Style.Add("color", "white");
+                        textboxStatus.Style.Add("background-color", "red");
+                        buttonStyle.buttonStyleWhite(buttonErrors, "Your enrollment is inactive." + "\n" + "Please click 'Activate enrollment'.");
+                    }
+                    else
+                    {
+                        textboxStatus.Value = "On";
+                        textboxStatus.Style.Add("color", "white");
+                        textboxStatus.Style.Add("background-color", "green");
+                    }
+                }
+                else
                 {
                     buttonActivateEnrollment.Disabled = false;
                     textboxStatus.Value = "Off";
                     textboxStatus.Style.Add("color", "white");
                     textboxStatus.Style.Add("background-color", "red");
-                    buttonStyle.buttonStyleWhite(buttonErrors, "Your enrollment is inactive." + "\n" + "Please click 'Activate enrollment'.");
-                }
-                else
-                {
-                    textboxStatus.Value = "On";
-                    textboxStatus.Style.Add("color", "white");
-                    textboxStatus.Style.Add("background-color", "green");
+                    buttonStyle.buttonStyleWhite(buttonErrors, "Your enrollment no have a lapse." + "\n" + "Please click 'Activate enrollment'.");
                 }
             }
             else
@@ -89,16 +100,22 @@ namespace SYSPARK
 
         protected void ActivateEnrollment(Enrollment enrollment)
         {
-            try
+            if (enrollment != null)
             {
-                enrollmentData.UpdateEnrollment(enrollment);
-                buttonActivateEnrollment.Disabled = true;
+                try
+                {
+                    enrollmentData.UpdateEnrollment(enrollment);
+                    buttonActivateEnrollment.Disabled = true;
+                }
+                catch (Exception)
+                {
+                    buttonStyle.buttonStyleRed(buttonErrors, "Ops an error ocurred activating your enrollment." + "\n" + "Please, try again.");
+                }
             }
-            catch (Exception)
+            else
             {
-                buttonStyle.buttonStyleRed(buttonErrors, "Ops an error ocurred activating your enrollment." + "\n" + "Please, try again.");
+                buttonStyle.buttonStyleRed(buttonErrors, "You can't activate your enrollment." + "/n" + "Please, wait one week before begin the period.");
             }
-
         }
 
         protected Enrollment CreateEnrollment()
@@ -108,7 +125,11 @@ namespace SYSPARK
             lapse = lapseData.SendLapse(lapseData.DataTableLapseOn());
             enrollment.UserName = Session["User-UserName"].ToString();
             enrollment.Lapse = lapse;
-            return enrollment;
+
+            if (lapse == null)
+                return null;
+            else
+                return enrollment;
         }
 
         protected void InsertEnrollment(Enrollment enrollment)
@@ -119,7 +140,7 @@ namespace SYSPARK
                 buttonActivateEnrollment.Visible = true;
                 buttonCreateEnrollment.Visible = false;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 buttonStyle.buttonStyleRed(buttonErrors, "Ops an error ocurred creating your enrollment." + "\n" + "Please, try again.");
             }

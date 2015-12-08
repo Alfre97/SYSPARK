@@ -48,6 +48,7 @@ h1 {
     width: 90%;
     height: auto;
     color: black;
+    border: none;
 }
 
 select {
@@ -57,4 +58,33 @@ select {
     color: black;
     border: none;
     border-radius: 5px 5px;
+}
+
+table#tableHistory button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px 5px;
+    width: auto;
+    height: auto;
+}
+
+table#tableHistory th {
+    text-align: center;
+    border-top: none;
+}
+
+#table#tableHistory tr {
+    border-radius: 25px 25px;
+    height: auto;
+    width: auto;
+}
+
+div table tr td button {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+    width: auto;
+    height: auto;
 }

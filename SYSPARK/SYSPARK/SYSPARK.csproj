@@ -88,6 +88,8 @@
     <Content Include="assets\css\vehicleType.css" />
     <Content Include="assets\img\UlatinaLogo.png" />
     <Content Include="assets\js\Campus.js" />
+    <Content Include="assets\js\History.js" />
+    <Content Include="assets\js\Reservation.js" />
     <Content Include="assets\js\Default.js" />
     <Content Include="assets\js\Space.js" />
     <Content Include="assets\js\Lapse.js" />
@@ -157,6 +159,7 @@
     <Compile Include="App_BussinessRules\SpaceBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleBussinessRules.cs" />
     <Compile Include="App_BussinessRules\VehicleTypeBussinessRules.cs" />
+    <Compile Include="App_Data\Jobs.cs" />
     <Compile Include="App_Data\HistoryData.cs" />
     <Compile Include="App_Data\EnrollmentData.cs" />
     <Compile Include="App_Data\CampusData.cs" />
