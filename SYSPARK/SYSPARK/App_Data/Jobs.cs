@@ -14,6 +14,24 @@ namespace SYSPARK
     {
         SqlConnection connection = new SqlConnection();
 
+        public void DeleteInactiveReservation()
+        {
+            try
+            {
+                connection = ManageDatabaseConnection("Open");
+                using (SqlCommand delete = new SqlCommand(@"DeleteInactiveReservation", connection))
+                {
+                    delete.CommandType = CommandType.StoredProcedure;
+                    delete.ExecuteNonQuery();
+                }
+                connection = ManageDatabaseConnection("Close");
+            }
+            catch (SqlException)
+            {
+                
+            }
+
+        }
 
     }
 }

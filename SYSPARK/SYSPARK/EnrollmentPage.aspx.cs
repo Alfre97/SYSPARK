@@ -47,11 +47,18 @@ namespace SYSPARK
 
                     if (Convert.ToInt32(dataTableEnrollmentLapse.Rows[0]["Status"]) == 0)
                     {
-                        buttonActivateEnrollment.Disabled = false;
-                        textboxStatus.Value = "Off";
-                        textboxStatus.Style.Add("color", "white");
-                        textboxStatus.Style.Add("background-color", "red");
-                        buttonStyle.buttonStyleWhite(buttonErrors, "Your enrollment is inactive." + "\n" + "Please click 'Activate enrollment'.");
+                        if (Convert.ToInt32(Session["User-RoleId"]) == 2)
+                        {
+                            ActivateEnrollment(CreateEnrollment());
+                        }
+                        else
+                        {
+                            buttonActivateEnrollment.Disabled = false;
+                            textboxStatus.Value = "Off";
+                            textboxStatus.Style.Add("color", "white");
+                            textboxStatus.Style.Add("background-color", "red");
+                            buttonStyle.buttonStyleWhite(buttonErrors, "Your enrollment is inactive." + "\n" + "Please click 'Activate enrollment'.");
+                        }
                     }
                     else
                     {
@@ -71,9 +78,16 @@ namespace SYSPARK
             }
             else
             {
-                buttonStyle.buttonStyleRed(buttonErrors, "You don't have an enrollment." + "\n" + "Please click 'Create enrollment'.");
-                buttonCreateEnrollment.Visible = true;
-                buttonActivateEnrollment.Visible = false;
+                if (Convert.ToInt32(Session["User-RoleId"]) == 2)
+                {
+                    InsertEnrollment(CreateEnrollment());
+                }
+                else
+                {
+                    buttonStyle.buttonStyleRed(buttonErrors, "You don't have an enrollment." + "\n" + "Please click 'Create enrollment'.");
+                    buttonCreateEnrollment.Visible = true;
+                    buttonActivateEnrollment.Visible = false;
+                }
             }
         }
 
@@ -95,7 +109,6 @@ namespace SYSPARK
         protected void ButtonActivateEnrollment_Click(object sender, EventArgs e)
         {
             ActivateEnrollment(CreateEnrollment());
-            SetEnrollmentValues();
         }
 
         protected void ActivateEnrollment(Enrollment enrollment)
@@ -105,6 +118,7 @@ namespace SYSPARK
                 try
                 {
                     enrollmentData.UpdateEnrollment(enrollment);
+                    SetEnrollmentValues();
                     buttonActivateEnrollment.Disabled = true;
                 }
                 catch (Exception)

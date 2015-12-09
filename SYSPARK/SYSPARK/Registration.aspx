@@ -19,7 +19,6 @@
 </head>
 <body>
     <form id="Registration" runat="server">
-        <div class="Header">
             <div class="navbar default-navbar navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
@@ -33,10 +32,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
         <div id="allContentInRegistration">
-            <br />
             <input type="button" id="buttonErrors" runat="server" visible="false" disabled="disabled"/>
             <br />
             <h1>User</h1>

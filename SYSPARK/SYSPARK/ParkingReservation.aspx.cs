@@ -22,16 +22,13 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-UserName"] == null)
-                Response.Redirect("Default.aspx");
+                Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
-            FillSelectCampus();
-            FillSelectParking(sender, e);
-            FillSelectSpace(sender, e);
             FillSelectVehicle();
             FillTable();
         }
 
-        protected void FillSelectCampus()
+        protected void FillSelectCampus(object sender, EventArgs e)
         {
             //Select Campus
             CampusData campusData = new CampusData();
@@ -39,50 +36,65 @@ namespace SYSPARK
             selectCampus.DataValueField = "Id";
             selectCampus.DataTextField = "Name";
             selectCampus.DataBind();
+            FillSelectParking(sender, e);
         }
 
         protected void FillSelectParking(object sender, EventArgs e)
         {
-            //Select parking
-            ParkingData parkingData = new ParkingData();
-            DataTable dataTableParking = new DataTable();
-            if (hiddenCampusValue.Value.Equals(string.Empty))
+            if (selectCampus.Items.Count > 0)
             {
-                dataTableParking = parkingData.DataTableParking(Convert.ToInt32(selectCampus.Items[0].Value));
+                //Select parking
+                ParkingData parkingData = new ParkingData();
+                DataTable dataTableParking = new DataTable();
+                if (hiddenCampusValue.Value.Equals(string.Empty))
+                    dataTableParking = parkingData.DataTableParking(Convert.ToInt32(selectCampus.Items[0].Value));
+                else
+                    dataTableParking = parkingData.DataTableParking(Convert.ToInt32(hiddenCampusValue.Value));
+                selectParking.DataSource = dataTableParking;
+                selectParking.DataValueField = "Id";
+                selectParking.DataTextField = "Name";
+                selectParking.DataBind();
+                FillSelectSpace(sender, e);
             }
             else
             {
-                dataTableParking = parkingData.DataTableParking(Convert.ToInt32(hiddenCampusValue.Value));
+                buttonStyle.buttonStyleRed(buttonErrors, "No campus and parking avaible to show.");
             }
-            selectParking.DataSource = dataTableParking;
-            selectParking.DataValueField = "Id";
-            selectParking.DataTextField = "Name";
-            selectParking.DataBind();
         }
 
         protected void FillSelectSpace(object sender, EventArgs e)
         {
-            //Select parking
-            SpaceData spaceData = new SpaceData();
-            DataTable dataTableSpace = new DataTable();
-            if (hiddenCampusValue.Value.Equals(string.Empty))
+            if (selectCampus.Items.Count > 0)
             {
-                if (hiddenParkingValue.Value.Equals(string.Empty))
-                    dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(selectCampus.Items[0].Value), Convert.ToInt32(selectParking.Items[0].Value));
+                if (selectParking.Items.Count > 0)
+                {
+                    //Select parking
+                    SpaceData spaceData = new SpaceData();
+                    DataTable dataTableSpace = new DataTable();
+                    if (hiddenCampusValue.Value.Equals(string.Empty))
+                    {
+                        if (hiddenParkingValue.Value.Equals(string.Empty))
+                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(selectCampus.Items[0].Value), Convert.ToInt32(selectParking.Items[0].Value));
+                        else
+                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(selectCampus.Items[0].Value), Convert.ToInt32(hiddenParkingValue.Value));
+                    }
+                    else
+                    {
+                        if (hiddenParkingValue.Value.Equals(string.Empty))
+                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(hiddenParkingValue.Value), Convert.ToInt32(selectParking.Items[0].Value));
+                        else
+                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(hiddenParkingValue.Value), Convert.ToInt32(hiddenParkingValue.Value));
+                    }
+                    selectSpace.DataSource = dataTableSpace;
+                    selectSpace.DataValueField = "Id";
+                    selectSpace.DataTextField = "Name";
+                    selectSpace.DataBind();
+                }
                 else
-                    dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(selectCampus.Items[0].Value), Convert.ToInt32(hiddenParkingValue.Value));
+                    buttonStyle.buttonStyleRed(buttonErrors, "No parking and space avaible to show.");
             }
             else
-            {
-                if (hiddenParkingValue.Value.Equals(string.Empty))
-                    dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(hiddenParkingValue.Value), Convert.ToInt32(selectParking.Items[0].Value));
-                else
-                    dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(hiddenParkingValue.Value), Convert.ToInt32(hiddenParkingValue.Value));
-            }
-            selectSpace.DataSource = dataTableSpace;
-            selectSpace.DataValueField = "Id";
-            selectSpace.DataTextField = "Name";
-            selectSpace.DataBind();
+                buttonStyle.buttonStyleRed(buttonErrors, "No campus, parking and space avaible to show.");
         }
 
         protected void FillSelectVehicle()
