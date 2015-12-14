@@ -12055,50 +12055,64 @@ namespace SYSPARK
                             {
                                 case 0:
                                     ClearControls();
+                                    OpenControls();
                                     buttonStyle.buttonStyleBlue(buttonErrors, "Parking created sucessfully.");
                                     break;
                                 case 1:
+                                    OpenControls();
                                     buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred creating the parking spaces.");
                                     break;
                                 case 2:
+                                    OpenControls();
                                     buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred creating the parking spaces and deleting the parking.");
                                     break;
                             }
                         }
                         else
                         {
+                            OpenControls();
                             buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred creating the parking spaces.");
                             parkingBussinessRules.DeleteParking(parking.Id);
                         }
                         break;
                     case 1:
+                        OpenControls();
                         buttonStyle.buttonStyleRed(buttonErrors, "The parking name field is empty.");
                         break;
                     case 2:
+                        OpenControls();
                         buttonStyle.buttonStyleWhite(buttonErrors, "The total space field can't be less or equal than zero");
                         break;
                     case 3:
+                        OpenControls();
                         buttonStyle.buttonStyleRed(buttonErrors, "The car space field can't be less than zero.");
                         break;
                     case 4:
+                        OpenControls();
                         buttonStyle.buttonStyleWhite(buttonErrors, "The motorcycle space field can't be less than zero.");
                         break;
                     case 5:
+                        OpenControls();
                         buttonStyle.buttonStyleBlue(buttonErrors, "The handicap space field can't be less than zero.");
                         break;
                     case 6:
+                        OpenControls();
                         buttonStyle.buttonStyleWhite(buttonErrors, "The bus space field can't be less than zero.");
                         break;
                     case 7:
+                        OpenControls();
                         buttonStyle.buttonStyleRed(buttonErrors, "You can't enter zero in all space fields.");
                         break;
                     case 8:
+                        OpenControls();
                         buttonStyle.buttonStyleWhite(buttonErrors, "The sum of space fields can't be higher than the total space.");
                         break;
                     case 10:
+                        OpenControls();
                         buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred creating the parking, please check data or contact with us.");
                         break;
                     case 11:
+                        OpenControls();
                         buttonStyle.buttonStyleWhite(buttonErrors, "The sum of space fields can't be less than the total space.");
                         break;
                 }
@@ -12113,6 +12127,19 @@ namespace SYSPARK
             textboxMotorCycleSpace.Value = string.Empty;
             textboxHandicapSpace.Value = string.Empty;
             textboxBusSpace.Value = string.Empty;
+        }
+
+        protected void OpenControls()
+        {
+            buttonErrors2.Visible = false;
+            textboxParkingName.Disabled = false;
+            textboxTotalSpace.Disabled = false;
+            textboxCarSpace.Disabled = false;
+            textboxMotorCycleSpace.Disabled = false;
+            textboxHandicapSpace.Disabled = false;
+            textboxBusSpace.Disabled = false;
+            buttonGenerateMap.Disabled = false;
+            buttonClear.Visible = true;
         }
 
         protected void Update_Click(object sender, EventArgs e)
