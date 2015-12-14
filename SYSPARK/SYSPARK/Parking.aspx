@@ -578,7 +578,6 @@
             <button type="button" id="buttonCreateParking" runat="server" onserverclick=" AddParking_Click">Create Parking</button>
             <br />
             <br />
-            <button onserverclick=" Edit_Click" type="button" id="buttonEdit" runat="server" disabled="disabled" />
             <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" />
             <input type="hidden" id="hiddenParkingId" runat="server" />
             <div class="table-responsive">

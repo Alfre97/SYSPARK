@@ -19,7 +19,6 @@ namespace SYSPARK
     {
         ParkingBussinessRules parkingBussinessRules = new ParkingBussinessRules();
         ButtonStyle buttonStyle = new ButtonStyle();
-        List<Space> spaceList = new List<Space>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -206,10 +205,6 @@ namespace SYSPARK
         {
             if (CheckValueBeforeMap() == 0)
                 GenerateMap();
-            foreach (Space space in spaceList)
-            {
-
-            }
         }
 
         protected int CheckValueBeforeMap()
@@ -338,12 +333,6 @@ namespace SYSPARK
                 html.Append("<tr>");
                 for (int j = 0; j < Convert.ToInt32(textHeight.Value); j++)
                 {
-                    Space space = new Space();
-                    space.Position = i + "," + j;
-                    space.SpaceType = spaceTypeClear;
-                    space.Name = "Clear";
-                    spaceList.Add(space);
-
                     html.Append("<td>");
                     html.Append("<button type='button' onclick='setColorAndValue(this)' runat='server' name='hidden" + hidden + "' id='buttonSpace' value='" + i + "," + j + "'>Clear</button>");
                     html.Append("</td>");
@@ -416,6 +405,8 @@ namespace SYSPARK
         {
             try
             {
+                //Declare variables
+                List<Space> spaceList = new List<Space>();
                 int parkingCampusId = 0;
                 int carcounter = 1;
                 int motoCounter = 1;
@@ -425,37 +416,56 @@ namespace SYSPARK
                 int clearCounter = 1;
                 string parkingName = textboxParkingName.Value;
                 ParkingData parkingData = new ParkingData();
-
+                SpaceType spaceTypeClear = new SpaceType();
+                SpaceType spaceTypeStreet = new SpaceType();
+                SpaceType spaceTypeBus = new SpaceType();
+                SpaceType spaceTypeHandicap = new SpaceType();
+                SpaceType spaceTypeMoto = new SpaceType();
+                SpaceType spaceTypeCar = new SpaceType();
+                //Getting campus and parking ID
                 if (hiddenCampusValue.Value.Equals(string.Empty))
                     parkingCampusId = Convert.ToInt32(selectCampus.Items[0].Value);
                 else
                     parkingCampusId = Convert.ToInt32(hiddenCampusValue.Value);
 
                 int parkingId = parkingData.GetParkingId(textboxParkingName.Value, parkingCampusId);
-
-                SpaceType spaceTypeCar = new SpaceType();
+                //Setting SpaceTypes Data
                 spaceTypeCar.Id = 1;
                 spaceTypeCar.Name = "Car";
-                SpaceType spaceTypeMoto = new SpaceType();
+
                 spaceTypeMoto.Id = 2;
                 spaceTypeMoto.Name = "Motorcycle";
-                SpaceType spaceTypeHandicap = new SpaceType();
+
                 spaceTypeHandicap.Id = 3;
                 spaceTypeHandicap.Name = "Handicap";
-                SpaceType spaceTypeBus = new SpaceType();
+
                 spaceTypeBus.Id = 4;
                 spaceTypeBus.Name = "Bus";
-                SpaceType spaceTypeStreet = new SpaceType();
+
                 spaceTypeStreet.Id = 5;
                 spaceTypeStreet.Name = "Street";
-                SpaceType spaceTypeClear = new SpaceType();
+
                 spaceTypeClear.Id = 6;
                 spaceTypeClear.Name = "Clear";
+                //Creating and filling the space list
+                for (int i = 0; i < Convert.ToInt32(textWidth.Value); i++)
+                {
+                    for (int j = 0; j < Convert.ToInt32(textHeight.Value); j++)
+                    {
+                        Space space = new Space();
+                        space.Position = i + "," + j;
+                        space.SpaceType = spaceTypeClear;
+                        space.Name = "Clear";
+                        spaceList.Add(space);
+                    }
+                }
+                //Getting and setting 
                 foreach (Space space in spaceList)
                 {
                     space.ParkingId = parkingId;
                     space.ParkingName = parkingName;
                     space.ParkingCampusId = parkingCampusId;
+
                     switch (space.Position)
                     {
                         case "0,0":
@@ -10645,6 +10655,1301 @@ namespace SYSPARK
                                     break;
                             }
                             break;
+                        case "14,1":
+                            switch (hidden293.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,2":
+                            switch (hidden294.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,3":
+                            switch (hidden295.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,4":
+                            switch (hidden296.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,5":
+                            switch (hidden297.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,8":
+                            switch (hidden298.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,9":
+                            switch (hidden299.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,10":
+                            switch (hidden300.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,11":
+                            switch (hidden301.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,12":
+                            switch (hidden302.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,13":
+                            switch (hidden303.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,14":
+                            switch (hidden304.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,15":
+                            switch (hidden305.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,16":
+                            switch (hidden306.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,17":
+                            switch (hidden307.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,18":
+                            switch (hidden308.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,19":
+                            switch (hidden309.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,20":
+                            switch (hidden310.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,0":
+                            switch (hidden311.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,1":
+                            switch (hidden312.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,2":
+                            switch (hidden313.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,3":
+                            switch (hidden314.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,4":
+                            switch (hidden315.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,5":
+                            switch (hidden316.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,8":
+                            switch (hidden317.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,9":
+                            switch (hidden318.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,10":
+                            switch (hidden319.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,11":
+                            switch (hidden320.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,12":
+                            switch (hidden321.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,13":
+                            switch (hidden322.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,14":
+                            switch (hidden323.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,15":
+                            switch (hidden324.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,16":
+                            switch (hidden325.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,17":
+                            switch (hidden326.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,18":
+                            switch (hidden327.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,19":
+                            switch (hidden328.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,20":
+                            switch (hidden329.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
                     }
                 }
                 return spaceList;
@@ -10654,7 +11959,7 @@ namespace SYSPARK
                 buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred creating the parking spaces.");
                 return null;
             }
-     }
+        }
 
         protected List<Space> CreateSpaceList()
         {
@@ -10761,7 +12066,10 @@ namespace SYSPARK
                             }
                         }
                         else
+                        {
                             buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred creating the parking spaces.");
+                            parkingBussinessRules.DeleteParking(parking.Id);
+                        }
                         break;
                     case 1:
                         buttonStyle.buttonStyleRed(buttonErrors, "The parking name field is empty.");
