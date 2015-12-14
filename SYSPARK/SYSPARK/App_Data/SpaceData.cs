@@ -1,4 +1,5 @@
-﻿using SYSPARK.DataBase;
+﻿using SYSPARK.App_Entities;
+using SYSPARK.DataBase;
 using SYSPARK.Entities;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,29 @@ namespace SYSPARK
             return dataTableParkingSpace;
         }
 
+        public List<Space> SendParkingSpaceList(DataTable dataTableParkingSpace)
+        {
+            List<Space> spaceList = new List<Space>();
+            Space space = new Space();
+            SpaceType spaceType = new SpaceType();
+
+            if (dataTableParkingSpace.Rows.Count > 0)
+            {
+                for (int i = 0; i < dataTableParkingSpace.Rows.Count; i++)
+                {
+                    space.Id = Convert.ToInt32(dataTableParkingSpace.Rows[i]["Id"]);
+                    space.Name = dataTableParkingSpace.Rows[i]["Name"].ToString();
+                    spaceType.Id = Convert.ToInt32(dataTableParkingSpace.Rows[i]["SpaceTypeId"]);
+                    space.SpaceType = spaceType;
+                    space.Position = dataTableParkingSpace.Rows[i]["Position"].ToString();
+                    spaceList.Add(space);
+                }
+                return spaceList;
+            }
+            else
+                return null;
+        }
+
         public DataTable DataTableParkingTypeSpace(int parkingId, int spaceTypeId)
         {
             DataTable dataTableParkingSpace = new DataTable();
@@ -79,6 +103,5 @@ namespace SYSPARK
             }
             connection = ManageDatabaseConnection("Close");
         }
-
     }
 }

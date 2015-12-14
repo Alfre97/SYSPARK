@@ -46,3 +46,7 @@ function cancelUpdate() {
     $("#buttonUpdate").css('visibility', 'hidden');
     $("#buttonCancelUpdate").css('visibility', 'hidden');
 }
+
+function getSpaceId() {
+
+}

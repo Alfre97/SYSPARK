@@ -18,6 +18,8 @@ namespace SYSPARK
         ButtonStyle buttonStyle = new ButtonStyle();
         ReservationBussinessRules reservationRules = new ReservationBussinessRules();
         ReservationData reservationData = new ReservationData();
+        ParkingData parkingData = new ParkingData();
+        SpaceData spaceData = new SpaceData();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -190,6 +192,69 @@ namespace SYSPARK
             reservation.CheckOut = checkOut;
 
             return reservation;
+        }
+
+        protected void GenerateMap_Click(object sender, EventArgs e)
+        {
+            GenerateMap();
+        }
+
+        protected void GenerateMap()
+        {
+            try
+            {
+                buttonErrors2.Visible = true;
+                buttonErrors2.Value = "Click on a space " + "\n" + " to reserve it.";
+
+                //Building an HTML string.
+                StringBuilder html = new StringBuilder();
+                Parking parking = new Parking();
+                List<Space> spaceList = new List<Space>();
+                int parkingHeight;
+                int parkingWidth;
+                int parkingId;
+                int limit = 0;
+
+                //Cleaning last table
+                placeHolderMap.Controls.Clear();
+
+                if (hiddenParkingValue.Value.Equals(string.Empty))
+                    parkingId = Convert.ToInt32(selectParking.Items[0].Value);
+                else
+                    parkingId = Convert.ToInt32(hiddenParkingValue.Value);
+
+                parking = parkingData.SendParkingInfo(parkingData.GetParking(parkingId));
+
+                if (parking != null)
+                {
+                    if (spaceList != null)
+                    {
+                        for (int i = 0; i < parking.Width; i++)
+                        {
+                            html.Append("<tr>");
+                            for (int j = 0; j < parking.Height; j++)
+                            {
+                                    html.Append("<td>");
+                                    html.Append("<button type='button' onclick='setColorAndValue(this)' id='buttonSpace' value='""'></button>");
+                                    html.Append("</td>");
+                            }
+                            html.Append("</tr>");
+                        }
+                        //Append the HTML string to Placeholder.
+                        placeHolderMap.Controls.Add(new Literal { Text = html.ToString() });
+                    }
+                    else
+                        buttonStyle.buttonStyleRed(buttonErrors2, "Spaces in parking not found.");
+                }
+                else
+                    buttonStyle.buttonStyleRed(buttonErrors2, "Parking not found.");
+            }
+            catch (Exception)
+            {
+                buttonStyle.buttonStyleRed(buttonErrors2, "An error ocurred generating the parking.");
+            }
+
+
         }
 
         protected TimeSpan CreateCheckIn(TimeSpan initialHour)

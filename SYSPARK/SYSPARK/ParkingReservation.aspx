@@ -62,12 +62,24 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="hiddenSpaceValue" type="hidden" runat="server" />
-                        <span>Space</span><br />
-                        <select id="selectSpace" runat="server" onchange="setValue('selectSpace', 'hiddenSpaceValue')">
-                        </select>
-
-                        <br />
+                        <asp:UpdatePanel ID="UpdatePanelMap" runat="server">
+                            <ContentTemplate>
+                                <input type="button" runat="server" visible="false" id="buttonErrors2" disabled="disabled" />
+                                <span>Parking Map</span>
+                                <div class="table-responsive">
+                                    <table id="tableGray2" runat="server">
+                                        <tr>
+                                            <td>
+                                                <table id="tableParkingMap">
+                                                    <asp:PlaceHolder ID="placeHolderMap" runat="server"></asp:PlaceHolder>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <button type="button" id="buttonViewMap" runat="server">View Map</button>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </td>
                 </tr>
                 <tr>

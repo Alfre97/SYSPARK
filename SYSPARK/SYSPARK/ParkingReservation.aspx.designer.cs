@@ -76,22 +76,49 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectParking;
         
         /// <summary>
-        /// hiddenSpaceValue control.
+        /// UpdatePanelMap control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenSpaceValue;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelMap;
         
         /// <summary>
-        /// selectSpace control.
+        /// buttonErrors2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectSpace;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton buttonErrors2;
+        
+        /// <summary>
+        /// tableGray2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tableGray2;
+        
+        /// <summary>
+        /// placeHolderMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderMap;
+        
+        /// <summary>
+        /// buttonViewMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton buttonViewMap;
         
         /// <summary>
         /// hiddenVehicleValue control.

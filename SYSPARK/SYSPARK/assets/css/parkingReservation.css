@@ -49,6 +49,64 @@ select {
     width: 190px;
 }
 
+#buttonErrors2 {
+    background-color: blue;
+    color: white;
+    border-radius: 5px 5px;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
+
+#tableGray2 {
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    color: white;
+}
+
+div table#tableParkingMap tr td button {
+    border-radius: 5px 5px;
+    border-style: none;
+    width: auto;
+    height: 45px;
+}
+
+div {
+    width: 100%;
+}
+
+#tableParkingMap {
+    background-color: transparent;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    color: white;
+}
+
+    #tableParkingMap tr td {
+        width: 50px;
+    }
+
+    #tableParkingMap tr {
+        height: 50px;
+    }
+
+#buttonSpace {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+}
+
+.table-responsive {
+    border: none;
+}
+
 #selectParking {
     width: 190px;
 }

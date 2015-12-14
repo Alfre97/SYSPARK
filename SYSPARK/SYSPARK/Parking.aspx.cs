@@ -22,8 +22,8 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-UserName"] == null)
-                Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
+            //if (Session["User-UserName"] == null)
+            //    Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
             //CreateSpaceSelect();
             buttonCancel.Visible = false;
@@ -79,6 +79,7 @@ namespace SYSPARK
 
             if (foundParking.Rows.Count > 0)
             {
+                OpenControls();
                 buttonStyle.buttonStyleRed(buttonErrors, "A parking with that name already exists on that campus.");
             }
             else
@@ -283,9 +284,9 @@ namespace SYSPARK
                     buttonStyle.buttonStyleRed(buttonErrors, "The width field can't be highter than twenty.");
                     return 1;
                 }
-                else if (width > 20)
+                else if (width > 15)
                 {
-                    buttonStyle.buttonStyleRed(buttonErrors, "The width field can't be highter than twenty.");
+                    buttonStyle.buttonStyleRed(buttonErrors, "The width field can't be highter than fitteen.");
                     return 1;
                 }
                 return 0;
@@ -300,6 +301,8 @@ namespace SYSPARK
         protected void GenerateMap()
         {
             int hidden = 1;
+            int limit = 20;
+
             spanCar.InnerHtml = textboxCarSpace.Value + " ";
             spanMotorcycle.InnerHtml = textboxMotorCycleSpace.Value + " ";
             spanHandicap.InnerHtml = textboxHandicapSpace.Value + " ";
@@ -319,9 +322,7 @@ namespace SYSPARK
             buttonClear.Visible = false;
             h1ParkingMap.Visible = true;
             tableGray2.Visible = true;
-            SpaceType spaceTypeClear = new SpaceType();
-            spaceTypeClear.Id = 6;
-            spaceTypeClear.Name = "Clear";
+
             //Building an HTML string.
             StringBuilder html = new StringBuilder();
 
@@ -339,6 +340,12 @@ namespace SYSPARK
                     hidden++;
                 }
                 html.Append("</tr>");
+
+                if (hidden < limit)
+                {
+                    hidden = limit + 1;
+                    limit += 20;
+                }
             }
             //Append the HTML string to Placeholder.
             placeHolderMap.Controls.Add(new Literal { Text = html.ToString() });
@@ -1169,7 +1176,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "0,20":
+                        case "1,0":
                             switch (hidden21.Value)
                             {
                                 case "Car":
@@ -1204,7 +1211,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,0":
+                        case "1,1":
                             switch (hidden22.Value)
                             {
                                 case "Car":
@@ -1239,7 +1246,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,1":
+                        case "1,2":
                             switch (hidden23.Value)
                             {
                                 case "Car":
@@ -1274,7 +1281,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,2":
+                        case "1,3":
                             switch (hidden24.Value)
                             {
                                 case "Car":
@@ -1309,7 +1316,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,3":
+                        case "1,4":
                             switch (hidden25.Value)
                             {
                                 case "Car":
@@ -1344,7 +1351,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,4":
+                        case "1,5":
                             switch (hidden26.Value)
                             {
                                 case "Car":
@@ -1379,7 +1386,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,5":
+                        case "1,6":
                             switch (hidden27.Value)
                             {
                                 case "Car":
@@ -1414,7 +1421,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,6":
+                        case "1,7":
                             switch (hidden28.Value)
                             {
                                 case "Car":
@@ -1449,7 +1456,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,7":
+                        case "1,8":
                             switch (hidden29.Value)
                             {
                                 case "Car":
@@ -1484,7 +1491,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,8":
+                        case "1,9":
                             switch (hidden30.Value)
                             {
                                 case "Car":
@@ -1519,7 +1526,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,9":
+                        case "1,10":
                             switch (hidden31.Value)
                             {
                                 case "Car":
@@ -1554,43 +1561,8 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,10":
-                            switch (hidden32.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
                         case "1,11":
-                            switch (hidden1.Value)
+                            switch (hidden32.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -1904,7 +1876,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "1,20":
+                        case "2,0":
                             switch (hidden41.Value)
                             {
                                 case "Car":
@@ -1939,7 +1911,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,0":
+                        case "2,1":
                             switch (hidden42.Value)
                             {
                                 case "Car":
@@ -1974,7 +1946,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,1":
+                        case "2,2":
                             switch (hidden43.Value)
                             {
                                 case "Car":
@@ -2009,7 +1981,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,2":
+                        case "2,3":
                             switch (hidden44.Value)
                             {
                                 case "Car":
@@ -2044,7 +2016,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,3":
+                        case "2,4":
                             switch (hidden45.Value)
                             {
                                 case "Car":
@@ -2079,7 +2051,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,4":
+                        case "2,5":
                             switch (hidden46.Value)
                             {
                                 case "Car":
@@ -2114,7 +2086,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,5":
+                        case "2,6":
                             switch (hidden47.Value)
                             {
                                 case "Car":
@@ -2149,7 +2121,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,8":
+                        case "2,7":
                             switch (hidden48.Value)
                             {
                                 case "Car":
@@ -2184,7 +2156,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,9":
+                        case "2,8":
                             switch (hidden49.Value)
                             {
                                 case "Car":
@@ -2219,7 +2191,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,10":
+                        case "2,9":
                             switch (hidden50.Value)
                             {
                                 case "Car":
@@ -2254,7 +2226,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,11":
+                        case "2,10":
                             switch (hidden51.Value)
                             {
                                 case "Car":
@@ -2289,7 +2261,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,12":
+                        case "2,11":
                             switch (hidden52.Value)
                             {
                                 case "Car":
@@ -2324,7 +2296,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,13":
+                        case "2,12":
                             switch (hidden53.Value)
                             {
                                 case "Car":
@@ -2359,7 +2331,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,14":
+                        case "2,13":
                             switch (hidden54.Value)
                             {
                                 case "Car":
@@ -2394,7 +2366,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,15":
+                        case "2,14":
                             switch (hidden55.Value)
                             {
                                 case "Car":
@@ -2429,7 +2401,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,16":
+                        case "2,15":
                             switch (hidden56.Value)
                             {
                                 case "Car":
@@ -2464,7 +2436,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,17":
+                        case "2,16":
                             switch (hidden57.Value)
                             {
                                 case "Car":
@@ -2499,7 +2471,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,18":
+                        case "2,17":
                             switch (hidden58.Value)
                             {
                                 case "Car":
@@ -2534,7 +2506,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,19":
+                        case "2,18":
                             switch (hidden59.Value)
                             {
                                 case "Car":
@@ -2569,7 +2541,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "2,20":
+                        case "2,19":
                             switch (hidden60.Value)
                             {
                                 case "Car":
@@ -3304,7 +3276,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "3,20":
+                        case "4,0":
                             switch (hidden81.Value)
                             {
                                 case "Car":
@@ -3339,7 +3311,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,0":
+                        case "4,1":
                             switch (hidden82.Value)
                             {
                                 case "Car":
@@ -3374,7 +3346,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,1":
+                        case "4,2":
                             switch (hidden83.Value)
                             {
                                 case "Car":
@@ -3409,7 +3381,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,2":
+                        case "4,3":
                             switch (hidden84.Value)
                             {
                                 case "Car":
@@ -3444,7 +3416,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,3":
+                        case "4,4":
                             switch (hidden85.Value)
                             {
                                 case "Car":
@@ -3479,7 +3451,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,4":
+                        case "4,5":
                             switch (hidden86.Value)
                             {
                                 case "Car":
@@ -3514,7 +3486,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,5":
+                        case "4,6":
                             switch (hidden87.Value)
                             {
                                 case "Car":
@@ -3549,7 +3521,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,6":
+                        case "4,7":
                             switch (hidden88.Value)
                             {
                                 case "Car":
@@ -3584,7 +3556,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,7":
+                        case "4,8":
                             switch (hidden89.Value)
                             {
                                 case "Car":
@@ -3619,7 +3591,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,8":
+                        case "4,9":
                             switch (hidden90.Value)
                             {
                                 case "Car":
@@ -3654,7 +3626,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,9":
+                        case "4,10":
                             switch (hidden91.Value)
                             {
                                 case "Car":
@@ -3689,7 +3661,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,10":
+                        case "4,11":
                             switch (hidden92.Value)
                             {
                                 case "Car":
@@ -3724,7 +3696,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,11":
+                        case "4,12":
                             switch (hidden93.Value)
                             {
                                 case "Car":
@@ -3759,7 +3731,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,12":
+                        case "4,13":
                             switch (hidden94.Value)
                             {
                                 case "Car":
@@ -3794,7 +3766,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,13":
+                        case "4,14":
                             switch (hidden95.Value)
                             {
                                 case "Car":
@@ -3829,7 +3801,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,14":
+                        case "4,15":
                             switch (hidden96.Value)
                             {
                                 case "Car":
@@ -3864,7 +3836,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,15":
+                        case "4,16":
                             switch (hidden97.Value)
                             {
                                 case "Car":
@@ -3899,7 +3871,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,16":
+                        case "4,17":
                             switch (hidden98.Value)
                             {
                                 case "Car":
@@ -3934,7 +3906,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,17":
+                        case "4,18":
                             switch (hidden99.Value)
                             {
                                 case "Car":
@@ -3969,7 +3941,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,18":
+                        case "4,19":
                             switch (hidden100.Value)
                             {
                                 case "Car":
@@ -4004,7 +3976,8 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,19":
+
+                        case "5,0":
                             switch (hidden101.Value)
                             {
                                 case "Car":
@@ -4039,7 +4012,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "4,20":
+                        case "5,1":
                             switch (hidden102.Value)
                             {
                                 case "Car":
@@ -4074,7 +4047,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,0":
+                        case "5,2":
                             switch (hidden103.Value)
                             {
                                 case "Car":
@@ -4109,7 +4082,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,1":
+                        case "5,3":
                             switch (hidden104.Value)
                             {
                                 case "Car":
@@ -4144,7 +4117,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,2":
+                        case "5,4":
                             switch (hidden105.Value)
                             {
                                 case "Car":
@@ -4179,7 +4152,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,3":
+                        case "5,5":
                             switch (hidden106.Value)
                             {
                                 case "Car":
@@ -4214,7 +4187,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,4":
+                        case "5,6":
                             switch (hidden107.Value)
                             {
                                 case "Car":
@@ -4249,7 +4222,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,5":
+                        case "5,7":
                             switch (hidden108.Value)
                             {
                                 case "Car":
@@ -4284,7 +4257,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,6":
+                        case "5,8":
                             switch (hidden109.Value)
                             {
                                 case "Car":
@@ -4319,7 +4292,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,7":
+                        case "5,9":
                             switch (hidden110.Value)
                             {
                                 case "Car":
@@ -4354,7 +4327,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,8":
+                        case "5,10":
                             switch (hidden111.Value)
                             {
                                 case "Car":
@@ -4389,7 +4362,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,9":
+                        case "5,11":
                             switch (hidden112.Value)
                             {
                                 case "Car":
@@ -4424,7 +4397,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,10":
+                        case "5,12":
                             switch (hidden113.Value)
                             {
                                 case "Car":
@@ -4459,7 +4432,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,11":
+                        case "5,13":
                             switch (hidden114.Value)
                             {
                                 case "Car":
@@ -4494,7 +4467,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,12":
+                        case "5,14":
                             switch (hidden115.Value)
                             {
                                 case "Car":
@@ -4529,7 +4502,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,13":
+                        case "5,15":
                             switch (hidden116.Value)
                             {
                                 case "Car":
@@ -4564,7 +4537,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,14":
+                        case "5,16":
                             switch (hidden117.Value)
                             {
                                 case "Car":
@@ -4599,7 +4572,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,15":
+                        case "5,17":
                             switch (hidden118.Value)
                             {
                                 case "Car":
@@ -4634,7 +4607,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,16":
+                        case "5,18":
                             switch (hidden119.Value)
                             {
                                 case "Car":
@@ -4669,7 +4642,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,17":
+                        case "5,19":
                             switch (hidden120.Value)
                             {
                                 case "Car":
@@ -4704,7 +4677,8 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,18":
+
+                        case "6,0":
                             switch (hidden121.Value)
                             {
                                 case "Car":
@@ -4739,7 +4713,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,19":
+                        case "6,1":
                             switch (hidden122.Value)
                             {
                                 case "Car":
@@ -4774,7 +4748,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "5,20":
+                        case "6,2":
                             switch (hidden123.Value)
                             {
                                 case "Car":
@@ -4809,7 +4783,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,0":
+                        case "6,3":
                             switch (hidden124.Value)
                             {
                                 case "Car":
@@ -4844,7 +4818,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,1":
+                        case "6,4":
                             switch (hidden125.Value)
                             {
                                 case "Car":
@@ -4879,7 +4853,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,2":
+                        case "6,5":
                             switch (hidden126.Value)
                             {
                                 case "Car":
@@ -4914,7 +4888,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,3":
+                        case "6,6":
                             switch (hidden127.Value)
                             {
                                 case "Car":
@@ -4949,7 +4923,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,4":
+                        case "6,7":
                             switch (hidden128.Value)
                             {
                                 case "Car":
@@ -4984,7 +4958,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,5":
+                        case "6,8":
                             switch (hidden129.Value)
                             {
                                 case "Car":
@@ -5019,7 +4993,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,6":
+                        case "6,9":
                             switch (hidden130.Value)
                             {
                                 case "Car":
@@ -5054,7 +5028,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,7":
+                        case "6,10":
                             switch (hidden131.Value)
                             {
                                 case "Car":
@@ -5089,7 +5063,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,8":
+                        case "6,11":
                             switch (hidden132.Value)
                             {
                                 case "Car":
@@ -5124,7 +5098,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,9":
+                        case "6,12":
                             switch (hidden133.Value)
                             {
                                 case "Car":
@@ -5159,7 +5133,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,10":
+                        case "6,13":
                             switch (hidden134.Value)
                             {
                                 case "Car":
@@ -5194,7 +5168,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,11":
+                        case "6,14":
                             switch (hidden135.Value)
                             {
                                 case "Car":
@@ -5229,7 +5203,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,12":
+                        case "6,15":
                             switch (hidden136.Value)
                             {
                                 case "Car":
@@ -5264,7 +5238,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,13":
+                        case "6,16":
                             switch (hidden137.Value)
                             {
                                 case "Car":
@@ -5299,7 +5273,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,14":
+                        case "6,17":
                             switch (hidden138.Value)
                             {
                                 case "Car":
@@ -5334,7 +5308,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,15":
+                        case "6,18":
                             switch (hidden139.Value)
                             {
                                 case "Car":
@@ -5369,7 +5343,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,16":
+                        case "6,19":
                             switch (hidden140.Value)
                             {
                                 case "Car":
@@ -5404,7 +5378,8 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,17":
+
+                        case "7,0":
                             switch (hidden141.Value)
                             {
                                 case "Car":
@@ -5439,7 +5414,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,18":
+                        case "7,1":
                             switch (hidden142.Value)
                             {
                                 case "Car":
@@ -5474,7 +5449,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,19":
+                        case "7,2":
                             switch (hidden143.Value)
                             {
                                 case "Car":
@@ -5509,7 +5484,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "6,20":
+                        case "7,3":
                             switch (hidden144.Value)
                             {
                                 case "Car":
@@ -5544,7 +5519,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "7,0":
+                        case "7,4":
                             switch (hidden145.Value)
                             {
                                 case "Car":
@@ -5579,357 +5554,7 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "7,1":
-                            switch (hidden146.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,2":
-                            switch (hidden147.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,3":
-                            switch (hidden148.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,4":
-                            switch (hidden149.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
                         case "7,5":
-                            switch (hidden150.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,6":
-                            switch (hidden151.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,7":
-                            switch (hidden152.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,8":
-                            switch (hidden153.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,9":
-                            switch (hidden154.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,10":
-                            switch (hidden155.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "7,11":
                             switch (hidden156.Value)
                             {
                                 case "Car":
@@ -5964,8 +5589,218 @@ namespace SYSPARK
                                     break;
                             }
                             break;
+                        case "7,6":
+                            switch (hidden147.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "7,7":
+                            switch (hidden148.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "7,8":
+                            switch (hidden149.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "7,9":
+                            switch (hidden150.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "7,10":
+                            switch (hidden151.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "7,11":
+                            switch (hidden152.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
                         case "7,12":
-                            switch (hidden157.Value)
+                            switch (hidden153.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6000,7 +5835,7 @@ namespace SYSPARK
                             }
                             break;
                         case "7,13":
-                            switch (hidden158.Value)
+                            switch (hidden154.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6035,7 +5870,7 @@ namespace SYSPARK
                             }
                             break;
                         case "7,14":
-                            switch (hidden159.Value)
+                            switch (hidden155.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6070,7 +5905,7 @@ namespace SYSPARK
                             }
                             break;
                         case "7,15":
-                            switch (hidden160.Value)
+                            switch (hidden156.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6105,7 +5940,7 @@ namespace SYSPARK
                             }
                             break;
                         case "7,16":
-                            switch (hidden161.Value)
+                            switch (hidden157.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6140,7 +5975,7 @@ namespace SYSPARK
                             }
                             break;
                         case "7,17":
-                            switch (hidden162.Value)
+                            switch (hidden158.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6175,7 +6010,7 @@ namespace SYSPARK
                             }
                             break;
                         case "7,18":
-                            switch (hidden163.Value)
+                            switch (hidden159.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6210,7 +6045,7 @@ namespace SYSPARK
                             }
                             break;
                         case "7,19":
-                            switch (hidden164.Value)
+                            switch (hidden160.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6244,43 +6079,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "7,20":
-                            switch (hidden165.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "8,0":
-                            switch (hidden166.Value)
+                            switch (hidden161.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6315,7 +6116,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,1":
-                            switch (hidden167.Value)
+                            switch (hidden162.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6350,7 +6151,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,2":
-                            switch (hidden168.Value)
+                            switch (hidden163.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6385,7 +6186,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,3":
-                            switch (hidden169.Value)
+                            switch (hidden164.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6420,7 +6221,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,4":
-                            switch (hidden170.Value)
+                            switch (hidden165.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6455,7 +6256,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,5":
-                            switch (hidden171.Value)
+                            switch (hidden166.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6490,7 +6291,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,6":
-                            switch (hidden172.Value)
+                            switch (hidden167.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6525,7 +6326,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,7":
-                            switch (hidden173.Value)
+                            switch (hidden168.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6560,7 +6361,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,8":
-                            switch (hidden174.Value)
+                            switch (hidden169.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6595,7 +6396,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,9":
-                            switch (hidden175.Value)
+                            switch (hidden170.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6630,7 +6431,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,10":
-                            switch (hidden176.Value)
+                            switch (hidden171.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6665,7 +6466,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,11":
-                            switch (hidden177.Value)
+                            switch (hidden172.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6700,7 +6501,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,12":
-                            switch (hidden178.Value)
+                            switch (hidden173.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6735,7 +6536,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,13":
-                            switch (hidden179.Value)
+                            switch (hidden174.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6770,7 +6571,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,14":
-                            switch (hidden180.Value)
+                            switch (hidden175.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6805,7 +6606,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,15":
-                            switch (hidden181.Value)
+                            switch (hidden176.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6840,7 +6641,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,16":
-                            switch (hidden182.Value)
+                            switch (hidden177.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6875,7 +6676,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,17":
-                            switch (hidden183.Value)
+                            switch (hidden178.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6910,7 +6711,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,18":
-                            switch (hidden184.Value)
+                            switch (hidden179.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6945,7 +6746,7 @@ namespace SYSPARK
                             }
                             break;
                         case "8,19":
-                            switch (hidden185.Value)
+                            switch (hidden180.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -6979,43 +6780,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "8,20":
-                            switch (hidden186.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "9,0":
-                            switch (hidden187.Value)
+                            switch (hidden181.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7050,7 +6817,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,1":
-                            switch (hidden188.Value)
+                            switch (hidden182.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7085,7 +6852,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,2":
-                            switch (hidden189.Value)
+                            switch (hidden183.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7120,7 +6887,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,3":
-                            switch (hidden190.Value)
+                            switch (hidden184.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7155,7 +6922,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,4":
-                            switch (hidden191.Value)
+                            switch (hidden185.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7190,7 +6957,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,5":
-                            switch (hidden192.Value)
+                            switch (hidden186.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7225,7 +6992,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,6":
-                            switch (hidden193.Value)
+                            switch (hidden187.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7260,7 +7027,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,7":
-                            switch (hidden194.Value)
+                            switch (hidden188.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7295,7 +7062,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,8":
-                            switch (hidden195.Value)
+                            switch (hidden189.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7330,7 +7097,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,9":
-                            switch (hidden196.Value)
+                            switch (hidden190.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7365,7 +7132,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,10":
-                            switch (hidden197.Value)
+                            switch (hidden191.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7400,7 +7167,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,11":
-                            switch (hidden198.Value)
+                            switch (hidden192.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7435,7 +7202,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,12":
-                            switch (hidden199.Value)
+                            switch (hidden193.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7470,7 +7237,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,13":
-                            switch (hidden200.Value)
+                            switch (hidden194.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7505,7 +7272,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,14":
-                            switch (hidden201.Value)
+                            switch (hidden195.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7540,7 +7307,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,15":
-                            switch (hidden202.Value)
+                            switch (hidden196.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7575,7 +7342,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,16":
-                            switch (hidden203.Value)
+                            switch (hidden197.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7610,7 +7377,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,17":
-                            switch (hidden204.Value)
+                            switch (hidden198.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7645,7 +7412,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,18":
-                            switch (hidden205.Value)
+                            switch (hidden199.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7680,7 +7447,7 @@ namespace SYSPARK
                             }
                             break;
                         case "9,19":
-                            switch (hidden206.Value)
+                            switch (hidden200.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7714,43 +7481,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "9,20":
-                            switch (hidden207.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "10,0":
-                            switch (hidden208.Value)
+                            switch (hidden201.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7785,7 +7518,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,1":
-                            switch (hidden209.Value)
+                            switch (hidden202.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7820,7 +7553,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,2":
-                            switch (hidden210.Value)
+                            switch (hidden203.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7855,7 +7588,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,3":
-                            switch (hidden211.Value)
+                            switch (hidden204.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7890,7 +7623,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,4":
-                            switch (hidden212.Value)
+                            switch (hidden205.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7925,7 +7658,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,5":
-                            switch (hidden213.Value)
+                            switch (hidden206.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7960,7 +7693,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,6":
-                            switch (hidden214.Value)
+                            switch (hidden207.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -7995,7 +7728,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,7":
-                            switch (hidden215.Value)
+                            switch (hidden208.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8030,7 +7763,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,8":
-                            switch (hidden216.Value)
+                            switch (hidden209.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8065,7 +7798,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,9":
-                            switch (hidden217.Value)
+                            switch (hidden210.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8100,7 +7833,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,10":
-                            switch (hidden218.Value)
+                            switch (hidden211.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8135,7 +7868,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,11":
-                            switch (hidden219.Value)
+                            switch (hidden212.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8170,7 +7903,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,12":
-                            switch (hidden220.Value)
+                            switch (hidden213.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8205,7 +7938,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,13":
-                            switch (hidden221.Value)
+                            switch (hidden214.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8240,7 +7973,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,14":
-                            switch (hidden222.Value)
+                            switch (hidden215.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8275,7 +8008,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,15":
-                            switch (hidden223.Value)
+                            switch (hidden216.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8310,7 +8043,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,16":
-                            switch (hidden224.Value)
+                            switch (hidden217.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8345,7 +8078,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,17":
-                            switch (hidden225.Value)
+                            switch (hidden218.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8380,7 +8113,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,18":
-                            switch (hidden226.Value)
+                            switch (hidden219.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8415,7 +8148,7 @@ namespace SYSPARK
                             }
                             break;
                         case "10,19":
-                            switch (hidden227.Value)
+                            switch (hidden220.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8449,43 +8182,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "10,20":
-                            switch (hidden228.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "11,0":
-                            switch (hidden230.Value)
+                            switch (hidden221.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8521,7 +8220,7 @@ namespace SYSPARK
                             break;
 
                         case "11,1":
-                            switch (hidden231.Value)
+                            switch (hidden222.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8556,7 +8255,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,2":
-                            switch (hidden232.Value)
+                            switch (hidden223.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8591,7 +8290,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,3":
-                            switch (hidden233.Value)
+                            switch (hidden224.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8626,7 +8325,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,4":
-                            switch (hidden234.Value)
+                            switch (hidden225.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8661,7 +8360,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,5":
-                            switch (hidden235.Value)
+                            switch (hidden226.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8696,7 +8395,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,6":
-                            switch (hidden236.Value)
+                            switch (hidden227.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8731,7 +8430,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,7":
-                            switch (hidden237.Value)
+                            switch (hidden228.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8766,7 +8465,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,8":
-                            switch (hidden238.Value)
+                            switch (hidden229.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8801,7 +8500,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,9":
-                            switch (hidden239.Value)
+                            switch (hidden230.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8836,7 +8535,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,10":
-                            switch (hidden240.Value)
+                            switch (hidden231.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8871,7 +8570,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,11":
-                            switch (hidden241.Value)
+                            switch (hidden232.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8906,7 +8605,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,12":
-                            switch (hidden242.Value)
+                            switch (hidden233.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8941,7 +8640,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,13":
-                            switch (hidden243.Value)
+                            switch (hidden234.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -8976,7 +8675,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,14":
-                            switch (hidden244.Value)
+                            switch (hidden235.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9011,7 +8710,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,15":
-                            switch (hidden245.Value)
+                            switch (hidden236.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9046,7 +8745,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,16":
-                            switch (hidden246.Value)
+                            switch (hidden237.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9081,7 +8780,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,17":
-                            switch (hidden248.Value)
+                            switch (hidden238.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9116,7 +8815,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,18":
-                            switch (hidden249.Value)
+                            switch (hidden239.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9151,7 +8850,7 @@ namespace SYSPARK
                             }
                             break;
                         case "11,19":
-                            switch (hidden250.Value)
+                            switch (hidden240.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9185,43 +8884,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "11,20":
-                            switch (hidden251.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "12,0":
-                            switch (hidden252.Value)
+                            switch (hidden241.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9256,7 +8921,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,1":
-                            switch (hidden253.Value)
+                            switch (hidden242.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9291,7 +8956,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,2":
-                            switch (hidden254.Value)
+                            switch (hidden243.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9326,7 +8991,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,3":
-                            switch (hidden255.Value)
+                            switch (hidden244.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9361,7 +9026,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,4":
-                            switch (hidden256.Value)
+                            switch (hidden245.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9396,7 +9061,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,5":
-                            switch (hidden257.Value)
+                            switch (hidden246.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9431,7 +9096,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,6":
-                            switch (hidden258.Value)
+                            switch (hidden247.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9466,7 +9131,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,7":
-                            switch (hidden259.Value)
+                            switch (hidden248.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9501,7 +9166,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,8":
-                            switch (hidden260.Value)
+                            switch (hidden249.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9536,7 +9201,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,9":
-                            switch (hidden261.Value)
+                            switch (hidden250.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9571,7 +9236,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,10":
-                            switch (hidden262.Value)
+                            switch (hidden251.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9606,7 +9271,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,11":
-                            switch (hidden263.Value)
+                            switch (hidden252.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9641,7 +9306,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,12":
-                            switch (hidden264.Value)
+                            switch (hidden253.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9676,7 +9341,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,13":
-                            switch (hidden265.Value)
+                            switch (hidden254.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9711,7 +9376,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,14":
-                            switch (hidden266.Value)
+                            switch (hidden255.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9746,7 +9411,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,15":
-                            switch (hidden267.Value)
+                            switch (hidden256.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9781,7 +9446,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,16":
-                            switch (hidden268.Value)
+                            switch (hidden257.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9816,7 +9481,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,17":
-                            switch (hidden269.Value)
+                            switch (hidden258.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9851,7 +9516,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,18":
-                            switch (hidden270.Value)
+                            switch (hidden259.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9886,7 +9551,7 @@ namespace SYSPARK
                             }
                             break;
                         case "12,19":
-                            switch (hidden271.Value)
+                            switch (hidden260.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9920,43 +9585,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "12,20":
-                            switch (hidden272.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "13,0":
-                            switch (hidden273.Value)
+                            switch (hidden261.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -9991,7 +9622,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,1":
-                            switch (hidden274.Value)
+                            switch (hidden262.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10026,7 +9657,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,2":
-                            switch (hidden275.Value)
+                            switch (hidden263.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10061,7 +9692,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,3":
-                            switch (hidden276.Value)
+                            switch (hidden264.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10096,7 +9727,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,4":
-                            switch (hidden277.Value)
+                            switch (hidden265.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10131,7 +9762,77 @@ namespace SYSPARK
                             }
                             break;
                         case "13,5":
-                            switch (hidden278.Value)
+                            switch (hidden266.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "13,6":
+                            switch (hidden267.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "13,7":
+                            switch (hidden268.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10166,7 +9867,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,8":
-                            switch (hidden279.Value)
+                            switch (hidden269.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10201,7 +9902,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,9":
-                            switch (hidden280.Value)
+                            switch (hidden270.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10236,7 +9937,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,10":
-                            switch (hidden281.Value)
+                            switch (hidden271.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10271,7 +9972,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,11":
-                            switch (hidden282.Value)
+                            switch (hidden272.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10306,7 +10007,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,12":
-                            switch (hidden283.Value)
+                            switch (hidden273.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10341,7 +10042,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,13":
-                            switch (hidden284.Value)
+                            switch (hidden274.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10376,7 +10077,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,14":
-                            switch (hidden285.Value)
+                            switch (hidden275.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10411,7 +10112,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,15":
-                            switch (hidden286.Value)
+                            switch (hidden276.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10446,7 +10147,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,16":
-                            switch (hidden287.Value)
+                            switch (hidden277.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10481,7 +10182,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,17":
-                            switch (hidden288.Value)
+                            switch (hidden278.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10516,7 +10217,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,18":
-                            switch (hidden289.Value)
+                            switch (hidden279.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10551,7 +10252,7 @@ namespace SYSPARK
                             }
                             break;
                         case "13,19":
-                            switch (hidden290.Value)
+                            switch (hidden280.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10585,43 +10286,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "13,20":
-                            switch (hidden291.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "14,0":
-                            switch (hidden292.Value)
+                            switch (hidden281.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10656,7 +10323,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,1":
-                            switch (hidden293.Value)
+                            switch (hidden282.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10691,7 +10358,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,2":
-                            switch (hidden294.Value)
+                            switch (hidden283.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10726,7 +10393,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,3":
-                            switch (hidden295.Value)
+                            switch (hidden284.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10761,7 +10428,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,4":
-                            switch (hidden296.Value)
+                            switch (hidden285.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10796,7 +10463,77 @@ namespace SYSPARK
                             }
                             break;
                         case "14,5":
-                            switch (hidden297.Value)
+                            switch (hidden286.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,6":
+                            switch (hidden287.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "14,7":
+                            switch (hidden288.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10831,7 +10568,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,8":
-                            switch (hidden298.Value)
+                            switch (hidden289.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10866,7 +10603,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,9":
-                            switch (hidden299.Value)
+                            switch (hidden290.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10901,7 +10638,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,10":
-                            switch (hidden300.Value)
+                            switch (hidden291.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10936,7 +10673,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,11":
-                            switch (hidden301.Value)
+                            switch (hidden292.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -10971,7 +10708,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,12":
-                            switch (hidden302.Value)
+                            switch (hidden293.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11006,7 +10743,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,13":
-                            switch (hidden303.Value)
+                            switch (hidden294.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11041,7 +10778,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,14":
-                            switch (hidden304.Value)
+                            switch (hidden295.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11076,7 +10813,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,15":
-                            switch (hidden305.Value)
+                            switch (hidden296.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11111,7 +10848,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,16":
-                            switch (hidden306.Value)
+                            switch (hidden297.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11146,7 +10883,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,17":
-                            switch (hidden307.Value)
+                            switch (hidden298.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11181,7 +10918,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,18":
-                            switch (hidden308.Value)
+                            switch (hidden299.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11216,7 +10953,7 @@ namespace SYSPARK
                             }
                             break;
                         case "14,19":
-                            switch (hidden309.Value)
+                            switch (hidden300.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11250,43 +10987,9 @@ namespace SYSPARK
                                     break;
                             }
                             break;
-                        case "14,20":
-                            switch (hidden310.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
+
                         case "15,0":
-                            switch (hidden311.Value)
+                            switch (hidden301.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11321,7 +11024,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,1":
-                            switch (hidden312.Value)
+                            switch (hidden302.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11356,7 +11059,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,2":
-                            switch (hidden313.Value)
+                            switch (hidden303.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11391,7 +11094,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,3":
-                            switch (hidden314.Value)
+                            switch (hidden304.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11426,7 +11129,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,4":
-                            switch (hidden315.Value)
+                            switch (hidden305.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11461,7 +11164,77 @@ namespace SYSPARK
                             }
                             break;
                         case "15,5":
-                            switch (hidden316.Value)
+                            switch (hidden306.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,6":
+                            switch (hidden307.Value)
+                            {
+                                case "Car":
+                                    space.SpaceType = spaceTypeCar;
+                                    space.Name = "Car-" + carcounter;
+                                    carcounter++;
+                                    break;
+                                case "Motorcycle":
+                                    space.SpaceType = spaceTypeMoto;
+                                    space.Name = "Motorcycle-" + motoCounter;
+                                    motoCounter++;
+                                    break;
+                                case "Handicap":
+                                    space.SpaceType = spaceTypeHandicap;
+                                    space.Name = "Handicap-" + handicapCounter;
+                                    handicapCounter++;
+                                    break;
+                                case "Bus":
+                                    space.SpaceType = spaceTypeBus;
+                                    space.Name = "Bus-" + busCounter;
+                                    busCounter++;
+                                    break;
+                                case "Street":
+                                    space.SpaceType = spaceTypeStreet;
+                                    space.Name = "Street-" + streetCounter;
+                                    streetCounter++;
+                                    break;
+                                case "Clear":
+                                    space.SpaceType = spaceTypeClear;
+                                    space.Name = "Clear-" + clearCounter;
+                                    clearCounter++;
+                                    break;
+                            }
+                            break;
+                        case "15,7":
+                            switch (hidden308.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11496,7 +11269,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,8":
-                            switch (hidden317.Value)
+                            switch (hidden309.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11531,7 +11304,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,9":
-                            switch (hidden318.Value)
+                            switch (hidden310.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11566,7 +11339,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,10":
-                            switch (hidden319.Value)
+                            switch (hidden311.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11601,7 +11374,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,11":
-                            switch (hidden320.Value)
+                            switch (hidden312.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11636,7 +11409,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,12":
-                            switch (hidden321.Value)
+                            switch (hidden313.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11671,7 +11444,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,13":
-                            switch (hidden322.Value)
+                            switch (hidden314.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11706,7 +11479,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,14":
-                            switch (hidden323.Value)
+                            switch (hidden315.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11741,7 +11514,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,15":
-                            switch (hidden324.Value)
+                            switch (hidden316.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11776,7 +11549,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,16":
-                            switch (hidden325.Value)
+                            switch (hidden317.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11811,7 +11584,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,17":
-                            switch (hidden326.Value)
+                            switch (hidden318.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11846,7 +11619,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,18":
-                            switch (hidden327.Value)
+                            switch (hidden319.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;
@@ -11881,42 +11654,7 @@ namespace SYSPARK
                             }
                             break;
                         case "15,19":
-                            switch (hidden328.Value)
-                            {
-                                case "Car":
-                                    space.SpaceType = spaceTypeCar;
-                                    space.Name = "Car-" + carcounter;
-                                    carcounter++;
-                                    break;
-                                case "Motorcycle":
-                                    space.SpaceType = spaceTypeMoto;
-                                    space.Name = "Motorcycle-" + motoCounter;
-                                    motoCounter++;
-                                    break;
-                                case "Handicap":
-                                    space.SpaceType = spaceTypeHandicap;
-                                    space.Name = "Handicap-" + handicapCounter;
-                                    handicapCounter++;
-                                    break;
-                                case "Bus":
-                                    space.SpaceType = spaceTypeBus;
-                                    space.Name = "Bus-" + busCounter;
-                                    busCounter++;
-                                    break;
-                                case "Street":
-                                    space.SpaceType = spaceTypeStreet;
-                                    space.Name = "Street-" + streetCounter;
-                                    streetCounter++;
-                                    break;
-                                case "Clear":
-                                    space.SpaceType = spaceTypeClear;
-                                    space.Name = "Clear-" + clearCounter;
-                                    clearCounter++;
-                                    break;
-                            }
-                            break;
-                        case "15,20":
-                            switch (hidden329.Value)
+                            switch (hidden320.Value)
                             {
                                 case "Car":
                                     space.SpaceType = spaceTypeCar;

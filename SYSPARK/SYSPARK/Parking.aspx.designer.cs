@@ -157,6 +157,14 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdate;
         
         /// <summary>
+        /// GenerateMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        
+        /// <summary>
         /// buttonErrors2 control.
         /// </summary>
         /// <remarks>
@@ -173,6 +181,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1ParkingMap;
+        
+        /// <summary>
+        /// UpdatePanelMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelMap;
         
         /// <summary>
         /// tableGray2 control.

@@ -135,6 +135,19 @@ namespace SYSPARK
             }
         }
 
+        public Parking SendParkingInfo(DataTable dtParking)
+        {
+            Parking parking = new Parking();
+            if (dtParking.Rows.Count > 0)
+            {
+                parking.Width = Convert.ToInt32(dtParking.Rows[0]["Width"]);
+                parking.Height = Convert.ToInt32(dtParking.Rows[0]["Height"]);
+                return parking;
+            }
+            else
+                return null;
+        }
+
         public Parking SendParking(DataTable dataTableParkingInfo)
         {
             Parking parking = new Parking();
