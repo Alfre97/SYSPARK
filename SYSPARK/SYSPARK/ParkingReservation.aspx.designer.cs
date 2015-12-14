@@ -103,6 +103,15 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlTable tableGray2;
         
         /// <summary>
+        /// hiddenSpaceValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenSpaceValue;
+        
+        /// <summary>
         /// placeHolderMap control.
         /// </summary>
         /// <remarks>

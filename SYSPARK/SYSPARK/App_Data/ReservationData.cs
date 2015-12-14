@@ -61,15 +61,13 @@ namespace SYSPARK
             return dataTableReservation;
         }
 
-        public void DeleteSpace(int spaceId, int parkingId, int spaceTypeId)
+        public void DeleteReservation(int reservationId)
         {
             connection = ManageDatabaseConnection("Open");
-            using (SqlCommand delete = new SqlCommand(@"DeleteSpace", connection))
+            using (SqlCommand delete = new SqlCommand(@"DeleteReservation", connection))
             {
                 delete.CommandType = CommandType.StoredProcedure;
-                delete.Parameters.Add("@SpaceId", SqlDbType.Int).Value = spaceId;
-                delete.Parameters.Add("@ParkingId", SqlDbType.Int).Value = parkingId;
-                delete.Parameters.Add("@SpaceTypeId", SqlDbType.Int).Value = spaceTypeId;
+                delete.Parameters.Add("@ReservationId", SqlDbType.Int).Value = reservationId;
                 delete.ExecuteNonQuery();
             }
             connection = ManageDatabaseConnection("Close");

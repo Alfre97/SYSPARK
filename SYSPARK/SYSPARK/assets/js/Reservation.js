@@ -47,6 +47,20 @@ function cancelUpdate() {
     $("#buttonCancelUpdate").css('visibility', 'hidden');
 }
 
-function getSpaceId() {
+function getSpaceId(button, hidden) {
+    var hidden = document.getElementById(hidden);
+    var cancel = document.getElementById("buttonCancel");
+    hidden.value = button.value;
+    $("#tableParkingMap").attr("disabled", "disabled");
+    cancel.style.visibility = "visible";
+    var span = document.getElementById("spanSpace");
+    span.innerHTML = button.innerHTML;
+}
 
+function cancelSelection(cancel) {
+    $("#tableParkingMap").removeAttr("disabled");
+    var hidden = document.getElementById("hiddenSpaceValue");
+    hidden.value = "";
+    var span = document.getElementById("spanSpace");
+    span.innerHTML = "";
 }

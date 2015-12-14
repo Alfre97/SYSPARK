@@ -97,8 +97,38 @@ div {
         height: 50px;
     }
 
-#buttonSpace {
+#buttonSpaceClear {
     background-color: white;
+    width: 40px;
+    height: 40px;
+}
+
+#buttonSpaceCar {
+    background-color: #4ed848;
+    width: 40px;
+    height: 40px;
+}
+
+#buttonSpaceMoto {
+    background-color: #c5c872;
+    width: 40px;
+    height: 40px;
+}
+
+#buttonSpaceHandicap {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+}
+
+#buttonSpaceBus {
+    background-color: #5e4c34;
+    width: 40px;
+    height: 40px;
+}
+
+#buttonSpaceStreet {
+    background-color: #a5a5a5;
     width: 40px;
     height: 40px;
 }
@@ -114,6 +144,10 @@ div {
 h1 {
     color: white;
     text-align: center;
+}
+
+#buttonCancel {
+    visibility: hidden;
 }
 
 #navDefault {

@@ -84,5 +84,19 @@ namespace SYSPARK.BussinessRules
             return 0;
         }
 
+        public int DeleteReservation(int reservationId)
+        {
+            try
+            {
+                if (reservationId.Equals(string.Empty))
+                    return 2;
+                reservationData.DeleteReservation(reservationId);
+                return 0;
+            }
+            catch (SqlException)
+            {
+                return 1;
+            }
+        }
     }
 }

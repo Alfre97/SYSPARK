@@ -70,6 +70,7 @@
                                     <table id="tableGray2" runat="server">
                                         <tr>
                                             <td>
+                                                <input type="hidden" id="hiddenSpaceValue" runat="server" />
                                                 <table id="tableParkingMap">
                                                     <asp:PlaceHolder ID="placeHolderMap" runat="server"></asp:PlaceHolder>
                                                 </table>
@@ -77,9 +78,15 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <button type="button" id="buttonViewMap" runat="server">View Map</button>
+                                <button type="button" id="buttonCancel" onclick="cancelSelection(this)">Cancel</button>
+                                <button onserverclick=" GenerateMap_Click" type="button" id="buttonViewMap" runat="server">View Map</button>
                             </ContentTemplate>
                         </asp:UpdatePanel>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Space:</span><span id="spanSpace"></span>
                     </td>
                 </tr>
                 <tr>
@@ -160,9 +167,7 @@
                     <tr>
                         <td>
                             <input type="hidden" id="hiddenCampusToViewValue" runat="server" />
-                            <select id="selectCampusToView" runat="server" onchange="setValue('selectCampusToView', 'hiddenCampusToViewValue')"></select>
-                            <button onserverclick=" FillTable" type="button" id="buttonSearch">Search</button>
-                            <input type="button" runat="server" id="buttonInfoReservationTable" value="Please, after any operation select one reservation!" />
+                            <select id="selectCampusToView" runat="server" onchange="setValue('selectCampusToView', 'hiddenCampusToViewValue')"></select><input type="button" runat="server" id="buttonInfoReservationTable" value="Please, after any operation select one reservation!" />
                             <table class="table" id="tableReservations">
                                 <asp:PlaceHolder ID="placeHolderTableReservations" runat="server"></asp:PlaceHolder>
                             </table>

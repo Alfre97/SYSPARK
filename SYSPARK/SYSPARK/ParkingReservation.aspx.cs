@@ -30,6 +30,7 @@ namespace SYSPARK
             FillSelectCampusToView();
             FillSelectVehicle();
             FillTable();
+            GenerateMap();
         }
 
         protected void FillSelectCampus(object sender, EventArgs e)
@@ -68,47 +69,11 @@ namespace SYSPARK
                 selectParking.DataValueField = "Id";
                 selectParking.DataTextField = "Name";
                 selectParking.DataBind();
-                FillSelectSpace(sender, e);
             }
             else
             {
                 buttonStyle.buttonStyleRed(buttonErrors, "No campus and parking avaible to show.");
             }
-        }
-
-        protected void FillSelectSpace(object sender, EventArgs e)
-        {
-            if (selectCampus.Items.Count > 0)
-            {
-                if (selectParking.Items.Count > 0)
-                {
-                    //Select parking
-                    SpaceData spaceData = new SpaceData();
-                    DataTable dataTableSpace = new DataTable();
-                    if (hiddenCampusValue.Value.Equals(string.Empty))
-                    {
-                        if (hiddenParkingValue.Value.Equals(string.Empty))
-                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(selectCampus.Items[0].Value), Convert.ToInt32(selectParking.Items[0].Value));
-                        else
-                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(selectCampus.Items[0].Value), Convert.ToInt32(hiddenParkingValue.Value));
-                    }
-                    else
-                    {
-                        if (hiddenParkingValue.Value.Equals(string.Empty))
-                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(hiddenParkingValue.Value), Convert.ToInt32(selectParking.Items[0].Value));
-                        else
-                            dataTableSpace = spaceData.DataTableParkingSpace(Convert.ToInt32(hiddenParkingValue.Value), Convert.ToInt32(hiddenParkingValue.Value));
-                    }
-                    selectSpace.DataSource = dataTableSpace;
-                    selectSpace.DataValueField = "Id";
-                    selectSpace.DataTextField = "Name";
-                    selectSpace.DataBind();
-                }
-                else
-                    buttonStyle.buttonStyleRed(buttonErrors, "No parking and space avaible to show.");
-            }
-            else
-                buttonStyle.buttonStyleRed(buttonErrors, "No campus, parking and space avaible to show.");
         }
 
         protected void FillSelectVehicle()
@@ -142,6 +107,7 @@ namespace SYSPARK
             catch (FormatException)
             {
                 buttonStyle.buttonStyleRed(buttonErrors, "The campus select is empty.");
+                return null;
             }
 
             try
@@ -154,18 +120,17 @@ namespace SYSPARK
             catch (FormatException)
             {
                 buttonStyle.buttonStyleRed(buttonErrors, "The parking select is empty.");
+                return null;
             }
 
             try
             {
-                if (hiddenSpaceValue.Value.Equals(string.Empty))
-                    space.Id = Convert.ToInt32(selectSpace.Items[0].Value);
-                else
-                    space.Id = Convert.ToInt32(hiddenSpaceValue.Value);
+                space.Id = Convert.ToInt32(hiddenSpaceValue.Value);
             }
             catch (FormatException)
             {
-                buttonStyle.buttonStyleRed(buttonErrors, "The space select is empty.");
+                buttonStyle.buttonStyleRed(buttonErrors, "Please, select a space.");
+                return null;
             }
 
             try
@@ -178,6 +143,7 @@ namespace SYSPARK
             catch (FormatException)
             {
                 buttonStyle.buttonStyleRed(buttonErrors, "The vehicle select is empty.");
+                return null;
             }
 
             user.Username = Session["User-UserName"].ToString();
@@ -210,10 +176,7 @@ namespace SYSPARK
                 StringBuilder html = new StringBuilder();
                 Parking parking = new Parking();
                 List<Space> spaceList = new List<Space>();
-                int parkingHeight;
-                int parkingWidth;
                 int parkingId;
-                int limit = 0;
 
                 //Cleaning last table
                 placeHolderMap.Controls.Clear();
@@ -234,9 +197,45 @@ namespace SYSPARK
                             html.Append("<tr>");
                             for (int j = 0; j < parking.Height; j++)
                             {
-                                    html.Append("<td>");
-                                    html.Append("<button type='button' onclick='setColorAndValue(this)' id='buttonSpace' value='""'></button>");
-                                    html.Append("</td>");
+                                foreach (Space space in spaceList)
+                                {
+                                    if (space.Position == i + "," + j)
+                                    {
+                                        switch (space.SpaceType.Id)
+                                        {
+                                            case 1:
+                                                html.Append("<td>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceCar' value='" + space.Id +"'>" + space.Name + "</button>");
+                                                html.Append("</td>");
+                                                break;
+                                            case 2:
+                                                html.Append("<td>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceMoto' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("</td>");
+                                                break;
+                                            case 3:
+                                                html.Append("<td>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceHandicap' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("</td>");
+                                                break;
+                                            case 4:
+                                                html.Append("<td>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceBus' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("</td>");
+                                                break;
+                                            case 5:
+                                                html.Append("<td>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceStreet' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("</td>");
+                                                break;
+                                            case 6:
+                                                html.Append("<td>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceClear' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("</td>");
+                                                break;
+                                        }
+                                    }
+                                }
                             }
                             html.Append("</tr>");
                         }
@@ -549,6 +548,35 @@ namespace SYSPARK
                 case 1:
                     buttonStyle.buttonStyleRed(buttonErrors, "The space selected already have reservations in that hours.");
                     break;
+            }
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            DeleteReservation();
+            FillTable();
+        }
+
+        protected void DeleteReservation()
+        {
+            try
+            {
+                switch (reservationRules.DeleteReservation(Convert.ToInt32(hiddenReservationId.Value)))
+                {
+                    case 0:
+                        buttonStyle.buttonStyleBlue(buttonInfoReservationTable, "Parking deleted successful.");
+                        break;
+                    case 1:
+                        buttonStyle.buttonStyleRed(buttonInfoReservationTable, "This parking has linked data can not be deleted.");
+                        break;
+                    case 2:
+                        buttonStyle.buttonStyleRed(buttonInfoReservationTable, "Please, select a parking to delete.");
+                        break;
+                }
+            }
+            catch
+            {
+                buttonStyle.buttonStyleRed(buttonInfoReservationTable, "Please, select a parking to delete.");
             }
         }
     }

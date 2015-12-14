@@ -22,8 +22,8 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["User-UserName"] == null)
-            //    Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
+            if (Session["User-UserName"] == null)
+               Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
             //CreateSpaceSelect();
             buttonCancel.Visible = false;
@@ -322,6 +322,7 @@ namespace SYSPARK
             buttonClear.Visible = false;
             h1ParkingMap.Visible = true;
             tableGray2.Visible = true;
+            tableGray.Disabled = true;
 
             //Building an HTML string.
             StringBuilder html = new StringBuilder();
@@ -11794,6 +11795,7 @@ namespace SYSPARK
                                 case 0:
                                     ClearControls();
                                     OpenControls();
+                                    tableGray.Disabled = false;
                                     buttonStyle.buttonStyleBlue(buttonErrors, "Parking created sucessfully.");
                                     break;
                                 case 1:

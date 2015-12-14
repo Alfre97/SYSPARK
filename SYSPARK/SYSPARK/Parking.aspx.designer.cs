@@ -157,12 +157,22 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonUpdate;
         
         /// <summary>
-        /// GenerateMap control.
+        /// ScriptManagerMap control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManagerMap;
+        
+        /// <summary>
+        /// UpdatePanelMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelMap;
         
         /// <summary>
         /// buttonErrors2 control.
@@ -181,15 +191,6 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1ParkingMap;
-        
-        /// <summary>
-        /// UpdatePanelMap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelMap;
         
         /// <summary>
         /// tableGray2 control.
@@ -4206,6 +4207,24 @@ namespace SYSPARK {
         protected global::System.Web.UI.HtmlControls.HtmlButton buttonCreateParking;
         
         /// <summary>
+        /// ScriptManagerTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManagerTable;
+        
+        /// <summary>
+        /// UpdatePanelTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelTable;
+        
+        /// <summary>
         /// buttonDelete control.
         /// </summary>
         /// <remarks>
@@ -4222,6 +4241,15 @@ namespace SYSPARK {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenParkingId;
+        
+        /// <summary>
+        /// tableGray control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tableGray;
         
         /// <summary>
         /// buttonInfoParkingTable control.
