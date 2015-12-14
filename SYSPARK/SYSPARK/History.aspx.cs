@@ -14,7 +14,7 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-UserName"] == null)
-                Response.Redirect("Default.aspx");
+                Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
             FillSelectCampusToView();
             FillTable(sender, e);
         }

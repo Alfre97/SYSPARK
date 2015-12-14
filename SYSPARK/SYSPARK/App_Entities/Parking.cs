@@ -10,6 +10,8 @@ namespace SYSPARK.Entities
     {
         private int id;
         private string name;
+        private int height;
+        private int width;
         private int totalSpace;
         private int freeSpace;
         private int carSpace;
@@ -43,6 +45,32 @@ namespace SYSPARK.Entities
             set
             {
                 name = value;
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return height;
+            }
+
+            set
+            {
+                height = value;
+            }
+        }
+
+        public int Width
+        {
+            get
+            {
+                return width;
+            }
+
+            set
+            {
+                width = value;
             }
         }
 

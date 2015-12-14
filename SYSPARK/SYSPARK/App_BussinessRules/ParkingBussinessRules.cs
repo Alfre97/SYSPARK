@@ -17,6 +17,10 @@ namespace SYSPARK.App_BussinessRules
 
             if (parking.Name.Equals(string.Empty))
                 return 1;
+            else if (parking.Height <= 0)
+                return 13;
+            else if (parking.Width <= 0)
+                return 14;
             else if (parking.TotalSpace <= 0)
                 return 2;
             else if (parking.CarSpace < 0)

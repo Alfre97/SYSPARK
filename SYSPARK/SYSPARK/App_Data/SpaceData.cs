@@ -26,6 +26,7 @@ namespace SYSPARK
                 insert.Parameters.Add("@SpaceTypeId", SqlDbType.Int).Value = space.SpaceType.Id;
                 insert.Parameters.Add("@SpaceTypeName", SqlDbType.VarChar).Value = space.SpaceType.Name;
                 insert.Parameters.Add("@Status", SqlDbType.Bit).Value = space.Status;
+                insert.Parameters.Add("@Position", SqlDbType.VarChar).Value = space.Position;
                 insert.Parameters.Add("@InitialInsertOrUpdate", SqlDbType.Int).Value = initialInsertOrUpdate;
                 insert.ExecuteNonQuery();
             }

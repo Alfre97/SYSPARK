@@ -24,6 +24,8 @@ namespace SYSPARK
             if (Session["User-UserName"] == null)
                 Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
+            FillSelectCampus(sender, e);
+            FillSelectCampusToView();
             FillSelectVehicle();
             FillTable();
         }
@@ -37,6 +39,16 @@ namespace SYSPARK
             selectCampus.DataTextField = "Name";
             selectCampus.DataBind();
             FillSelectParking(sender, e);
+        }
+
+        protected void FillSelectCampusToView()
+        {
+            //Select Campus
+            CampusData campusData = new CampusData();
+            selectCampusToView.DataSource = campusData.DataTableUserCampus(campusData.SendCampusList(campusData.GetUserCampus(Session["User-UserName"].ToString())));
+            selectCampusToView.DataValueField = "Id";
+            selectCampusToView.DataTextField = "Name";
+            selectCampusToView.DataBind();
         }
 
         protected void FillSelectParking(object sender, EventArgs e)
@@ -316,19 +328,22 @@ namespace SYSPARK
 
         protected void FillTable()
         {
-            ReservationData reservationData = new ReservationData();
             DataTable dt = new DataTable();
-            int campusId;
-            //Populating a DataTable from database.
-            if (hiddenCampusToViewValue.Value.Equals(string.Empty))
-                campusId = Convert.ToInt32(selectCampusToView.Items[0].Value);
-            else
-                campusId = Convert.ToInt32(hiddenCampusToViewValue.Value);
+            if (selectCampusToView.Items.Count > 0)
+            {
+                ReservationData reservationData = new ReservationData();
+                int campusId;
+                //Populating a DataTable from database.
+                if (hiddenCampusToViewValue.Value.Equals(string.Empty))
+                    campusId = Convert.ToInt32(selectCampusToView.Items[0].Value);
+                else
+                    campusId = Convert.ToInt32(hiddenCampusToViewValue.Value);
 
-            if (Convert.ToInt32(Session["User-RoleId"]) == 3)
-                dt = reservationData.DataTableReservation(campusId);
-            else
-                dt = reservationData.DataTableUserReservation(Session["User-UserName"].ToString());
+                if (Convert.ToInt32(Session["User-RoleId"]) == 3)
+                    dt = reservationData.DataTableReservation(campusId);
+                else
+                    dt = reservationData.DataTableUserReservation(Session["User-UserName"].ToString());
+            }
             //Building an HTML string.
             StringBuilder html = new StringBuilder();
 

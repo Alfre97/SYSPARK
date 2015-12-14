@@ -13,12 +13,54 @@ body {
     text-align: center;
     border-radius: 25px 25px;
     margin: 0 auto;
-    width: 325px;
-    height: 350px;
+    width: 350px;
+    height: 500px;
     color: white;
 }
 
+#buttonCreateParking {
+    visibility: hidden;
+}
+
+#tableParkingMap {
+    background-color: transparent;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    color: white;
+}
+
+    #tableParkingMap tr td {
+        width: 50px;
+    }
+
+    #tableParkingMap tr {
+        height: 50px;
+    }
+
+#buttonSpace {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+}
+
+#buttonGenerateMap {
+    float: right;
+    margin-right: 55px;
+}
+
 table#tableParking tr td span {
+    color: black;
+    width: 240px;
+    font-size: 8pt;
+    background-color: white;
+    border: none;
+    border-radius: 5px 5px;
+}
+
+table span {
     color: black;
     width: 240px;
     font-size: 8pt;
@@ -64,7 +106,28 @@ div table tr td button {
     height: auto;
 }
 
+#buttonCreateParking {
+    border-radius: 5px 5px;
+    color: black;
+    background-color: white;
+    border-style: none;
+    width: auto;
+    height: auto;
+}
+
+div table#tableParkingMap tr td button {
+    border-radius: 5px 5px;
+    border-style: none;
+    width: auto;
+    height: 45px;
+}
+
 div {
+    width: 100%;
+}
+
+#navDefault {
+    background-color: transparent;
     width: 100%;
 }
 
@@ -127,6 +190,16 @@ input#buttonErrors {
     color: white;
 }
 
+#tableGray2 {
+    background-color: #a5a5a5;
+    text-align: center;
+    border-radius: 25px 25px;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    color: white;
+}
+
 #tableParkings {
     background-color: white;
     text-align: center;
@@ -156,6 +229,10 @@ table#tableParkings th {
     border: none;
 }
 
+.table-responsive {
+    border: none;
+}
+
 #buttonEdit {
     background-color: transparent;
     border: none;
@@ -170,6 +247,15 @@ table#tableParkings th {
 #buttonInfoParkingTable {
     background-color: blue;
     color: white;
+}
+
+#buttonErrors2 {
+    background-color: blue;
+    color: white;
+    border-radius: 5px 5px;
+    border-style: none;
+    width: auto;
+    height: auto;
 }
 
 .logo {

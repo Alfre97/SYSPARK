@@ -34,7 +34,15 @@ namespace SYSPARK
 
         protected void EnterButton_Click(object sender, EventArgs e)
         {
-            CheckUserNameAndPassword();
+            try
+            {
+                CheckUserNameAndPassword();
+            }
+            catch (Exception)
+            {
+                buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred connecting to data base." + "\n" + "Please be patient.");
+            }
+
         }
 
         protected void SaveSession()
@@ -72,7 +80,9 @@ namespace SYSPARK
                         {
                             SaveSession();
                             textBoxPassword.Value = string.Empty;
-                            Response.Redirect("http://syspark.azurewebsites.net/Home.aspx");
+                            //Response.Redirect("http://syspark.azurewebsites.net/Home.aspx");
+                            Response.Redirect("Home.aspx");
+
                         }
                         else
                         {

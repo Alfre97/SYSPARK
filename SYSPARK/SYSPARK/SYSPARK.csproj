@@ -106,7 +106,6 @@
     <Content Include="Home.aspx" />
     <Content Include="LapsePage.aspx" />
     <Content Include="Parking.aspx" />
-    <Content Include="ShowParking.aspx" />
     <Content Include="SpacePage.aspx" />
     <Content Include="SpaceType.aspx" />
     <Content Include="Vehicle.aspx" />
@@ -217,13 +216,6 @@
     </Compile>
     <Compile Include="App_Data\ParkingData.cs" />
     <Compile Include="App_Data\SpaceData.cs" />
-    <Compile Include="ShowParking.aspx.cs">
-      <DependentUpon>ShowParking.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ShowParking.aspx.designer.cs">
-      <DependentUpon>ShowParking.aspx</DependentUpon>
-    </Compile>
     <Compile Include="SpacePage.aspx.cs">
       <DependentUpon>SpacePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

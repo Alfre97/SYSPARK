@@ -40,6 +40,10 @@ h1 {
     color: white;
 }
 
+.table-responsive {
+    border: none;
+}
+
 #tableHistory {
     background-color: white;
     text-align: center;

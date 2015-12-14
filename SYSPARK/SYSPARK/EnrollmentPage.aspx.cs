@@ -22,7 +22,7 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-UserName"] == null)
-                Response.Redirect("Default.aspx");
+                Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
             FillSelectCampus();
             SetEnrollmentValues();
@@ -31,10 +31,11 @@ namespace SYSPARK
         protected void SetEnrollmentValues()
         {
             DataTable dataTableUserEnrollement = enrollmentData.DataTableUserEnrollment(Session["User-UserName"].ToString());
-            DataTable dataTableEnrollmentLapse = lapseData.DataTableEnrollmentLapse(Convert.ToInt32(dataTableUserEnrollement.Rows[0]["LapseId"]));
 
             if (dataTableUserEnrollement.Rows.Count > 0)
             {
+                DataTable dataTableEnrollmentLapse = lapseData.DataTableEnrollmentLapse(Convert.ToInt32(dataTableUserEnrollement.Rows[0]["LapseId"]));
+
                 if (dataTableEnrollmentLapse.Rows.Count > 0)
                 {
                     buttonActivateEnrollment.Disabled = true;
@@ -103,7 +104,7 @@ namespace SYSPARK
         protected void ButtonCreateEnrollment_Click(object sender, EventArgs e)
         {
             InsertEnrollment(CreateEnrollment());
-            SetEnrollmentValues();
+            
         }
 
         protected void ButtonActivateEnrollment_Click(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace SYSPARK
                     enrollmentData.UpdateEnrollment(enrollment);
                     SetEnrollmentValues();
                     buttonActivateEnrollment.Disabled = true;
+                    buttonStyle.buttonStyleBlue(buttonErrors, "Enrollment activated successful");
                 }
                 catch (Exception)
                 {
@@ -148,15 +150,22 @@ namespace SYSPARK
 
         protected void InsertEnrollment(Enrollment enrollment)
         {
-            try
+            if (enrollment == null)
+                buttonStyle.buttonStyleRed(buttonErrors, "No lapse active you can't create your enrollment.");
+            else
             {
-                enrollmentData.InsertEnrollment(enrollment);
-                buttonActivateEnrollment.Visible = true;
-                buttonCreateEnrollment.Visible = false;
-            }
-            catch (Exception)
-            {
-                buttonStyle.buttonStyleRed(buttonErrors, "Ops an error ocurred creating your enrollment." + "\n" + "Please, try again.");
+                try
+                {
+                    enrollmentData.InsertEnrollment(enrollment);
+                    buttonActivateEnrollment.Visible = true;
+                    buttonCreateEnrollment.Visible = false;
+                    buttonStyle.buttonStyleBlue(buttonErrors, "Enrollment created succesfull.");
+                    SetEnrollmentValues();
+                }
+                catch (Exception)
+                {
+                    buttonStyle.buttonStyleRed(buttonErrors, "Ops an error ocurred creating your enrollment." + "\n" + "Please, try again.");
+                }
             }
         }
     }

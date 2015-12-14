@@ -55,6 +55,8 @@ namespace SYSPARK
                 insert.Parameters.Add("@Name", SqlDbType.VarChar).Value = parking.Name;
                 insert.Parameters.Add("@CampusId", SqlDbType.Int).Value = parking.CampusId;
                 insert.Parameters.Add("@CampusName", SqlDbType.VarChar).Value = parking.CampusName;
+                insert.Parameters.Add("@Height", SqlDbType.Int).Value = parking.Height;
+                insert.Parameters.Add("@Width", SqlDbType.Int).Value = parking.Width;
                 insert.Parameters.Add("@TotalSpace", SqlDbType.Int).Value = parking.TotalSpace;
                 insert.Parameters.Add("@FreeSpace", SqlDbType.Int).Value = parking.FreeSpace;
                 insert.Parameters.Add("@CarSpace", SqlDbType.Int).Value = parking.CarSpace;
