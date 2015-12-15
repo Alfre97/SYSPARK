@@ -23,7 +23,7 @@ namespace SYSPARK
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User-UserName"] == null)
-               Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
+                Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
             //CreateSpaceSelect();
             buttonCancel.Visible = false;
@@ -494,7 +494,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -505,13 +504,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -533,7 +530,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -544,13 +540,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -571,7 +565,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -582,13 +575,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -609,7 +600,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -620,13 +610,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -647,7 +635,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -658,13 +645,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -685,7 +670,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -696,13 +680,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -723,7 +705,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -734,13 +715,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -761,7 +740,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -772,13 +750,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -799,7 +775,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -810,13 +785,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -837,7 +810,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -848,13 +820,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -875,7 +845,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -886,13 +855,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -913,7 +880,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -924,13 +890,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -951,7 +915,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -962,13 +925,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -989,7 +950,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1000,13 +960,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1027,7 +985,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1038,13 +995,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1065,7 +1020,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1076,13 +1030,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1103,7 +1055,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1114,13 +1065,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1141,7 +1090,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1152,13 +1100,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1179,7 +1125,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1190,13 +1135,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1217,7 +1160,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1228,13 +1170,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1255,7 +1195,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1266,13 +1205,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1293,7 +1230,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1304,13 +1240,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1331,7 +1265,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1342,13 +1275,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1369,7 +1300,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1380,13 +1310,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1407,7 +1335,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1418,13 +1345,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1445,7 +1370,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1456,13 +1380,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1483,7 +1405,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1494,13 +1415,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1521,7 +1440,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1532,13 +1450,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1559,7 +1475,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1570,13 +1485,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1597,7 +1510,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1608,13 +1520,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1635,7 +1545,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1646,13 +1555,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1673,7 +1580,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1684,13 +1590,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1711,7 +1615,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1722,13 +1625,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1749,7 +1650,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1760,13 +1660,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1787,7 +1685,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1798,13 +1695,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1825,7 +1720,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1836,13 +1730,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1863,7 +1755,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1874,13 +1765,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1901,7 +1790,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1912,13 +1800,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1939,7 +1825,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1950,13 +1835,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -1977,7 +1860,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -1988,13 +1870,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2015,7 +1895,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2026,13 +1905,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2053,7 +1930,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2064,13 +1940,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2091,7 +1965,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2102,13 +1975,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2129,7 +2000,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2140,13 +2010,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2167,7 +2035,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2178,13 +2045,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2205,7 +2070,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2216,13 +2080,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2243,7 +2105,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2254,13 +2115,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2281,7 +2140,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2292,13 +2150,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2319,7 +2175,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2330,13 +2185,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2357,7 +2210,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2368,13 +2220,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2395,7 +2245,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2406,13 +2255,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2433,7 +2280,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2444,13 +2290,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2471,7 +2315,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2482,13 +2325,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2509,7 +2350,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2520,13 +2360,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2547,7 +2385,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2558,13 +2395,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2585,7 +2420,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2596,13 +2430,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2623,7 +2455,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2634,13 +2465,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2661,7 +2490,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2672,13 +2500,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2699,7 +2525,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2710,13 +2535,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2737,7 +2560,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2748,13 +2570,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2775,7 +2595,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2786,13 +2605,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2813,7 +2630,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2824,13 +2640,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2851,7 +2665,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2862,13 +2675,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2889,7 +2700,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2900,13 +2710,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2927,7 +2735,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2938,13 +2745,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -2965,7 +2770,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -2976,13 +2780,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3003,7 +2805,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3014,13 +2815,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3041,7 +2840,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3052,13 +2850,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3079,7 +2875,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3090,13 +2885,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3117,7 +2910,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3128,13 +2920,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3155,7 +2945,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3166,13 +2955,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3193,7 +2980,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3204,13 +2990,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3231,7 +3015,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3242,13 +3025,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3269,7 +3050,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3280,13 +3060,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3307,7 +3085,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3318,13 +3095,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3345,7 +3120,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3356,13 +3130,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3383,7 +3155,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3394,13 +3165,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3421,7 +3190,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3432,13 +3200,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3459,7 +3225,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3470,13 +3235,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3497,7 +3260,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3508,13 +3270,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3535,7 +3295,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3546,13 +3305,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3573,7 +3330,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3584,13 +3340,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3611,7 +3365,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3622,13 +3375,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3649,7 +3400,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3660,13 +3410,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3687,7 +3435,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3698,13 +3445,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3725,7 +3470,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3736,13 +3480,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3763,7 +3505,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3774,13 +3515,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3801,7 +3540,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3812,13 +3550,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3839,7 +3575,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3850,13 +3585,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3877,7 +3610,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3888,13 +3620,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3915,7 +3645,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3926,13 +3655,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3953,7 +3680,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -3964,13 +3690,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -3991,7 +3715,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4002,13 +3725,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4029,7 +3750,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4040,13 +3760,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4067,7 +3785,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4078,13 +3795,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4105,7 +3820,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4116,13 +3830,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4143,7 +3855,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4154,13 +3865,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4181,7 +3890,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4192,13 +3900,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4219,7 +3925,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4230,13 +3935,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4257,7 +3960,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4268,13 +3970,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4296,7 +3996,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4307,13 +4006,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4334,7 +4031,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4345,13 +4041,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4372,7 +4066,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4383,13 +4076,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4410,7 +4101,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4421,13 +4111,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -4448,7 +4136,6 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeHandicap;
                                     space.Name = "Handicap-" + handicapCounter;
                                     handicapCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Bus":
                                     space.SpaceType = spaceTypeBus;
@@ -4459,13 +4146,11 @@ namespace SYSPARK
                                     space.SpaceType = spaceTypeStreet;
                                     space.Name = "Street-" + streetCounter;
                                     streetCounter++;
-                                    space.Status = false;
                                     break;
                                 case "Clear":
                                     space.SpaceType = spaceTypeClear;
                                     space.Name = "Clear-" + clearCounter;
                                     clearCounter++;
-                                    space.Status = false;
                                     break;
                             }
                             break;
@@ -12006,6 +11691,8 @@ namespace SYSPARK
                             }
                             break;
                     }
+                    if (space.SpaceType.Id == 3 || space.SpaceType.Id == 5 || space.SpaceType.Id == 6)
+                        space.Status = false;
                 }
                 return spaceList;
             }
