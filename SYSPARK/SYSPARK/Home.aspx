@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+    <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <head runat="server">
     <title>Home</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
