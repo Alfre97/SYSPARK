@@ -215,7 +215,7 @@ namespace SYSPARK
                                                 break;
                                             case 3:
                                                 html.Append("<td>");
-                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceHandicap' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceHandicap' disabled='disabled' value='" + space.Id + "'>" + space.Name + "</button>");
                                                 html.Append("</td>");
                                                 break;
                                             case 4:
@@ -225,12 +225,12 @@ namespace SYSPARK
                                                 break;
                                             case 5:
                                                 html.Append("<td>");
-                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceStreet' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceStreet' disabled='disabled' value='" + space.Id + "'>" + space.Name + "</button>");
                                                 html.Append("</td>");
                                                 break;
                                             case 6:
                                                 html.Append("<td>");
-                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceClear' value='" + space.Id + "'>" + space.Name + "</button>");
+                                                html.Append("<button type='button' onclick='getSpaceId(this, 'hiddenSpaceValue')' id='buttonSpaceClear' disabled='disabled' value='" + space.Id + "'>" + space.Name + "</button>");
                                                 html.Append("</td>");
                                                 break;
                                         }

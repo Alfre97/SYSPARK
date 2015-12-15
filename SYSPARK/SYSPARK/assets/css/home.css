@@ -307,7 +307,6 @@ div nav ul li button {
 }
 
 #tableHome button {
-    width: 80%;
     margin-right: 100px;
     margin-left: 100px;
 }
@@ -317,7 +316,7 @@ div nav ul li button {
         margin-left: 0px;
         margin-right: 0px;
         font-size: 150%;
-        width: 90%;
+        width: 98%;
         text-align: center;
     }
 }
