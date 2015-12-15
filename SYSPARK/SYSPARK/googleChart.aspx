@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SecurityMenu.Master" AutoEventWireup="true" CodeBehind="googleChart.aspx.cs" Inherits="SiCAPV002.googleChart" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="googleChart.aspx.cs" Inherits="SiCAPV002.googleChart" %>
     <%-- Here We need to write some js code for load google chart with database data --%>
             <script src="Scripts/jquery-1.7.1.js"></script>
             <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -49,5 +48,3 @@
    <div id="chart_div" style="width:500px;height:400px">
                 <%-- Here Chart Will Load --%>
             </div>
-
-</asp:Content>

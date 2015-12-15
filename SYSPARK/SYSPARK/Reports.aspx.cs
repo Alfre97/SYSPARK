@@ -11,8 +11,8 @@ namespace SYSPARK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User-UserName"] == null)
-                Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
+            //if (Session["User-UserName"] == null)
+            //    Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
         }
     }
 }

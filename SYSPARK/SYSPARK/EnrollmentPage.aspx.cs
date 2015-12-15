@@ -48,7 +48,7 @@ namespace SYSPARK
 
                     if (Convert.ToInt32(dataTableEnrollmentLapse.Rows[0]["Status"]) == 0)
                     {
-                        if (Convert.ToInt32(Session["User-RoleId"]) == 2)
+                        if (Convert.ToInt32(Session["User-RoleId"]) > 1)
                         {
                             ActivateEnrollment(CreateEnrollment());
                         }
@@ -79,7 +79,7 @@ namespace SYSPARK
             }
             else
             {
-                if (Convert.ToInt32(Session["User-RoleId"]) == 2)
+                if (Convert.ToInt32(Session["User-RoleId"]) > 1)
                 {
                     InsertEnrollment(CreateEnrollment());
                 }
