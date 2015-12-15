@@ -177,9 +177,15 @@ namespace SYSPARK
                 Parking parking = new Parking();
                 List<Space> spaceList = new List<Space>();
                 int parkingId;
+                int campusId;
 
                 //Cleaning last table
                 placeHolderMap.Controls.Clear();
+
+                if (hiddenCampusValue.Value.Equals(string.Empty))
+                    campusId = Convert.ToInt32(selectCampus.Items[0].Value);
+                else
+                    campusId = Convert.ToInt32(hiddenCampusValue.Value);
 
                 if (hiddenParkingValue.Value.Equals(string.Empty))
                     parkingId = Convert.ToInt32(selectParking.Items[0].Value);
@@ -187,7 +193,8 @@ namespace SYSPARK
                     parkingId = Convert.ToInt32(hiddenParkingValue.Value);
 
                 parking = parkingData.SendParkingInfo(parkingData.GetParking(parkingId));
-
+                spaceList = spaceData.SendParkingSpaceList(spaceData.DataTableParkingSpace(campusId, parkingId));
+                
                 if (parking != null)
                 {
                     if (spaceList != null)
@@ -252,8 +259,6 @@ namespace SYSPARK
             {
                 buttonStyle.buttonStyleRed(buttonErrors2, "An error ocurred generating the parking.");
             }
-
-
         }
 
         protected TimeSpan CreateCheckIn(TimeSpan initialHour)
@@ -413,9 +418,6 @@ namespace SYSPARK
 
             //Building the Header row.
             html.Append("<tbody>");
-            html.Append("<tr>");
-            html.Append("<tbody>");
-            html.Append("<tr>");
             html.Append("<th>");
             html.Append("Id");
             html.Append("</th>");
@@ -432,7 +434,7 @@ namespace SYSPARK
             html.Append("User");
             html.Append("</th>");
             html.Append("<th>");
-            html.Append("vehicle Plate");
+            html.Append("Vehicle Plate");
             html.Append("</th>");
             html.Append("<th>");
             html.Append("Initial Hour");

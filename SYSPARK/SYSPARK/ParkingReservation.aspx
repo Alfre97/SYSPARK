@@ -70,7 +70,7 @@ function googleTranslateElementInit() {
                         <asp:ScriptManager ID="ScriptManagerMap" runat="server"></asp:ScriptManager>
                         <asp:UpdatePanel ID="UpdatePanelMap" runat="server">
                             <ContentTemplate>
-                                <input type="button" runat="server" visible="false" id="buttonErrors2" disabled="disabled" />
+                                <input type="button" runat="server" visible="false" id="buttonErrors2" disabled="disabled" /><br />
                                 <span>Parking Map</span>
                                 <div class="table-responsive">
                                     <table id="tableGray2" runat="server">

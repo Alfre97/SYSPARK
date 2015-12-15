@@ -307,6 +307,7 @@ div nav ul li button {
 }
 
 #tableHome button {
+    width: 80%;
     margin-right: 100px;
     margin-left: 100px;
 }
