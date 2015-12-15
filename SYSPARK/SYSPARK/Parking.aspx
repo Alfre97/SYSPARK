@@ -89,7 +89,7 @@ function googleTranslateElementInit() {
                 </tr>
                 <tr>
                     <td>
-                        <span>MotorcycleSpace</span><br />
+                        <span>Motorcycle Space</span><br />
                         <input type="text" id="textboxMotorCycleSpace" placeholder=" Motorcycle space" runat="server" />
                         <br />
                     </td>

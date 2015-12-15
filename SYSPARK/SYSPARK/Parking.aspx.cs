@@ -11799,15 +11799,15 @@ namespace SYSPARK
                                     ClearControls();
                                     OpenControls();
                                     tableGray.Disabled = false;
-                                    buttonStyle.buttonStyleBlue(buttonErrors, "Parking created sucessfully.");
+                                    buttonStyle.buttonStyleBlue(buttonErrors2, "Parking created sucessfully.");
                                     break;
                                 case 1:
                                     OpenControls();
-                                    buttonStyle.buttonStyleRed(buttonErrors, "An error ocurred creating the parking spaces.");
+                                    buttonStyle.buttonStyleRed(buttonErrors2, "An error ocurred creating the parking spaces.");
                                     break;
                                 case 2:
                                     OpenControls();
-                                    buttonStyle.buttonStyleWhite(buttonErrors, "An error ocurred creating the parking spaces and deleting the parking.");
+                                    buttonStyle.buttonStyleWhite(buttonErrors2, "An error ocurred creating the parking spaces and deleting the parking.");
                                     break;
                             }
                         }

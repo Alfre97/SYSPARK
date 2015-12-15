@@ -79,8 +79,8 @@ function googleTranslateElementInit() {
                 </tr>
                 <tr>
                     <td>
-                        <button onserverclick=" EnterButton_Click" id="buttonEnter" type="submit" runat="server">Enter</button>
                         <button id="buttonClear" type="button" onclick="clearingSomeControls()">Clean</button>
+                        <button onserverclick=" EnterButton_Click" id="buttonEnter" type="submit" runat="server">Enter</button>
                         <br />
                         <br />
                     </td>
