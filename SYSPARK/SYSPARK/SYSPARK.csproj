@@ -51,6 +51,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Desktop\BCrypt.Net.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -103,7 +106,6 @@
     <Content Include="assets\js\VehicleType.js" />
     <Content Include="CampusPage.aspx" />
     <Content Include="EnrollmentPage.aspx" />
-    <Content Include="googleChart.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="LapsePage.aspx" />
@@ -187,13 +189,6 @@
     <Compile Include="EnrollmentPage.aspx.designer.cs">
       <DependentUpon>EnrollmentPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="googleChart.aspx.cs">
-      <DependentUpon>googleChart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="googleChart.aspx.designer.cs">
-      <DependentUpon>googleChart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,6 +220,12 @@
     </Compile>
     <Compile Include="App_Data\ParkingData.cs" />
     <Compile Include="App_Data\SpaceData.cs" />
+    <Compile Include="ReservationReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SpacePage.aspx.cs">
       <DependentUpon>SpacePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -324,11 +325,17 @@
       <DependentUpon>VehicleTypePage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReservationReport.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

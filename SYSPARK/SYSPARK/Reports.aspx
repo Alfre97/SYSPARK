@@ -38,8 +38,7 @@
 <body>
     <form id="formReports" runat="server">
         <div>
-            <CR:CrystalReportViewer ID="CrystalReportViewer" runat="server" AutoDataBind="true" />
-            <CR:CrystalReportSource ID="CrystalReportSource" runat="server"></CR:CrystalReportSource>
+            <CR:CrystalReportViewer ID="CrystalReportViewer" runat="server" HasSearchButton="True" HasPrintButton="True" ReportSourceID="ReservationReport" AutoDataBind="true" />
         </div>
     </form>
 </body>
