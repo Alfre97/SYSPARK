@@ -19,12 +19,6 @@ namespace SYSPARK
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["hiddenTransaction"] != null)
-            {
-                buttonStyle.buttonStyleBlue(buttonErrors, "Registration successful.");
-                Session.Clear();
-            }*/
-
             if (Session["UpdateTransaction"] != null)
             {
                 buttonStyle.buttonStyleBlue(buttonErrors, "Update successful.");

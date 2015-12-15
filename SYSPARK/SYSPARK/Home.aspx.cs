@@ -15,6 +15,7 @@ namespace SYSPARK
                 Response.Redirect("http://syspark.azurewebsites.net/Default.aspx");
 
             int userCondition = Convert.ToInt32(Session["User-RoleId"]);
+
             if(userCondition != 3)
             {
                 Reports.Visible = false;

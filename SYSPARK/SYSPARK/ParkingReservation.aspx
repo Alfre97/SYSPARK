@@ -4,11 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <title>Reservation</title>
     <link href="assets/favicon.ico.ico" type="image/x-icon" rel="shorcut icon" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
@@ -73,15 +75,9 @@ function googleTranslateElementInit() {
                                 <input type="button" runat="server" visible="false" id="buttonErrors2" disabled="disabled" /><br />
                                 <span>Parking Map</span>
                                 <div class="table-responsive">
-                                    <table id="tableGray2" runat="server">
-                                        <tr>
-                                            <td>
-                                                <input type="hidden" id="hiddenSpaceValue" runat="server" />
-                                                <table id="tableParkingMap">
-                                                    <asp:PlaceHolder ID="placeHolderMap" runat="server"></asp:PlaceHolder>
-                                                </table>
-                                            </td>
-                                        </tr>
+                                    <input type="hidden" id="hiddenSpaceValue" runat="server" />
+                                    <table id="tableParkingMap">
+                                        <asp:PlaceHolder ID="placeHolderMap" runat="server"></asp:PlaceHolder>
                                     </table>
                                 </div>
                                 <button type="button" id="buttonCancel" onclick="cancelSelection(this)">Cancel</button>

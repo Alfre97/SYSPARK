@@ -23,7 +23,7 @@ body {
     border-radius: 25px 25px;
     margin: 0 auto;
     width: 300px;
-    height: 400px;
+    height: auto;
     color: white;
 }
 
@@ -58,16 +58,6 @@ select {
     height: auto;
 }
 
-#tableGray2 {
-    background-color: #a5a5a5;
-    text-align: center;
-    border-radius: 25px 25px;
-    margin: 0 auto;
-    width: auto;
-    height: auto;
-    color: white;
-}
-
 div {
     width: 100%;
 }
@@ -90,6 +80,11 @@ div {
 
     #tableParkingMap tr {
         height: 50px;
+    }
+
+    #tableParkingMap tr td button{
+        height:50px;
+        width: 40px;
     }
 
 #buttonSpaceClear {

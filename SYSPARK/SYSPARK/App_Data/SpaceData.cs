@@ -53,13 +53,13 @@ namespace SYSPARK
         public List<Space> SendParkingSpaceList(DataTable dataTableParkingSpace)
         {
             List<Space> spaceList = new List<Space>();
-            SpaceType spaceType = new SpaceType();
-
+            
             if (dataTableParkingSpace.Rows.Count > 0)
             {
                 for (int i = 0; i < dataTableParkingSpace.Rows.Count; i++)
                 {
                     Space space = new Space();
+                    SpaceType spaceType = new SpaceType();
                     space.Id = Convert.ToInt32(dataTableParkingSpace.Rows[i]["Id"]);
                     space.Name = dataTableParkingSpace.Rows[i]["Name"].ToString();
                     spaceType.Id = Convert.ToInt32(dataTableParkingSpace.Rows[i]["SpaceTypeId"]);
