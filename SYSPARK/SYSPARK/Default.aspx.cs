@@ -74,8 +74,8 @@ namespace SYSPARK
                         {
                             SaveSession();
                             textBoxPassword.Value = string.Empty;
-                            //Response.Redirect("http://syspark.azurewebsites.net/Home.aspx");
-                            Response.Redirect("Home.aspx");
+                            Response.Redirect("http://syspark.azurewebsites.net/Home.aspx");
+                            //Response.Redirect("Home.aspx");
 
                         }
                         else
