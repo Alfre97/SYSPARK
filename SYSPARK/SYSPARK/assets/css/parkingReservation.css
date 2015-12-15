@@ -68,21 +68,16 @@ select {
     color: white;
 }
 
-div table#tableParkingMap tr td button {
-    border-radius: 5px 5px;
-    border-style: none;
-    width: auto;
-    height: 45px;
-}
-
 div {
     width: 100%;
 }
 
 #tableParkingMap {
-    background-color: transparent;
+    background-color: darkgray;
     text-align: center;
-    border-radius: 25px 25px;
+    border-radius: 5px 5px;
+    border: 2px;
+    border-color: yellow;
     margin: 0 auto;
     width: auto;
     height: auto;
@@ -99,6 +94,7 @@ div {
 
 #buttonSpaceClear {
     background-color: white;
+    color: black;
     width: 40px;
     height: 40px;
 }
@@ -107,30 +103,35 @@ div {
     background-color: #4ed848;
     width: 40px;
     height: 40px;
+    color: white;
 }
 
 #buttonSpaceMoto {
     background-color: #c5c872;
     width: 40px;
     height: 40px;
+    color: white;
 }
 
 #buttonSpaceHandicap {
     background-color: blue;
     width: 40px;
     height: 40px;
+    color: white;
 }
 
 #buttonSpaceBus {
     background-color: #5e4c34;
     width: 40px;
     height: 40px;
+    color: white;
 }
 
 #buttonSpaceStreet {
     background-color: #a5a5a5;
     width: 40px;
     height: 40px;
+    color: white;
 }
 
 .table-responsive {

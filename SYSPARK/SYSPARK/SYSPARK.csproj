@@ -102,6 +102,7 @@
     <Content Include="assets\js\VehicleType.js" />
     <Content Include="CampusPage.aspx" />
     <Content Include="EnrollmentPage.aspx" />
+    <Content Include="googleChart.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="LapsePage.aspx" />
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="EnrollmentPage.aspx.designer.cs">
       <DependentUpon>EnrollmentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="googleChart.aspx.cs">
+      <DependentUpon>googleChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="googleChart.aspx.designer.cs">
+      <DependentUpon>googleChart.aspx</DependentUpon>
     </Compile>
     <Compile Include="History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
