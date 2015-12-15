@@ -583,7 +583,6 @@
             </asp:UpdatePanel>
             <br />
             <br />
-            <asp:ScriptManager ID="ScriptManagerTable" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanelTable" runat="server">
                 <ContentTemplate>
                     <button onserverclick=" Delete_Click" type="button" id="buttonDelete" runat="server" disabled="disabled" />
